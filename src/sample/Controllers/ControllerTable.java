@@ -932,6 +932,7 @@ public class ControllerTable implements Initializable {
                 nds2Stavka, nds2Summa
         );
         System.out.println("Salom");
+        System.out.println("Hayir");
 
         helperTable.setItems(TovarZakaz.tovarZakazList);
         helperTable.refresh();
