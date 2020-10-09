@@ -118,9 +118,7 @@ public class TovarZakaz extends Tovar {
 
         this.zakazUzgartir = new Spinner<>(1, 1_000_000, this.zakazSoni, 1);
         this.zakazUzgartir.setEditable(false);
-        this.zakazUzgartir.setOnMouseClicked(event -> {
-            new ControllerTable().orderUzgartir();
-        });
+
 
 
         this.zakazUchirishBt = new JFXButton();
@@ -235,7 +233,7 @@ public class TovarZakaz extends Tovar {
     private double yaxlitla_2(double qiymat, double aniqlikQiymati) {
         aniqlikQiymati = aniqlikQiymati * 10;
 
-        return (((double) ((((long) (qiymat * aniqlikQiymati)) / aniqlikQiymati))));
+        return (((long) (qiymat * aniqlikQiymati)) / aniqlikQiymati);
     }
 
 
@@ -320,7 +318,6 @@ public class TovarZakaz extends Tovar {
 
     public void setZakazTransNarxi(double zakazTransNarxi) {
         this.zakazTransNarxi = zakazTransNarxi;
-        ;
     }
 
     public double getZakazTransSumm() {

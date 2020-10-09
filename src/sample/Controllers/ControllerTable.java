@@ -27,7 +27,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 import sample.Classes.MyIntegerStringConverter;
 import sample.Moodles.PriseList;
 import sample.Moodles.Stavkalar;
@@ -192,23 +191,20 @@ public class ControllerTable implements Initializable {
         rubTf.setTextFormatter(new TextFormatter<Double>(filter));
         eurTf.setTextFormatter(new TextFormatter<Double>(filter));
 
-        helperTable.setRowFactory(new Callback<TableView<TovarZakaz>, TableRow<TovarZakaz>>() {
-            @Override
-            public TableRow<TovarZakaz> call(TableView<TovarZakaz> tableView) {
-                final TableRow<TovarZakaz> row = new TableRow<>();
-                final ContextMenu rowMenu = new ContextMenu();
-                MenuItem editItem = new MenuItem("Edit");
-                MenuItem removeItem = new MenuItem("Delete");
-                removeItem.setOnAction(e -> deleteZakazItem());
-                editItem.setOnAction(event -> editZakazItem(event));
-                rowMenu.getItems().addAll(editItem, removeItem);
-                row.contextMenuProperty().bind(
-                        Bindings.when(Bindings.isNotNull(row.itemProperty()))
-                                .then(rowMenu)
-                                .otherwise((ContextMenu) null)
-                );
-                return row;
-            }
+        helperTable.setRowFactory(tableView -> {
+            final TableRow<TovarZakaz> row = new TableRow<>();
+            final ContextMenu rowMenu = new ContextMenu();
+            MenuItem editItem = new MenuItem("Edit");
+            MenuItem removeItem = new MenuItem("Delete");
+            removeItem.setOnAction(e -> deleteZakazItem());
+            editItem.setOnAction(this::editZakazItem);
+            rowMenu.getItems().addAll(editItem, removeItem);
+            row.contextMenuProperty().bind(
+                    Bindings.when(Bindings.isNotNull(row.itemProperty()))
+                            .then(rowMenu)
+                            .otherwise((ContextMenu) null)
+            );
+            return row;
         });
 
         switchIsSelected = ddpSwitch.isSelected();
@@ -283,7 +279,7 @@ public class ControllerTable implements Initializable {
         tovarNomi.setCellValueFactory(e -> new SimpleStringProperty(
                 e.getValue().getTovarNomi()
         ));
-        tovarId.setStyle("-fx-alignment: CENTER");
+        tovarNomi.setStyle("-fx-alignment: CENTER");
 
 
         TableColumn<PriseList, String> tovarModel = new TableColumn<>("Model");
@@ -448,7 +444,7 @@ public class ControllerTable implements Initializable {
     private <S, T> TableColumn<S, T> creatTabCol(String title) {
         TableColumn<S, T> newColumn = new TableColumn<S, T>(title);
         newColumn.setMinWidth(100);
-        newColumn.setPrefWidth(120);
+        newColumn.setPrefWidth(150);
         newColumn.setMaxWidth(150);
         return newColumn;
     }
@@ -530,6 +526,13 @@ public class ControllerTable implements Initializable {
                 }
                 if (!bormi) {
                     TovarZakaz.tovarZakazList.add(new TovarZakaz(mainTable.getItems().get(i)));
+                    TovarZakaz.tovarZakazList.forEach(
+                            e-> {
+                                e.getZakazUzgartir().setOnMouseClicked(
+                                        event1 -> orderUzgartir()
+                                );
+                            }
+                    );
                     TovarZakaz.setTr();
                     onActionAddBt();
                 }
@@ -570,6 +573,7 @@ public class ControllerTable implements Initializable {
             TovarZakaz.tovarZakazList.get(i).setZakazSoni(
                     TovarZakaz.tovarZakazList.get(i).getZakazUzgartir().getValue());
         }
+        TovarZakaz.tovarZakazList.forEach(TovarZakaz::zakazHisobla);
         summaHisobla();
         helperTable.refresh();
     }
@@ -778,14 +782,18 @@ public class ControllerTable implements Initializable {
         ));
 
         TableColumn zCIPuzsLab = new TableColumn("*CIP narxi (UZS)");
+        zCIPuzsLab.setMinWidth(100);
+        zCIPuzsLab.setPrefWidth(120);
+        zCIPuzsLab.setMaxWidth(150);
+        zCIPuzsLab.setVisible(false);
+
 
         TableColumn<TovarZakaz, Double> zCIPnarxUzs = creatTabCol((Stavkalar.stUSD_USZ) + " so'm");
-        zCIPnarxUzs.setVisible(false);
         zCIPnarxUzs.setStyle("-fx-alignment: CENTER");
         zCIPnarxUzs.setCellValueFactory(e -> new SimpleObjectProperty<>(
                 e.getValue().getZakazCIPNarxiUSZ()
         ));
-        zCIPuzsLab.getColumns().add(zCIPnarxUzs);
+        zCIPuzsLab.getColumns().addAll(zCIPnarxUzs);
 
 
         TableColumn<TovarZakaz, Double> zBojSt = creatTabCol("*Bojlar stavkasi");
@@ -913,7 +921,7 @@ public class ControllerTable implements Initializable {
         zNDS2Nar.setCellValueFactory(e -> new SimpleObjectProperty<>(
                 e.getValue().getZakazNDS2liNarxi()
         ));
-        nds2Stavka.getColumns().add(zNDS2Nar);
+        nds2Stavka.getColumns().addAll(zNDS2Nar);
 
 
         nds2Summa = creatTabCol("NDS 2 li summasi");
@@ -1002,40 +1010,13 @@ public class ControllerTable implements Initializable {
     public void ustunKursat() {
 
 
-        for (int i = 0; i < privateColumns.size(); i++) {
+        for (TableColumn privateColumn : privateColumns) {
 
-            privateColumns.get(i).setVisible(kursatBt.isSelected());
+            privateColumn.setVisible(kursatBt.isSelected());
 
         }
     }
 
-
-    public void showWindow(String Window) throws IOException {
-
-
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource(Window));
-
-        try {
-            loader.load();
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println(e);
-        }
-
-
-        Parent root = loader.getRoot();
-
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.setResizable(false);
-
-        Stage pr = (Stage) kursatBt.getScene().getWindow();
-
-        stage.initOwner(pr);
-        stage.showAndWait();
-
-    }
 
 
     @FXML
@@ -1170,7 +1151,6 @@ public class ControllerTable implements Initializable {
             TovarZakaz.zakUsdUsz = 0;
         }
 
-
         for (TovarZakaz tovarZakaz : TovarZakaz.tovarZakazList) {
             tovarZakaz.zakazHisobla();
         }
@@ -1200,8 +1180,6 @@ public class ControllerTable implements Initializable {
             ddpSLabel.setStyle("-fx-background-color: white");
             nds2Stavka.setVisible(false);
             nds2Summa.setVisible(false);
-
-
         }
 
         summaHisobla();

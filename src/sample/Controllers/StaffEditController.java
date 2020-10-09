@@ -8,7 +8,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TextFormatter;
 import javafx.stage.Stage;
 import sample.Moodles.StavkaShablon;
-import sample.Moodles.Stavkalar;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -44,9 +43,6 @@ public class StaffEditController implements Initializable {
         };
 
         qiymatTF.setTextFormatter(new TextFormatter<Double>(filter));
-
-
-
     }
 
     public void setStage(Stage stage) {
@@ -65,9 +61,6 @@ public class StaffEditController implements Initializable {
 
         try{
             shablon.setQiymat(Double.parseDouble(qiymatTF.getText()));
-//            Stavkalar.stCIP = Double.parseDouble(qiymatTF.getText());
-//            System.out.println(shablon);
-            System.out.println(new Stavkalar().toString());
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }
@@ -83,7 +76,6 @@ public class StaffEditController implements Initializable {
 
     public void cancelEdit(ActionEvent event) {
         stage.close();
-
     }
 
 

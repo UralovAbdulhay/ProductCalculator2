@@ -6,7 +6,7 @@ public class StavkaShablon {
     private String komment;
     private String kod;
 
-    public StavkaShablon(String nomi, double qiymat, String komment, String kod) {
+    StavkaShablon(String nomi, double qiymat, String komment, String kod) {
         this.nomi = nomi;
         this.qiymat = qiymat;
         this.komment = komment;
@@ -38,7 +38,7 @@ public class StavkaShablon {
         this.komment = komment;
     }
 
-    public String getKod() {
+    private String getKod() {
         return kod;
     }
 
@@ -93,10 +93,9 @@ public class StavkaShablon {
             }
 
             default:break;
-
-
         }
 
+        TovarZakaz.tovarZakazList.forEach(TovarZakaz::zakazHisobla);
     }
 
     @Override
