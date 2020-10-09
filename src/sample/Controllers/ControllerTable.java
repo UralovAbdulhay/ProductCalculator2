@@ -931,13 +931,11 @@ public class ControllerTable implements Initializable {
                 zNDS1, zNDS1Narxi, zKelNar, zKelSum, zDDPst, zDDPNar, zDDPSum,
                 nds2Stavka, nds2Summa
         );
-        System.out.println("Salom");
-        System.out.println("Hayir");
+
 
         helperTable.setItems(TovarZakaz.tovarZakazList);
         helperTable.refresh();
     }
-
 
 // password fieldni kursatish
 
