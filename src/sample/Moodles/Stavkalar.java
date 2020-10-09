@@ -7,13 +7,11 @@ import javafx.collections.ObservableList;
 public class Stavkalar {
     public static double stTrans = 1;
    public static double stCIP = 0.99;
-   public static double stUSD_USZ = 9550;
-   public static double stUSD_RUB = 139.61;
-   public static double stUSD_EUR = 11037;
-   public static double stUSD_USD = 1;
+   public static double stUSZ_USD = 9550;
+   public static double stUSZ_RUB = 139.61;
+   public static double stUSZ_EUR = 11037;
    public static double stBojxona = 0.002;
    public static double stNDS1S = 0;
-//   public static double stNDS1Bez = 0.15;
    public static double stNDS2 = 0.15;
 
     public static ObservableList<StavkaShablon> stavkaShablons = FXCollections.observableArrayList();
@@ -25,10 +23,9 @@ public class Stavkalar {
             stavkaShablons.add(3, new StavkaShablon("НДС 1", stNDS1S, "Для Расчетов  \" DDP с НДС ВЭД\"", "nds1s"));
             stavkaShablons.add(4, new StavkaShablon("НДС 1", 0.15, "Для Расчетов  \"DDP без НДС ВЭД\"", "nds1bez"));
             stavkaShablons.add(5, new StavkaShablon("НДС 2", stNDS2, "Для Расчетов \"DDP c НДС ВЭД\"", "nds2"));
-            stavkaShablons.add(6, new StavkaShablon("Доллар США-СУМ", stUSD_USZ, "СУМ", "usd_sum"));
-            stavkaShablons.add(7, new StavkaShablon("Доллар США-РУБЛЬ", stUSD_RUB, "РУБЛЬ", "usd_rub"));
-            stavkaShablons.add(8, new StavkaShablon("Доллар США-ЕВРО", stUSD_EUR, "ЕВРО", "usd_euro"));
-            stavkaShablons.add(9, new StavkaShablon("Доллар США-США", stUSD_USD, "США", "usd_usd"));
+            stavkaShablons.add(6, new StavkaShablon("Доллар СУМ-США", stUSZ_USD, "СУМ", "usd_sum"));
+            stavkaShablons.add(7, new StavkaShablon("Доллар СУМ-РУБЛЬ", stUSZ_RUB, "СУМ", "usd_rub"));
+            stavkaShablons.add(8, new StavkaShablon("Доллар СУМ-ЕВРО", stUSZ_EUR, "СУМ", "usd_euro"));
         }
     }
 
@@ -50,27 +47,27 @@ public class Stavkalar {
     }
 
     public double getStUSD_USZ() {
-        return stUSD_USZ;
+        return stUSZ_USD;
     }
 
     public  void setStUSD_USZ(double stUSD_USZ) {
-        Stavkalar.stUSD_USZ = stUSD_USZ;
+        Stavkalar.stUSZ_USD = stUSD_USZ;
     }
 
     public double getStUSD_RUB() {
-        return stUSD_RUB;
+        return stUSZ_RUB;
     }
 
     public  void setStUSD_RUB(double stUSD_RUB) {
-        Stavkalar.stUSD_RUB = stUSD_RUB;
+        Stavkalar.stUSZ_RUB = stUSD_RUB;
     }
 
     public double getStUSD_EUR() {
-        return stUSD_EUR;
+        return stUSZ_EUR;
     }
 
     public  void setStUSD_EUR(double stUSD_EUR) {
-        Stavkalar.stUSD_EUR = stUSD_EUR;
+        Stavkalar.stUSZ_EUR = stUSD_EUR;
     }
 
     public double getStBojxona() {
@@ -97,15 +94,6 @@ public class Stavkalar {
         Stavkalar.stNDS2 = stNDS2;
     }
 
-
-    public static double getStUSD_USD() {
-        return stUSD_USD;
-    }
-
-    public static void setStUSD_USD(double stUSD_USD) {
-        Stavkalar.stUSD_USD = stUSD_USD;
-    }
-
     public  double getStNDS1S() {
         return stNDS1S;
     }
@@ -120,10 +108,9 @@ public class Stavkalar {
         return "Stavkalar{" +
                 "stTrans=" + stTrans +
                 ", stCIP=" + stCIP +
-                ", stUSD_USZ=" + stUSD_USZ +
-                ", stUSD_RUB=" + stUSD_RUB +
-                ", stUSD_EUR=" + stUSD_EUR +
-                ", stUSD_USD=" + stUSD_USD +
+                ", stUSZ_USD=" + stUSZ_USD +
+                ", stUSZ_RUB=" + stUSZ_RUB +
+                ", stUSZ_EUR=" + stUSZ_EUR +
                 ", stBojxona=" + stBojxona +
                 ", stNDS1S=" + stNDS1S +
                 ", stNDS2=" + stNDS2 +

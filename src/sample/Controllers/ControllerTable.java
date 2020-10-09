@@ -122,32 +122,12 @@ public class ControllerTable implements Initializable {
     private TableColumn<TovarZakaz, Double> zNDS2Nar;
     private TableColumn<TovarZakaz, Double> nds2Summa;
     private TableColumn<TovarZakaz, Double> zNDS1Narxi;
+    private TableColumn<TovarZakaz, Double> zCIPnarxUzs;
     private static boolean switchIsSelected;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-        BirinchiTable();
-        zakazTazble();
-        mainTable.setEditable(true);
-        helperTable.setStyle("-fx-font-size: 14");
-        mainTable.setStyle("-fx-font-size: 14");
-
-        setDisableNextExportBt();
-
-        tovarQidir.textProperty().addListener(new InvalidationListener() {
-            @Override
-            public void invalidated(Observable observable) {
-                tovarQidirish(PriseList.priseLists);
-            }
-        });
-
-
-        kursLar = FXCollections.observableArrayList(usdTf, rubTf, eurTf);
-
-        summLable = FXCollections.observableArrayList(uzsSumm, usdSumm, rubSumm, eurSumm);
-
 
         if (!kursUrnataymi) {
 
@@ -165,8 +145,26 @@ public class ControllerTable implements Initializable {
             eurTf.setText(TovarZakaz.zakEurUsz + "");
         }
 
-        onActionPriseBt();
+        BirinchiTable();
+        zakazTazble();
+        mainTable.setEditable(true);
+        helperTable.setStyle("-fx-font-size: 14");
+        mainTable.setStyle("-fx-font-size: 14");
 
+        setDisableNextExportBt();
+
+        tovarQidir.textProperty().addListener(new InvalidationListener() {
+            @Override
+            public void invalidated(Observable observable) {
+                tovarQidirish(PriseList.priseLists);
+            }
+        });
+
+        kursLar = FXCollections.observableArrayList(usdTf, rubTf, eurTf);
+
+        summLable = FXCollections.observableArrayList(uzsSumm, usdSumm, rubSumm, eurSumm);
+
+        onActionPriseBt();
 
         Pattern decimalPattern = Pattern.compile("\\d*(\\.\\d{0,4})?");
 
@@ -179,15 +177,6 @@ public class ControllerTable implements Initializable {
                 return null;
             }
         };
-
-        UnaryOperator<TextFormatter.Change> filter_1 = c -> {
-            if (integerP.matcher(c.getControlNewText()).matches()) {
-                return c;
-            } else {
-                return null;
-            }
-        };
-
 
         usdTf.setTextFormatter(new TextFormatter<Double>(filter));
         rubTf.setTextFormatter(new TextFormatter<Double>(filter));
@@ -217,14 +206,8 @@ public class ControllerTable implements Initializable {
         this.controllerOyna = controllerOyna;
     }
 
-    void setBorderPane(BorderPane borderPane) {
-        this.borderPane = borderPane;
-        System.out.println("setBorderPane ishladi ");
-    }
-
 
     private void BirinchiTable() {
-
 
         mainTable.setColumnResizePolicy(TableView.UNCONSTRAINED_RESIZE_POLICY);
 
@@ -597,13 +580,22 @@ public class ControllerTable implements Initializable {
 
         if (TovarZakaz.tovarZakazList.size() != 0) {
 
+//            summLable.get(0).setText(format.format(zakazSumma));
+//            summLable.get(1).setText(format.format(zakazSumma
+//                    / TovarZakaz.tovarZakazList.get(0).getStavkalar().getStUSD_USZ()));
+//            summLable.get(2).setText(format.format(zakazSumma
+//                    / TovarZakaz.tovarZakazList.get(0).getStavkalar().getStUSD_RUB()));
+//            summLable.get(3).setText(format.format(zakazSumma
+//                    / TovarZakaz.tovarZakazList.get(0).getStavkalar().getStUSD_EUR()));
+//
+
             summLable.get(0).setText(format.format(zakazSumma));
             summLable.get(1).setText(format.format(zakazSumma
-                    / TovarZakaz.tovarZakazList.get(0).getStavkalar().getStUSD_USZ()));
+                    / TovarZakaz.zakUsdUsz));
             summLable.get(2).setText(format.format(zakazSumma
-                    / TovarZakaz.tovarZakazList.get(0).getStavkalar().getStUSD_RUB()));
+                    /TovarZakaz.zakRubUsz));
             summLable.get(3).setText(format.format(zakazSumma
-                    / TovarZakaz.tovarZakazList.get(0).getStavkalar().getStUSD_EUR()));
+                    / TovarZakaz.zakEurUsz));
 
         } else {
 
@@ -787,7 +779,7 @@ public class ControllerTable implements Initializable {
         zCIPuzsLab.setResizable(false);
 
 
-        TableColumn<TovarZakaz, Double> zCIPnarxUzs = creatTabCol((Stavkalar.stUSD_USZ) + " so'm");
+        zCIPnarxUzs = creatTabCol((TovarZakaz.zakUsdUsz) + " so'm");
         zCIPnarxUzs.setResizable(false);
         zCIPnarxUzs.setStyle("-fx-alignment: CENTER");
         zCIPnarxUzs.setCellValueFactory(e -> new SimpleObjectProperty<>(
@@ -1155,10 +1147,10 @@ public class ControllerTable implements Initializable {
             TovarZakaz.zakUsdUsz = 0;
         }
 
-        for (TovarZakaz tovarZakaz : TovarZakaz.tovarZakazList) {
-            tovarZakaz.zakazHisobla();
-        }
+         TovarZakaz.tovarZakazList.forEach(TovarZakaz::zakazHisobla);
+        zCIPnarxUzs.setText((TovarZakaz.zakUsdUsz) + " so'm");
         helperTable.refresh();
+
     }
 
     @FXML

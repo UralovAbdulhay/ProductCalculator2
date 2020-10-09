@@ -73,19 +73,15 @@ public class StavkaShablon {
                 break;
             }
             case "usd_sum":{
-                Stavkalar.stUSD_USZ = this.getQiymat();
+                Stavkalar.stUSZ_USD = this.getQiymat();
                 break;
             }
             case "usd_rub":{
-                Stavkalar.stUSD_RUB = this.getQiymat();
+                Stavkalar.stUSZ_RUB = this.getQiymat();
                 break;
             }
             case "usd_euro":{
-                Stavkalar.stUSD_EUR = this.getQiymat();
-                break;
-            }
-            case "usd_usd":{
-                Stavkalar.stUSD_USD = this.getQiymat();
+                Stavkalar.stUSZ_EUR = this.getQiymat();
                 break;
             }
 
