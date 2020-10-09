@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/sample/Controllers/ControllerTable.java" description="mainTable.getItems().get(event.getTablePosition()...." line="243" />
-    <bookmark url="file://$PROJECT_DIR$/src/sample/Controllers/ControllerTable.java" description="public void orderKamaytir() {" line="582" />
-    <bookmark url="file://$PROJECT_DIR$/src/sample/Controllers/ControllerTable.java" description="tovarAddCount.setCellFactory(TextFieldTableCell.fo..." line="249" />
-    <bookmark url="file://$PROJECT_DIR$/src/sample/Controllers/ControllerTable.java" line="856" />
-    <bookmark url="file://$PROJECT_DIR$/src/sample/Controllers/ControllerTable.java" line="787" mnemonic="9" />
+    <bookmark url="file://$PROJECT_DIR$/src/sample/Controllers/ControllerTable.java" description="mainTable.getItems().get(event.getTablePosition()...." line="240" />
+    <bookmark url="file://$PROJECT_DIR$/src/sample/Controllers/ControllerTable.java" description="public void orderKamaytir() {" line="578" />
+    <bookmark url="file://$PROJECT_DIR$/src/sample/Controllers/ControllerTable.java" description="tovarAddCount.setCellFactory(TextFieldTableCell.fo..." line="246" />
+    <bookmark url="file://$PROJECT_DIR$/src/sample/Controllers/ControllerTable.java" line="855" />
+    <bookmark url="file://$PROJECT_DIR$/src/sample/Controllers/ControllerTable.java" line="783" mnemonic="9" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Cip uzs ustunda muammo bor">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Controllers/ControllerTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controllers/ControllerTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Controllers/StaffEditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controllers/StaffEditController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Moodles/StavkaShablon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Moodles/StavkaShablon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Moodles/TovarZakaz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Moodles/TovarZakaz.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/salom.java" beforeDir="false" />
     </list>
+    <list id="251c0697-72c4-4de3-a273-8f765d4efd48" name="Abdulhay" comment="" />
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -106,23 +103,23 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Moodles/StavkaShablon.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="40" column="4" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="4" />
+            <state relative-caret-position="54">
+              <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
               <folding>
                 <element signature="e#841#842#0" expanded="true" />
                 <element signature="e#867#868#0" expanded="true" />
                 <element signature="method#toString#0;class#StavkaShablon#0" />
-                <marker date="1602230123545" expanded="true" signature="365:937" ph="..." />
+                <marker date="1602230195590" expanded="true" signature="358:930" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/Controllers/ControllerTable.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="1024" lean-forward="true" selection-start-line="1024" selection-end-line="1024" />
+            <state relative-caret-position="133">
+              <caret line="788" column="32" selection-start-line="788" selection-start-column="32" selection-end-line="788" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#16035#16036#0" expanded="true" />
@@ -135,10 +132,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Controllers/StaffEditController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="63" column="26" selection-start-line="63" selection-start-column="26" selection-end-line="63" selection-end-column="26" />
+            <state relative-caret-position="340">
+              <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1361#1362#0" expanded="true" />
+                <element signature="e#1399#1400#0" expanded="true" />
                 <element signature="e#2173#2174#0" expanded="true" />
                 <element signature="e#2202#2203#0" expanded="true" />
               </folding>
@@ -146,7 +145,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Moodles/TovarZakaz.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="24">
@@ -267,9 +266,9 @@
         <option value="$PROJECT_DIR$/src/sample/Moodles/Stavkalar.java" />
         <option value="$PROJECT_DIR$/src/sample/salom.java" />
         <option value="$PROJECT_DIR$/src/sample/Controllers/StaffEditController.java" />
+        <option value="$PROJECT_DIR$/src/sample/Moodles/TovarZakaz.java" />
         <option value="$PROJECT_DIR$/src/sample/Moodles/StavkaShablon.java" />
         <option value="$PROJECT_DIR$/src/sample/Controllers/ControllerTable.java" />
-        <option value="$PROJECT_DIR$/src/sample/Moodles/TovarZakaz.java" />
       </list>
     </option>
   </component>
@@ -289,7 +288,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -327,6 +325,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -604,6 +603,7 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="" />
+      <changelist id="251c0697-72c4-4de3-a273-8f765d4efd48" name="Abdulhay" comment="" />
       <created>1359379246138</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -645,12 +645,20 @@
       <workItem from="1602043457168" duration="11150000" />
       <workItem from="1602133429093" duration="14309000" />
       <workItem from="1602211786403" duration="6242000" />
-      <workItem from="1602218873621" duration="6301000" />
+      <workItem from="1602218873621" duration="9163000" />
     </task>
+    <task id="LOCAL-00001" summary="Cip uzs ustunda muammo bor">
+      <created>1602230209533</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1602230209533</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="342992000" />
+    <option name="totallyTimeSpent" value="345854000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -674,7 +682,7 @@
       <window_info id="UI Designer" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.40425533" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.31587562" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.63502455" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -685,7 +693,7 @@
       <window_info anchor="bottom" id="Changes" order="10" />
       <window_info anchor="bottom" id="Profiler" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" weight="0.512275" />
-      <window_info active="true" anchor="bottom" id="Messages" order="13" visible="true" weight="0.44189852" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.62356794" />
       <window_info anchor="bottom" id="Docker" order="14" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="15" />
       <window_info anchor="bottom" id="Terminal" order="16" weight="0.3289689" />
@@ -720,32 +728,6 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <MESSAGE value="Cip uzs ustunda muammo bor" />
     <option name="LAST_COMMIT_MESSAGE" value="Cip uzs ustunda muammo bor" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/sample/Controllers/ControllerTable.java</url>
-          <line>517</line>
-          <properties class="sample.Controllers.ControllerTable" method="orderAdd">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/sample/Controllers/ControllerTable.java</url>
-          <line>530</line>
-          <properties />
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/sample/Controllers/ControllerTable.java</url>
-          <line>531</line>
-          <properties />
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -1152,43 +1134,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Controllers/StaffEditController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="63" column="26" selection-start-line="63" selection-start-column="26" selection-end-line="63" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2173#2174#0" expanded="true" />
-            <element signature="e#2202#2203#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Moodles/StavkaShablon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="40" column="4" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="4" />
-          <folding>
-            <element signature="e#841#842#0" expanded="true" />
-            <element signature="e#867#868#0" expanded="true" />
-            <element signature="method#toString#0;class#StavkaShablon#0" />
-            <marker date="1602230123545" expanded="true" signature="365:937" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Controllers/ControllerTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="1024" lean-forward="true" selection-start-line="1024" selection-end-line="1024" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#16035#16036#0" expanded="true" />
-            <element signature="e#16069#16070#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Moodles/TovarZakaz.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="24">
@@ -1199,6 +1144,45 @@
             <element signature="e#12858#12859#0" expanded="true" />
             <element signature="e#14047#14048#0" expanded="true" />
             <element signature="e#14086#14087#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Moodles/StavkaShablon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+          <folding>
+            <element signature="e#841#842#0" expanded="true" />
+            <element signature="e#867#868#0" expanded="true" />
+            <element signature="method#toString#0;class#StavkaShablon#0" />
+            <marker date="1602230195590" expanded="true" signature="358:930" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Controllers/StaffEditController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1361#1362#0" expanded="true" />
+            <element signature="e#1399#1400#0" expanded="true" />
+            <element signature="e#2173#2174#0" expanded="true" />
+            <element signature="e#2202#2203#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Controllers/ControllerTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="788" column="32" selection-start-line="788" selection-start-column="32" selection-end-line="788" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#16035#16036#0" expanded="true" />
+            <element signature="e#16069#16070#0" expanded="true" />
           </folding>
         </state>
       </provider>
