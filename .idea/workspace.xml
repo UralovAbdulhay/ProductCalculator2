@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/sample/Controllers/ControllerTable.java" description="mainTable.getItems().get(event.getTablePosition()...." line="240" />
-    <bookmark url="file://$PROJECT_DIR$/src/sample/Controllers/ControllerTable.java" description="public void orderKamaytir() {" line="578" />
-    <bookmark url="file://$PROJECT_DIR$/src/sample/Controllers/ControllerTable.java" description="tovarAddCount.setCellFactory(TextFieldTableCell.fo..." line="246" />
-    <bookmark url="file://$PROJECT_DIR$/src/sample/Controllers/ControllerTable.java" line="855" />
-    <bookmark url="file://$PROJECT_DIR$/src/sample/Controllers/ControllerTable.java" line="783" mnemonic="9" />
+    <bookmark url="file://$PROJECT_DIR$/src/sample/Controllers/ControllerTable.java" description="mainTable.getItems().get(event.getTablePosition()...." line="239" />
+    <bookmark url="file://$PROJECT_DIR$/src/sample/Controllers/ControllerTable.java" description="public void orderKamaytir() {" line="576" />
+    <bookmark url="file://$PROJECT_DIR$/src/sample/Controllers/ControllerTable.java" description="tovarAddCount.setCellFactory(TextFieldTableCell.fo..." line="245" />
+    <bookmark url="file://$PROJECT_DIR$/src/sample/Controllers/ControllerTable.java" line="858" mnemonic="9" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Cip uzs ustunda muammo bor">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Controllers/ControllerTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controllers/ControllerTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Controllers/EditTovar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controllers/EditTovar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Moodles/StavkaShablon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Moodles/StavkaShablon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Moodles/Stavkalar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Moodles/Stavkalar.java" afterDir="false" />
     </list>
-    <list id="251c0697-72c4-4de3-a273-8f765d4efd48" name="Abdulhay" comment="" />
+    <list id="251c0697-72c4-4de3-a273-8f765d4efd48" name="Abdulhay" comment="Hamma ustunlar to'g'ri bo'ldi&#10;" />
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -89,10 +91,24 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/Moodles/Stavkalar.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="15" column="42" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#3268#3269#0" expanded="true" />
+                <element signature="e#3298#3299#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Controllers/EditTovar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1958">
-              <caret line="285" column="77" selection-start-line="285" selection-start-column="74" selection-end-line="285" selection-end-column="77" />
+            <state relative-caret-position="133">
+              <caret line="489" selection-start-line="489" selection-end-line="489" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -103,13 +119,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Moodles/StavkaShablon.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+            <state relative-caret-position="159">
+              <caret line="66" column="25" selection-start-line="66" selection-start-column="18" selection-end-line="66" selection-end-column="25" />
               <folding>
                 <element signature="e#841#842#0" expanded="true" />
                 <element signature="e#867#868#0" expanded="true" />
                 <element signature="method#toString#0;class#StavkaShablon#0" />
-                <marker date="1602230195590" expanded="true" signature="358:930" ph="..." />
+                <marker date="1602238677725" expanded="true" signature="358:929" ph="..." />
               </folding>
             </state>
           </provider>
@@ -118,12 +134,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/Controllers/ControllerTable.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="788" column="32" selection-start-line="788" selection-start-column="32" selection-end-line="788" selection-end-column="32" />
+            <state relative-caret-position="50">
+              <caret line="212" column="23" selection-start-line="212" selection-start-column="23" selection-end-line="212" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#16035#16036#0" expanded="true" />
                 <element signature="e#16069#16070#0" expanded="true" />
+                <element signature="e#39021#39273#0" />
               </folding>
             </state>
           </provider>
@@ -132,7 +149,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Controllers/StaffEditController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
+            <state relative-caret-position="313">
               <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -148,14 +165,16 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Moodles/TovarZakaz.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="24">
-              <caret line="319" column="47" selection-start-line="319" selection-start-column="47" selection-end-line="319" selection-end-column="47" />
+            <state relative-caret-position="159">
+              <caret line="664" column="32" selection-start-line="664" selection-start-column="32" selection-end-line="664" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#12804#12805#0" expanded="true" />
                 <element signature="e#12858#12859#0" expanded="true" />
                 <element signature="e#14047#14048#0" expanded="true" />
                 <element signature="e#14086#14087#0" expanded="true" />
+                <element signature="e#20965#20966#0" expanded="true" />
+                <element signature="e#21010#21011#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -174,10 +193,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>system</find>
-      <find>zakazUchirishBt</find>
-      <find>format</find>
-      <find>del</find>
       <find>editPrise</find>
       <find>transport</find>
       <find>zakazNDS1Narxi</find>
@@ -204,6 +219,10 @@
       <find>tra</find>
       <find>setValueFactory</find>
       <find>tr</find>
+      <find>helperTa</find>
+      <find>stream</find>
+      <find>any</find>
+      <find>noneMatch</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -262,12 +281,12 @@
         <option value="$PROJECT_DIR$/src/sample/Views/editTable.fxml" />
         <option value="$PROJECT_DIR$/src/sample/Views/staffEditView.fxml" />
         <option value="$PROJECT_DIR$/src/sample/Controllers/staffEditController.java" />
-        <option value="$PROJECT_DIR$/src/sample/Controllers/EditTovar.java" />
-        <option value="$PROJECT_DIR$/src/sample/Moodles/Stavkalar.java" />
         <option value="$PROJECT_DIR$/src/sample/salom.java" />
         <option value="$PROJECT_DIR$/src/sample/Controllers/StaffEditController.java" />
         <option value="$PROJECT_DIR$/src/sample/Moodles/TovarZakaz.java" />
+        <option value="$PROJECT_DIR$/src/sample/Moodles/Stavkalar.java" />
         <option value="$PROJECT_DIR$/src/sample/Moodles/StavkaShablon.java" />
+        <option value="$PROJECT_DIR$/src/sample/Controllers/EditTovar.java" />
         <option value="$PROJECT_DIR$/src/sample/Controllers/ControllerTable.java" />
       </list>
     </option>
@@ -320,6 +339,13 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="sample" type="462c0819:PsiDirectoryNode" />
               <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FarhodAka_colcul" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FarhodAka_colcul" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="sample" type="462c0819:PsiDirectoryNode" />
+              <item name="Moodles" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -645,7 +671,7 @@
       <workItem from="1602043457168" duration="11150000" />
       <workItem from="1602133429093" duration="14309000" />
       <workItem from="1602211786403" duration="6242000" />
-      <workItem from="1602218873621" duration="9163000" />
+      <workItem from="1602218873621" duration="15524000" />
     </task>
     <task id="LOCAL-00001" summary="Cip uzs ustunda muammo bor">
       <created>1602230209533</created>
@@ -654,11 +680,18 @@
       <option name="project" value="LOCAL" />
       <updated>1602230209533</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Cip uzs ustunda muammo bor">
+      <created>1602233053940</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1602233053940</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="345854000" />
+    <option name="totallyTimeSpent" value="352215000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -682,7 +715,7 @@
       <window_info id="UI Designer" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.40425533" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.63502455" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.63502455" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1029,16 +1062,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Moodles/Stavkalar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1606">
-          <caret line="112" column="11" selection-start-line="112" selection-start-column="11" selection-end-line="112" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Moodles/Tovar.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2222">
@@ -1114,16 +1137,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Controllers/EditTovar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1958">
-          <caret line="285" column="77" selection-start-line="285" selection-start-column="74" selection-end-line="285" selection-end-column="77" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Classes/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="274">
@@ -1136,34 +1149,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Moodles/TovarZakaz.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="319" column="47" selection-start-line="319" selection-start-column="47" selection-end-line="319" selection-end-column="47" />
+        <state relative-caret-position="159">
+          <caret line="664" column="32" selection-start-line="664" selection-start-column="32" selection-end-line="664" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#12804#12805#0" expanded="true" />
             <element signature="e#12858#12859#0" expanded="true" />
             <element signature="e#14047#14048#0" expanded="true" />
             <element signature="e#14086#14087#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Moodles/StavkaShablon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-          <folding>
-            <element signature="e#841#842#0" expanded="true" />
-            <element signature="e#867#868#0" expanded="true" />
-            <element signature="method#toString#0;class#StavkaShablon#0" />
-            <marker date="1602230195590" expanded="true" signature="358:930" ph="..." />
+            <element signature="e#20965#20966#0" expanded="true" />
+            <element signature="e#21010#21011#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Controllers/StaffEditController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
+        <state relative-caret-position="313">
           <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1175,14 +1177,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Controllers/ControllerTable.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/Moodles/Stavkalar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="15" column="42" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3268#3269#0" expanded="true" />
+            <element signature="e#3298#3299#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Controllers/EditTovar.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
-          <caret line="788" column="32" selection-start-line="788" selection-start-column="32" selection-end-line="788" selection-end-column="32" />
+          <caret line="489" selection-start-line="489" selection-end-line="489" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Moodles/StavkaShablon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="66" column="25" selection-start-line="66" selection-start-column="18" selection-end-line="66" selection-end-column="25" />
+          <folding>
+            <element signature="e#841#842#0" expanded="true" />
+            <element signature="e#867#868#0" expanded="true" />
+            <element signature="method#toString#0;class#StavkaShablon#0" />
+            <marker date="1602238677725" expanded="true" signature="358:929" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Controllers/ControllerTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="212" column="23" selection-start-line="212" selection-start-column="23" selection-end-line="212" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#16035#16036#0" expanded="true" />
             <element signature="e#16069#16070#0" expanded="true" />
+            <element signature="e#39021#39273#0" />
           </folding>
         </state>
       </provider>

@@ -13,7 +13,7 @@ public class Stavkalar {
    public static double stUSD_USD = 1;
    public static double stBojxona = 0.002;
    public static double stNDS1S = 0;
-   public static double stNDS1Bez = 0.15;
+//   public static double stNDS1Bez = 0.15;
    public static double stNDS2 = 0.15;
 
     public static ObservableList<StavkaShablon> stavkaShablons = FXCollections.observableArrayList();
@@ -23,7 +23,7 @@ public class Stavkalar {
             stavkaShablons.add(1, new StavkaShablon("CIP ставка", stCIP, "Для Расчетов \"CIP ВЭД\"", "cip"));
             stavkaShablons.add(2, new StavkaShablon("Таможня собр", stBojxona, "Таможня собр", "boj"));
             stavkaShablons.add(3, new StavkaShablon("НДС 1", stNDS1S, "Для Расчетов  \" DDP с НДС ВЭД\"", "nds1s"));
-            stavkaShablons.add(4, new StavkaShablon("НДС 1", stNDS1Bez, "Для Расчетов  \"DDP без НДС ВЭД\"", "nds1bez"));
+            stavkaShablons.add(4, new StavkaShablon("НДС 1", 0.15, "Для Расчетов  \"DDP без НДС ВЭД\"", "nds1bez"));
             stavkaShablons.add(5, new StavkaShablon("НДС 2", stNDS2, "Для Расчетов \"DDP c НДС ВЭД\"", "nds2"));
             stavkaShablons.add(6, new StavkaShablon("Доллар США-СУМ", stUSD_USZ, "СУМ", "usd_sum"));
             stavkaShablons.add(7, new StavkaShablon("Доллар США-РУБЛЬ", stUSD_RUB, "РУБЛЬ", "usd_rub"));
@@ -114,14 +114,6 @@ public class Stavkalar {
         Stavkalar.stNDS1S = stNDS1S;
     }
 
-    public static double getStNDS1Bez() {
-        return stNDS1Bez;
-    }
-
-    public static void setStNDS1Bez(double stNDS1Bez) {
-        Stavkalar.stNDS1Bez = stNDS1Bez;
-    }
-
 
     @Override
     public String toString() {
@@ -134,7 +126,6 @@ public class Stavkalar {
                 ", stUSD_USD=" + stUSD_USD +
                 ", stBojxona=" + stBojxona +
                 ", stNDS1S=" + stNDS1S +
-                ", stNDS1Bez=" + stNDS1Bez +
                 ", stNDS2=" + stNDS2 +
                 '}';
     }

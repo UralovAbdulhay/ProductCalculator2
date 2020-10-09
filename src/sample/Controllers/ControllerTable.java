@@ -121,6 +121,7 @@ public class ControllerTable implements Initializable {
     private TableColumn nds2Stavka;
     private TableColumn<TovarZakaz, Double> zNDS2Nar;
     private TableColumn<TovarZakaz, Double> nds2Summa;
+    private TableColumn<TovarZakaz, Double> zNDS1Narxi;
     private static boolean switchIsSelected;
 
 
@@ -210,8 +211,6 @@ public class ControllerTable implements Initializable {
 
         switchIsSelected = ddpSwitch.isSelected();
         switchAction();
-
-        summaHisobla();
     }
 
     void setControllerOyna(ControllerOyna controllerOyna) {
@@ -532,7 +531,6 @@ public class ControllerTable implements Initializable {
                                 );
                             }
                     );
-                    helperTable.getColumns().forEach(e-> System.out.println(e.getText()));
                     TovarZakaz.setTr();
                     onActionAddBt();
                 }
@@ -799,20 +797,23 @@ public class ControllerTable implements Initializable {
         zCIPuzsLab.getColumns().addAll(zCIPnarxUzs);
 
 
-        TableColumn<TovarZakaz, Double> zBojSt = creatTabCol("*Bojlar stavkasi");
+        TableColumn zBojSt = new TableColumn("*Bojlar narxi");
         zBojSt.setVisible(false);
+        zBojSt.setPrefWidth(150);
+        zBojSt.setResizable(false);
         zBojSt.setStyle("-fx-alignment: CENTER");
-        zBojSt.setCellValueFactory(e -> new SimpleObjectProperty<>(
-                e.getValue().getStBojxona()
-        ));
 
 
-        TableColumn<TovarZakaz, Double> zBoj = creatTabCol("*Bojlar narxi");
+
+        TableColumn<TovarZakaz, Double> zBoj = creatTabCol((Stavkalar.stBojxona * 100) + " %");
         zBoj.setVisible(false);
+        zBoj.setPrefWidth(150);
+        zBoj.setResizable(false);
         zBoj.setStyle("-fx-alignment: CENTER");
         zBoj.setCellValueFactory(e -> new SimpleObjectProperty<>(
                 e.getValue().getZakazBojYigini()
         ));
+        zBojSt.getColumns().addAll(zBoj);
 
 
         TableColumn<TovarZakaz, Double> ztovarPoshlinaOr = creatTabCol("*Poshlina", 60);
@@ -849,24 +850,20 @@ public class ControllerTable implements Initializable {
         ));
 
 
-        TableColumn<TovarZakaz, Double> zNDS1 = creatTabCol("*NDS 1 stavka");
+        TableColumn zNDS1 = creatTabCol("*NDS 1 narxi");
         zNDS1.setResizable(false);
+        zNDS1.setSortable(false);
         zNDS1.setVisible(false);
-        zNDS1.setStyle("-fx-alignment: CENTER");
 
 
-        zNDS1.setCellValueFactory(e -> new SimpleObjectProperty<>(
-                e.getValue().getStNDS1S()
-        ));
-
-
-        TableColumn<TovarZakaz, Double> zNDS1Narxi = creatTabCol("*NDS 1 narxi");
+        zNDS1Narxi = creatTabCol((Stavkalar.stNDS1S * 100) + " %");
         zNDS1Narxi.setResizable(false);
         zNDS1Narxi.setVisible(false);
         zNDS1Narxi.setStyle("-fx-alignment: CENTER");
         zNDS1Narxi.setCellValueFactory(e -> new SimpleObjectProperty<>(
                 e.getValue().getZakazNDS1Narxi()
         ));
+        zNDS1.getColumns().addAll(zNDS1Narxi);
 
 
         TableColumn<TovarZakaz, Double> zKelNar = creatTabCol("*Kelish narxi");
@@ -941,8 +938,8 @@ public class ControllerTable implements Initializable {
                 zTr, zKamBt, zUchBt, zNomi, zIshCh, zModel, zTavId, zNarxiTuri,
                 ztavEXWNarxi, ztavEXWSumm, zTavTransSt, ztavTransSumm,
                 ztavTransLiSumm, zCIPst, zCIPnarxi, zCIPsumm, zCIPuzsLab, zBojSt,
-                zBoj, ztovarPoshlinaOr, zSumPosh, ztovarAksizOr, zSumAk,
-                zNDS1, zNDS1Narxi, zKelNar, zKelSum, zDDPst, zDDPNar, zDDPSum,
+                 ztovarPoshlinaOr, zSumPosh, ztovarAksizOr, zSumAk,
+                zNDS1,  zKelNar, zKelSum, zDDPst, zDDPNar, zDDPSum,
                 nds2Stavka, nds2Summa
         );
 
@@ -1127,6 +1124,7 @@ public class ControllerTable implements Initializable {
 
     private void deleteZakazItem() {
         TovarZakaz.tovarZakazList.remove(helperTable.getSelectionModel().getSelectedItem());
+        TovarZakaz.setTr();
         helperTable.refresh();
         summaHisobla();
     }
@@ -1181,6 +1179,9 @@ public class ControllerTable implements Initializable {
             nds2Stavka.setVisible(true);
             zNDS2Nar.setVisible(true);
             nds2Summa.setVisible(true);
+            Stavkalar.stNDS1S = Stavkalar.stavkaShablons.stream().filter(e-> e.getKod().equals("nds1s")).findFirst().get().getQiymat();
+            zNDS1Narxi.setText((Stavkalar.stNDS1S * 100) + " %");
+
 
         } else {
             ddpBezLabel.setStyle("-fx-background-radius: 10; -fx-background-color: #0EBD00");
@@ -1188,9 +1189,13 @@ public class ControllerTable implements Initializable {
             nds2Stavka.setVisible(false);
             zNDS2Nar.setVisible(false);
             nds2Summa.setVisible(false);
+            Stavkalar.stNDS1S = Stavkalar.stavkaShablons.stream().filter(e-> e.getKod().equals("nds1bez")).findFirst().get().getQiymat();
+            zNDS1Narxi.setText((Stavkalar.stNDS1S * 100) + " %");
+
         }
 
         summaHisobla();
+        TovarZakaz.tovarZakazList.forEach(TovarZakaz::zakazHisobla);
     }
 
 }

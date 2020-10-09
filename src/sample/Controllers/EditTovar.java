@@ -487,7 +487,6 @@ public class EditTovar implements Initializable {
     }
 
     public void selected(MouseEvent mouseEvent) {
-        System.out.println(PriseList.priseLists.stream().anyMatch(p -> p.getDelCheck().isSelected()));
         this.delPrBt.setDisable(
                 PriseList.priseLists.stream().noneMatch(p -> p.getDelCheck().isSelected())
         );

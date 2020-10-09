@@ -38,7 +38,7 @@ public class StavkaShablon {
         this.komment = komment;
     }
 
-    private String getKod() {
+    public String getKod() {
         return kod;
     }
 
@@ -63,12 +63,9 @@ public class StavkaShablon {
                 Stavkalar.stBojxona = this.getQiymat();
                 break;
             }
-            case "nds1s":{
+            case "nds1s":
+            case "nds1bez": {
                 Stavkalar.stNDS1S = this.getQiymat();
-                break;
-            }
-            case "nds1bez":{
-                Stavkalar.stNDS1Bez = this.getQiymat();
                 break;
             }
             case "nds2":{
