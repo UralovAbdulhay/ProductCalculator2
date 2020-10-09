@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.ControllerOyna">
+    <left>
+        <VBox alignment="CENTER" prefHeight="560.0" prefWidth="70.0" spacing="15.0" BorderPane.alignment="CENTER">
+            <children>
+                  <JFXButton fx:id="b_asosiy" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" mnemonicParsing="false" onAction="#showAsosiy" prefHeight="50.0" prefWidth="200.0" ripplerFill="#15267a" style="-fx-background-radius: 5;" text=" " textAlignment="CENTER" textFill="#242524">
+                      <font>
+                          <Font name="Verdana Bold" size="18.0" />
+                      </font>
+               <graphic>
+                  <MaterialDesignIconView fill="#2d3b9d" glyphName="HOME" size="35" />
+               </graphic>
+                  </JFXButton>
+                    <JFXButton fx:id="zapros" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" mnemonicParsing="false" onAction="#showZapros" prefHeight="40.0" prefWidth="200.0" ripplerFill="#15267a" text=" " textAlignment="CENTER" textFill="#070707" VBox.vgrow="SOMETIMES">
+                        <VBox.margin>
+                            <Insets />
+                        </VBox.margin>
+                        <font>
+                            <Font name="Verdana Bold" size="18.0" />
+                        </font>
+               <graphic>
+                  <MaterialDesignIconView fill="#2d3b9d" glyphName="NOTE_PLUS" size="35" />
+               </graphic>
+                    </JFXButton>
+                    <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" mnemonicParsing="false" onAction="#showPrice" prefHeight="40.0" prefWidth="200.0" ripplerFill="#15267a" text=" " textAlignment="CENTER">
+                        <font>
+                            <Font name="Verdana Bold" size="18.0" />
+                        </font>
+               <graphic>
+                  <MaterialDesignIconView fill="#2d3b9d" glyphName="DATABASE" size="35" />
+               </graphic>
+                    </JFXButton>
+            </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <padding>
+            <Insets left="5.0" right="5.0" />
+         </padding>
+        </VBox>
+    </left>
+    <top>
+        <HBox prefHeight="20.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER" />
+    </top>
+    <bottom>
+        <HBox prefHeight="20.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+    </bottom>
+    <center>
+        <VBox fx:id="centerVbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+                <Insets />
+            </BorderPane.margin>
+        </VBox>
+    </center>
+</BorderPane>

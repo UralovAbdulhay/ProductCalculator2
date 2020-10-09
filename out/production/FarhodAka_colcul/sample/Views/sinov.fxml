@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Views.Sinov">
+   <children>
+      <Spinner layoutX="261.0" layoutY="151.0" prefHeight="26.0" prefWidth="64.0" />
+   </children>
+</AnchorPane>
