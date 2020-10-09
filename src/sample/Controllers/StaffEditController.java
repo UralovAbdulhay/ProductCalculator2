@@ -83,7 +83,7 @@ public class StaffEditController implements Initializable {
 
     public void cancelEdit(ActionEvent event) {
         stage.close();
-        System.out.println("Closed");
+
     }
 
 

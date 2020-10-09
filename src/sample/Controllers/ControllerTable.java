@@ -931,7 +931,7 @@ public class ControllerTable implements Initializable {
                 zNDS1, zNDS1Narxi, zKelNar, zKelSum, zDDPst, zDDPNar, zDDPSum,
                 nds2Stavka, nds2Summa
         );
-        
+        System.out.println("Salom");
 
         helperTable.setItems(TovarZakaz.tovarZakazList);
         helperTable.refresh();
