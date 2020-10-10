@@ -11,6 +11,7 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import sample.Moodles.Project;
 import sample.Moodles.TovarZakaz;
 
 import java.awt.*;
@@ -18,6 +19,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -47,10 +49,10 @@ public class AddProject implements Initializable {
     private JFXComboBox<String> prTypeCol;
 
     @FXML
-    private JFXCheckBox prIsImportant;
+    private JFXCheckBox prIsImportant;           // muhim
 
     @FXML
-    private JFXCheckBox prIsUrgent;
+    private JFXCheckBox prIsShoshilinch;             // shoshilinch
 
     @FXML
     private JFXDatePicker prDate;
@@ -72,11 +74,15 @@ public class AddProject implements Initializable {
 
     private ControllerTable controllerTable;
     private ObservableList<String> demoList = FXCollections.observableArrayList("bush");
+    private ObservableList<TovarZakaz> tovarZakazList;
     private String filePre = "Файл: - ";
     private static String filePath = null;
     private Stage ownerStage;
     private FileChooser faylTanla;
     private File exportFile;
+    private boolean prHisobTuri;
+
+    private Project project;
 
 
     @Override
@@ -86,9 +92,9 @@ public class AddProject implements Initializable {
         prKiritgan.setItems(demoList);
         prRahbar.setItems(demoList);
         prMasul.setItems(demoList);
-        prTypeCol.setItems(demoList);
         prFromCom.setItems(demoList);
         prClient.setItems(demoList);
+
 
         prTime.getEditor().setFont(new Font(18));
         prKiritgan.getEditor().setFont(new Font(18));
@@ -107,6 +113,7 @@ public class AddProject implements Initializable {
         prTypeCol.getEditor().textProperty().addListener(observable -> disContr());
         prFromCom.getEditor().textProperty().addListener(observable -> disContr());
         prClient.getEditor().textProperty().addListener(observable -> disContr());
+
 
         if (filePath == null) {
             prFile.setText(filePre);
@@ -130,16 +137,28 @@ public class AddProject implements Initializable {
 
     }
 
-    @FXML
-    void cancelAdd(ActionEvent event) {
-        cancelButton.getScene().getWindow().hide();
+    private void initProject() {
+
+        project = new Project(
+                0, LocalDateTime.now(), prIsImportant.isSelected(), prIsShoshilinch.isSelected(),
+                prName.getText().trim(), prClient.getValue().trim(), prFromCom.getValue().trim(),
+                prRahbar.getValue().trim(), prMasul.getValue().trim(), LocalDateTime.of(prDate.getValue(), prTime.getValue()),
+                prTypeCol.getValue().trim(), prComment.getText().trim(), tovarZakazList
+
+        );
     }
 
     @FXML
-    void okAdd(ActionEvent event) {
+    void cancelAdd(ActionEvent event) {
+        cancelButton.getScene().getWindow().hide();
+
+    }
+
+    @FXML
+    void okAdd() {
 
         if (exportFile == null) {
-            saveFile(event);
+            saveFile();
         } else {
 
             try {
@@ -151,6 +170,20 @@ public class AddProject implements Initializable {
         }
 
     }
+
+    public void setPrHisobTuri(boolean prHisobTuri, ObservableList<TovarZakaz> tovarZakazList) {
+        this.prHisobTuri = prHisobTuri;
+        this.tovarZakazList = tovarZakazList;
+
+        if (prHisobTuri) {
+            prTypeCol.setValue("DDP c НДС ВЭД");
+        } else {
+            prTypeCol.setValue("DDP без НДС ВЭД");
+        }
+
+        initProject();
+    }
+
 
     void aVoid(String path) throws IOException {
 
@@ -179,11 +212,10 @@ public class AddProject implements Initializable {
         map.put("M10", prTime.getValue() + "");
         map.put("P2", "Ответственное лицо");
         map.put("S2", prMasul.getValue().trim());
-        map.put("P6", "Дата размещение запроса" );
-        map.put("Q8", "Время" );
-        map.put("S6", LocalDate.now()+"");
-        map.put("S8", LocalTime.now()+"");
-
+        map.put("P6", "Дата размещение запроса");
+        map.put("Q8", "Время");
+        map.put("S6", LocalDate.now() + "");
+        map.put("S8", LocalTime.now() + "");
 
 
         SpreadsheetInfo.setLicense("FREE-LIMITED-KEY");
@@ -204,7 +236,7 @@ public class AddProject implements Initializable {
                             SpreadsheetColor.fromColor(Color.RED)
                     );
         }
-        if (prIsUrgent.isSelected()) {
+        if (prIsShoshilinch.isSelected()) {
             worksheet.getCell("F10").getStyle().getFillPattern().
                     setPattern(FillPatternStyle.SOLID,
                             SpreadsheetColor.fromColor(Color.RED),
@@ -214,16 +246,16 @@ public class AddProject implements Initializable {
                     MultipleBorders.outside(), SpreadsheetColor.fromColor(Color.BLACK), LineStyle.MEDIUM);
         }
 
-        for (int i = 1; i <= 7; i+=2) {
+        for (int i = 1; i <= 7; i += 2) {
             // 1 ustundagi label lar
             CellRange us1L = CellRange.zzaInternal(worksheet, i, 1, i, 2);
             us1L.getStyle().getBorders().setBorders(
                     MultipleBorders.outside(), SpreadsheetColor.fromColor(Color.BLACK), LineStyle.THIN
             );
-            us1L.getStyle().getFillPattern().setSolid(SpreadsheetColor.fromColor(new Color(217,217,217)));
+            us1L.getStyle().getFillPattern().setSolid(SpreadsheetColor.fromColor(new Color(217, 217, 217)));
 
             if (i <= 5) {
-                        // 1 ustundagi Value lar
+                // 1 ustundagi Value lar
                 CellRange.zzaInternal(worksheet, i, 4, i, 6).getStyle().getBorders().setBorders(
                         MultipleBorders.outside(), SpreadsheetColor.fromColor(Color.BLACK), LineStyle.MEDIUM
                 );
@@ -233,9 +265,9 @@ public class AddProject implements Initializable {
             us2L.getStyle().getBorders().setBorders(
                     MultipleBorders.outside(), SpreadsheetColor.fromColor(Color.BLACK), LineStyle.THIN
             );
-            us2L.getStyle().getFillPattern().setSolid(SpreadsheetColor.fromColor(new Color(217,217,217)));
+            us2L.getStyle().getFillPattern().setSolid(SpreadsheetColor.fromColor(new Color(217, 217, 217)));
 
-                // 2 ustundagi Value lar
+            // 2 ustundagi Value lar
             CellRange us2V = CellRange.zzaInternal(worksheet, i, 12, i, 13);
             us2V.getStyle().getBorders().setBorders(
                     MultipleBorders.outside(), SpreadsheetColor.fromColor(Color.BLACK), LineStyle.MEDIUM
@@ -248,7 +280,7 @@ public class AddProject implements Initializable {
         commentL.getStyle().getBorders().setBorders(
                 MultipleBorders.outside(), SpreadsheetColor.fromColor(Color.BLACK), LineStyle.THIN
         );
-        commentL.getStyle().getFillPattern().setSolid(SpreadsheetColor.fromColor(new Color(217,217,217)));
+        commentL.getStyle().getFillPattern().setSolid(SpreadsheetColor.fromColor(new Color(217, 217, 217)));
 
 
         //komment value
@@ -256,7 +288,7 @@ public class AddProject implements Initializable {
                 MultipleBorders.outside(), SpreadsheetColor.fromColor(Color.BLACK), LineStyle.MEDIUM
         );
 
-            //важны
+        //важны
         CellRange.zzaInternal(worksheet, 7, 4, 7, 5).getStyle().getBorders().setBorders(
                 MultipleBorders.all(), SpreadsheetColor.fromColor(Color.BLACK), LineStyle.MEDIUM
         );
@@ -270,7 +302,7 @@ public class AddProject implements Initializable {
         us3L.getStyle().getBorders().setBorders(
                 MultipleBorders.outside(), SpreadsheetColor.fromColor(Color.BLACK), LineStyle.THIN
         );
-        us3L.getStyle().getFillPattern().setSolid(SpreadsheetColor.fromColor(new Color(217,217,217)));
+        us3L.getStyle().getFillPattern().setSolid(SpreadsheetColor.fromColor(new Color(217, 217, 217)));
 
 
         // 3 ustundagi Value
@@ -283,7 +315,7 @@ public class AddProject implements Initializable {
                 MultipleBorders.outside(), SpreadsheetColor.fromColor(Color.BLACK), LineStyle.THIN
         );
         worksheet.getCell("K10").getStyle().getFillPattern()
-                .setSolid(SpreadsheetColor.fromColor(new Color(217,217,217)));
+                .setSolid(SpreadsheetColor.fromColor(new Color(217, 217, 217)));
 
         // soat Value
         worksheet.getCell("M10").getStyle().getBorders().setBorders(
@@ -291,18 +323,18 @@ public class AddProject implements Initializable {
         );
 
         //TableLabel
-         CellRange tabLab = CellRange.zzaInternal(worksheet,14,1,14, 28);
-         tabLab.getStyle().getFillPattern().setSolid(
-                 SpreadsheetColor.fromColor(new Color(217,217,217))
-         );
-         tabLab.getStyle().getBorders().setBorders(
-                 MultipleBorders.all(), SpreadsheetColor.fromColor(Color.BLACK), LineStyle.MEDIUM
-                 );
+        CellRange tabLab = CellRange.zzaInternal(worksheet, 14, 1, 14, 28);
+        tabLab.getStyle().getFillPattern().setSolid(
+                SpreadsheetColor.fromColor(new Color(217, 217, 217))
+        );
+        tabLab.getStyle().getBorders().setBorders(
+                MultipleBorders.all(), SpreadsheetColor.fromColor(Color.BLACK), LineStyle.MEDIUM
+        );
 
-         // ZAPROS KIRITILGAN VAQT
-        CellRange crateDate = CellRange.zzaInternal(worksheet,5, 15, 5, 16);
+        // ZAPROS KIRITILGAN VAQT
+        CellRange crateDate = CellRange.zzaInternal(worksheet, 5, 15, 5, 16);
         crateDate.getStyle().getFillPattern().setSolid(
-                SpreadsheetColor.fromColor(new Color(217,217,217))
+                SpreadsheetColor.fromColor(new Color(217, 217, 217))
         );
         crateDate.getStyle().getBorders().setBorders(
                 MultipleBorders.outside(), SpreadsheetColor.fromColor(Color.BLACK), LineStyle.THIN
@@ -312,7 +344,7 @@ public class AddProject implements Initializable {
                 MultipleBorders.outside(), SpreadsheetColor.fromColor(Color.BLACK), LineStyle.THIN
         );
         worksheet.getCell("Q8").getStyle().getFillPattern().setSolid(
-                SpreadsheetColor.fromColor(new Color(217,217,217))
+                SpreadsheetColor.fromColor(new Color(217, 217, 217))
         );
         worksheet.getCell("S6").getStyle().getBorders().setBorders(
                 MultipleBorders.all(), SpreadsheetColor.fromColor(Color.BLACK), LineStyle.MEDIUM
@@ -320,7 +352,6 @@ public class AddProject implements Initializable {
         worksheet.getCell("S8").getStyle().getBorders().setBorders(
                 MultipleBorders.all(), SpreadsheetColor.fromColor(Color.BLACK), LineStyle.MEDIUM
         );
-
 
 
         int row = 14;
@@ -436,7 +467,7 @@ public class AddProject implements Initializable {
     }
 
     @FXML
-    void saveFile(ActionEvent event) {
+    void saveFile() {
 
         File file = faylTanla.showSaveDialog(ownerStage);
         if (file != null) {
@@ -492,7 +523,7 @@ public class AddProject implements Initializable {
                 ", prFromCom=" + prFromCom.getValue() +
                 ", prTypeCol=" + prTypeCol.getValue() +
                 ", prIsImportant=" + prIsImportant.getText() +
-                ", prIsUrgent=" + prIsUrgent.getText() +
+                ", prIsShoshilinch=" + prIsShoshilinch.getText() +
                 ", prDate=" + prDate.getValue() +
                 ", prTime=" + prTime.getValue() +
                 ", prFile=" + prFile.getText() +

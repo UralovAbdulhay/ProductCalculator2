@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="535.0" prefWidth="732.0" stylesheets="@TableStyle.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.EditTovar">
+<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="535.0" prefWidth="732.0" stylesheets="@TableStyle.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.EditTovar">
     <children>
         <JFXTabPane prefHeight="535.0" prefWidth="723.0" VBox.vgrow="ALWAYS">
             <tabs>
@@ -114,7 +114,7 @@
                         </VBox>
                     </content>
                 </Tab>
-                <Tab onCloseRequest="#initKursTable" text="Kurslar">
+                <Tab onCloseRequest="#initKursTable" text="Courses">
                     <content>
                         <AnchorPane>
                             <children>
@@ -145,6 +145,22 @@
                         </AnchorPane>
                     </content>
                 </Tab>
+            <Tab text="Projects">
+               <content>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <TableView fx:id="projectTable" prefHeight="392.0" prefWidth="732.0" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets right="10.0" top="60.0" />
+                           </VBox.margin>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                     </children>
+                  </VBox>
+               </content>
+            </Tab>
             </tabs>
         </JFXTabPane>
     </children>

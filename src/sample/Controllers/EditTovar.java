@@ -58,6 +58,9 @@ public class EditTovar implements Initializable {
     private TableView<PriseList> listTable;
 
     @FXML
+    private TableView<Project> projectTable;
+
+    @FXML
     private ToggleButton deletePriseBt;
 
     @FXML
@@ -570,6 +573,7 @@ public class EditTovar implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        assert pane != null;
         Scene scene = new Scene(pane);
         Stage stage = new Stage();
         stage.setScene(scene);
@@ -585,8 +589,12 @@ public class EditTovar implements Initializable {
 
     }
 
-    public void refreshStaffTable() {
+    void refreshStaffTable() {
         stavkaTable.refresh();
+    }
+
+    private void initProjectTable() {
+
     }
 
 }

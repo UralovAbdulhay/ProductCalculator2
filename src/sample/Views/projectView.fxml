@@ -63,7 +63,7 @@
                                 <Font size="18.0" />
                             </font>
                         </JFXCheckBox>
-                        <JFXCheckBox fx:id="prIsUrgent" text="Срочный ">
+                        <JFXCheckBox fx:id="prIsShoshilinch" text="Срочный ">
                             <font>
                                 <Font size="18.0" />
                             </font>
