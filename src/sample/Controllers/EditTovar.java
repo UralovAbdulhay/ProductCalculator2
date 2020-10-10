@@ -156,12 +156,11 @@ public class EditTovar implements Initializable {
 
 
     private void editBtControl() {
-        if (listTable.getSelectionModel().getSelectedItem() != null) {
-            editPriseBt.setDisable(false);
+        if (listTable.getSelectionModel().getSelectedItem() != null ) {
+            editPriseBt.setDisable(deletePriseBt.isSelected());
         } else {
             editPriseBt.setDisable(true);
         }
-
     }
 
     private void ruyxatUrnat() {
@@ -176,7 +175,7 @@ public class EditTovar implements Initializable {
         tovarTR.setResizable(false);
         tovarTR.impl_setReorderable(false);
 
-
+        
         setValueFactory_(tovarDeleteCol, "delCheck");
         tovarDeleteCol.setSortable(false);
         tovarDeleteCol.setVisible(false);

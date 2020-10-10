@@ -325,7 +325,7 @@ public class AddProject implements Initializable {
         );
 
         //TableLabel
-        CellRange tabLab = CellRange.zzaInternal(worksheet, 14, 1, 14, 28);
+        CellRange tabLab = CellRange.zzaInternal(worksheet, 14, 1, 14, 30);
         tabLab.getStyle().getFillPattern().setSolid(
                 SpreadsheetColor.fromColor(new Color(217, 217, 217))
         );
@@ -370,31 +370,31 @@ public class AddProject implements Initializable {
         worksheet.getCell(row, 7).setValue("Ед. из.");
         worksheet.getCell(row, 8).setValue("Цена EXW");
         worksheet.getCell(row, 9).setValue("Сумма EXW");
-        worksheet.getCell(row, 10).setValue("Траспорт \n"+ Stavkalar.stTrans);
+        worksheet.getCell(row, 10).setValue("Траспорт \n" + Stavkalar.stTrans);
         worksheet.getCell(row, 11).setValue("Сумма Транс-порта");
         worksheet.getCell(row, 12).setValue("Цена с  Транс-портом");
         worksheet.getCell(row, 13).setValue("Сумма с  Транс-портом");
         worksheet.getCell(row, 14).setValue("Cтавка CIP");
         worksheet.getCell(row, 15).setValue("Цена CIP(USD)");
         worksheet.getCell(row, 16).setValue("Сумма CIP(USD)");
-        worksheet.getCell(row, 17).setValue("Цена SUM (CIP)");
-        worksheet.getCell(row, 18).setValue("Там. сборы");
+        worksheet.getCell(row, 17).setValue("Цена SUM (CIP) \n" + Stavkalar.stUSZ_USD + " sum");
+        worksheet.getCell(row, 18).setValue("Там. сборы \n" + (Stavkalar.stBojxona * 100) + " %");
         worksheet.getCell(row, 19).setValue("Пошлина");
         worksheet.getCell(row, 20).setValue("Cумма пошлин");
         worksheet.getCell(row, 21).setValue("Акциз");
         worksheet.getCell(row, 22).setValue("Cумма Акциз");
-        worksheet.getCell(row, 23).setValue("НДС 1");
+        worksheet.getCell(row, 23).setValue("НДС 1 \n" + (Stavkalar.stNDS1S * 100) + " %" );
         worksheet.getCell(row, 24).setValue("Приход цена");
         worksheet.getCell(row, 25).setValue("Приход Сумма");
         worksheet.getCell(row, 26).setValue("Cтавка DDP");
         worksheet.getCell(row, 27).setValue("Цена  DDP ");
         worksheet.getCell(row, 28).setValue("Сумма  DDP ");
-        worksheet.getCell(row, 29).setValue("Цена c НДС 2");
+        worksheet.getCell(row, 29).setValue("Цена c НДС 2 \n" + (Stavkalar.stNDS2 * 100)+" %");
         worksheet.getCell(row, 30).setValue("Сумма с НДС");
 
         for (TovarZakaz zakaz : TovarZakaz.tovarZakazList) {
             row++;
-            col = 1;
+
             System.out.println(zakaz);
             worksheet.getCell(row, 1).setValue(zakaz.getTr());
             worksheet.getCell(row, 2).setValue(zakaz.getTovarNomi());

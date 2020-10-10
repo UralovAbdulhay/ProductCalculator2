@@ -899,7 +899,7 @@ public class ControllerTable implements Initializable {
         nds2Stavka.setResizable(false);
 
 
-        zNDS2Nar = new TableColumn<>((Stavkalar.stNDS2 * 100)+"");
+        zNDS2Nar = new TableColumn<>((Stavkalar.stNDS2 * 100)+" %");
         zNDS2Nar.setPrefWidth(150);
         zNDS2Nar.setResizable(false);
         zNDS2Nar.setStyle("-fx-alignment: CENTER");
