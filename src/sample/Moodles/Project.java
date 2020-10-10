@@ -21,7 +21,7 @@ public class Project {
     private String prKlient;
     private String prKMP_komp;
     private String prRaxbar;
-    private String prkritgan;
+    private String prKritgan;
     private String prMasul;
     private String prFormula;
     private String prKomment;
@@ -31,7 +31,7 @@ public class Project {
     public Project(int tr_pr, LocalDateTime boshlanganVaqt, boolean prIsImportant, boolean prIsShoshilinch,
                    String prNomi, String prKlient, String prKMP_komp, String prRaxbar,
                    String prMasul, LocalDateTime tugashVaqti,
-                   String prFormula, String prKomment, ObservableList<TovarZakaz> projectZakazList ) {
+                   String prFormula, String prKomment, String prKritgan, ObservableList<TovarZakaz> projectZakazList ) {
 
         this.tr_pr = tr_pr;
         this.boshlanganVaqt = boshlanganVaqt;
@@ -46,6 +46,7 @@ public class Project {
         this.prFormula = prFormula;
         this.prKomment = prKomment;
         this.projectZakazList = projectZakazList;
+        this.prKritgan = prKritgan;
         this.proritet = "";
 
         if (prIsImportant) {
@@ -139,12 +140,12 @@ public class Project {
         this.prRaxbar = prRaxbar;
     }
 
-    public String getPrkritgan() {
-        return prkritgan;
+    public String getPrKritgan() {
+        return prKritgan;
     }
 
-    public void setPrkritgan(String prkritgan) {
-        this.prkritgan = prkritgan;
+    public void setPrKritgan(String prKritgan) {
+        this.prKritgan = prKritgan;
     }
 
     public String getPrMasul() {
@@ -192,7 +193,7 @@ public class Project {
                 ", prKlient='" + prKlient + '\'' +
                 ", prKMP_komp='" + prKMP_komp + '\'' +
                 ", prRaxbar='" + prRaxbar + '\'' +
-                ", prkritgan='" + prkritgan + '\'' +
+                ", prKritgan='" + prKritgan + '\'' +
                 ", prMasul='" + prMasul + '\'' +
                 ", prFormula='" + prFormula + '\'' +
                 ", prKomment='" + prKomment + '\'' +

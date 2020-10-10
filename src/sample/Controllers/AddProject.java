@@ -12,6 +12,7 @@ import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import sample.Moodles.Project;
+import sample.Moodles.Stavkalar;
 import sample.Moodles.TovarZakaz;
 
 import java.awt.*;
@@ -143,9 +144,11 @@ public class AddProject implements Initializable {
                 0, LocalDateTime.now(), prIsImportant.isSelected(), prIsShoshilinch.isSelected(),
                 prName.getText().trim(), prClient.getValue().trim(), prFromCom.getValue().trim(),
                 prRahbar.getValue().trim(), prMasul.getValue().trim(), LocalDateTime.of(prDate.getValue(), prTime.getValue()),
-                prTypeCol.getValue().trim(), prComment.getText().trim(), tovarZakazList
-
+                prTypeCol.getValue().trim(), prComment.getText().trim(), prKiritgan.getValue().trim(),
+                tovarZakazList
         );
+
+        System.out.println(project.toString());
     }
 
     @FXML
@@ -168,7 +171,7 @@ public class AddProject implements Initializable {
                 e.printStackTrace();
             }
         }
-
+        initProject();
     }
 
     public void setPrHisobTuri(boolean prHisobTuri, ObservableList<TovarZakaz> tovarZakazList) {
@@ -181,7 +184,6 @@ public class AddProject implements Initializable {
             prTypeCol.setValue("DDP без НДС ВЭД");
         }
 
-        initProject();
     }
 
 
@@ -368,7 +370,7 @@ public class AddProject implements Initializable {
         worksheet.getCell(row, 7).setValue("Ед. из.");
         worksheet.getCell(row, 8).setValue("Цена EXW");
         worksheet.getCell(row, 9).setValue("Сумма EXW");
-        worksheet.getCell(row, 10).setValue("Траспорт %");
+        worksheet.getCell(row, 10).setValue("Траспорт \n"+ Stavkalar.stTrans);
         worksheet.getCell(row, 11).setValue("Сумма Транс-порта");
         worksheet.getCell(row, 12).setValue("Цена с  Транс-портом");
         worksheet.getCell(row, 13).setValue("Сумма с  Транс-портом");
@@ -387,6 +389,8 @@ public class AddProject implements Initializable {
         worksheet.getCell(row, 26).setValue("Cтавка DDP");
         worksheet.getCell(row, 27).setValue("Цена  DDP ");
         worksheet.getCell(row, 28).setValue("Сумма  DDP ");
+        worksheet.getCell(row, 29).setValue("Цена c НДС 2");
+        worksheet.getCell(row, 30).setValue("Сумма с НДС");
 
         for (TovarZakaz zakaz : TovarZakaz.tovarZakazList) {
             row++;
@@ -403,7 +407,7 @@ public class AddProject implements Initializable {
             worksheet.getCell(row, 8).getStyle().setNumberFormat("#,##0.00 [$USD]");
             worksheet.getCell(row, 9).setValue(zakaz.getZakazSummaExw());
             worksheet.getCell(row, 9).getStyle().setNumberFormat("#,##0.00 [$USD]");
-            worksheet.getCell(row, 10).setValue(zakaz.getTovarTransportNarxi());
+            worksheet.getCell(row, 10).setValue(zakaz.getZakazTransProNatija());
             worksheet.getCell(row, 10).getStyle().setNumberFormat("0%");
             worksheet.getCell(row, 11).setValue(zakaz.getZakazTransSumm());
             worksheet.getCell(row, 11).getStyle().setNumberFormat("#,##0.00 [$USD]");
@@ -439,10 +443,15 @@ public class AddProject implements Initializable {
             worksheet.getCell(row, 27).getStyle().setNumberFormat("#,##0.00 [$UZS]");
             worksheet.getCell(row, 28).setValue(zakaz.getZakazDDPsumm());
             worksheet.getCell(row, 28).getStyle().setNumberFormat("#,##0.00 [$UZS]");
+            worksheet.getCell(row, 29).setValue(zakaz.getZakazNDS2liNarxi());
+            worksheet.getCell(row, 29).getStyle().setNumberFormat("#,##0.00 [$UZS]");
+            worksheet.getCell(row, 30).setValue(zakaz.getZakazNDS2liSumm());
+            worksheet.getCell(row, 30).getStyle().setNumberFormat("#,##0.00 [$UZS]");
+
         }
 
 
-        for (int i = 1; i <= 28; i++) {
+        for (int i = 1; i <= 30; i++) {
             int max = 20;
             for (int j = 14; j <= row; j++) {
                 if (max < worksheet.getColumn(i).getCell(j).getValue().toString().length()) {
@@ -458,7 +467,7 @@ public class AddProject implements Initializable {
             worksheet.getColumn(i).setWidth(max * 256);
         }
 
-        CellRange cells = CellRange.zzaInternal(worksheet, startRow, startCol, row, startCol + 27);
+        CellRange cells = CellRange.zzaInternal(worksheet, startRow, startCol, row, startCol + 29);
         cells.getStyle().getBorders().setBorders(
                 MultipleBorders.all(), SpreadsheetColor.fromColor(Color.BLACK), LineStyle.THIN
         );
