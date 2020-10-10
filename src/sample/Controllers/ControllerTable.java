@@ -580,15 +580,6 @@ public class ControllerTable implements Initializable {
 
         if (TovarZakaz.tovarZakazList.size() != 0) {
 
-//            summLable.get(0).setText(format.format(zakazSumma));
-//            summLable.get(1).setText(format.format(zakazSumma
-//                    / TovarZakaz.tovarZakazList.get(0).getStavkalar().getStUSD_USZ()));
-//            summLable.get(2).setText(format.format(zakazSumma
-//                    / TovarZakaz.tovarZakazList.get(0).getStavkalar().getStUSD_RUB()));
-//            summLable.get(3).setText(format.format(zakazSumma
-//                    / TovarZakaz.tovarZakazList.get(0).getStavkalar().getStUSD_EUR()));
-//
-
             summLable.get(0).setText(format.format(zakazSumma));
             summLable.get(1).setText(format.format(zakazSumma
                     / TovarZakaz.zakUsdUsz));
