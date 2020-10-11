@@ -1,5 +1,7 @@
 .idea/*
-
+out/*
+TableTest/*
+Test/*
 # Compiled class file
 *.class
 
