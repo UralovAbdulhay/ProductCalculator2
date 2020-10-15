@@ -473,6 +473,9 @@ public class AddProject implements Initializable {
         );
 
         workbook.save(path);
+        TovarZakaz.tovarZakazList.clear();
+        ControllerTable controllerTable = new ControllerTable();
+        controllerTable.summaHisobla();
     }
 
 

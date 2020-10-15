@@ -21,6 +21,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Callback;
 import org.controlsfx.control.textfield.TextFields;
 import sample.Classes.Api_kurs;
@@ -156,7 +157,7 @@ public class EditTovar implements Initializable {
 
 
     private void editBtControl() {
-        if (listTable.getSelectionModel().getSelectedItem() != null ) {
+        if (listTable.getSelectionModel().getSelectedItem() != null) {
             editPriseBt.setDisable(deletePriseBt.isSelected());
         } else {
             editPriseBt.setDisable(true);
@@ -175,7 +176,7 @@ public class EditTovar implements Initializable {
         tovarTR.setResizable(false);
         tovarTR.impl_setReorderable(false);
 
-        
+
         setValueFactory_(tovarDeleteCol, "delCheck");
         tovarDeleteCol.setSortable(false);
         tovarDeleteCol.setVisible(false);
@@ -189,7 +190,6 @@ public class EditTovar implements Initializable {
         setValueFactory_(tovarNomi, "tovarNomi");
 
 
-
         TableColumn tovarModel = creatTabCol("Model");
         setValueFactory_(tovarModel, "tovarModel");
 
@@ -200,7 +200,6 @@ public class EditTovar implements Initializable {
 
         TableColumn tovarNarxi = creatTabCol("Narxi");
         setValueFactory_(tovarNarxi, "tovarNarxi");
-
 
 
         TableColumn tovarNarxiTuri = creatTabCol("Valyuta", 80);
@@ -539,7 +538,7 @@ public class EditTovar implements Initializable {
         TableColumn<StavkaShablon, String> nomi = new TableColumn<>("Наименование");
         nomi.setStyle("-fx-alignment: CENTER");
         nomi.setCellValueFactory(e -> new SimpleStringProperty(
-            e.getValue().getNomi()
+                e.getValue().getNomi()
         ));
 
 
@@ -578,6 +577,8 @@ public class EditTovar implements Initializable {
         stage.setScene(scene);
         stage.initOwner(mainStage);
         stage.initModality(Modality.WINDOW_MODAL);
+        stage.setResizable(false);
+        stage.initStyle(StageStyle.UTILITY);
         stage.show();
 
         StaffEditController controller = loader.getController();

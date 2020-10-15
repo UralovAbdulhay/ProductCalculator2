@@ -19,10 +19,6 @@ public class PriseList extends Tovar {
 
     public static ObservableList<PriseList> priseLists = FXCollections.observableArrayList();
 
-    public PriseList() {
-
-    }
-
     public PriseList(Tovar tovar) {
         super(tovar);
 

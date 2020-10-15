@@ -62,9 +62,6 @@ public class TovarZakaz extends Tovar {
     public static ObservableList<TovarZakaz> tovarZakazList = FXCollections.observableArrayList();
     private Stavkalar stavkalar;
 
-    public TovarZakaz() {
-    }
-
     public TovarZakaz(PriseList priseList) {
         super(priseList.getTovar());
 

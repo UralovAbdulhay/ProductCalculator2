@@ -4,7 +4,6 @@ import java.time.LocalDate;
 
 public class Tovar {
 
-
     private int tr;
     private int tovarId;
     private String tovarKod;
@@ -40,7 +39,7 @@ public class Tovar {
     }
 
 
-    public Tovar(Tovar tovar) {
+    Tovar(Tovar tovar) {
         this(tovar.getTovarId(), tovar.getTovarKod(), tovar.getTovarNomi(), tovar.getTovarModel(),
                 tovar.getTovarIshlabChiqaruvchi(), tovar.getTovarNarxi(), tovar.getTovarDDP(), tovar.getTovarNarxTuri(),
                 tovar.getTovarTransportNarxi(), tovar.getTovarAksiz(), tovar.getTovarPoshlina(),
@@ -75,10 +74,6 @@ public class Tovar {
 
     public Tovar getTovar() {
         return this;
-    }
-
-    public void setTovar(Tovar tovar) {
-        new Tovar(tovar);
     }
 
     public int getTovarId() {
@@ -199,10 +194,6 @@ public class Tovar {
 
     public void setTr(int tr) {
         this.tr = tr;
-    }
-
-
-    public Tovar() {
     }
 
     @Override

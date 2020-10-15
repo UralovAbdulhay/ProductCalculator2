@@ -1,13 +1,17 @@
 package sample.Moodles;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Xodimlar {
 
+    int id;
     String ism;
     String familiya;
     String ochestva;
-    Date tugilganVaqt;
+    LocalDate tugilganVaqt;
+
+
+
 
 
 
