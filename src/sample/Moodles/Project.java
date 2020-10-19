@@ -10,7 +10,7 @@ public class Project {
 
     public static final DateTimeFormatter format = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
 
-
+    private int numPr;
     private int tr_pr;
     private LocalDateTime boshlanganVaqt;
     private LocalDateTime tugashVaqti;
@@ -25,15 +25,18 @@ public class Project {
     private String prMasul;
     private String prFormula;
     private String prKomment;
+
     private ObservableList<TovarZakaz> projectZakazList;
 
 
-    public Project(int tr_pr, LocalDateTime boshlanganVaqt, boolean prIsImportant, boolean prIsShoshilinch,
+    public Project(int numPr, LocalDateTime boshlanganVaqt, boolean prIsImportant,
+                   boolean prIsShoshilinch,
                    String prNomi, String prKlient, String prKMP_komp, String prRaxbar,
                    String prMasul, LocalDateTime tugashVaqti,
-                   String prFormula, String prKomment, String prKritgan, ObservableList<TovarZakaz> projectZakazList ) {
+                   String prFormula, String prKomment, String prKritgan,
+                   ObservableList<TovarZakaz> projectZakazList ) {
 
-        this.tr_pr = tr_pr;
+        this.numPr = numPr;
         this.boshlanganVaqt = boshlanganVaqt;
         this.prIsImportant = prIsImportant;
         this.prIsShoshilinch = prIsShoshilinch;

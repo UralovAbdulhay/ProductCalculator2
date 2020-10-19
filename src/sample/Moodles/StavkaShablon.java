@@ -6,7 +6,8 @@ public class StavkaShablon {
     private String komment;
     private String kod;
 
-    StavkaShablon(String nomi, double qiymat, String komment, String kod) {
+   public StavkaShablon( String nomi, double qiymat,
+                  String komment, String kod) {
         this.nomi = nomi;
         this.qiymat = qiymat;
         this.komment = komment;

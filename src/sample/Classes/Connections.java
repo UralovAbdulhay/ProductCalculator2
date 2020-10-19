@@ -2,10 +2,7 @@ package sample.Classes;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import sample.Moodles.Client;
-import sample.Moodles.Maker;
-import sample.Moodles.PriseList;
-import sample.Moodles.Tovar;
+import sample.Moodles.*;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -14,11 +11,11 @@ import java.time.format.DateTimeFormatter;
 
 public class Connections {
 
-   private Connection con = null;
-   private Statement statement = null;
-   private ResultSet resultSet = null;
-   private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-   private DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    private Connection con = null;
+    private Statement statement = null;
+    private ResultSet resultSet = null;
+    private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    private DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     private String dataBase = "baza/colcul.db";
 
 
@@ -76,16 +73,66 @@ public class Connections {
         return list;
     }
 
-    public void getXodimlarFromSql() {
-
+    public ObservableList<Xodimlar> getXodimlarFromSql() {
+        ObservableList<Xodimlar> list = FXCollections.observableArrayList();
+        ResultSet resultSet = selectAllFromSql("xodimlar");
+        try {
+            while (resultSet.next()) {
+                list.add(new Xodimlar(
+                        resultSet.getInt("id"),
+                        resultSet.getString("first_name"),
+                        resultSet.getString("sure_name"),
+                        resultSet.getString("last_name"),
+                        LocalDate.parse(resultSet.getString("birth_day"), dateFormatter),
+                        LocalDate.parse(resultSet.getString("come_day"), dateFormatter),
+                        resultSet.getString("lavozim")
+                ));
+            }
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 
-    public void getStavkaFromSql() {
-
+    public ObservableList<StavkaShablon> getStavkaFromSql() {
+        ObservableList<StavkaShablon> list = FXCollections.observableArrayList();
+        ResultSet resultSet = selectAllFromSql("stavka");
+        try {
+            while (resultSet.next()) {
+                list.add(new StavkaShablon(
+                        resultSet.getString("name"),
+                        resultSet.getDouble("qiymat"),
+                        resultSet.getString("komment"),
+                        resultSet.getString("kod")
+                        ));
+            }
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 
-    public void getProjectFromSql() {
+    public ObservableList<Project> getProjectFromSql() {
+        ObservableList<Project> list = FXCollections.observableArrayList();
+        ResultSet resultSet = selectAllFromSql("project");
 
+        try {
+            while (resultSet.next()) {
+                list.add(new Project(
+                        resultSet.getInt("id"),
+                        resultSet.getString("nomer_zakaz"),
+                        resultSet.getDouble("qiymat"),
+                        resultSet.getString("komment"),
+                        resultSet.getString("kod")
+                ));
+            }
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 
     public void getZakazListFromSQL() {
