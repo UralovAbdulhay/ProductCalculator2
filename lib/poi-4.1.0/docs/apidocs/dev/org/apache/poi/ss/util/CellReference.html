@@ -120,7 +120,7 @@ extends java.lang.Object</pre>
   as well, eg "Sheet1!A1" and "$B$72"</p>
   
   <p>Use <tt>CellReference</tt> when the concept of
- relative/absolute does apply (such as a cell reference in a formula).
+ relative/absolute does apply (such as a cell reference in a prFormula).
  Use <a href="../../../../../org/apache/poi/ss/util/CellAddress.html" title="class in org.apache.poi.ss.util"><code>CellAddress</code></a> when you want to refer to the location of a cell in a sheet
  when the concept of relative/absolute does not apply (such as the anchor location 
  of a cell comment).
@@ -212,7 +212,7 @@ extends java.lang.Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/util/CellReference.html#cellReferenceIsWithinRange-java.lang.String-java.lang.String-org.apache.poi.ss.SpreadsheetVersion-">cellReferenceIsWithinRange</a></span>(java.lang.String&nbsp;colStr,
                           java.lang.String&nbsp;rowStr,
                           <a href="../../../../../org/apache/poi/ss/SpreadsheetVersion.html" title="enum in org.apache.poi.ss">SpreadsheetVersion</a>&nbsp;ssVersion)</code>
-<div class="block">Used to decide whether a name of the form "[A-Z]*[0-9]*" that appears in a formula can be
+<div class="block">Used to decide whether a name of the form "[A-Z]*[0-9]*" that appears in a prFormula can be
  interpreted as a cell reference.</div>
 </td>
 </tr>
@@ -505,7 +505,7 @@ extends java.lang.Object</pre>
 <pre>public static&nbsp;boolean&nbsp;cellReferenceIsWithinRange(java.lang.String&nbsp;colStr,
                                                  java.lang.String&nbsp;rowStr,
                                                  <a href="../../../../../org/apache/poi/ss/SpreadsheetVersion.html" title="enum in org.apache.poi.ss">SpreadsheetVersion</a>&nbsp;ssVersion)</pre>
-<div class="block">Used to decide whether a name of the form "[A-Z]*[0-9]*" that appears in a formula can be
+<div class="block">Used to decide whether a name of the form "[A-Z]*[0-9]*" that appears in a prFormula can be
  interpreted as a cell reference.  Names of that form can be also used for sheets and/or
  named ranges, and in those circumstances, the question of whether the potential cell
  reference is valid (in range) becomes important.
@@ -620,7 +620,7 @@ extends java.lang.Object</pre>
         </table></div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the text representation of this cell reference as it would appear in a formula.</dd>
+<dd>the text representation of this cell reference as it would appear in a prFormula.</dd>
 </dl>
 </li>
 </ul>

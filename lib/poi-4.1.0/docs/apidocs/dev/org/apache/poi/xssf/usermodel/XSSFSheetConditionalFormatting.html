@@ -192,9 +192,9 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/SheetConditionalF
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/poi/xssf/usermodel/XSSFConditionalFormattingRule.html" title="class in org.apache.poi.xssf.usermodel">XSSFConditionalFormattingRule</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/XSSFSheetConditionalFormatting.html#createConditionalFormattingRule-byte-java.lang.String-">createConditionalFormattingRule</a></span>(byte&nbsp;comparisonOperation,
-                               java.lang.String&nbsp;formula)</code>
+                               java.lang.String&nbsp;prFormula)</code>
 <div class="block">Create a conditional formatting rule that compares a cell value
- to a formula calculated result, using an operator     *</div>
+ to a prFormula calculated result, using an operator     *</div>
 </td>
 </tr>
 <tr id="i6" class="altColor">
@@ -221,8 +221,8 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/SheetConditionalF
 </tr>
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/poi/xssf/usermodel/XSSFConditionalFormattingRule.html" title="class in org.apache.poi.xssf.usermodel">XSSFConditionalFormattingRule</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/XSSFSheetConditionalFormatting.html#createConditionalFormattingRule-java.lang.String-">createConditionalFormattingRule</a></span>(java.lang.String&nbsp;formula)</code>
-<div class="block">A factory method allowing to create a conditional formatting rule with a formula.<br></div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/XSSFSheetConditionalFormatting.html#createConditionalFormattingRule-java.lang.String-">createConditionalFormattingRule</a></span>(java.lang.String&nbsp;prFormula)</code>
+<div class="block">A factory method allowing to create a conditional formatting rule with a prFormula.<br></div>
 </td>
 </tr>
 <tr id="i10" class="altColor">
@@ -320,8 +320,8 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/SheetConditionalF
                  <li>LE</li>
  </ul>
  </p></dd>
-<dd><code>formula1</code> - - formula for the valued, compared with the cell</dd>
-<dd><code>formula2</code> - - second formula (only used with
+<dd><code>formula1</code> - - prFormula for the valued, compared with the cell</dd>
+<dd><code>formula2</code> - - second prFormula (only used with
  <a href="../../../../../org/apache/poi/ss/usermodel/ComparisonOperator.html#BETWEEN"><code>ComparisonOperator.BETWEEN</code></a>) and
  <a href="../../../../../org/apache/poi/ss/usermodel/ComparisonOperator.html#NOT_BETWEEN"><code>ComparisonOperator.NOT_BETWEEN</code></a> operations)</dd>
 </dl>
@@ -334,10 +334,10 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/SheetConditionalF
 <li class="blockList">
 <h4>createConditionalFormattingRule</h4>
 <pre>public&nbsp;<a href="../../../../../org/apache/poi/xssf/usermodel/XSSFConditionalFormattingRule.html" title="class in org.apache.poi.xssf.usermodel">XSSFConditionalFormattingRule</a>&nbsp;createConditionalFormattingRule(byte&nbsp;comparisonOperation,
-                                                                     java.lang.String&nbsp;formula)</pre>
+                                                                     java.lang.String&nbsp;prFormula)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/poi/ss/usermodel/SheetConditionalFormatting.html#createConditionalFormattingRule-byte-java.lang.String-">SheetConditionalFormatting</a></code></span></div>
 <div class="block">Create a conditional formatting rule that compares a cell value
- to a formula calculated result, using an operator     *
+ to a prFormula calculated result, using an operator     *
  <p>
  The type  of the created condition is <a href="../../../../../org/apache/poi/ss/usermodel/ConditionType.html#CELL_VALUE_IS"><code>ConditionType.CELL_VALUE_IS</code></a>
  </p></div>
@@ -347,7 +347,7 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/SheetConditionalF
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>comparisonOperation</code> - MUST be a constant value from
                  <tt><a href="../../../../../org/apache/poi/ss/usermodel/ComparisonOperator.html" title="class in org.apache.poi.ss.usermodel"><code>ComparisonOperator</code></a></tt> except  BETWEEN and NOT_BETWEEN</dd>
-<dd><code>formula</code> - the formula to determine if the conditional formatting is applied</dd>
+<dd><code>prFormula</code> - the prFormula to determine if the conditional formatting is applied</dd>
 </dl>
 </li>
 </ul>
@@ -357,13 +357,13 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/SheetConditionalF
 <ul class="blockList">
 <li class="blockList">
 <h4>createConditionalFormattingRule</h4>
-<pre>public&nbsp;<a href="../../../../../org/apache/poi/xssf/usermodel/XSSFConditionalFormattingRule.html" title="class in org.apache.poi.xssf.usermodel">XSSFConditionalFormattingRule</a>&nbsp;createConditionalFormattingRule(java.lang.String&nbsp;formula)</pre>
-<div class="block">A factory method allowing to create a conditional formatting rule with a formula.<br></div>
+<pre>public&nbsp;<a href="../../../../../org/apache/poi/xssf/usermodel/XSSFConditionalFormattingRule.html" title="class in org.apache.poi.xssf.usermodel">XSSFConditionalFormattingRule</a>&nbsp;createConditionalFormattingRule(java.lang.String&nbsp;prFormula)</pre>
+<div class="block">A factory method allowing to create a conditional formatting rule with a prFormula.<br></div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../org/apache/poi/ss/usermodel/SheetConditionalFormatting.html#createConditionalFormattingRule-java.lang.String-">createConditionalFormattingRule</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/usermodel/SheetConditionalFormatting.html" title="interface in org.apache.poi.ss.usermodel">SheetConditionalFormatting</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>formula</code> - - formula for the valued, compared with the cell</dd>
+<dd><code>prFormula</code> - - prFormula for the valued, compared with the cell</dd>
 </dl>
 </li>
 </ul>

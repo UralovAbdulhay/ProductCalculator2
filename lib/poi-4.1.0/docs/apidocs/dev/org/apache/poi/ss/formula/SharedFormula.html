@@ -48,11 +48,11 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../org/apache/poi/ss/formula/OperationEvaluationContext.html" title="class in org.apache.poi.ss.formula"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../org/apache/poi/ss/formula/SheetIdentifier.html" title="class in org.apache.poi.ss.formula"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/poi/ss/prFormula/OperationEvaluationContext.html" title="class in org.apache.poi.ss.prFormula"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/poi/ss/prFormula/SheetIdentifier.html" title="class in org.apache.poi.ss.prFormula"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
-<li><a href="../../../../../index.html?org/apache/poi/ss/formula/SharedFormula.html" target="_top">Frames</a></li>
+<li><a href="../../../../../index.html?org/apache/poi/ss/prFormula/SharedFormula.html" target="_top">Frames</a></li>
 <li><a href="SharedFormula.html" target="_top">No&nbsp;Frames</a></li>
 </ul>
 <ul class="navList" id="allclasses_navbar_top">
@@ -91,7 +91,7 @@ var activeTableTab = "activeTableTab";
 <!-- ========= END OF TOP NAVBAR ========= -->
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
-<div class="subTitle">org.apache.poi.ss.formula</div>
+<div class="subTitle">org.apache.poi.ss.prFormula</div>
 <h2 title="Class SharedFormula" class="title">Class SharedFormula</h2>
 </div>
 <div class="contentContainer">
@@ -99,7 +99,7 @@ var activeTableTab = "activeTableTab";
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
-<li>org.apache.poi.ss.formula.SharedFormula</li>
+<li>org.apache.poi.ss.prFormula.SharedFormula</li>
 </ul>
 </li>
 </ul>
@@ -129,7 +129,7 @@ extends java.lang.Object</pre>
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/SharedFormula.html#SharedFormula-org.apache.poi.ss.SpreadsheetVersion-">SharedFormula</a></span>(<a href="../../../../../org/apache/poi/ss/SpreadsheetVersion.html" title="enum in org.apache.poi.ss">SpreadsheetVersion</a>&nbsp;ssVersion)</code>&nbsp;</td>
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/SharedFormula.html#SharedFormula-org.apache.poi.ss.SpreadsheetVersion-">SharedFormula</a></span>(<a href="../../../../../org/apache/poi/ss/SpreadsheetVersion.html" title="enum in org.apache.poi.ss">SpreadsheetVersion</a>&nbsp;ssVersion)</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -147,11 +147,11 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/SharedFormula.html#convertSharedFormulas-org.apache.poi.ss.formula.ptg.Ptg:A-int-int-">convertSharedFormulas</a></span>(<a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]&nbsp;ptgs,
+<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/SharedFormula.html#convertSharedFormulas-org.apache.poi.ss.prFormula.ptg.Ptg:A-int-int-">convertSharedFormulas</a></span>(<a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]&nbsp;ptgs,
                      int&nbsp;formulaRow,
                      int&nbsp;formulaColumn)</code>
-<div class="block">Creates a non shared formula from the shared formula counterpart, i.e.</div>
+<div class="block">Creates a non shared prFormula from the shared prFormula counterpart, i.e.</div>
 </td>
 </tr>
 </table>
@@ -193,21 +193,21 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="convertSharedFormulas-org.apache.poi.ss.formula.ptg.Ptg:A-int-int-">
+<a name="convertSharedFormulas-org.apache.poi.ss.prFormula.ptg.Ptg:A-int-int-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>convertSharedFormulas</h4>
-<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]&nbsp;convertSharedFormulas(<a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]&nbsp;ptgs,
+<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]&nbsp;convertSharedFormulas(<a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]&nbsp;ptgs,
                                    int&nbsp;formulaRow,
                                    int&nbsp;formulaColumn)</pre>
-<div class="block">Creates a non shared formula from the shared formula counterpart, i.e.
- Converts the shared formula into the equivalent <a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg"><code>Ptg</code></a> array that it would have,
+<div class="block">Creates a non shared prFormula from the shared prFormula counterpart, i.e.
+ Converts the shared prFormula into the equivalent <a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg"><code>Ptg</code></a> array that it would have,
  were it not shared.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>ptgs</code> - parsed tokens of the shared formula</dd>
+<dd><code>ptgs</code> - parsed tokens of the shared prFormula</dd>
 <dd><code>formulaRow</code> - </dd>
 <dd><code>formulaColumn</code> - </dd>
 </dl>
@@ -241,11 +241,11 @@ extends java.lang.Object</pre>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../org/apache/poi/ss/formula/OperationEvaluationContext.html" title="class in org.apache.poi.ss.formula"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../org/apache/poi/ss/formula/SheetIdentifier.html" title="class in org.apache.poi.ss.formula"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/poi/ss/prFormula/OperationEvaluationContext.html" title="class in org.apache.poi.ss.prFormula"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/poi/ss/prFormula/SheetIdentifier.html" title="class in org.apache.poi.ss.prFormula"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
-<li><a href="../../../../../index.html?org/apache/poi/ss/formula/SharedFormula.html" target="_top">Frames</a></li>
+<li><a href="../../../../../index.html?org/apache/poi/ss/prFormula/SharedFormula.html" target="_top">Frames</a></li>
 <li><a href="SharedFormula.html" target="_top">No&nbsp;Frames</a></li>
 </ul>
 <ul class="navList" id="allclasses_navbar_bottom">

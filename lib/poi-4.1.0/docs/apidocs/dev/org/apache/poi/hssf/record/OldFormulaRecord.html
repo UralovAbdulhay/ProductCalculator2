@@ -115,7 +115,7 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public final class <span class="typeNameLabel">OldFormulaRecord</span>
 extends <a href="../../../../../org/apache/poi/hssf/record/OldCellRecord.html" title="class in org.apache.poi.hssf.record">OldCellRecord</a></pre>
-<div class="block">Formula Record (0x0006 / 0x0206 / 0x0406) - holds a formula in
+<div class="block">Formula Record (0x0006 / 0x0206 / 0x0406) - holds a prFormula in
   encoded form, along with the value if a number</div>
 </li>
 </ul>
@@ -203,7 +203,7 @@ extends <a href="../../../../../org/apache/poi/hssf/record/OldCellRecord.html" t
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/record/OldFormulaRecord.html#getCachedResultType--">getCachedResultType</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/formula/Formula.html" title="class in org.apache.poi.ss.formula">Formula</a></code></td>
+<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/prFormula/Formula.html" title="class in org.apache.poi.ss.prFormula">Formula</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/record/OldFormulaRecord.html#getFormula--">getFormula</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
@@ -213,7 +213,7 @@ extends <a href="../../../../../org/apache/poi/hssf/record/OldCellRecord.html" t
 </td>
 </tr>
 <tr id="i6" class="altColor">
-<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]</code></td>
+<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/record/OldFormulaRecord.html#getParsedExpression--">getParsedExpression</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i7" class="rowColor">
@@ -225,7 +225,7 @@ extends <a href="../../../../../org/apache/poi/hssf/record/OldCellRecord.html" t
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>double</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/record/OldFormulaRecord.html#getValue--">getValue</a></span>()</code>
-<div class="block">get the calculated value of the formula</div>
+<div class="block">get the calculated value of the prFormula</div>
 </td>
 </tr>
 </table>
@@ -368,7 +368,7 @@ extends <a href="../../../../../org/apache/poi/hssf/record/OldCellRecord.html" t
 <li class="blockList">
 <h4>getValue</h4>
 <pre>public&nbsp;double&nbsp;getValue()</pre>
-<div class="block">get the calculated value of the formula</div>
+<div class="block">get the calculated value of the prFormula</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>calculated value</dd>
@@ -395,10 +395,10 @@ extends <a href="../../../../../org/apache/poi/hssf/record/OldCellRecord.html" t
 <ul class="blockList">
 <li class="blockList">
 <h4>getParsedExpression</h4>
-<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]&nbsp;getParsedExpression()</pre>
+<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]&nbsp;getParsedExpression()</pre>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the formula tokens. never <code>null</code></dd>
+<dd>the prFormula tokens. never <code>null</code></dd>
 </dl>
 </li>
 </ul>
@@ -408,7 +408,7 @@ extends <a href="../../../../../org/apache/poi/hssf/record/OldCellRecord.html" t
 <ul class="blockList">
 <li class="blockList">
 <h4>getFormula</h4>
-<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/formula/Formula.html" title="class in org.apache.poi.ss.formula">Formula</a>&nbsp;getFormula()</pre>
+<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/prFormula/Formula.html" title="class in org.apache.poi.ss.prFormula">Formula</a>&nbsp;getFormula()</pre>
 </li>
 </ul>
 <a name="appendValueText-java.lang.StringBuilder-">

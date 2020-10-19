@@ -48,11 +48,11 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../org/apache/poi/ss/formula/EvaluationName.html" title="interface in org.apache.poi.ss.formula"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.formula"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationName.html" title="interface in org.apache.poi.ss.prFormula"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.prFormula"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
-<li><a href="../../../../../index.html?org/apache/poi/ss/formula/EvaluationSheet.html" target="_top">Frames</a></li>
+<li><a href="../../../../../index.html?org/apache/poi/ss/prFormula/EvaluationSheet.html" target="_top">Frames</a></li>
 <li><a href="EvaluationSheet.html" target="_top">No&nbsp;Frames</a></li>
 </ul>
 <ul class="navList" id="allclasses_navbar_top">
@@ -91,7 +91,7 @@ var activeTableTab = "activeTableTab";
 <!-- ========= END OF TOP NAVBAR ========= -->
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
-<div class="subTitle">org.apache.poi.ss.formula</div>
+<div class="subTitle">org.apache.poi.ss.prFormula</div>
 <h2 title="Interface EvaluationSheet" class="title">Interface EvaluationSheet</h2>
 </div>
 <div class="contentContainer">
@@ -102,7 +102,7 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre><a href="../../../../../org/apache/poi/util/Internal.html" title="annotation in org.apache.poi.util">@Internal</a>
 public interface <span class="typeNameLabel">EvaluationSheet</span></pre>
-<div class="block">Abstracts a sheet for the purpose of formula evaluation.<br>
+<div class="block">Abstracts a sheet for the purpose of prFormula evaluation.<br>
  
  For POI internal use only</div>
 <dl>
@@ -129,22 +129,22 @@ public interface <span class="typeNameLabel">EvaluationSheet</span></pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/EvaluationSheet.html#clearAllCachedResultValues--">clearAllCachedResultValues</a></span>()</code>
-<div class="block">Propagated from <a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#clearAllCachedResultValues--"><code>EvaluationWorkbook.clearAllCachedResultValues()</code></a> to clear locally cached data.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationSheet.html#clearAllCachedResultValues--">clearAllCachedResultValues</a></span>()</code>
+<div class="block">Propagated from <a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html#clearAllCachedResultValues--"><code>EvaluationWorkbook.clearAllCachedResultValues()</code></a> to clear locally cached data.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/formula/EvaluationCell.html" title="interface in org.apache.poi.ss.formula">EvaluationCell</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/EvaluationSheet.html#getCell-int-int-">getCell</a></span>(int&nbsp;rowIndex,
+<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationCell.html" title="interface in org.apache.poi.ss.prFormula">EvaluationCell</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationSheet.html#getCell-int-int-">getCell</a></span>(int&nbsp;rowIndex,
        int&nbsp;columnIndex)</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/EvaluationSheet.html#getLastRowNum--">getLastRowNum</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationSheet.html#getLastRowNum--">getLastRowNum</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/EvaluationSheet.html#isRowHidden-int-">isRowHidden</a></span>(int&nbsp;rowIndex)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationSheet.html#isRowHidden-int-">isRowHidden</a></span>(int&nbsp;rowIndex)</code>
 <div class="block">Used by SUBTOTAL and similar functions that have options to ignore hidden rows</div>
 </td>
 </tr>
@@ -169,7 +169,7 @@ public interface <span class="typeNameLabel">EvaluationSheet</span></pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getCell</h4>
-<pre><a href="../../../../../org/apache/poi/ss/formula/EvaluationCell.html" title="interface in org.apache.poi.ss.formula">EvaluationCell</a>&nbsp;getCell(int&nbsp;rowIndex,
+<pre><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationCell.html" title="interface in org.apache.poi.ss.prFormula">EvaluationCell</a>&nbsp;getCell(int&nbsp;rowIndex,
                        int&nbsp;columnIndex)</pre>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -184,13 +184,13 @@ public interface <span class="typeNameLabel">EvaluationSheet</span></pre>
 <li class="blockList">
 <h4>clearAllCachedResultValues</h4>
 <pre>void&nbsp;clearAllCachedResultValues()</pre>
-<div class="block">Propagated from <a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#clearAllCachedResultValues--"><code>EvaluationWorkbook.clearAllCachedResultValues()</code></a> to clear locally cached data.</div>
+<div class="block">Propagated from <a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html#clearAllCachedResultValues--"><code>EvaluationWorkbook.clearAllCachedResultValues()</code></a> to clear locally cached data.</div>
 <dl>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>POI 3.15 beta 3</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../../../org/apache/poi/ss/formula/WorkbookEvaluator.html#clearAllCachedResultValues--"><code>WorkbookEvaluator.clearAllCachedResultValues()</code></a>, 
-<a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#clearAllCachedResultValues--"><code>EvaluationWorkbook.clearAllCachedResultValues()</code></a></dd>
+<dd><a href="../../../../../org/apache/poi/ss/prFormula/WorkbookEvaluator.html#clearAllCachedResultValues--"><code>WorkbookEvaluator.clearAllCachedResultValues()</code></a>,
+<a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html#clearAllCachedResultValues--"><code>EvaluationWorkbook.clearAllCachedResultValues()</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -255,11 +255,11 @@ public interface <span class="typeNameLabel">EvaluationSheet</span></pre>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../org/apache/poi/ss/formula/EvaluationName.html" title="interface in org.apache.poi.ss.formula"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.formula"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationName.html" title="interface in org.apache.poi.ss.prFormula"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.prFormula"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
-<li><a href="../../../../../index.html?org/apache/poi/ss/formula/EvaluationSheet.html" target="_top">Frames</a></li>
+<li><a href="../../../../../index.html?org/apache/poi/ss/prFormula/EvaluationSheet.html" target="_top">Frames</a></li>
 <li><a href="EvaluationSheet.html" target="_top">No&nbsp;Frames</a></li>
 </ul>
 <ul class="navList" id="allclasses_navbar_bottom">

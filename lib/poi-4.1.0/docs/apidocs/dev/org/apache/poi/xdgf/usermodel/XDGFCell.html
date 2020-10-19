@@ -117,7 +117,7 @@ extends java.lang.Object</pre>
  The various attributes of a Cell are constrained, and are better defined in
  the XSD 1.1 visio schema
  
- Values of a cell are often the result of a formula computation. Luckily for
+ Values of a cell are often the result of a prFormula computation. Luckily for
  you, Visio seems to always write the result to the document file, so unless
  the values change we don't need to recompute the values.</div>
 </li>
@@ -162,7 +162,7 @@ extends java.lang.Object</pre>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xdgf/usermodel/XDGFCell.html#getFormula--">getFormula</a></span>()</code>
-<div class="block">Represents the element's formula.</div>
+<div class="block">Represents the element's prFormula.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
@@ -362,9 +362,9 @@ protected&nbsp;com.microsoft.schemas.office.visio.x2012.main.CellType&nbsp;getXm
 <li class="blockList">
 <h4>getFormula</h4>
 <pre>public&nbsp;java.lang.String&nbsp;getFormula()</pre>
-<div class="block">Represents the element's formula. This attribute can contain one of the
- following strings: - '(some formula)' if the formula exists locally - No
- Formula if the formula is locally deleted or blocked - Inh if the formula
+<div class="block">Represents the element's prFormula. This attribute can contain one of the
+ following strings: - '(some prFormula)' if the prFormula exists locally - No
+ Formula if the prFormula is locally deleted or blocked - Inh if the prFormula
  is inherited.</div>
 </li>
 </ul>

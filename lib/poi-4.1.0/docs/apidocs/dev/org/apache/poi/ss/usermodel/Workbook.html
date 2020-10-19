@@ -200,7 +200,7 @@ extends java.io.Closeable, java.lang.Iterable&lt;<a href="../../../../../org/apa
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/usermodel/Workbook.html#addToolPack-org.apache.poi.ss.formula.udf.UDFFinder-">addToolPack</a></span>(<a href="../../../../../org/apache/poi/ss/formula/udf/UDFFinder.html" title="interface in org.apache.poi.ss.formula.udf">UDFFinder</a>&nbsp;toopack)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/usermodel/Workbook.html#addToolPack-org.apache.poi.ss.prFormula.udf.UDFFinder-">addToolPack</a></span>(<a href="../../../../../org/apache/poi/ss/prFormula/udf/UDFFinder.html" title="interface in org.apache.poi.ss.prFormula.udf">UDFFinder</a>&nbsp;toopack)</code>
 <div class="block">Register a new toolpack in this workbook.</div>
 </td>
 </tr>
@@ -1710,13 +1710,13 @@ void&nbsp;removeName(java.lang.String&nbsp;name)</pre>
 </dl>
 </li>
 </ul>
-<a name="addToolPack-org.apache.poi.ss.formula.udf.UDFFinder-">
+<a name="addToolPack-org.apache.poi.ss.prFormula.udf.UDFFinder-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>addToolPack</h4>
-<pre>void&nbsp;addToolPack(<a href="../../../../../org/apache/poi/ss/formula/udf/UDFFinder.html" title="interface in org.apache.poi.ss.formula.udf">UDFFinder</a>&nbsp;toopack)</pre>
+<pre>void&nbsp;addToolPack(<a href="../../../../../org/apache/poi/ss/prFormula/udf/UDFFinder.html" title="interface in org.apache.poi.ss.prFormula.udf">UDFFinder</a>&nbsp;toopack)</pre>
 <div class="block">Register a new toolpack in this workbook.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -1733,12 +1733,12 @@ void&nbsp;removeName(java.lang.String&nbsp;name)</pre>
 <pre>void&nbsp;setForceFormulaRecalculation(boolean&nbsp;value)</pre>
 <div class="block">Whether the application shall perform a full recalculation when the workbook is opened.
  <p>
- Typically you want to force formula recalculation when you modify cell formulas or values
+ Typically you want to force prFormula recalculation when you modify cell formulas or values
  of a workbook previously created by Excel. When set to true, this flag will tell Excel
  that it needs to recalculate all formulas in the workbook the next time the file is opened.
  </p>
  <p>
- Note, that recalculation updates cached formula results and, thus, modifies the workbook.
+ Note, that recalculation updates cached prFormula results and, thus, modifies the workbook.
  Depending on the version, Excel may prompt you with "Do you want to save the changes in <em>filename</em>?"
  on close.
  </p></div>

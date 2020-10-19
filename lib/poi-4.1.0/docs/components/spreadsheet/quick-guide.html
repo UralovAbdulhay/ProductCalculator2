@@ -128,7 +128,7 @@ document.write("Last Published: " + document.lastModified);
 <a href="../../components/spreadsheet/converting.html">HSSF to SS Converting</a>
 </div>
 <div class="menuitem">
-<a href="../../components/spreadsheet/formula.html">Formula Support</a>
+<a href="../../components/spreadsheet/prFormula.html">Formula Support</a>
 </div>
 <div class="menuitem">
 <a href="../../components/spreadsheet/eval.html">Formula Evaluation</a>
@@ -1622,7 +1622,7 @@ Examples:
                         Because of this constraint we've had to implement the concept of a
                         verticalPointsPerPixel.  This the amount the font should be scaled by when
                         you issue commands such as drawString().  To calculate this value
-                        use the follow formula:
+                        use the follow prFormula:
                     </p>
 <pre class="code">
     multipler = groupHeightInPoints / heightOfGroup
@@ -1819,7 +1819,7 @@ Examples:
     reference = sname+"!$A$1:$C$5"; // area reference
     namedCel3.setRefersToFormula(reference);
 
-    // 4. create named formula
+    // 4. create named prFormula
     Name namedCel4 = wb.createName();
     namedCel4.setNameName("my_sum");
     namedCel4.setRefersToFormula("SUM(" + sname + "!$I$2:$I$6)");
@@ -2007,8 +2007,8 @@ Examples:
     sheet.autoSizeColumn(1);
     </pre>
 <p>
-      Note, that Sheet#autoSizeColumn() does not evaluate formula cells, 
-      the width of formula cells is calculated based on the cached formula result.
+      Note, that Sheet#autoSizeColumn() does not evaluate prFormula cells,
+      the width of prFormula cells is calculated based on the cached prFormula result.
       If your workbook has many formulas then it is a good idea to evaluate them before auto-sizing.
     </p>
 <div class="warning">
@@ -2176,7 +2176,7 @@ Examples:
     DVConstraint.OperatorType.BETWEEN, "10", "100");
         </pre>
 <p>Look at the javadoc for the other validation and operator types; also note that not all validation 
-          types are supported for this method. The values passed to the two String parameters can be formulas; the '=' symbol is used to denote a formula</p>
+          types are supported for this method. The values passed to the two String parameters can be formulas; the '=' symbol is used to denote a prFormula</p>
 <pre class="code">
   dvConstraint = DVConstraint.createNumericConstraint(
     DVConstraint.ValidationType.INTEGER,
@@ -2204,7 +2204,7 @@ Examples:
       </pre>
 <p>and in both cases the user will be able to select from a drop down list containing the values from cells A1, A2 and A3.</p>
 <p>The data does not have to be as the data validation. To select the data from a different sheet however, the sheet 
-        must be given a name when created and that name should be used in the formula. So assuming the existence of a sheet named 'Data Sheet' this will work:</p>
+        must be given a name when created and that name should be used in the prFormula. So assuming the existence of a sheet named 'Data Sheet' this will work:</p>
 <pre class="code">
   Name namedRange = workbook.createName();
   namedRange.setNameName("list1");
@@ -2301,7 +2301,7 @@ an integer between 10 and 100, use the XSSFDataValidationHelper(s) createNumeric
       "10", "100");
 </pre>
 <p>
-The values passed to the final two String parameters can be formulas; the '=' symbol is used to denote a formula.
+The values passed to the final two String parameters can be formulas; the '=' symbol is used to denote a prFormula.
 Thus, the following would create a validation the allows values only if they fall between the results of summing two cell ranges
 </p>
 <pre class="code">
@@ -2318,13 +2318,13 @@ the setSuppressDropDownArrow(true) method call will simply be ignored.
 <p>
 Please check the javadoc for other constraint types as examples for those will not be included here.
 There are, for example, methods defined on the XSSFDataValidationHelper class allowing you to create
-the following types of constraint; date, time, decimal, integer, numeric, formula, text length and custom constraints.
+the following types of constraint; date, time, decimal, integer, numeric, prFormula, text length and custom constraints.
 </p>
 <p>
 <strong>Creating Data Validations From Spread Sheet Cells:</strong>
 </p>
 <p>
-One other type of constraint not mentioned above is the formula list constraint. 
+One other type of constraint not mentioned above is the prFormula list constraint.
 It allows you to create a validation that takes it value(s) from a range of cells. This code
 </p>
 <pre class="code">

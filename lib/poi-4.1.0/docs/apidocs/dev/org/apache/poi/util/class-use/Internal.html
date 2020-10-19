@@ -236,13 +236,13 @@
 </td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><a href="#org.apache.poi.ss.formula">org.apache.poi.ss.formula</a></td>
+<td class="colFirst"><a href="#org.apache.poi.ss.prFormula">org.apache.poi.ss.prFormula</a></td>
 <td class="colLast">
 <div class="block">This package contains common internal POI code for manipulating formulas.</div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><a href="#org.apache.poi.ss.formula.udf">org.apache.poi.ss.formula.udf</a></td>
+<td class="colFirst"><a href="#org.apache.poi.ss.prFormula.udf">org.apache.poi.ss.prFormula.udf</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
@@ -788,7 +788,7 @@ for streaming/read-only processing of xlsb files.</div>
 <tr class="altColor">
 <td class="colFirst"><code>class&nbsp;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/model/HSSFFormulaParser.html" title="class in org.apache.poi.hssf.model">HSSFFormulaParser</a></span></code>
-<div class="block">HSSF wrapper for the <a href="../../../../../org/apache/poi/ss/formula/FormulaParser.html" title="class in org.apache.poi.ss.formula"><code>FormulaParser</code></a> and <a href="../../../../../org/apache/poi/ss/formula/FormulaRenderer.html" title="class in org.apache.poi.ss.formula"><code>FormulaRenderer</code></a></div>
+<div class="block">HSSF wrapper for the <a href="../../../../../org/apache/poi/ss/prFormula/FormulaParser.html" title="class in org.apache.poi.ss.prFormula"><code>FormulaParser</code></a> and <a href="../../../../../org/apache/poi/ss/prFormula/FormulaRenderer.html" title="class in org.apache.poi.ss.prFormula"><code>FormulaRenderer</code></a></div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -10819,12 +10819,12 @@ for streaming/read-only processing of xlsb files.</div>
 </tbody>
 </table>
 </li>
-<li class="blockList"><a name="org.apache.poi.ss.formula">
+<li class="blockList"><a name="org.apache.poi.ss.prFormula">
 <!--   -->
 </a>
-<h3>Uses of <a href="../../../../../org/apache/poi/util/Internal.html" title="annotation in org.apache.poi.util">Internal</a> in <a href="../../../../../org/apache/poi/ss/formula/package-summary.html">org.apache.poi.ss.formula</a></h3>
+<h3>Uses of <a href="../../../../../org/apache/poi/util/Internal.html" title="annotation in org.apache.poi.util">Internal</a> in <a href="../../../../../org/apache/poi/ss/prFormula/package-summary.html">org.apache.poi.ss.prFormula</a></h3>
 <table class="useSummary" border="0" cellpadding="3" cellspacing="0" summary="Use table, listing classes, and an explanation">
-<caption><span>Classes in <a href="../../../../../org/apache/poi/ss/formula/package-summary.html">org.apache.poi.ss.formula</a> with annotations of type <a href="../../../../../org/apache/poi/util/Internal.html" title="annotation in org.apache.poi.util">Internal</a></span><span class="tabEnd">&nbsp;</span></caption>
+<caption><span>Classes in <a href="../../../../../org/apache/poi/ss/prFormula/package-summary.html">org.apache.poi.ss.prFormula</a> with annotations of type <a href="../../../../../org/apache/poi/util/Internal.html" title="annotation in org.apache.poi.util">Internal</a></span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Class and Description</th>
@@ -10832,43 +10832,43 @@ for streaming/read-only processing of xlsb files.</div>
 <tbody>
 <tr class="altColor">
 <td class="colFirst"><code>class&nbsp;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/CollaboratingWorkbooksEnvironment.html" title="class in org.apache.poi.ss.formula">CollaboratingWorkbooksEnvironment</a></span></code>
-<div class="block">Manages a collection of <a href="../../../../../org/apache/poi/ss/formula/WorkbookEvaluator.html" title="class in org.apache.poi.ss.formula"><code>WorkbookEvaluator</code></a>s, in order to support 
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/CollaboratingWorkbooksEnvironment.html" title="class in org.apache.poi.ss.prFormula">CollaboratingWorkbooksEnvironment</a></span></code>
+<div class="block">Manages a collection of <a href="../../../../../org/apache/poi/ss/prFormula/WorkbookEvaluator.html" title="class in org.apache.poi.ss.prFormula"><code>WorkbookEvaluator</code></a>s, in order to support
  evaluation of formulas across spreadsheets.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>interface&nbsp;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/EvaluationSheet.html" title="interface in org.apache.poi.ss.formula">EvaluationSheet</a></span></code>
-<div class="block">Abstracts a sheet for the purpose of formula evaluation.<br>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationSheet.html" title="interface in org.apache.poi.ss.prFormula">EvaluationSheet</a></span></code>
+<div class="block">Abstracts a sheet for the purpose of prFormula evaluation.<br>
  
  For POI internal use only</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>interface&nbsp;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.formula">EvaluationWorkbook</a></span></code>
-<div class="block">Abstracts a workbook for the purpose of formula evaluation.<br>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.prFormula">EvaluationWorkbook</a></span></code>
+<div class="block">Abstracts a workbook for the purpose of prFormula evaluation.<br>
 
  For POI internal use only</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>class&nbsp;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/FormulaParser.html" title="class in org.apache.poi.ss.formula">FormulaParser</a></span></code>
-<div class="block">This class parses a formula string into a List of tokens in RPN order.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParser.html" title="class in org.apache.poi.ss.prFormula">FormulaParser</a></span></code>
+<div class="block">This class parses a prFormula string into a List of tokens in RPN order.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>class&nbsp;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/FormulaType.html" title="enum in org.apache.poi.ss.formula">FormulaType</a></span></code>
-<div class="block">Enumeration of various formula types.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/FormulaType.html" title="enum in org.apache.poi.ss.prFormula">FormulaType</a></span></code>
+<div class="block">Enumeration of various prFormula types.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>class&nbsp;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/WorkbookEvaluator.html" title="class in org.apache.poi.ss.formula">WorkbookEvaluator</a></span></code>
-<div class="block">Evaluates formula cells.<p/>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/WorkbookEvaluator.html" title="class in org.apache.poi.ss.prFormula">WorkbookEvaluator</a></span></code>
+<div class="block">Evaluates prFormula cells.<p/>
 
  For performance reasons, this class keeps a cache of all previously calculated intermediate
  cell values.</div>
@@ -10876,20 +10876,20 @@ for streaming/read-only processing of xlsb files.</div>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>interface&nbsp;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/WorkbookEvaluatorProvider.html" title="interface in org.apache.poi.ss.formula">WorkbookEvaluatorProvider</a></span></code>
-<div class="block">Provides access to a <a href="../../../../../org/apache/poi/ss/formula/WorkbookEvaluator.html" title="class in org.apache.poi.ss.formula"><code>WorkbookEvaluator</code></a>, eg for use with
-  <a href="../../../../../org/apache/poi/ss/formula/CollaboratingWorkbooksEnvironment.html" title="class in org.apache.poi.ss.formula"><code>CollaboratingWorkbooksEnvironment</code></a></div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/WorkbookEvaluatorProvider.html" title="interface in org.apache.poi.ss.prFormula">WorkbookEvaluatorProvider</a></span></code>
+<div class="block">Provides access to a <a href="../../../../../org/apache/poi/ss/prFormula/WorkbookEvaluator.html" title="class in org.apache.poi.ss.prFormula"><code>WorkbookEvaluator</code></a>, eg for use with
+  <a href="../../../../../org/apache/poi/ss/prFormula/CollaboratingWorkbooksEnvironment.html" title="class in org.apache.poi.ss.prFormula"><code>CollaboratingWorkbooksEnvironment</code></a></div>
 </td>
 </tr>
 </tbody>
 </table>
 </li>
-<li class="blockList"><a name="org.apache.poi.ss.formula.udf">
+<li class="blockList"><a name="org.apache.poi.ss.prFormula.udf">
 <!--   -->
 </a>
-<h3>Uses of <a href="../../../../../org/apache/poi/util/Internal.html" title="annotation in org.apache.poi.util">Internal</a> in <a href="../../../../../org/apache/poi/ss/formula/udf/package-summary.html">org.apache.poi.ss.formula.udf</a></h3>
+<h3>Uses of <a href="../../../../../org/apache/poi/util/Internal.html" title="annotation in org.apache.poi.util">Internal</a> in <a href="../../../../../org/apache/poi/ss/prFormula/udf/package-summary.html">org.apache.poi.ss.prFormula.udf</a></h3>
 <table class="useSummary" border="0" cellpadding="3" cellspacing="0" summary="Use table, listing classes, and an explanation">
-<caption><span>Classes in <a href="../../../../../org/apache/poi/ss/formula/udf/package-summary.html">org.apache.poi.ss.formula.udf</a> with annotations of type <a href="../../../../../org/apache/poi/util/Internal.html" title="annotation in org.apache.poi.util">Internal</a></span><span class="tabEnd">&nbsp;</span></caption>
+<caption><span>Classes in <a href="../../../../../org/apache/poi/ss/prFormula/udf/package-summary.html">org.apache.poi.ss.prFormula.udf</a> with annotations of type <a href="../../../../../org/apache/poi/util/Internal.html" title="annotation in org.apache.poi.util">Internal</a></span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Class and Description</th>
@@ -10897,7 +10897,7 @@ for streaming/read-only processing of xlsb files.</div>
 <tbody>
 <tr class="altColor">
 <td class="colFirst"><code>class&nbsp;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/udf/IndexedUDFFinder.html" title="class in org.apache.poi.ss.formula.udf">IndexedUDFFinder</a></span></code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/udf/IndexedUDFFinder.html" title="class in org.apache.poi.ss.prFormula.udf">IndexedUDFFinder</a></span></code>
 <div class="block">A UDFFinder that can retrieve functions both by name and by fake index.</div>
 </td>
 </tr>
@@ -12167,7 +12167,7 @@ for streaming/read-only processing of xlsb files.</div>
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="typeNameLabel">XSSFCell.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/XSSFCell.html#copyCellFrom-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.usermodel.CellCopyPolicy-">copyCellFrom</a></span>(<a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;srcCell,
             <a href="../../../../../org/apache/poi/ss/usermodel/CellCopyPolicy.html" title="class in org.apache.poi.ss.usermodel">CellCopyPolicy</a>&nbsp;policy)</code>
-<div class="block">Copy cell value, formula and style, from srcCell per cell copy policy
+<div class="block">Copy cell value, prFormula and style, from srcCell per cell copy policy
  If srcCell is null, clears the cell value and cell style per cell copy policy
  
  This does not shift references in formulas.</div>
@@ -12189,7 +12189,7 @@ for streaming/read-only processing of xlsb files.</div>
 <td class="colFirst"><code>org.openxmlformats.schemas.spreadsheetml.x2006.main.CTCell</code></td>
 <td class="colLast"><span class="typeNameLabel">XSSFCell.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/XSSFCell.html#getCTCell--">getCTCell</a></span>()</code>
 <div class="block">Returns the xml bean containing information about the cell's location (reference), value,
- data type, formatting, and formula</div>
+ data type, formatting, and prFormula</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -12320,7 +12320,7 @@ for streaming/read-only processing of xlsb files.</div>
 <tr class="altColor">
 <td class="colFirst"><code>org.openxmlformats.schemas.spreadsheetml.x2006.main.CTCellFormula</code></td>
 <td class="colLast"><span class="typeNameLabel">XSSFSheet.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/XSSFSheet.html#getSharedFormula-int-">getSharedFormula</a></span>(int&nbsp;sid)</code>
-<div class="block">Return a master shared formula by index</div>
+<div class="block">Return a master shared prFormula by index</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -12566,9 +12566,9 @@ for streaming/read-only processing of xlsb files.</div>
 <tbody>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="typeNameLabel">XSSFRowShifter.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/helpers/XSSFRowShifter.html#updateRowFormulas-org.apache.poi.xssf.usermodel.XSSFRow-org.apache.poi.ss.formula.FormulaShifter-">updateRowFormulas</a></span>(<a href="../../../../../org/apache/poi/xssf/usermodel/XSSFRow.html" title="class in org.apache.poi.xssf.usermodel">XSSFRow</a>&nbsp;row,
-                 <a href="../../../../../org/apache/poi/ss/formula/FormulaShifter.html" title="class in org.apache.poi.ss.formula">FormulaShifter</a>&nbsp;formulaShifter)</code>
-<div class="block">Update the formulas in specified row using the formula shifting policy specified by shifter</div>
+<td class="colLast"><span class="typeNameLabel">XSSFRowShifter.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/helpers/XSSFRowShifter.html#updateRowFormulas-org.apache.poi.xssf.usermodel.XSSFRow-org.apache.poi.ss.prFormula.FormulaShifter-">updateRowFormulas</a></span>(<a href="../../../../../org/apache/poi/xssf/usermodel/XSSFRow.html" title="class in org.apache.poi.xssf.usermodel">XSSFRow</a>&nbsp;row,
+                 <a href="../../../../../org/apache/poi/ss/prFormula/FormulaShifter.html" title="class in org.apache.poi.ss.prFormula">FormulaShifter</a>&nbsp;formulaShifter)</code>
+<div class="block">Update the formulas in specified row using the prFormula shifting policy specified by shifter</div>
 </td>
 </tr>
 </tbody>

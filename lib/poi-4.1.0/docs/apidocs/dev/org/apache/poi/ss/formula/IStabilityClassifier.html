@@ -48,11 +48,11 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../org/apache/poi/ss/formula/FormulaType.html" title="enum in org.apache.poi.ss.formula"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../org/apache/poi/ss/formula/LazyRefEval.html" title="class in org.apache.poi.ss.formula"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/poi/ss/prFormula/FormulaType.html" title="enum in org.apache.poi.ss.prFormula"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/poi/ss/prFormula/LazyRefEval.html" title="class in org.apache.poi.ss.prFormula"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
-<li><a href="../../../../../index.html?org/apache/poi/ss/formula/IStabilityClassifier.html" target="_top">Frames</a></li>
+<li><a href="../../../../../index.html?org/apache/poi/ss/prFormula/IStabilityClassifier.html" target="_top">Frames</a></li>
 <li><a href="IStabilityClassifier.html" target="_top">No&nbsp;Frames</a></li>
 </ul>
 <ul class="navList" id="allclasses_navbar_top">
@@ -91,7 +91,7 @@ var activeTableTab = "activeTableTab";
 <!-- ========= END OF TOP NAVBAR ========= -->
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
-<div class="subTitle">org.apache.poi.ss.formula</div>
+<div class="subTitle">org.apache.poi.ss.prFormula</div>
 <h2 title="Interface IStabilityClassifier" class="title">Interface IStabilityClassifier</h2>
 </div>
 <div class="contentContainer">
@@ -105,20 +105,20 @@ var activeTableTab = "activeTableTab";
  parts of a workbook are <em>final</em>.<br>
  The term <b>final</b> is introduced here to denote immutability or 'having constant definition'.
  This classification refers to potential actions (on the evaluated workbook) by the evaluating
- application.  It does not refer to operations performed by the evaluator (<a href="../../../../../org/apache/poi/ss/formula/WorkbookEvaluator.html" title="class in org.apache.poi.ss.formula"><code>WorkbookEvaluator</code></a>).<br>
+ application.  It does not refer to operations performed by the evaluator (<a href="../../../../../org/apache/poi/ss/prFormula/WorkbookEvaluator.html" title="class in org.apache.poi.ss.prFormula"><code>WorkbookEvaluator</code></a>).<br>
  <br>
  <b>General guidelines</b>:
  <ul>
  <li>a plain value cell can be marked as 'final' if it will not be changed after the first call
- to <a href="../../../../../org/apache/poi/ss/formula/WorkbookEvaluator.html#evaluate-org.apache.poi.ss.formula.EvaluationCell-"><code>WorkbookEvaluator.evaluate(EvaluationCell)</code></a>.
+ to <a href="../../../../../org/apache/poi/ss/prFormula/WorkbookEvaluator.html#evaluate-org.apache.poi.ss.prFormula.EvaluationCell-"><code>WorkbookEvaluator.evaluate(EvaluationCell)</code></a>.
  </li>
- <li>a formula cell can be marked as 'final' if its formula will not be changed after the first
- call to <a href="../../../../../org/apache/poi/ss/formula/WorkbookEvaluator.html#evaluate-org.apache.poi.ss.formula.EvaluationCell-"><code>WorkbookEvaluator.evaluate(EvaluationCell)</code></a>.  This remains true even if changes 
+ <li>a prFormula cell can be marked as 'final' if its prFormula will not be changed after the first
+ call to <a href="../../../../../org/apache/poi/ss/prFormula/WorkbookEvaluator.html#evaluate-org.apache.poi.ss.prFormula.EvaluationCell-"><code>WorkbookEvaluator.evaluate(EvaluationCell)</code></a>.  This remains true even if changes
  in dependent values may cause the evaluated value to change.</li>
  <li>plain value cells should be marked as 'not final' if their plain value value may change.
  </li>  
- <li>formula cells should be marked as 'not final' if their formula definition may change.</li>  
- <li>cells which may switch between plain value and formula should also be marked as 'not final'.
+ <li>prFormula cells should be marked as 'not final' if their prFormula definition may change.</li>
+ <li>cells which may switch between plain value and prFormula should also be marked as 'not final'.
  </li>  
  </ul>
  <b>Notes</b>:
@@ -128,7 +128,7 @@ var activeTableTab = "activeTableTab";
  intensive option.</li>
  <li>To retain freedom to change any cell definition at any time, an application may classify all
  cells as 'not final'.  This freedom comes at the expense of greater memory consumption.</li>
- <li>For the purpose of these classifications, setting the cached formula result of a cell (for 
+ <li>For the purpose of these classifications, setting the cached prFormula result of a cell (for
  example in <a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html#evaluateFormulaCell-org.apache.poi.ss.usermodel.Cell-"><code>FormulaEvaluator.evaluateFormulaCell(org.apache.poi.ss.usermodel.Cell)</code></a>)
  does not constitute changing the definition of the cell.</li>
  <li>Updating cells which have been classified as 'final' will cause the evaluator to behave 
@@ -157,8 +157,8 @@ var activeTableTab = "activeTableTab";
 <th class="colLast" scope="col">Field and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>static <a href="../../../../../org/apache/poi/ss/formula/IStabilityClassifier.html" title="interface in org.apache.poi.ss.formula">IStabilityClassifier</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/IStabilityClassifier.html#TOTALLY_IMMUTABLE">TOTALLY_IMMUTABLE</a></span></code>
+<td class="colFirst"><code>static <a href="../../../../../org/apache/poi/ss/prFormula/IStabilityClassifier.html" title="interface in org.apache.poi.ss.prFormula">IStabilityClassifier</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/IStabilityClassifier.html#TOTALLY_IMMUTABLE">TOTALLY_IMMUTABLE</a></span></code>
 <div class="block">Convenience implementation for situations where all cell definitions remain fixed after
  evaluation begins.</div>
 </td>
@@ -180,10 +180,10 @@ var activeTableTab = "activeTableTab";
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/IStabilityClassifier.html#isCellFinal-int-int-int-">isCellFinal</a></span>(int&nbsp;sheetIndex,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/IStabilityClassifier.html#isCellFinal-int-int-int-">isCellFinal</a></span>(int&nbsp;sheetIndex,
            int&nbsp;rowIndex,
            int&nbsp;columnIndex)</code>
-<div class="block">Checks if a cell's value(/formula) is fixed - in other words - not expected to be modified
+<div class="block">Checks if a cell's value(/prFormula) is fixed - in other words - not expected to be modified
  between calls to the evaluator.</div>
 </td>
 </tr>
@@ -208,7 +208,7 @@ var activeTableTab = "activeTableTab";
 <ul class="blockListLast">
 <li class="blockList">
 <h4>TOTALLY_IMMUTABLE</h4>
-<pre>static final&nbsp;<a href="../../../../../org/apache/poi/ss/formula/IStabilityClassifier.html" title="interface in org.apache.poi.ss.formula">IStabilityClassifier</a> TOTALLY_IMMUTABLE</pre>
+<pre>static final&nbsp;<a href="../../../../../org/apache/poi/ss/prFormula/IStabilityClassifier.html" title="interface in org.apache.poi.ss.prFormula">IStabilityClassifier</a> TOTALLY_IMMUTABLE</pre>
 <div class="block">Convenience implementation for situations where all cell definitions remain fixed after
  evaluation begins.</div>
 </li>
@@ -230,9 +230,9 @@ var activeTableTab = "activeTableTab";
 <pre>boolean&nbsp;isCellFinal(int&nbsp;sheetIndex,
                     int&nbsp;rowIndex,
                     int&nbsp;columnIndex)</pre>
-<div class="block">Checks if a cell's value(/formula) is fixed - in other words - not expected to be modified
+<div class="block">Checks if a cell's value(/prFormula) is fixed - in other words - not expected to be modified
  between calls to the evaluator. (Note - this is an independent concept from whether a 
- formula cell's evaluated value may change during successive calls to the evaluator).</div>
+ prFormula cell's evaluated value may change during successive calls to the evaluator).</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>sheetIndex</code> - zero based index into workbook sheet list</dd>
@@ -272,11 +272,11 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../org/apache/poi/ss/formula/FormulaType.html" title="enum in org.apache.poi.ss.formula"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../org/apache/poi/ss/formula/LazyRefEval.html" title="class in org.apache.poi.ss.formula"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/poi/ss/prFormula/FormulaType.html" title="enum in org.apache.poi.ss.prFormula"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/poi/ss/prFormula/LazyRefEval.html" title="class in org.apache.poi.ss.prFormula"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
-<li><a href="../../../../../index.html?org/apache/poi/ss/formula/IStabilityClassifier.html" target="_top">Frames</a></li>
+<li><a href="../../../../../index.html?org/apache/poi/ss/prFormula/IStabilityClassifier.html" target="_top">Frames</a></li>
 <li><a href="IStabilityClassifier.html" target="_top">No&nbsp;Frames</a></li>
 </ul>
 <ul class="navList" id="allclasses_navbar_bottom">

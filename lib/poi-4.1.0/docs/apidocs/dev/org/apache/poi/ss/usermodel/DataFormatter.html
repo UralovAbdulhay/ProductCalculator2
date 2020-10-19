@@ -277,9 +277,9 @@ implements java.util.Observer</pre>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/usermodel/DataFormatter.html#formatCellValue-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.usermodel.FormulaEvaluator-org.apache.poi.ss.formula.ConditionalFormattingEvaluator-">formatCellValue</a></span>(<a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/usermodel/DataFormatter.html#formatCellValue-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.usermodel.FormulaEvaluator-org.apache.poi.ss.prFormula.ConditionalFormattingEvaluator-">formatCellValue</a></span>(<a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell,
                <a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html" title="interface in org.apache.poi.ss.usermodel">FormulaEvaluator</a>&nbsp;evaluator,
-               <a href="../../../../../org/apache/poi/ss/formula/ConditionalFormattingEvaluator.html" title="class in org.apache.poi.ss.formula">ConditionalFormattingEvaluator</a>&nbsp;cfEvaluator)</code>
+               <a href="../../../../../org/apache/poi/ss/prFormula/ConditionalFormattingEvaluator.html" title="class in org.apache.poi.ss.prFormula">ConditionalFormattingEvaluator</a>&nbsp;cfEvaluator)</code>
 <div class="block">
  Returns the formatted value of a cell as a <tt>String</tt> regardless
  of the cell type.</div>
@@ -523,7 +523,7 @@ implements java.util.Observer</pre>
  cell value will be formatted using a default format.
  </p>
  <p>When passed a null or blank cell, this method will return an empty
- String (""). Formulas in formula type cells will not be evaluated.
+ String (""). Formulas in prFormula type cells will not be evaluated.
  </p></div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -549,7 +549,7 @@ implements java.util.Observer</pre>
  <p>When passed a null or blank cell, this method will return an empty
  String (""). Formula cells will be evaluated using the given
  <a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html" title="interface in org.apache.poi.ss.usermodel"><code>FormulaEvaluator</code></a> if the evaluator is non-null. If the
- evaluator is null, then the formula String will be returned. The caller
+ evaluator is null, then the prFormula String will be returned. The caller
  is responsible for setting the currentRow on the evaluator
 </p></div>
 <dl>
@@ -561,7 +561,7 @@ implements java.util.Observer</pre>
 </dl>
 </li>
 </ul>
-<a name="formatCellValue-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.usermodel.FormulaEvaluator-org.apache.poi.ss.formula.ConditionalFormattingEvaluator-">
+<a name="formatCellValue-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.usermodel.FormulaEvaluator-org.apache.poi.ss.prFormula.ConditionalFormattingEvaluator-">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -569,7 +569,7 @@ implements java.util.Observer</pre>
 <h4>formatCellValue</h4>
 <pre>public&nbsp;java.lang.String&nbsp;formatCellValue(<a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell,
                                         <a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html" title="interface in org.apache.poi.ss.usermodel">FormulaEvaluator</a>&nbsp;evaluator,
-                                        <a href="../../../../../org/apache/poi/ss/formula/ConditionalFormattingEvaluator.html" title="class in org.apache.poi.ss.formula">ConditionalFormattingEvaluator</a>&nbsp;cfEvaluator)</pre>
+                                        <a href="../../../../../org/apache/poi/ss/prFormula/ConditionalFormattingEvaluator.html" title="class in org.apache.poi.ss.prFormula">ConditionalFormattingEvaluator</a>&nbsp;cfEvaluator)</pre>
 <div class="block"><p>
  Returns the formatted value of a cell as a <tt>String</tt> regardless
  of the cell type. If the Excel number format pattern cannot be parsed then the
@@ -578,7 +578,7 @@ implements java.util.Observer</pre>
  <p>When passed a null or blank cell, this method will return an empty
  String (""). Formula cells will be evaluated using the given
  <a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html" title="interface in org.apache.poi.ss.usermodel"><code>FormulaEvaluator</code></a> if the evaluator is non-null. If the
- evaluator is null, then the formula String will be returned. The caller
+ evaluator is null, then the prFormula String will be returned. The caller
  is responsible for setting the currentRow on the evaluator
 </p>
  <p>

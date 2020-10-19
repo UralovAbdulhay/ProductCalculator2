@@ -119,7 +119,7 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public enum <span class="typeNameLabel">FormulaError</span>
 extends java.lang.Enum&lt;<a href="../../../../../org/apache/poi/ss/usermodel/FormulaError.html" title="enum in org.apache.poi.ss.usermodel">FormulaError</a>&gt;</pre>
-<div class="block">Enumerates error values in SpreadsheetML formula calculations.
+<div class="block">Enumerates error values in SpreadsheetML prFormula calculations.
  
  See also OOO's excelfileformat.pdf (2.5.6)</div>
 </li>
@@ -145,7 +145,7 @@ extends java.lang.Enum&lt;<a href="../../../../../org/apache/poi/ss/usermodel/Fo
 <tr class="rowColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/usermodel/FormulaError.html#CIRCULAR_REF">CIRCULAR_REF</a></span></code>
 <div class="block">POI specific code to indicate that there is a circular reference
-  in the formula</div>
+  in the prFormula</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -334,7 +334,7 @@ public static final&nbsp;<a href="../../../../../org/apache/poi/ss/usermodel/For
 <pre>public static final&nbsp;<a href="../../../../../org/apache/poi/ss/usermodel/FormulaError.html" title="enum in org.apache.poi.ss.usermodel">FormulaError</a> REF</pre>
 <div class="block">Intended to indicate when a cell reference is invalid.
  <p>Example:
- If a formula contains a reference to a cell, and then the row or column containing that cell is deleted,
+ If a prFormula contains a reference to a cell, and then the row or column containing that cell is deleted,
  a #REF! error results. If a worksheet does not support 20,001 columns,
  OFFSET(A1,0,20000) will result in a #REF! error.
  </p></div>
@@ -399,7 +399,7 @@ public static final&nbsp;<a href="../../../../../org/apache/poi/ss/usermodel/For
 <h4>CIRCULAR_REF</h4>
 <pre>public static final&nbsp;<a href="../../../../../org/apache/poi/ss/usermodel/FormulaError.html" title="enum in org.apache.poi.ss.usermodel">FormulaError</a> CIRCULAR_REF</pre>
 <div class="block">POI specific code to indicate that there is a circular reference
-  in the formula</div>
+  in the prFormula</div>
 </li>
 </ul>
 <a name="FUNCTION_NOT_IMPLEMENTED">

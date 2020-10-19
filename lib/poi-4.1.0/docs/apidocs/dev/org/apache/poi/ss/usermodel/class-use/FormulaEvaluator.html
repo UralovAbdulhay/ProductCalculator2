@@ -88,7 +88,7 @@
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><a href="#org.apache.poi.ss.formula">org.apache.poi.ss.formula</a></td>
+<td class="colFirst"><a href="#org.apache.poi.ss.prFormula">org.apache.poi.ss.prFormula</a></td>
 <td class="colLast">
 <div class="block">This package contains common internal POI code for manipulating formulas.</div>
 </td>
@@ -124,7 +124,7 @@
 <tr class="altColor">
 <td class="colFirst"><code>class&nbsp;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/hssf/usermodel/HSSFFormulaEvaluator.html" title="class in org.apache.poi.hssf.usermodel">HSSFFormulaEvaluator</a></span></code>
-<div class="block">Evaluates formula cells.</div>
+<div class="block">Evaluates prFormula cells.</div>
 </td>
 </tr>
 </tbody>
@@ -143,12 +143,12 @@
 </tbody>
 </table>
 </li>
-<li class="blockList"><a name="org.apache.poi.ss.formula">
+<li class="blockList"><a name="org.apache.poi.ss.prFormula">
 <!--   -->
 </a>
-<h3>Uses of <a href="../../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html" title="interface in org.apache.poi.ss.usermodel">FormulaEvaluator</a> in <a href="../../../../../../org/apache/poi/ss/formula/package-summary.html">org.apache.poi.ss.formula</a></h3>
+<h3>Uses of <a href="../../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html" title="interface in org.apache.poi.ss.usermodel">FormulaEvaluator</a> in <a href="../../../../../../org/apache/poi/ss/prFormula/package-summary.html">org.apache.poi.ss.prFormula</a></h3>
 <table class="useSummary" border="0" cellpadding="3" cellspacing="0" summary="Use table, listing classes, and an explanation">
-<caption><span>Classes in <a href="../../../../../../org/apache/poi/ss/formula/package-summary.html">org.apache.poi.ss.formula</a> that implement <a href="../../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html" title="interface in org.apache.poi.ss.usermodel">FormulaEvaluator</a></span><span class="tabEnd">&nbsp;</span></caption>
+<caption><span>Classes in <a href="../../../../../../org/apache/poi/ss/prFormula/package-summary.html">org.apache.poi.ss.prFormula</a> that implement <a href="../../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html" title="interface in org.apache.poi.ss.usermodel">FormulaEvaluator</a></span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Class and Description</th>
@@ -156,14 +156,14 @@
 <tbody>
 <tr class="altColor">
 <td class="colFirst"><code>class&nbsp;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html" title="class in org.apache.poi.ss.formula">BaseFormulaEvaluator</a></span></code>
-<div class="block">Common functionality across file formats for evaluating formula cells.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html" title="class in org.apache.poi.ss.prFormula">BaseFormulaEvaluator</a></span></code>
+<div class="block">Common functionality across file formats for evaluating prFormula cells.</div>
 </td>
 </tr>
 </tbody>
 </table>
 <table class="useSummary" border="0" cellpadding="3" cellspacing="0" summary="Use table, listing methods, and an explanation">
-<caption><span>Methods in <a href="../../../../../../org/apache/poi/ss/formula/package-summary.html">org.apache.poi.ss.formula</a> with parameters of type <a href="../../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html" title="interface in org.apache.poi.ss.usermodel">FormulaEvaluator</a></span><span class="tabEnd">&nbsp;</span></caption>
+<caption><span>Methods in <a href="../../../../../../org/apache/poi/ss/prFormula/package-summary.html">org.apache.poi.ss.prFormula</a> with parameters of type <a href="../../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html" title="interface in org.apache.poi.ss.usermodel">FormulaEvaluator</a></span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -171,13 +171,13 @@
 <tbody>
 <tr class="altColor">
 <td class="colFirst"><code>protected static void</code></td>
-<td class="colLast"><span class="typeNameLabel">BaseFormulaEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#evaluateAllFormulaCells-org.apache.poi.ss.usermodel.Workbook-org.apache.poi.ss.usermodel.FormulaEvaluator-">evaluateAllFormulaCells</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Workbook.html" title="interface in org.apache.poi.ss.usermodel">Workbook</a>&nbsp;wb,
+<td class="colLast"><span class="typeNameLabel">BaseFormulaEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#evaluateAllFormulaCells-org.apache.poi.ss.usermodel.Workbook-org.apache.poi.ss.usermodel.FormulaEvaluator-">evaluateAllFormulaCells</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Workbook.html" title="interface in org.apache.poi.ss.usermodel">Workbook</a>&nbsp;wb,
                        <a href="../../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html" title="interface in org.apache.poi.ss.usermodel">FormulaEvaluator</a>&nbsp;evaluator)</code>&nbsp;</td>
 </tr>
 </tbody>
 </table>
 <table class="useSummary" border="0" cellpadding="3" cellspacing="0" summary="Use table, listing methods, and an explanation">
-<caption><span>Method parameters in <a href="../../../../../../org/apache/poi/ss/formula/package-summary.html">org.apache.poi.ss.formula</a> with type arguments of type <a href="../../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html" title="interface in org.apache.poi.ss.usermodel">FormulaEvaluator</a></span><span class="tabEnd">&nbsp;</span></caption>
+<caption><span>Method parameters in <a href="../../../../../../org/apache/poi/ss/prFormula/package-summary.html">org.apache.poi.ss.prFormula</a> with type arguments of type <a href="../../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html" title="interface in org.apache.poi.ss.usermodel">FormulaEvaluator</a></span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -185,11 +185,11 @@
 <tbody>
 <tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><span class="typeNameLabel">CollaboratingWorkbooksEnvironment.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/CollaboratingWorkbooksEnvironment.html#setupFormulaEvaluator-java.util.Map-">setupFormulaEvaluator</a></span>(java.util.Map&lt;java.lang.String,<a href="../../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html" title="interface in org.apache.poi.ss.usermodel">FormulaEvaluator</a>&gt;&nbsp;evaluators)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">CollaboratingWorkbooksEnvironment.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/CollaboratingWorkbooksEnvironment.html#setupFormulaEvaluator-java.util.Map-">setupFormulaEvaluator</a></span>(java.util.Map&lt;java.lang.String,<a href="../../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html" title="interface in org.apache.poi.ss.usermodel">FormulaEvaluator</a>&gt;&nbsp;evaluators)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="typeNameLabel">BaseFormulaEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#setupReferencedWorkbooks-java.util.Map-">setupReferencedWorkbooks</a></span>(java.util.Map&lt;java.lang.String,<a href="../../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html" title="interface in org.apache.poi.ss.usermodel">FormulaEvaluator</a>&gt;&nbsp;evaluators)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">BaseFormulaEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#setupReferencedWorkbooks-java.util.Map-">setupReferencedWorkbooks</a></span>(java.util.Map&lt;java.lang.String,<a href="../../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html" title="interface in org.apache.poi.ss.usermodel">FormulaEvaluator</a>&gt;&nbsp;evaluators)</code>&nbsp;</td>
 </tr>
 </tbody>
 </table>
@@ -208,7 +208,7 @@
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html" title="interface in org.apache.poi.ss.usermodel">FormulaEvaluator</a></code></td>
 <td class="colLast"><span class="typeNameLabel">CreationHelper.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/usermodel/CreationHelper.html#createFormulaEvaluator--">createFormulaEvaluator</a></span>()</code>
-<div class="block">Creates FormulaEvaluator - an object that evaluates formula cells.</div>
+<div class="block">Creates FormulaEvaluator - an object that evaluates prFormula cells.</div>
 </td>
 </tr>
 </tbody>
@@ -231,9 +231,9 @@
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><span class="typeNameLabel">DataFormatter.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/usermodel/DataFormatter.html#formatCellValue-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.usermodel.FormulaEvaluator-org.apache.poi.ss.formula.ConditionalFormattingEvaluator-">formatCellValue</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell,
+<td class="colLast"><span class="typeNameLabel">DataFormatter.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/usermodel/DataFormatter.html#formatCellValue-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.usermodel.FormulaEvaluator-org.apache.poi.ss.prFormula.ConditionalFormattingEvaluator-">formatCellValue</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell,
                <a href="../../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html" title="interface in org.apache.poi.ss.usermodel">FormulaEvaluator</a>&nbsp;evaluator,
-               <a href="../../../../../../org/apache/poi/ss/formula/ConditionalFormattingEvaluator.html" title="class in org.apache.poi.ss.formula">ConditionalFormattingEvaluator</a>&nbsp;cfEvaluator)</code>
+               <a href="../../../../../../org/apache/poi/ss/prFormula/ConditionalFormattingEvaluator.html" title="class in org.apache.poi.ss.prFormula">ConditionalFormattingEvaluator</a>&nbsp;cfEvaluator)</code>
 <div class="block">
  Returns the formatted value of a cell as a <tt>String</tt> regardless
  of the cell type.</div>
@@ -293,13 +293,13 @@
 <tr class="altColor">
 <td class="colFirst"><code>class&nbsp;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/xssf/usermodel/BaseXSSFFormulaEvaluator.html" title="class in org.apache.poi.xssf.usermodel">BaseXSSFFormulaEvaluator</a></span></code>
-<div class="block">Internal POI use only - parent of XSSF and SXSSF formula evaluators</div>
+<div class="block">Internal POI use only - parent of XSSF and SXSSF prFormula evaluators</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>class&nbsp;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/xssf/usermodel/XSSFFormulaEvaluator.html" title="class in org.apache.poi.xssf.usermodel">XSSFFormulaEvaluator</a></span></code>
-<div class="block">Evaluates formula cells.</div>
+<div class="block">Evaluates prFormula cells.</div>
 </td>
 </tr>
 </tbody>

@@ -74,7 +74,7 @@ var activeTableTab = "activeTableTab";
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#fields.inherited.from.class.org.apache.poi.ss.formula.BaseFormulaEvaluator">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#fields.inherited.from.class.org.apache.poi.ss.prFormula.BaseFormulaEvaluator">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
@@ -99,7 +99,7 @@ var activeTableTab = "activeTableTab";
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
-<li><a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html" title="class in org.apache.poi.ss.formula">org.apache.poi.ss.formula.BaseFormulaEvaluator</a></li>
+<li><a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html" title="class in org.apache.poi.ss.prFormula">org.apache.poi.ss.prFormula.BaseFormulaEvaluator</a></li>
 <li>
 <ul class="inheritance">
 <li>org.apache.poi.xssf.usermodel.BaseXSSFFormulaEvaluator</li>
@@ -113,7 +113,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><a href="../../../../../org/apache/poi/ss/formula/WorkbookEvaluatorProvider.html" title="interface in org.apache.poi.ss.formula">WorkbookEvaluatorProvider</a>, <a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html" title="interface in org.apache.poi.ss.usermodel">FormulaEvaluator</a></dd>
+<dd><a href="../../../../../org/apache/poi/ss/prFormula/WorkbookEvaluatorProvider.html" title="interface in org.apache.poi.ss.prFormula">WorkbookEvaluatorProvider</a>, <a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html" title="interface in org.apache.poi.ss.usermodel">FormulaEvaluator</a></dd>
 </dl>
 <dl>
 <dt>Direct Known Subclasses:</dt>
@@ -122,8 +122,8 @@ var activeTableTab = "activeTableTab";
 <hr>
 <br>
 <pre>public abstract class <span class="typeNameLabel">BaseXSSFFormulaEvaluator</span>
-extends <a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html" title="class in org.apache.poi.ss.formula">BaseFormulaEvaluator</a></pre>
-<div class="block">Internal POI use only - parent of XSSF and SXSSF formula evaluators</div>
+extends <a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html" title="class in org.apache.poi.ss.prFormula">BaseFormulaEvaluator</a></pre>
+<div class="block">Internal POI use only - parent of XSSF and SXSSF prFormula evaluators</div>
 </li>
 </ul>
 </div>
@@ -137,11 +137,11 @@ extends <a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.h
 </a>
 <h3>Field Summary</h3>
 <ul class="blockList">
-<li class="blockList"><a name="fields.inherited.from.class.org.apache.poi.ss.formula.BaseFormulaEvaluator">
+<li class="blockList"><a name="fields.inherited.from.class.org.apache.poi.ss.prFormula.BaseFormulaEvaluator">
 <!--   -->
 </a>
-<h3>Fields inherited from class&nbsp;org.apache.poi.ss.formula.<a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html" title="class in org.apache.poi.ss.formula">BaseFormulaEvaluator</a></h3>
-<code><a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#Z:Z_bookEvaluator">_bookEvaluator</a></code></li>
+<h3>Fields inherited from class&nbsp;org.apache.poi.ss.prFormula.<a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html" title="class in org.apache.poi.ss.prFormula">BaseFormulaEvaluator</a></h3>
+<code><a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#Z:Z_bookEvaluator">_bookEvaluator</a></code></li>
 </ul>
 </li>
 </ul>
@@ -159,7 +159,7 @@ extends <a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.h
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected </code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFFormulaEvaluator.html#BaseXSSFFormulaEvaluator-org.apache.poi.ss.formula.WorkbookEvaluator-">BaseXSSFFormulaEvaluator</a></span>(<a href="../../../../../org/apache/poi/ss/formula/WorkbookEvaluator.html" title="class in org.apache.poi.ss.formula">WorkbookEvaluator</a>&nbsp;bookEvaluator)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFFormulaEvaluator.html#BaseXSSFFormulaEvaluator-org.apache.poi.ss.prFormula.WorkbookEvaluator-">BaseXSSFFormulaEvaluator</a></span>(<a href="../../../../../org/apache/poi/ss/prFormula/WorkbookEvaluator.html" title="class in org.apache.poi.ss.prFormula">WorkbookEvaluator</a>&nbsp;bookEvaluator)</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -194,18 +194,18 @@ extends <a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.h
 </td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>protected abstract <a href="../../../../../org/apache/poi/ss/formula/EvaluationCell.html" title="interface in org.apache.poi.ss.formula">EvaluationCell</a></code></td>
+<td class="colFirst"><code>protected abstract <a href="../../../../../org/apache/poi/ss/prFormula/EvaluationCell.html" title="interface in org.apache.poi.ss.prFormula">EvaluationCell</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFFormulaEvaluator.html#toEvaluationCell-org.apache.poi.ss.usermodel.Cell-">toEvaluationCell</a></span>(<a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>
 <div class="block">Turns a XSSFCell / SXSSFCell into a XSSFEvaluationCell</div>
 </td>
 </tr>
 </table>
 <ul class="blockList">
-<li class="blockList"><a name="methods.inherited.from.class.org.apache.poi.ss.formula.BaseFormulaEvaluator">
+<li class="blockList"><a name="methods.inherited.from.class.org.apache.poi.ss.prFormula.BaseFormulaEvaluator">
 <!--   -->
 </a>
-<h3>Methods inherited from class&nbsp;org.apache.poi.ss.formula.<a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html" title="class in org.apache.poi.ss.formula">BaseFormulaEvaluator</a></h3>
-<code><a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#Z:Z_getWorkbookEvaluator--">_getWorkbookEvaluator</a>, <a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#clearAllCachedResultValues--">clearAllCachedResultValues</a>, <a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#evaluate-org.apache.poi.ss.usermodel.Cell-">evaluate</a>, <a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#evaluateAllFormulaCells-org.apache.poi.ss.usermodel.Workbook-">evaluateAllFormulaCells</a>, <a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#evaluateAllFormulaCells-org.apache.poi.ss.usermodel.Workbook-org.apache.poi.ss.usermodel.FormulaEvaluator-">evaluateAllFormulaCells</a>, <a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#evaluateFormulaCell-org.apache.poi.ss.usermodel.Cell-">evaluateFormulaCell</a>, <a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#evaluateFormulaCellEnum-org.apache.poi.ss.usermodel.Cell-">evaluateFormulaCellEnum</a>, <a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#evaluateInCell-org.apache.poi.ss.usermodel.Cell-">evaluateInCell</a>, <a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#getEvaluationWorkbook--">getEvaluationWorkbook</a>, <a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#setCellType-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.usermodel.CellValue-">setCellType</a>, <a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#setCellValue-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.usermodel.CellValue-">setCellValue</a>, <a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#setDebugEvaluationOutputForNextEval-boolean-">setDebugEvaluationOutputForNextEval</a>, <a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#setIgnoreMissingWorkbooks-boolean-">setIgnoreMissingWorkbooks</a>, <a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#setupEnvironment-java.lang.String:A-org.apache.poi.ss.formula.BaseFormulaEvaluator:A-">setupEnvironment</a>, <a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#setupReferencedWorkbooks-java.util.Map-">setupReferencedWorkbooks</a></code></li>
+<h3>Methods inherited from class&nbsp;org.apache.poi.ss.prFormula.<a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html" title="class in org.apache.poi.ss.prFormula">BaseFormulaEvaluator</a></h3>
+<code><a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#Z:Z_getWorkbookEvaluator--">_getWorkbookEvaluator</a>, <a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#clearAllCachedResultValues--">clearAllCachedResultValues</a>, <a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#evaluate-org.apache.poi.ss.usermodel.Cell-">evaluate</a>, <a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#evaluateAllFormulaCells-org.apache.poi.ss.usermodel.Workbook-">evaluateAllFormulaCells</a>, <a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#evaluateAllFormulaCells-org.apache.poi.ss.usermodel.Workbook-org.apache.poi.ss.usermodel.FormulaEvaluator-">evaluateAllFormulaCells</a>, <a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#evaluateFormulaCell-org.apache.poi.ss.usermodel.Cell-">evaluateFormulaCell</a>, <a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#evaluateFormulaCellEnum-org.apache.poi.ss.usermodel.Cell-">evaluateFormulaCellEnum</a>, <a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#evaluateInCell-org.apache.poi.ss.usermodel.Cell-">evaluateInCell</a>, <a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#getEvaluationWorkbook--">getEvaluationWorkbook</a>, <a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#setCellType-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.usermodel.CellValue-">setCellType</a>, <a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#setCellValue-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.usermodel.CellValue-">setCellValue</a>, <a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#setDebugEvaluationOutputForNextEval-boolean-">setDebugEvaluationOutputForNextEval</a>, <a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#setIgnoreMissingWorkbooks-boolean-">setIgnoreMissingWorkbooks</a>, <a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#setupEnvironment-java.lang.String:A-org.apache.poi.ss.prFormula.BaseFormulaEvaluator:A-">setupEnvironment</a>, <a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#setupReferencedWorkbooks-java.util.Map-">setupReferencedWorkbooks</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -235,13 +235,13 @@ extends <a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.h
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="BaseXSSFFormulaEvaluator-org.apache.poi.ss.formula.WorkbookEvaluator-">
+<a name="BaseXSSFFormulaEvaluator-org.apache.poi.ss.prFormula.WorkbookEvaluator-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>BaseXSSFFormulaEvaluator</h4>
-<pre>protected&nbsp;BaseXSSFFormulaEvaluator(<a href="../../../../../org/apache/poi/ss/formula/WorkbookEvaluator.html" title="class in org.apache.poi.ss.formula">WorkbookEvaluator</a>&nbsp;bookEvaluator)</pre>
+<pre>protected&nbsp;BaseXSSFFormulaEvaluator(<a href="../../../../../org/apache/poi/ss/prFormula/WorkbookEvaluator.html" title="class in org.apache.poi.ss.prFormula">WorkbookEvaluator</a>&nbsp;bookEvaluator)</pre>
 </li>
 </ul>
 </li>
@@ -261,7 +261,7 @@ extends <a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.h
 <pre>protected&nbsp;<a href="../../../../../org/apache/poi/ss/usermodel/RichTextString.html" title="interface in org.apache.poi.ss.usermodel">RichTextString</a>&nbsp;createRichTextString(java.lang.String&nbsp;str)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#createRichTextString-java.lang.String-">createRichTextString</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html" title="class in org.apache.poi.ss.formula">BaseFormulaEvaluator</a></code></dd>
+<dd><code><a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#createRichTextString-java.lang.String-">createRichTextString</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html" title="class in org.apache.poi.ss.prFormula">BaseFormulaEvaluator</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -271,7 +271,7 @@ extends <a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.h
 <ul class="blockList">
 <li class="blockList">
 <h4>toEvaluationCell</h4>
-<pre>protected abstract&nbsp;<a href="../../../../../org/apache/poi/ss/formula/EvaluationCell.html" title="interface in org.apache.poi.ss.formula">EvaluationCell</a>&nbsp;toEvaluationCell(<a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</pre>
+<pre>protected abstract&nbsp;<a href="../../../../../org/apache/poi/ss/prFormula/EvaluationCell.html" title="interface in org.apache.poi.ss.prFormula">EvaluationCell</a>&nbsp;toEvaluationCell(<a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</pre>
 <div class="block">Turns a XSSFCell / SXSSFCell into a XSSFEvaluationCell</div>
 </li>
 </ul>
@@ -285,7 +285,7 @@ extends <a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.h
 <div class="block">Returns a CellValue wrapper around the supplied ValueEval instance.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#evaluateFormulaCellValue-org.apache.poi.ss.usermodel.Cell-">evaluateFormulaCellValue</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html" title="class in org.apache.poi.ss.formula">BaseFormulaEvaluator</a></code></dd>
+<dd><code><a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#evaluateFormulaCellValue-org.apache.poi.ss.usermodel.Cell-">evaluateFormulaCellValue</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html" title="class in org.apache.poi.ss.prFormula">BaseFormulaEvaluator</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -297,11 +297,11 @@ extends <a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.h
 <h4>setCellType</h4>
 <pre>protected&nbsp;void&nbsp;setCellType(<a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell,
                            <a href="../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a>&nbsp;cellType)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#setCellType-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.usermodel.CellType-">BaseFormulaEvaluator</a></code></span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#setCellType-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.usermodel.CellType-">BaseFormulaEvaluator</a></code></span></div>
 <div class="block">Override if a different variation is needed, e.g. passing the evaluator to the cell method</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#setCellType-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.usermodel.CellType-">setCellType</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html" title="class in org.apache.poi.ss.formula">BaseFormulaEvaluator</a></code></dd>
+<dd><code><a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#setCellType-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.usermodel.CellType-">setCellType</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html" title="class in org.apache.poi.ss.prFormula">BaseFormulaEvaluator</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -359,7 +359,7 @@ extends <a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.h
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#fields.inherited.from.class.org.apache.poi.ss.formula.BaseFormulaEvaluator">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#fields.inherited.from.class.org.apache.poi.ss.prFormula.BaseFormulaEvaluator">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>

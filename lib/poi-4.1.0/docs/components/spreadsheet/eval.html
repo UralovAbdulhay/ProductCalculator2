@@ -128,7 +128,7 @@ document.write("Last Published: " + document.lastModified);
 <a href="../../components/spreadsheet/converting.html">HSSF to SS Converting</a>
 </div>
 <div class="menuitem">
-<a href="../../components/spreadsheet/formula.html">Formula Support</a>
+<a href="../../components/spreadsheet/prFormula.html">Formula Support</a>
 </div>
 <div class="menupage">
 <div class="menupagetitle">Formula Evaluation</div>
@@ -287,7 +287,7 @@ document.write("Last Published: " + document.lastModified);
 <a name="Introduction"></a>
 <h2 class="boxed">Introduction</h2>
 <div class="section">
-<p>The POI formula evaluation code enables you to calculate the result of 
+<p>The POI prFormula evaluation code enables you to calculate the result of
          formulas in Excels sheets read-in, or created in POI. This document explains
          how to use the API to evaluate your formulas. 
       </p>
@@ -299,9 +299,9 @@ document.write("Last Published: " + document.lastModified);
 <h2 class="boxed">Why do I need to evaluate formulas?</h2>
 <div class="section">
 <p>The Excel file format (both .xls and .xlsx) stores a "cached" result for
-         every formula along with the formula itself. This means that when the file
+         every prFormula along with the prFormula itself. This means that when the file
          is opened, it can be quickly displayed, without needing to spend a long
-         time calculating all of the formula results. It also means that when reading
+         time calculating all of the prFormula results. It also means that when reading
          a file through Apache POI, the result is quickly available to you too!
       </p>
 <p>After making changes with Apache POI to either Formula Cells themselves,
@@ -326,7 +326,7 @@ document.write("Last Published: " + document.lastModified);
 				It also provides implementations for approx. 140 built in
 				functions in Excel. The framework however makes it easy to add 
 			 	implementation of new functions. See the <a href="eval-devguide.html"> Formula
-        evaluation development guide</a>  and <a href="../../apidocs/dev/org/apache/poi/hssf/record/formula/functions/package-summary.html">javadocs</a>
+        evaluation development guide</a>  and <a href="../../apidocs/dev/org/apache/poi/hssf/record/prFormula/functions/package-summary.html">javadocs</a>
         for details. </p>
 <p> Both HSSFWorkbook and XSSFWorkbook are supported, so you can 
                 evaluate formulas on both .xls and .xlsx files.</p>
@@ -352,7 +352,7 @@ Workbook wb = new HSSFWorkbook(fis); //or new XSSFWorkbook("c:/temp/test.xls")
 Sheet sheet = wb.getSheetAt(0);
 FormulaEvaluator evaluator = wb.getCreationHelper().createFormulaEvaluator();
 
-// suppose your formula is in B3
+// suppose your prFormula is in B3
 CellReference cellReference = new CellReference("B3"); 
 Row row = sheet.getRow(cellReference.getRow());
 Cell cell = row.getCell(cellReference.getCol()); 
@@ -382,7 +382,7 @@ switch (cellValue.getCellType()) {
 <p>Thus using the retrieved value (of type 
 					FormulaEvaluator.CellValue - a nested class) returned 
 					by FormulaEvaluator is similar to using a Cell object 
-					containing the value of the formula evaluation. CellValue is 
+					containing the value of the prFormula evaluation. CellValue is
 					a simple value object and does not maintain reference 
 					to the original cell.
 				</p>
@@ -390,20 +390,20 @@ switch (cellValue.getCellType()) {
 <h3 class="boxed">Using FormulaEvaluator.evaluateFormulaCell(Cell cell)</h3>
 <p>
 <strong>evaluateFormulaCell</strong>(Cell cell) 
-				will check to see if the supplied cell is a formula cell. 
+				will check to see if the supplied cell is a prFormula cell.
 				If it isn't, then no changes will be made to it. If it is, 
-				then the formula is evaluated. The value for the formula
+				then the prFormula is evaluated. The value for the prFormula
 				is saved alongside it, to be displayed in excel. The
-				formula remains in the cell, just with a new value</p>
+				prFormula remains in the cell, just with a new value</p>
 <p>The return of the function is the type of the
-				formula result, such as Cell.CELL_TYPE_BOOLEAN</p>
+				prFormula result, such as Cell.CELL_TYPE_BOOLEAN</p>
 <pre class="code">
 FileInputStream fis = new FileInputStream("/somepath/test.xls");
 Workbook wb = new HSSFWorkbook(fis); //or new XSSFWorkbook("/somepath/test.xls")
 Sheet sheet = wb.getSheetAt(0);
 FormulaEvaluator evaluator = wb.getCreationHelper().createFormulaEvaluator();
 
-// suppose your formula is in B3
+// suppose your prFormula is in B3
 CellReference cellReference = new CellReference("B3"); 
 Row row = sheet.getRow(cellReference.getRow());
 Cell cell = row.getCell(cellReference.getCol()); 
@@ -435,17 +435,17 @@ if (cell!=null) {
 <h3 class="boxed">Using FormulaEvaluator.evaluateInCell(Cell cell)</h3>
 <p>
 <strong>evaluateInCell</strong>(Cell cell) will check to
-				see if the supplied cell is a formula cell. If it isn't,
+				see if the supplied cell is a prFormula cell. If it isn't,
 				then no changes will be made to it. If it is, then the
-				formula is evaluated, and the new value saved into the cell,
-				in place of the old formula.</p>
+				prFormula is evaluated, and the new value saved into the cell,
+				in place of the old prFormula.</p>
 <pre class="code">
 FileInputStream fis = new FileInputStream("/somepath/test.xls");
 Workbook wb = new HSSFWorkbook(fis); //or new XSSFWorkbook("/somepath/test.xls")
 Sheet sheet = wb.getSheetAt(0);
 FormulaEvaluator evaluator = wb.getCreationHelper().createFormulaEvaluator();
 
-// suppose your formula is in B3
+// suppose your prFormula is in B3
 CellReference cellReference = new CellReference("B3");
 Row row = sheet.getRow(cellReference.getRow());
 Cell cell = row.getCell(cellReference.getCol()); 
@@ -557,7 +557,7 @@ for (Sheet sheet : wb) {
     <a name="External+%28Cross-Workbook%29+references"></a>
 <h2 class="boxed">External (Cross-Workbook) references</h2>
 <div class="section">
-<p>It is possible for a formula in an Excel spreadsheet to
+<p>It is possible for a prFormula in an Excel spreadsheet to
          refer to a Named Range or Cell in a different workbook.
          These cross-workbook references are normally called <em>External
          References</em>. These are formulas which look something like:</p>
@@ -647,11 +647,11 @@ mainWorkbookEvaluator.evaluateAll();
 <a name="Formula+Evaluation+Debugging"></a>
 <h2 class="boxed">Formula Evaluation Debugging</h2>
 <div class="section">
-<p>POI is not perfect and you may stumble across formula evaluation problems (Java exceptions
+<p>POI is not perfect and you may stumble across prFormula evaluation problems (Java exceptions
 		or just different results) in your special use case. To support an easy detailed analysis, a special
 		logging of the full evaluation is provided.</p>
 <p>The output of this logging may be very large (depends on your EXCEL), so this logging has to be explicitly enabled
-		for each single formula evaluation. Should not be used in production - only for specific development use.</p>
+		for each single prFormula evaluation. Should not be used in production - only for specific development use.</p>
 <p>Example use:</p>
 <pre class="code">
 	// activate logging to console
@@ -680,18 +680,18 @@ mainWorkbookEvaluator.evaluateAll();
     <a name="Formula+Evaluation+and+SXSSF"></a>
 <h2 class="boxed">Formula Evaluation and SXSSF</h2>
 <div class="section">
-<p>For versions before 3.13 final, no formula evaluation is possible with
+<p>For versions before 3.13 final, no prFormula evaluation is possible with
        SXSSF.</p>
-<p>If you are using POI 3.13 final or newer, formula evaluation is possible with SXSSF,
+<p>If you are using POI 3.13 final or newer, prFormula evaluation is possible with SXSSF,
        but with some caveats.</p>
 <p>The biggest restriction is that, since evaluating a cell needs that cell in memory
        and any others it depends on, only pure-function formulas and formulas referencing
-       nearby cells can be evaluated with SXSSF. If a formula references a cell that hasn't
+       nearby cells can be evaluated with SXSSF. If a prFormula references a cell that hasn't
        yet been written, or one which has already been flushed to disk, then it won't be
        possible to evaluate it.</p>
 <p>Because of this, a call to <em>wb.getCreationHelper().createFormulaEvaluator().evaluateAll();</em>
        will very rarely work on SXSSF, as it's very rare that all the cells wil be available
-       and in memory at any time! Instead, it is suggested to evaluate formula cells just
+       and in memory at any time! Instead, it is suggested to evaluate prFormula cells just
        after writing them, or shortly after when cells they depend on are added. Just make 
        sure that all cells needing or needed for evaluation are inside the window.</p>
 </div>

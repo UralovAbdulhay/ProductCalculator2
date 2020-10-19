@@ -94,7 +94,7 @@
 </td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><a href="#org.apache.poi.ss.formula">org.apache.poi.ss.formula</a></td>
+<td class="colFirst"><a href="#org.apache.poi.ss.prFormula">org.apache.poi.ss.prFormula</a></td>
 <td class="colLast">
 <div class="block">This package contains common internal POI code for manipulating formulas.</div>
 </td>
@@ -194,7 +194,7 @@
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="typeNameLabel">HSSFFormulaEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/hssf/usermodel/HSSFFormulaEvaluator.html#notifySetFormula-org.apache.poi.ss.usermodel.Cell-">notifySetFormula</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>
-<div class="block">Should be called to tell the cell value cache that the specified (value or formula) cell
+<div class="block">Should be called to tell the cell value cache that the specified (value or prFormula) cell
  has changed.</div>
 </td>
 </tr>
@@ -258,12 +258,12 @@
 </tbody>
 </table>
 </li>
-<li class="blockList"><a name="org.apache.poi.ss.formula">
+<li class="blockList"><a name="org.apache.poi.ss.prFormula">
 <!--   -->
 </a>
-<h3>Uses of <a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a> in <a href="../../../../../../org/apache/poi/ss/formula/package-summary.html">org.apache.poi.ss.formula</a></h3>
+<h3>Uses of <a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a> in <a href="../../../../../../org/apache/poi/ss/prFormula/package-summary.html">org.apache.poi.ss.prFormula</a></h3>
 <table class="useSummary" border="0" cellpadding="3" cellspacing="0" summary="Use table, listing methods, and an explanation">
-<caption><span>Methods in <a href="../../../../../../org/apache/poi/ss/formula/package-summary.html">org.apache.poi.ss.formula</a> that return <a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a></span><span class="tabEnd">&nbsp;</span></caption>
+<caption><span>Methods in <a href="../../../../../../org/apache/poi/ss/prFormula/package-summary.html">org.apache.poi.ss.prFormula</a> that return <a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a></span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -271,16 +271,16 @@
 <tbody>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a></code></td>
-<td class="colLast"><span class="typeNameLabel">BaseFormulaEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#evaluateInCell-org.apache.poi.ss.usermodel.Cell-">evaluateInCell</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>
-<div class="block">If cell contains formula, it evaluates the formula, and
-  puts the formula result back into the cell, in place
-  of the old formula.</div>
+<td class="colLast"><span class="typeNameLabel">BaseFormulaEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#evaluateInCell-org.apache.poi.ss.usermodel.Cell-">evaluateInCell</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>
+<div class="block">If cell contains prFormula, it evaluates the prFormula, and
+  puts the prFormula result back into the cell, in place
+  of the old prFormula.</div>
 </td>
 </tr>
 </tbody>
 </table>
 <table class="useSummary" border="0" cellpadding="3" cellspacing="0" summary="Use table, listing methods, and an explanation">
-<caption><span>Methods in <a href="../../../../../../org/apache/poi/ss/formula/package-summary.html">org.apache.poi.ss.formula</a> that return types with arguments of type <a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a></span><span class="tabEnd">&nbsp;</span></caption>
+<caption><span>Methods in <a href="../../../../../../org/apache/poi/ss/prFormula/package-summary.html">org.apache.poi.ss.prFormula</a> that return types with arguments of type <a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a></span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -288,13 +288,13 @@
 <tbody>
 <tr class="altColor">
 <td class="colFirst"><code>java.util.List&lt;<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&gt;</code></td>
-<td class="colLast"><span class="typeNameLabel">ConditionalFormattingEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/ConditionalFormattingEvaluator.html#getMatchingCells-org.apache.poi.ss.formula.EvaluationConditionalFormatRule-">getMatchingCells</a></span>(<a href="../../../../../../org/apache/poi/ss/formula/EvaluationConditionalFormatRule.html" title="class in org.apache.poi.ss.formula">EvaluationConditionalFormatRule</a>&nbsp;rule)</code>
+<td class="colLast"><span class="typeNameLabel">ConditionalFormattingEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/ConditionalFormattingEvaluator.html#getMatchingCells-org.apache.poi.ss.prFormula.EvaluationConditionalFormatRule-">getMatchingCells</a></span>(<a href="../../../../../../org/apache/poi/ss/prFormula/EvaluationConditionalFormatRule.html" title="class in org.apache.poi.ss.prFormula">EvaluationConditionalFormatRule</a>&nbsp;rule)</code>
 <div class="block">Retrieve all cells where the given formatting rule evaluates to true.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>java.util.List&lt;<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&gt;</code></td>
-<td class="colLast"><span class="typeNameLabel">ConditionalFormattingEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/ConditionalFormattingEvaluator.html#getMatchingCells-org.apache.poi.ss.usermodel.Sheet-int-int-">getMatchingCells</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Sheet.html" title="interface in org.apache.poi.ss.usermodel">Sheet</a>&nbsp;sheet,
+<td class="colLast"><span class="typeNameLabel">ConditionalFormattingEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/ConditionalFormattingEvaluator.html#getMatchingCells-org.apache.poi.ss.usermodel.Sheet-int-int-">getMatchingCells</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Sheet.html" title="interface in org.apache.poi.ss.usermodel">Sheet</a>&nbsp;sheet,
                 int&nbsp;conditionalFormattingIndex,
                 int&nbsp;ruleIndex)</code>
 <div class="block">Conditional formatting rules can apply only to cells in the sheet to which they are attached.</div>
@@ -303,7 +303,7 @@
 </tbody>
 </table>
 <table class="useSummary" border="0" cellpadding="3" cellspacing="0" summary="Use table, listing methods, and an explanation">
-<caption><span>Methods in <a href="../../../../../../org/apache/poi/ss/formula/package-summary.html">org.apache.poi.ss.formula</a> with parameters of type <a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a></span><span class="tabEnd">&nbsp;</span></caption>
+<caption><span>Methods in <a href="../../../../../../org/apache/poi/ss/prFormula/package-summary.html">org.apache.poi.ss.prFormula</a> with parameters of type <a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a></span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -311,22 +311,22 @@
 <tbody>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../../org/apache/poi/ss/usermodel/CellValue.html" title="class in org.apache.poi.ss.usermodel">CellValue</a></code></td>
-<td class="colLast"><span class="typeNameLabel">BaseFormulaEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#evaluate-org.apache.poi.ss.usermodel.Cell-">evaluate</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>
-<div class="block">If cell contains a formula, the formula is evaluated and returned,
+<td class="colLast"><span class="typeNameLabel">BaseFormulaEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#evaluate-org.apache.poi.ss.usermodel.Cell-">evaluate</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>
+<div class="block">If cell contains a prFormula, the prFormula is evaluated and returned,
  else the CellValue simply copies the appropriate cell value from
  the cell and also its cell type.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a></code></td>
-<td class="colLast"><span class="typeNameLabel">BaseFormulaEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#evaluateFormulaCell-org.apache.poi.ss.usermodel.Cell-">evaluateFormulaCell</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>
-<div class="block">If cell contains formula, it evaluates the formula,
-  and saves the result of the formula.</div>
+<td class="colLast"><span class="typeNameLabel">BaseFormulaEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#evaluateFormulaCell-org.apache.poi.ss.usermodel.Cell-">evaluateFormulaCell</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>
+<div class="block">If cell contains prFormula, it evaluates the prFormula,
+  and saves the result of the prFormula.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a></code></td>
-<td class="colLast"><span class="typeNameLabel">BaseFormulaEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#evaluateFormulaCellEnum-org.apache.poi.ss.usermodel.Cell-">evaluateFormulaCellEnum</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>
+<td class="colLast"><span class="typeNameLabel">BaseFormulaEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#evaluateFormulaCellEnum-org.apache.poi.ss.usermodel.Cell-">evaluateFormulaCellEnum</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>
 <div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
 <div class="block"><span class="deprecationComment">use <code>evaluateFormulaCell(cell)</code> instead</span></div>
 </div>
@@ -334,70 +334,70 @@
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected abstract <a href="../../../../../../org/apache/poi/ss/usermodel/CellValue.html" title="class in org.apache.poi.ss.usermodel">CellValue</a></code></td>
-<td class="colLast"><span class="typeNameLabel">BaseFormulaEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#evaluateFormulaCellValue-org.apache.poi.ss.usermodel.Cell-">evaluateFormulaCellValue</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">BaseFormulaEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#evaluateFormulaCellValue-org.apache.poi.ss.usermodel.Cell-">evaluateFormulaCellValue</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a></code></td>
-<td class="colLast"><span class="typeNameLabel">BaseFormulaEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#evaluateInCell-org.apache.poi.ss.usermodel.Cell-">evaluateInCell</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>
-<div class="block">If cell contains formula, it evaluates the formula, and
-  puts the formula result back into the cell, in place
-  of the old formula.</div>
+<td class="colLast"><span class="typeNameLabel">BaseFormulaEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#evaluateInCell-org.apache.poi.ss.usermodel.Cell-">evaluateInCell</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>
+<div class="block">If cell contains prFormula, it evaluates the prFormula, and
+  puts the prFormula result back into the cell, in place
+  of the old prFormula.</div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>java.util.List&lt;<a href="../../../../../../org/apache/poi/ss/formula/EvaluationConditionalFormatRule.html" title="class in org.apache.poi.ss.formula">EvaluationConditionalFormatRule</a>&gt;</code></td>
-<td class="colLast"><span class="typeNameLabel">ConditionalFormattingEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/ConditionalFormattingEvaluator.html#getConditionalFormattingForCell-org.apache.poi.ss.usermodel.Cell-">getConditionalFormattingForCell</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>
+<td class="colFirst"><code>java.util.List&lt;<a href="../../../../../../org/apache/poi/ss/prFormula/EvaluationConditionalFormatRule.html" title="class in org.apache.poi.ss.prFormula">EvaluationConditionalFormatRule</a>&gt;</code></td>
+<td class="colLast"><span class="typeNameLabel">ConditionalFormattingEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/ConditionalFormattingEvaluator.html#getConditionalFormattingForCell-org.apache.poi.ss.usermodel.Cell-">getConditionalFormattingForCell</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>
 <div class="block">This checks all applicable <a href="../../../../../../org/apache/poi/ss/usermodel/ConditionalFormattingRule.html" title="interface in org.apache.poi.ss.usermodel"><code>ConditionalFormattingRule</code></a>s for the cell's sheet, 
  in defined "priority" order, returning the matches if any.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static <a href="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</a></code></td>
-<td class="colLast"><span class="typeNameLabel">ConditionalFormattingEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/ConditionalFormattingEvaluator.html#getRef-org.apache.poi.ss.usermodel.Cell-">getRef</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">ConditionalFormattingEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/ConditionalFormattingEvaluator.html#getRef-org.apache.poi.ss.usermodel.Cell-">getRef</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
-<td class="colLast"><span class="typeNameLabel">DataValidationEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/DataValidationEvaluator.html#isType-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.usermodel.CellType-">isType</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell,
+<td class="colLast"><span class="typeNameLabel">DataValidationEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/DataValidationEvaluator.html#isType-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.usermodel.CellType-">isType</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell,
       <a href="../../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a>&nbsp;type)</code>
 <div class="block">Note that this assumes the cell cached value is up to date and in sync with data edits</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
-<td class="colLast"><span class="typeNameLabel">DataValidationEvaluator.ValidationEnum.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/DataValidationEvaluator.ValidationEnum.html#isValid-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.formula.DataValidationEvaluator.DataValidationContext-">isValid</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell,
-       <a href="../../../../../../org/apache/poi/ss/formula/DataValidationEvaluator.DataValidationContext.html" title="class in org.apache.poi.ss.formula">DataValidationEvaluator.DataValidationContext</a>&nbsp;context)</code>
+<td class="colLast"><span class="typeNameLabel">DataValidationEvaluator.ValidationEnum.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/DataValidationEvaluator.ValidationEnum.html#isValid-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.prFormula.DataValidationEvaluator.DataValidationContext-">isValid</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell,
+       <a href="../../../../../../org/apache/poi/ss/prFormula/DataValidationEvaluator.DataValidationContext.html" title="class in org.apache.poi.ss.prFormula">DataValidationEvaluator.DataValidationContext</a>&nbsp;context)</code>
 <div class="block">Validates against the type defined in context, as an index of the enum values array.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected boolean</code></td>
-<td class="colLast"><span class="typeNameLabel">DataValidationEvaluator.ValidationEnum.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/DataValidationEvaluator.ValidationEnum.html#isValidNumericCell-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.formula.DataValidationEvaluator.DataValidationContext-">isValidNumericCell</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell,
-                  <a href="../../../../../../org/apache/poi/ss/formula/DataValidationEvaluator.DataValidationContext.html" title="class in org.apache.poi.ss.formula">DataValidationEvaluator.DataValidationContext</a>&nbsp;context)</code>
-<div class="block">Uses the cell value, which may be the cached formula result value.</div>
+<td class="colLast"><span class="typeNameLabel">DataValidationEvaluator.ValidationEnum.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/DataValidationEvaluator.ValidationEnum.html#isValidNumericCell-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.prFormula.DataValidationEvaluator.DataValidationContext-">isValidNumericCell</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell,
+                  <a href="../../../../../../org/apache/poi/ss/prFormula/DataValidationEvaluator.DataValidationContext.html" title="class in org.apache.poi.ss.prFormula">DataValidationEvaluator.DataValidationContext</a>&nbsp;context)</code>
+<div class="block">Uses the cell value, which may be the cached prFormula result value.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><span class="typeNameLabel">DataValidationEvaluator.ValidationEnum.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/DataValidationEvaluator.ValidationEnum.html#isValidValue-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.formula.DataValidationEvaluator.DataValidationContext-">isValidValue</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell,
-            <a href="../../../../../../org/apache/poi/ss/formula/DataValidationEvaluator.DataValidationContext.html" title="class in org.apache.poi.ss.formula">DataValidationEvaluator.DataValidationContext</a>&nbsp;context)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">DataValidationEvaluator.ValidationEnum.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/DataValidationEvaluator.ValidationEnum.html#isValidValue-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.prFormula.DataValidationEvaluator.DataValidationContext-">isValidValue</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell,
+            <a href="../../../../../../org/apache/poi/ss/prFormula/DataValidationEvaluator.DataValidationContext.html" title="class in org.apache.poi.ss.prFormula">DataValidationEvaluator.DataValidationContext</a>&nbsp;context)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><span class="typeNameLabel">BaseFormulaEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#setCellType-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.usermodel.CellType-">setCellType</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell,
+<td class="colLast"><span class="typeNameLabel">BaseFormulaEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#setCellType-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.usermodel.CellType-">setCellType</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell,
            <a href="../../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a>&nbsp;cellType)</code>
 <div class="block">Override if a different variation is needed, e.g.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><span class="typeNameLabel">BaseFormulaEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#setCellType-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.usermodel.CellValue-">setCellType</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell,
+<td class="colLast"><span class="typeNameLabel">BaseFormulaEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#setCellType-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.usermodel.CellValue-">setCellType</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell,
            <a href="../../../../../../org/apache/poi/ss/usermodel/CellValue.html" title="class in org.apache.poi.ss.usermodel">CellValue</a>&nbsp;cv)</code>
 <div class="block">set the cell type</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><span class="typeNameLabel">BaseFormulaEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#setCellValue-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.usermodel.CellValue-">setCellValue</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell,
+<td class="colLast"><span class="typeNameLabel">BaseFormulaEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#setCellValue-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.usermodel.CellValue-">setCellValue</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell,
             <a href="../../../../../../org/apache/poi/ss/usermodel/CellValue.html" title="class in org.apache.poi.ss.usermodel">CellValue</a>&nbsp;cv)</code>&nbsp;</td>
 </tr>
 </tbody>
@@ -460,9 +460,9 @@
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a></code></td>
 <td class="colLast"><span class="typeNameLabel">FormulaEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html#evaluateInCell-org.apache.poi.ss.usermodel.Cell-">evaluateInCell</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>
-<div class="block">If cell contains formula, it evaluates the formula, and
-  puts the formula result back into the cell, in place
-  of the old formula.</div>
+<div class="block">If cell contains prFormula, it evaluates the prFormula, and
+  puts the prFormula result back into the cell, in place
+  of the old prFormula.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -507,9 +507,9 @@
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../../org/apache/poi/ss/usermodel/CellRange.html" title="interface in org.apache.poi.ss.usermodel">CellRange</a>&lt;? extends <a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&gt;</code></td>
-<td class="colLast"><span class="typeNameLabel">Sheet.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/usermodel/Sheet.html#setArrayFormula-java.lang.String-org.apache.poi.ss.util.CellRangeAddress-">setArrayFormula</a></span>(java.lang.String&nbsp;formula,
+<td class="colLast"><span class="typeNameLabel">Sheet.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/usermodel/Sheet.html#setArrayFormula-java.lang.String-org.apache.poi.ss.util.CellRangeAddress-">setArrayFormula</a></span>(java.lang.String&nbsp;prFormula,
                <a href="../../../../../../org/apache/poi/ss/util/CellRangeAddress.html" title="class in org.apache.poi.ss.util">CellRangeAddress</a>&nbsp;range)</code>
-<div class="block">Sets array formula to specified region for result.</div>
+<div class="block">Sets array prFormula to specified region for result.</div>
 </td>
 </tr>
 </tbody>
@@ -557,7 +557,7 @@
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../../../org/apache/poi/ss/usermodel/CellValue.html" title="class in org.apache.poi.ss.usermodel">CellValue</a></code></td>
 <td class="colLast"><span class="typeNameLabel">FormulaEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html#evaluate-org.apache.poi.ss.usermodel.Cell-">evaluate</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>
-<div class="block">If cell contains a formula, the formula is evaluated and returned,
+<div class="block">If cell contains a prFormula, the prFormula is evaluated and returned,
  else the CellValue simply copies the appropriate cell value from
  the cell and also its cell type.</div>
 </td>
@@ -565,8 +565,8 @@
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a></code></td>
 <td class="colLast"><span class="typeNameLabel">FormulaEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html#evaluateFormulaCell-org.apache.poi.ss.usermodel.Cell-">evaluateFormulaCell</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>
-<div class="block">If cell contains formula, it evaluates the formula,
-  and saves the result of the formula.</div>
+<div class="block">If cell contains prFormula, it evaluates the prFormula,
+  and saves the result of the prFormula.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -580,9 +580,9 @@
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a></code></td>
 <td class="colLast"><span class="typeNameLabel">FormulaEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html#evaluateInCell-org.apache.poi.ss.usermodel.Cell-">evaluateInCell</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>
-<div class="block">If cell contains formula, it evaluates the formula, and
-  puts the formula result back into the cell, in place
-  of the old formula.</div>
+<div class="block">If cell contains prFormula, it evaluates the prFormula, and
+  puts the prFormula result back into the cell, in place
+  of the old prFormula.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -604,9 +604,9 @@
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><span class="typeNameLabel">DataFormatter.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/usermodel/DataFormatter.html#formatCellValue-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.usermodel.FormulaEvaluator-org.apache.poi.ss.formula.ConditionalFormattingEvaluator-">formatCellValue</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell,
+<td class="colLast"><span class="typeNameLabel">DataFormatter.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/usermodel/DataFormatter.html#formatCellValue-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.usermodel.FormulaEvaluator-org.apache.poi.ss.prFormula.ConditionalFormattingEvaluator-">formatCellValue</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell,
                <a href="../../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html" title="interface in org.apache.poi.ss.usermodel">FormulaEvaluator</a>&nbsp;evaluator,
-               <a href="../../../../../../org/apache/poi/ss/formula/ConditionalFormattingEvaluator.html" title="class in org.apache.poi.ss.formula">ConditionalFormattingEvaluator</a>&nbsp;cfEvaluator)</code>
+               <a href="../../../../../../org/apache/poi/ss/prFormula/ConditionalFormattingEvaluator.html" title="class in org.apache.poi.ss.prFormula">ConditionalFormattingEvaluator</a>&nbsp;cfEvaluator)</code>
 <div class="block">
  Returns the formatted value of a cell as a <tt>String</tt> regardless
  of the cell type.</div>
@@ -614,8 +614,8 @@
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static <a href="../../../../../../org/apache/poi/ss/usermodel/ExcelNumberFormat.html" title="class in org.apache.poi.ss.usermodel">ExcelNumberFormat</a></code></td>
-<td class="colLast"><span class="typeNameLabel">ExcelNumberFormat.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/usermodel/ExcelNumberFormat.html#from-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.formula.ConditionalFormattingEvaluator-">from</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell,
-    <a href="../../../../../../org/apache/poi/ss/formula/ConditionalFormattingEvaluator.html" title="class in org.apache.poi.ss.formula">ConditionalFormattingEvaluator</a>&nbsp;cfEvaluator)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">ExcelNumberFormat.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/usermodel/ExcelNumberFormat.html#from-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.prFormula.ConditionalFormattingEvaluator-">from</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell,
+    <a href="../../../../../../org/apache/poi/ss/prFormula/ConditionalFormattingEvaluator.html" title="class in org.apache.poi.ss.prFormula">ConditionalFormattingEvaluator</a>&nbsp;cfEvaluator)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>java.text.Format</code></td>
@@ -640,8 +640,8 @@
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
-<td class="colLast"><span class="typeNameLabel">DateUtil.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/usermodel/DateUtil.html#isCellDateFormatted-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.formula.ConditionalFormattingEvaluator-">isCellDateFormatted</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell,
-                   <a href="../../../../../../org/apache/poi/ss/formula/ConditionalFormattingEvaluator.html" title="class in org.apache.poi.ss.formula">ConditionalFormattingEvaluator</a>&nbsp;cfEvaluator)</code>
+<td class="colLast"><span class="typeNameLabel">DateUtil.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/usermodel/DateUtil.html#isCellDateFormatted-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.prFormula.ConditionalFormattingEvaluator-">isCellDateFormatted</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell,
+                   <a href="../../../../../../org/apache/poi/ss/prFormula/ConditionalFormattingEvaluator.html" title="class in org.apache.poi.ss.prFormula">ConditionalFormattingEvaluator</a>&nbsp;cfEvaluator)</code>
 <div class="block">Check if a cell contains a date
   Since dates are stored internally in Excel as double values
   we infer it is a date if it is formatted as such.</div>
@@ -658,20 +658,20 @@
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="typeNameLabel">FormulaEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html#notifyDeleteCell-org.apache.poi.ss.usermodel.Cell-">notifyDeleteCell</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>
 <div class="block">Should be called to tell the cell value cache that the specified cell has just become a
- formula cell, or the formula text has changed</div>
+ prFormula cell, or the prFormula text has changed</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="typeNameLabel">FormulaEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html#notifySetFormula-org.apache.poi.ss.usermodel.Cell-">notifySetFormula</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>
-<div class="block">Should be called to tell the cell value cache that the specified (value or formula) cell 
+<div class="block">Should be called to tell the cell value cache that the specified (value or prFormula) cell
  has changed.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="typeNameLabel">FormulaEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html#notifyUpdateCell-org.apache.poi.ss.usermodel.Cell-">notifyUpdateCell</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>
-<div class="block">Should be called to tell the cell value cache that the specified (value or formula) cell
+<div class="block">Should be called to tell the cell value cache that the specified (value or prFormula) cell
  has changed.</div>
 </td>
 </tr>
@@ -961,9 +961,9 @@
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../../org/apache/poi/ss/usermodel/CellRange.html" title="interface in org.apache.poi.ss.usermodel">CellRange</a>&lt;? extends <a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&gt;</code></td>
-<td class="colLast"><span class="typeNameLabel">SXSSFSheet.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/xssf/streaming/SXSSFSheet.html#setArrayFormula-java.lang.String-org.apache.poi.ss.util.CellRangeAddress-">setArrayFormula</a></span>(java.lang.String&nbsp;formula,
+<td class="colLast"><span class="typeNameLabel">SXSSFSheet.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/xssf/streaming/SXSSFSheet.html#setArrayFormula-java.lang.String-org.apache.poi.ss.util.CellRangeAddress-">setArrayFormula</a></span>(java.lang.String&nbsp;prFormula,
                <a href="../../../../../../org/apache/poi/ss/util/CellRangeAddress.html" title="class in org.apache.poi.ss.util">CellRangeAddress</a>&nbsp;range)</code>
-<div class="block">Sets array formula to specified region for result.</div>
+<div class="block">Sets array prFormula to specified region for result.</div>
 </td>
 </tr>
 </tbody>
@@ -1004,7 +1004,7 @@
 </td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>protected <a href="../../../../../../org/apache/poi/ss/formula/EvaluationCell.html" title="interface in org.apache.poi.ss.formula">EvaluationCell</a></code></td>
+<td class="colFirst"><code>protected <a href="../../../../../../org/apache/poi/ss/prFormula/EvaluationCell.html" title="interface in org.apache.poi.ss.prFormula">EvaluationCell</a></code></td>
 <td class="colLast"><span class="typeNameLabel">SXSSFFormulaEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/xssf/streaming/SXSSFFormulaEvaluator.html#toEvaluationCell-org.apache.poi.ss.usermodel.Cell-">toEvaluationCell</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>
 <div class="block">Turns a SXSSFCell into a SXSSFEvaluationCell</div>
 </td>
@@ -1077,7 +1077,7 @@
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="typeNameLabel">XSSFCell.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/xssf/usermodel/XSSFCell.html#copyCellFrom-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.usermodel.CellCopyPolicy-">copyCellFrom</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;srcCell,
             <a href="../../../../../../org/apache/poi/ss/usermodel/CellCopyPolicy.html" title="class in org.apache.poi.ss.usermodel">CellCopyPolicy</a>&nbsp;policy)</code>
-<div class="block">Copy cell value, formula and style, from srcCell per cell copy policy
+<div class="block">Copy cell value, prFormula and style, from srcCell per cell copy policy
  If srcCell is null, clears the cell value and cell style per cell copy policy
  
  This does not shift references in formulas.</div>
@@ -1121,13 +1121,13 @@
            <a href="../../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a>&nbsp;cellType)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>protected <a href="../../../../../../org/apache/poi/ss/formula/EvaluationCell.html" title="interface in org.apache.poi.ss.formula">EvaluationCell</a></code></td>
+<td class="colFirst"><code>protected <a href="../../../../../../org/apache/poi/ss/prFormula/EvaluationCell.html" title="interface in org.apache.poi.ss.prFormula">EvaluationCell</a></code></td>
 <td class="colLast"><span class="typeNameLabel">XSSFFormulaEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/xssf/usermodel/XSSFFormulaEvaluator.html#toEvaluationCell-org.apache.poi.ss.usermodel.Cell-">toEvaluationCell</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>
 <div class="block">Turns a XSSFCell into a XSSFEvaluationCell</div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>protected abstract <a href="../../../../../../org/apache/poi/ss/formula/EvaluationCell.html" title="interface in org.apache.poi.ss.formula">EvaluationCell</a></code></td>
+<td class="colFirst"><code>protected abstract <a href="../../../../../../org/apache/poi/ss/prFormula/EvaluationCell.html" title="interface in org.apache.poi.ss.prFormula">EvaluationCell</a></code></td>
 <td class="colLast"><span class="typeNameLabel">BaseXSSFFormulaEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/xssf/usermodel/BaseXSSFFormulaEvaluator.html#toEvaluationCell-org.apache.poi.ss.usermodel.Cell-">toEvaluationCell</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>
 <div class="block">Turns a XSSFCell / SXSSFCell into a XSSFEvaluationCell</div>
 </td>

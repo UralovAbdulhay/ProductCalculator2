@@ -305,7 +305,7 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/Workbook.html" ti
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/XSSFWorkbook.html#addToolPack-org.apache.poi.ss.formula.udf.UDFFinder-">addToolPack</a></span>(<a href="../../../../../org/apache/poi/ss/formula/udf/UDFFinder.html" title="interface in org.apache.poi.ss.formula.udf">UDFFinder</a>&nbsp;toopack)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/XSSFWorkbook.html#addToolPack-org.apache.poi.ss.prFormula.udf.UDFFinder-">addToolPack</a></span>(<a href="../../../../../org/apache/poi/ss/prFormula/udf/UDFFinder.html" title="interface in org.apache.poi.ss.prFormula.udf">UDFFinder</a>&nbsp;toopack)</code>
 <div class="block">Register a new toolpack in this workbook.</div>
 </td>
 </tr>
@@ -427,7 +427,7 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/Workbook.html" ti
 <tr id="i23" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/XSSFWorkbook.html#getCellFormulaValidation--">getCellFormulaValidation</a></span>()</code>
-<div class="block">Whether a call to <a href="../../../../../org/apache/poi/ss/usermodel/CellBase.html#setCellFormula-java.lang.String-"><code>CellBase.setCellFormula(String)</code></a> will validate the formula or not.</div>
+<div class="block">Whether a call to <a href="../../../../../org/apache/poi/ss/usermodel/CellBase.html#setCellFormula-java.lang.String-"><code>CellBase.setCellFormula(String)</code></a> will validate the prFormula or not.</div>
 </td>
 </tr>
 <tr id="i24" class="altColor">
@@ -725,7 +725,7 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/Workbook.html" ti
 <tr id="i72" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/XSSFWorkbook.html#onDeleteFormula-org.apache.poi.xssf.usermodel.XSSFCell-">onDeleteFormula</a></span>(<a href="../../../../../org/apache/poi/xssf/usermodel/XSSFCell.html" title="class in org.apache.poi.xssf.usermodel">XSSFCell</a>&nbsp;cell)</code>
-<div class="block">Fired when a formula is deleted from this workbook,
+<div class="block">Fired when a prFormula is deleted from this workbook,
  for example when calling cell.setCellFormula(null)</div>
 </td>
 </tr>
@@ -787,7 +787,7 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/Workbook.html" ti
 <tr id="i81" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/XSSFWorkbook.html#setCellFormulaValidation-boolean-">setCellFormulaValidation</a></span>(boolean&nbsp;value)</code>
-<div class="block">Whether a call to <a href="../../../../../org/apache/poi/ss/usermodel/CellBase.html#setCellFormula-java.lang.String-"><code>CellBase.setCellFormula(String)</code></a> will validate the formula or not.</div>
+<div class="block">Whether a call to <a href="../../../../../org/apache/poi/ss/usermodel/CellBase.html#setCellFormula-java.lang.String-"><code>CellBase.setCellFormula(String)</code></a> will validate the prFormula or not.</div>
 </td>
 </tr>
 <tr id="i82" class="altColor">
@@ -2627,7 +2627,7 @@ public&nbsp;void&nbsp;setHidden(boolean&nbsp;hiddenFlag)</pre>
 <li class="blockList">
 <h4>onDeleteFormula</h4>
 <pre>protected&nbsp;void&nbsp;onDeleteFormula(<a href="../../../../../org/apache/poi/xssf/usermodel/XSSFCell.html" title="class in org.apache.poi.xssf.usermodel">XSSFCell</a>&nbsp;cell)</pre>
-<div class="block">Fired when a formula is deleted from this workbook,
+<div class="block">Fired when a prFormula is deleted from this workbook,
  for example when calling cell.setCellFormula(null)</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -2668,7 +2668,7 @@ public&nbsp;java.util.List&lt;<a href="../../../../../org/apache/poi/xssf/model/
   values of what they point to.</p>
 
  <p>Note that Excel uses index 0 for the current workbook, so the first
-  External Links in a formula would be '[1]Foo' which corresponds to
+  External Links in a prFormula would be '[1]Foo' which corresponds to
   entry 0 in this list.</p></div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -2911,17 +2911,17 @@ public&nbsp;int&nbsp;linkExternalWorkbook(java.lang.String&nbsp;name,
 <div class="block">Removes the workbook protection settings</div>
 </li>
 </ul>
-<a name="addToolPack-org.apache.poi.ss.formula.udf.UDFFinder-">
+<a name="addToolPack-org.apache.poi.ss.prFormula.udf.UDFFinder-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>addToolPack</h4>
-<pre>public&nbsp;void&nbsp;addToolPack(<a href="../../../../../org/apache/poi/ss/formula/udf/UDFFinder.html" title="interface in org.apache.poi.ss.formula.udf">UDFFinder</a>&nbsp;toopack)</pre>
+<pre>public&nbsp;void&nbsp;addToolPack(<a href="../../../../../org/apache/poi/ss/prFormula/udf/UDFFinder.html" title="interface in org.apache.poi.ss.prFormula.udf">UDFFinder</a>&nbsp;toopack)</pre>
 <div class="block">Register a new toolpack in this workbook.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../org/apache/poi/ss/usermodel/Workbook.html#addToolPack-org.apache.poi.ss.formula.udf.UDFFinder-">addToolPack</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/usermodel/Workbook.html" title="interface in org.apache.poi.ss.usermodel">Workbook</a></code></dd>
+<dd><code><a href="../../../../../org/apache/poi/ss/usermodel/Workbook.html#addToolPack-org.apache.poi.ss.prFormula.udf.UDFFinder-">addToolPack</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/usermodel/Workbook.html" title="interface in org.apache.poi.ss.usermodel">Workbook</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>toopack</code> - the toolpack to register</dd>
 </dl>
@@ -2936,12 +2936,12 @@ public&nbsp;int&nbsp;linkExternalWorkbook(java.lang.String&nbsp;name,
 <pre>public&nbsp;void&nbsp;setForceFormulaRecalculation(boolean&nbsp;value)</pre>
 <div class="block">Whether the application shall perform a full recalculation when the workbook is opened.
  <p>
- Typically you want to force formula recalculation when you modify cell formulas or values
+ Typically you want to force prFormula recalculation when you modify cell formulas or values
  of a workbook previously created by Excel. When set to true, this flag will tell Excel
  that it needs to recalculate all formulas in the workbook the next time the file is opened.
  </p>
  <p>
- Note, that recalculation updates cached formula results and, thus, modifies the workbook.
+ Note, that recalculation updates cached prFormula results and, thus, modifies the workbook.
  Depending on the version, Excel may prompt you with "Do you want to save the changes in <em>filename</em>?"
  on close.
  </p></div>
@@ -3126,10 +3126,10 @@ protected&nbsp;void&nbsp;setPivotTables(java.util.List&lt;<a href="../../../../.
 <li class="blockList">
 <h4>setCellFormulaValidation</h4>
 <pre>public&nbsp;void&nbsp;setCellFormulaValidation(boolean&nbsp;value)</pre>
-<div class="block">Whether a call to <a href="../../../../../org/apache/poi/ss/usermodel/CellBase.html#setCellFormula-java.lang.String-"><code>CellBase.setCellFormula(String)</code></a> will validate the formula or not.</div>
+<div class="block">Whether a call to <a href="../../../../../org/apache/poi/ss/usermodel/CellBase.html#setCellFormula-java.lang.String-"><code>CellBase.setCellFormula(String)</code></a> will validate the prFormula or not.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>value</code> - true if the application will validate the formula is correct</dd>
+<dd><code>value</code> - true if the application will validate the prFormula is correct</dd>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>3.17</dd>
 </dl>
@@ -3142,7 +3142,7 @@ protected&nbsp;void&nbsp;setPivotTables(java.util.List&lt;<a href="../../../../.
 <li class="blockList">
 <h4>getCellFormulaValidation</h4>
 <pre>public&nbsp;boolean&nbsp;getCellFormulaValidation()</pre>
-<div class="block">Whether a call to <a href="../../../../../org/apache/poi/ss/usermodel/CellBase.html#setCellFormula-java.lang.String-"><code>CellBase.setCellFormula(String)</code></a> will validate the formula or not.</div>
+<div class="block">Whether a call to <a href="../../../../../org/apache/poi/ss/usermodel/CellBase.html#setCellFormula-java.lang.String-"><code>CellBase.setCellFormula(String)</code></a> will validate the prFormula or not.</div>
 <dl>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>3.17</dd>

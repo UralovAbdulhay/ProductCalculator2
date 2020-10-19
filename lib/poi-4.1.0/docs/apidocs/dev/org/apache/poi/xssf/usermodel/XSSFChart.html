@@ -278,7 +278,7 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/Chart.html" title
 <tr id="i13" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/XSSFChart.html#getTitleFormula--">getTitleFormula</a></span>()</code>
-<div class="block">Get the chart title formula expression if there is one</div>
+<div class="block">Get the chart title prFormula expression if there is one</div>
 </td>
 </tr>
 <tr id="i14" class="altColor">
@@ -302,8 +302,8 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/Chart.html" title
 </tr>
 <tr id="i17" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/XSSFChart.html#setTitleFormula-java.lang.String-">setTitleFormula</a></span>(java.lang.String&nbsp;formula)</code>
-<div class="block">Set the formula expression to use for the chart title</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/XSSFChart.html#setTitleFormula-java.lang.String-">setTitleFormula</a></span>(java.lang.String&nbsp;prFormula)</code>
+<div class="block">Set the prFormula expression to use for the chart title</div>
 </td>
 </tr>
 </table>
@@ -634,14 +634,14 @@ public&nbsp;<a href="../../../../../org/apache/poi/xssf/usermodel/charts/XSSFMan
 <h4>getTitleText</h4>
 <pre>public&nbsp;<a href="../../../../../org/apache/poi/xssf/usermodel/XSSFRichTextString.html" title="class in org.apache.poi.xssf.usermodel">XSSFRichTextString</a>&nbsp;getTitleText()</pre>
 <div class="block">Returns the title static text, or null if none is set. Note that a title
- formula may be set instead. Empty text result is for backward
+ prFormula may be set instead. Empty text result is for backward
  compatibility, and could mean the title text is empty or there is a
- formula instead. Check for a formula first, falling back on text for
+ prFormula instead. Check for a prFormula first, falling back on text for
  cleaner logic.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>static title text if set, null if there is no title, empty string
-         if the title text is empty or the title uses a formula instead</dd>
+         if the title text is empty or the title uses a prFormula instead</dd>
 </dl>
 </li>
 </ul>
@@ -652,10 +652,10 @@ public&nbsp;<a href="../../../../../org/apache/poi/xssf/usermodel/charts/XSSFMan
 <li class="blockList">
 <h4>getTitleFormula</h4>
 <pre>public&nbsp;java.lang.String&nbsp;getTitleFormula()</pre>
-<div class="block">Get the chart title formula expression if there is one</div>
+<div class="block">Get the chart title prFormula expression if there is one</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>formula expression or null</dd>
+<dd>prFormula expression or null</dd>
 </dl>
 </li>
 </ul>
@@ -665,11 +665,11 @@ public&nbsp;<a href="../../../../../org/apache/poi/xssf/usermodel/charts/XSSFMan
 <ul class="blockList">
 <li class="blockList">
 <h4>setTitleFormula</h4>
-<pre>public&nbsp;void&nbsp;setTitleFormula(java.lang.String&nbsp;formula)</pre>
-<div class="block">Set the formula expression to use for the chart title</div>
+<pre>public&nbsp;void&nbsp;setTitleFormula(java.lang.String&nbsp;prFormula)</pre>
+<div class="block">Set the prFormula expression to use for the chart title</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>formula</code> - </dd>
+<dd><code>prFormula</code> - </dd>
 </dl>
 </li>
 </ul>

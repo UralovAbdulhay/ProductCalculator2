@@ -151,7 +151,7 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/DataValidationCon
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>static <a href="../../../../../org/apache/poi/hssf/usermodel/DVConstraint.html" title="class in org.apache.poi.hssf.usermodel">DVConstraint</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/usermodel/DVConstraint.html#createCustomFormulaConstraint-java.lang.String-">createCustomFormulaConstraint</a></span>(java.lang.String&nbsp;formula)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/usermodel/DVConstraint.html#createCustomFormulaConstraint-java.lang.String-">createCustomFormulaConstraint</a></span>(java.lang.String&nbsp;prFormula)</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../../org/apache/poi/hssf/usermodel/DVConstraint.html" title="class in org.apache.poi.hssf.usermodel">DVConstraint</a></code></td>
@@ -238,13 +238,13 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/DataValidationCon
 <tr id="i16" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/usermodel/DVConstraint.html#setFormula1-java.lang.String-">setFormula1</a></span>(java.lang.String&nbsp;formula1)</code>
-<div class="block">Sets a formula for expression 1.</div>
+<div class="block">Sets a prFormula for expression 1.</div>
 </td>
 </tr>
 <tr id="i17" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/usermodel/DVConstraint.html#setFormula2-java.lang.String-">setFormula2</a></span>(java.lang.String&nbsp;formula2)</code>
-<div class="block">Sets a formula for expression 2.</div>
+<div class="block">Sets a prFormula for expression 2.</div>
 </td>
 </tr>
 <tr id="i18" class="altColor">
@@ -299,7 +299,7 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/DataValidationCon
                                                    java.lang.String&nbsp;expr2)</pre>
 <div class="block">Creates a number based data validation constraint. The text values entered for expr1 and expr2
  can be either standard Excel formulas or formatted number values. If the expression starts 
- with '=' it is parsed as a formula, otherwise it is parsed as a formatted number.</div>
+ with '=' it is parsed as a prFormula, otherwise it is parsed as a formatted number.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>validationType</code> - one of <a href="../../../../../org/apache/poi/ss/usermodel/DataValidationConstraint.ValidationType.html#ANY"><code>DataValidationConstraint.ValidationType.ANY</code></a>,
@@ -307,8 +307,8 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/DataValidationCon
  <a href="../../../../../org/apache/poi/ss/usermodel/DataValidationConstraint.ValidationType.html#INTEGER"><code>DataValidationConstraint.ValidationType.INTEGER</code></a>,
  <a href="../../../../../org/apache/poi/ss/usermodel/DataValidationConstraint.ValidationType.html#TEXT_LENGTH"><code>DataValidationConstraint.ValidationType.TEXT_LENGTH</code></a></dd>
 <dd><code>comparisonOperator</code> - any constant from <a href="../../../../../org/apache/poi/ss/usermodel/DataValidationConstraint.OperatorType.html" title="class in org.apache.poi.ss.usermodel"><code>DataValidationConstraint.OperatorType</code></a> enum</dd>
-<dd><code>expr1</code> - date formula (when first char is '=') or formatted number value</dd>
-<dd><code>expr2</code> - date formula (when first char is '=') or formatted number value</dd>
+<dd><code>expr1</code> - date prFormula (when first char is '=') or formatted number value</dd>
+<dd><code>expr2</code> - date prFormula (when first char is '=') or formatted number value</dd>
 </dl>
 </li>
 </ul>
@@ -341,14 +341,14 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/DataValidationCon
                                                 java.lang.String&nbsp;expr2)</pre>
 <div class="block">Creates a time based data validation constraint. The text values entered for expr1 and expr2
  can be either standard Excel formulas or formatted time values. If the expression starts 
- with '=' it is parsed as a formula, otherwise it is parsed as a formatted time.  To parse 
+ with '=' it is parsed as a prFormula, otherwise it is parsed as a formatted time.  To parse
  formatted times, two formats are supported:  "HH:MM" or "HH:MM:SS".  This is contrary to 
  Excel which uses the default time format from the OS.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>comparisonOperator</code> - constant from <a href="../../../../../org/apache/poi/ss/usermodel/DataValidationConstraint.OperatorType.html" title="class in org.apache.poi.ss.usermodel"><code>DataValidationConstraint.OperatorType</code></a> enum</dd>
-<dd><code>expr1</code> - date formula (when first char is '=') or formatted time value</dd>
-<dd><code>expr2</code> - date formula (when first char is '=') or formatted time value</dd>
+<dd><code>expr1</code> - date prFormula (when first char is '=') or formatted time value</dd>
+<dd><code>expr2</code> - date prFormula (when first char is '=') or formatted time value</dd>
 </dl>
 </li>
 </ul>
@@ -364,14 +364,14 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/DataValidationCon
                                                 java.lang.String&nbsp;dateFormat)</pre>
 <div class="block">Creates a date based data validation constraint. The text values entered for expr1 and expr2
  can be either standard Excel formulas or formatted date values. If the expression starts 
- with '=' it is parsed as a formula, otherwise it is parsed as a formatted date (Excel uses 
+ with '=' it is parsed as a prFormula, otherwise it is parsed as a formatted date (Excel uses
  the same convention).  To parse formatted dates, a date format needs to be specified.  This
  is contrary to Excel which uses the default short date format from the OS.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>comparisonOperator</code> - constant from <a href="../../../../../org/apache/poi/ss/usermodel/DataValidationConstraint.OperatorType.html" title="class in org.apache.poi.ss.usermodel"><code>DataValidationConstraint.OperatorType</code></a> enum</dd>
-<dd><code>expr1</code> - date formula (when first char is '=') or formatted date value</dd>
-<dd><code>expr2</code> - date formula (when first char is '=') or formatted date value</dd>
+<dd><code>expr1</code> - date prFormula (when first char is '=') or formatted date value</dd>
+<dd><code>expr2</code> - date prFormula (when first char is '=') or formatted date value</dd>
 <dd><code>dateFormat</code> - ignored if both expr1 and expr2 are formulas.  Default value is "YYYY/MM/DD"
  otherwise any other valid argument for <tt>SimpleDateFormat</tt> can be used</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -385,7 +385,7 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/DataValidationCon
 <ul class="blockList">
 <li class="blockList">
 <h4>createCustomFormulaConstraint</h4>
-<pre>public static&nbsp;<a href="../../../../../org/apache/poi/hssf/usermodel/DVConstraint.html" title="class in org.apache.poi.hssf.usermodel">DVConstraint</a>&nbsp;createCustomFormulaConstraint(java.lang.String&nbsp;formula)</pre>
+<pre>public static&nbsp;<a href="../../../../../org/apache/poi/hssf/usermodel/DVConstraint.html" title="class in org.apache.poi.hssf.usermodel">DVConstraint</a>&nbsp;createCustomFormulaConstraint(java.lang.String&nbsp;prFormula)</pre>
 </li>
 </ul>
 <a name="getValidationType--">
@@ -509,7 +509,7 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/DataValidationCon
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../org/apache/poi/ss/usermodel/DataValidationConstraint.html#getFormula1--">getFormula1</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/usermodel/DataValidationConstraint.html" title="interface in org.apache.poi.ss.usermodel">DataValidationConstraint</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the formula for expression 1. May be <code>null</code></dd>
+<dd>the prFormula for expression 1. May be <code>null</code></dd>
 </dl>
 </li>
 </ul>
@@ -521,7 +521,7 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/DataValidationCon
 <h4>setFormula1</h4>
 <pre>public&nbsp;void&nbsp;setFormula1(java.lang.String&nbsp;formula1)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/poi/ss/usermodel/DataValidationConstraint.html#setFormula1-java.lang.String-">DataValidationConstraint</a></code></span></div>
-<div class="block">Sets a formula for expression 1.</div>
+<div class="block">Sets a prFormula for expression 1.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../org/apache/poi/ss/usermodel/DataValidationConstraint.html#setFormula1-java.lang.String-">setFormula1</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/usermodel/DataValidationConstraint.html" title="interface in org.apache.poi.ss.usermodel">DataValidationConstraint</a></code></dd>
@@ -539,7 +539,7 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/DataValidationCon
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../org/apache/poi/ss/usermodel/DataValidationConstraint.html#getFormula2--">getFormula2</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/usermodel/DataValidationConstraint.html" title="interface in org.apache.poi.ss.usermodel">DataValidationConstraint</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the formula for expression 2. May be <code>null</code></dd>
+<dd>the prFormula for expression 2. May be <code>null</code></dd>
 </dl>
 </li>
 </ul>
@@ -551,7 +551,7 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/DataValidationCon
 <h4>setFormula2</h4>
 <pre>public&nbsp;void&nbsp;setFormula2(java.lang.String&nbsp;formula2)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/poi/ss/usermodel/DataValidationConstraint.html#setFormula2-java.lang.String-">DataValidationConstraint</a></code></span></div>
-<div class="block">Sets a formula for expression 2.</div>
+<div class="block">Sets a prFormula for expression 2.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../org/apache/poi/ss/usermodel/DataValidationConstraint.html#setFormula2-java.lang.String-">setFormula2</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/usermodel/DataValidationConstraint.html" title="interface in org.apache.poi.ss.usermodel">DataValidationConstraint</a></code></dd>

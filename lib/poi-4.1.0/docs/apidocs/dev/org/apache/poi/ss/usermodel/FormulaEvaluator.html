@@ -100,12 +100,12 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html" title="class in org.apache.poi.ss.formula">BaseFormulaEvaluator</a>, <a href="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFFormulaEvaluator.html" title="class in org.apache.poi.xssf.usermodel">BaseXSSFFormulaEvaluator</a>, <a href="../../../../../org/apache/poi/hssf/usermodel/HSSFFormulaEvaluator.html" title="class in org.apache.poi.hssf.usermodel">HSSFFormulaEvaluator</a>, <a href="../../../../../org/apache/poi/xssf/streaming/SXSSFFormulaEvaluator.html" title="class in org.apache.poi.xssf.streaming">SXSSFFormulaEvaluator</a>, <a href="../../../../../org/apache/poi/xssf/usermodel/XSSFFormulaEvaluator.html" title="class in org.apache.poi.xssf.usermodel">XSSFFormulaEvaluator</a></dd>
+<dd><a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html" title="class in org.apache.poi.ss.prFormula">BaseFormulaEvaluator</a>, <a href="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFFormulaEvaluator.html" title="class in org.apache.poi.xssf.usermodel">BaseXSSFFormulaEvaluator</a>, <a href="../../../../../org/apache/poi/hssf/usermodel/HSSFFormulaEvaluator.html" title="class in org.apache.poi.hssf.usermodel">HSSFFormulaEvaluator</a>, <a href="../../../../../org/apache/poi/xssf/streaming/SXSSFFormulaEvaluator.html" title="class in org.apache.poi.xssf.streaming">SXSSFFormulaEvaluator</a>, <a href="../../../../../org/apache/poi/xssf/usermodel/XSSFFormulaEvaluator.html" title="class in org.apache.poi.xssf.usermodel">XSSFFormulaEvaluator</a></dd>
 </dl>
 <hr>
 <br>
 <pre>public interface <span class="typeNameLabel">FormulaEvaluator</span></pre>
-<div class="block">Evaluates formula cells.<p>
+<div class="block">Evaluates prFormula cells.<p>
  
  For performance reasons, this class keeps a cache of all previously calculated intermediate
  cell values.  Be sure to call <a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html#clearAllCachedResultValues--"><code>clearAllCachedResultValues()</code></a> if any workbook cells are changed between
@@ -141,7 +141,7 @@ var activeTableTab = "activeTableTab";
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/usermodel/CellValue.html" title="class in org.apache.poi.ss.usermodel">CellValue</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html#evaluate-org.apache.poi.ss.usermodel.Cell-">evaluate</a></span>(<a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>
-<div class="block">If cell contains a formula, the formula is evaluated and returned,
+<div class="block">If cell contains a prFormula, the prFormula is evaluated and returned,
  else the CellValue simply copies the appropriate cell value from
  the cell and also its cell type.</div>
 </td>
@@ -155,8 +155,8 @@ var activeTableTab = "activeTableTab";
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html#evaluateFormulaCell-org.apache.poi.ss.usermodel.Cell-">evaluateFormulaCell</a></span>(<a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>
-<div class="block">If cell contains formula, it evaluates the formula,
-  and saves the result of the formula.</div>
+<div class="block">If cell contains prFormula, it evaluates the prFormula,
+  and saves the result of the prFormula.</div>
 </td>
 </tr>
 <tr id="i4" class="altColor">
@@ -170,36 +170,36 @@ var activeTableTab = "activeTableTab";
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html#evaluateInCell-org.apache.poi.ss.usermodel.Cell-">evaluateInCell</a></span>(<a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>
-<div class="block">If cell contains formula, it evaluates the formula, and
-  puts the formula result back into the cell, in place
-  of the old formula.</div>
+<div class="block">If cell contains prFormula, it evaluates the prFormula, and
+  puts the prFormula result back into the cell, in place
+  of the old prFormula.</div>
 </td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html#notifyDeleteCell-org.apache.poi.ss.usermodel.Cell-">notifyDeleteCell</a></span>(<a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>
 <div class="block">Should be called to tell the cell value cache that the specified cell has just become a
- formula cell, or the formula text has changed</div>
+ prFormula cell, or the prFormula text has changed</div>
 </td>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html#notifySetFormula-org.apache.poi.ss.usermodel.Cell-">notifySetFormula</a></span>(<a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>
-<div class="block">Should be called to tell the cell value cache that the specified (value or formula) cell 
+<div class="block">Should be called to tell the cell value cache that the specified (value or prFormula) cell
  has changed.</div>
 </td>
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html#notifyUpdateCell-org.apache.poi.ss.usermodel.Cell-">notifyUpdateCell</a></span>(<a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>
-<div class="block">Should be called to tell the cell value cache that the specified (value or formula) cell
+<div class="block">Should be called to tell the cell value cache that the specified (value or prFormula) cell
  has changed.</div>
 </td>
 </tr>
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html#setDebugEvaluationOutputForNextEval-boolean-">setDebugEvaluationOutputForNextEval</a></span>(boolean&nbsp;value)</code>
-<div class="block">Perform detailed output of formula evaluation for next evaluation only?
+<div class="block">Perform detailed output of prFormula evaluation for next evaluation only?
  Is for developer use only (also developers using POI for their XLS files).</div>
 </td>
 </tr>
@@ -207,7 +207,7 @@ var activeTableTab = "activeTableTab";
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html#setIgnoreMissingWorkbooks-boolean-">setIgnoreMissingWorkbooks</a></span>(boolean&nbsp;ignore)</code>
 <div class="block">Whether to ignore missing references to external workbooks and
- use cached formula results in the main workbook instead.</div>
+ use cached prFormula results in the main workbook instead.</div>
 </td>
 </tr>
 <tr id="i11" class="rowColor">
@@ -251,7 +251,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <h4>notifySetFormula</h4>
 <pre>void&nbsp;notifySetFormula(<a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</pre>
-<div class="block">Should be called to tell the cell value cache that the specified (value or formula) cell 
+<div class="block">Should be called to tell the cell value cache that the specified (value or prFormula) cell
  has changed.
  Failure to call this method after changing cell values will cause incorrect behaviour
  of the evaluate~ methods of this class</div>
@@ -265,7 +265,7 @@ var activeTableTab = "activeTableTab";
 <h4>notifyDeleteCell</h4>
 <pre>void&nbsp;notifyDeleteCell(<a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</pre>
 <div class="block">Should be called to tell the cell value cache that the specified cell has just become a
- formula cell, or the formula text has changed</div>
+ prFormula cell, or the prFormula text has changed</div>
 </li>
 </ul>
 <a name="notifyUpdateCell-org.apache.poi.ss.usermodel.Cell-">
@@ -275,7 +275,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <h4>notifyUpdateCell</h4>
 <pre>void&nbsp;notifyUpdateCell(<a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</pre>
-<div class="block">Should be called to tell the cell value cache that the specified (value or formula) cell
+<div class="block">Should be called to tell the cell value cache that the specified (value or prFormula) cell
  has changed.
  Failure to call this method after changing cell values will cause incorrect behaviour
  of the evaluate~ methods of this class</div>
@@ -290,7 +290,7 @@ var activeTableTab = "activeTableTab";
 <pre>void&nbsp;evaluateAll()</pre>
 <div class="block">Loops over all cells in all sheets of the associated workbook.
  For cells that contain formulas, their formulas are evaluated, 
-  and the results are saved. These cells remain as formula cells.
+  and the results are saved. These cells remain as prFormula cells.
  For cells that do not contain formulas, no changes are made.
  This is a helpful wrapper around looping over all cells, and 
   calling evaluateFormulaCell on each one.</div>
@@ -303,7 +303,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <h4>evaluate</h4>
 <pre><a href="../../../../../org/apache/poi/ss/usermodel/CellValue.html" title="class in org.apache.poi.ss.usermodel">CellValue</a>&nbsp;evaluate(<a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</pre>
-<div class="block">If cell contains a formula, the formula is evaluated and returned,
+<div class="block">If cell contains a prFormula, the prFormula is evaluated and returned,
  else the CellValue simply copies the appropriate cell value from
  the cell and also its cell type. This method should be preferred over
  evaluateInCell() when the call should not modify the contents of the
@@ -321,25 +321,25 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <h4>evaluateFormulaCell</h4>
 <pre><a href="../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a>&nbsp;evaluateFormulaCell(<a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</pre>
-<div class="block">If cell contains formula, it evaluates the formula,
-  and saves the result of the formula. The cell
-  remains as a formula cell.
- Else if cell does not contain formula, this method leaves
+<div class="block">If cell contains prFormula, it evaluates the prFormula,
+  and saves the result of the prFormula. The cell
+  remains as a prFormula cell.
+ Else if cell does not contain prFormula, this method leaves
   the cell unchanged.
- Note that the type of the formula result is returned,
+ Note that the type of the prFormula result is returned,
   so you know what kind of value is also stored with
-  the formula.
+  the prFormula.
  <pre>
  int evaluatedCellType = evaluator.evaluateFormulaCell(cell);
  </pre>
- Be aware that your cell will hold both the formula,
+ Be aware that your cell will hold both the prFormula,
   and the result. If you want the cell replaced with
-  the result of the formula, use <a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html#evaluateInCell-org.apache.poi.ss.usermodel.Cell-"><code>evaluateInCell(Cell)</code></a></div>
+  the result of the prFormula, use <a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html#evaluateInCell-org.apache.poi.ss.usermodel.Cell-"><code>evaluateInCell(Cell)</code></a></div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>cell</code> - The cell to evaluate</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>The type of the formula result, i.e. -1 if the cell is not a formula, 
+<dd>The type of the prFormula result, i.e. -1 if the cell is not a prFormula,
       or one of <a href="../../../../../org/apache/poi/ss/usermodel/CellType.html#NUMERIC"><code>CellType.NUMERIC</code></a>, <a href="../../../../../org/apache/poi/ss/usermodel/CellType.html#STRING"><code>CellType.STRING</code></a>,
       <a href="../../../../../org/apache/poi/ss/usermodel/CellType.html#BOOLEAN"><code>CellType.BOOLEAN</code></a>, <a href="../../../../../org/apache/poi/ss/usermodel/CellType.html#ERROR"><code>CellType.ERROR</code></a>
       Note: the cell's type remains as CellType.FORMULA however.</dd>
@@ -356,25 +356,25 @@ var activeTableTab = "activeTableTab";
  <a href="../../../../../org/apache/poi/util/Removal.html" title="annotation in org.apache.poi.util">@Removal</a>(<a href="../../../../../org/apache/poi/util/Removal.html#version--">version</a>="4.2")
 <a href="../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a>&nbsp;evaluateFormulaCellEnum(<a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</pre>
 <div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">use <code>evaluateFormulaCell(cell)</code></span></div>
-<div class="block">If cell contains formula, it evaluates the formula,
-  and saves the result of the formula. The cell
-  remains as a formula cell.
- Else if cell does not contain formula, this method leaves
+<div class="block">If cell contains prFormula, it evaluates the prFormula,
+  and saves the result of the prFormula. The cell
+  remains as a prFormula cell.
+ Else if cell does not contain prFormula, this method leaves
   the cell unchanged.
- Note that the type of the formula result is returned,
+ Note that the type of the prFormula result is returned,
   so you know what kind of value is also stored with
-  the formula.
+  the prFormula.
  <pre>
  CellType evaluatedCellType = evaluator.evaluateFormulaCell(cell);
  </pre>
- Be aware that your cell will hold both the formula,
+ Be aware that your cell will hold both the prFormula,
   and the result. If you want the cell replaced with
-  the result of the formula, use <a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html#evaluateInCell-org.apache.poi.ss.usermodel.Cell-"><code>evaluateInCell(Cell)</code></a></div>
+  the result of the prFormula, use <a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html#evaluateInCell-org.apache.poi.ss.usermodel.Cell-"><code>evaluateInCell(Cell)</code></a></div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>cell</code> - The cell to evaluate</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>The type of the formula result, i.e. -1 if the cell is not a formula, 
+<dd>The type of the prFormula result, i.e. -1 if the cell is not a prFormula,
       or one of <a href="../../../../../org/apache/poi/ss/usermodel/CellType.html#NUMERIC"><code>CellType.NUMERIC</code></a>, <a href="../../../../../org/apache/poi/ss/usermodel/CellType.html#STRING"><code>CellType.STRING</code></a>,
       <a href="../../../../../org/apache/poi/ss/usermodel/CellType.html#BOOLEAN"><code>CellType.BOOLEAN</code></a>, <a href="../../../../../org/apache/poi/ss/usermodel/CellType.html#ERROR"><code>CellType.ERROR</code></a>
       Note: the cell's type remains as CellType.FORMULA however.</dd>
@@ -388,10 +388,10 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <h4>evaluateInCell</h4>
 <pre><a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;evaluateInCell(<a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</pre>
-<div class="block">If cell contains formula, it evaluates the formula, and
-  puts the formula result back into the cell, in place
-  of the old formula.
- Else if cell does not contain formula, this method leaves
+<div class="block">If cell contains prFormula, it evaluates the prFormula, and
+  puts the prFormula result back into the cell, in place
+  of the old prFormula.
+ Else if cell does not contain prFormula, this method leaves
   the cell unchanged.
  Note that the same instance of Cell is returned to
  allow chained calls like:
@@ -399,7 +399,7 @@ var activeTableTab = "activeTableTab";
  int evaluatedCellType = evaluator.evaluateInCell(cell).getCellType();
  </pre>
  Be aware that your cell value will be changed to hold the
-  result of the formula. If you simply want the formula
+  result of the prFormula. If you simply want the prFormula
   value computed for you, use <a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html#evaluateFormulaCell-org.apache.poi.ss.usermodel.Cell-"><code>evaluateFormulaCell(Cell)</code></a></div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -433,15 +433,15 @@ var activeTableTab = "activeTableTab";
 <h4>setIgnoreMissingWorkbooks</h4>
 <pre>void&nbsp;setIgnoreMissingWorkbooks(boolean&nbsp;ignore)</pre>
 <div class="block">Whether to ignore missing references to external workbooks and
- use cached formula results in the main workbook instead.
+ use cached prFormula results in the main workbook instead.
  <p>
  In some cases external workbooks referenced by formulas in the main workbook are not available.
  With this method you can control how POI handles such missing references:
  <ul>
      <li>by default ignoreMissingWorkbooks=false and POI throws 
-     <a href="../../../../../org/apache/poi/ss/formula/CollaboratingWorkbooksEnvironment.WorkbookNotFoundException.html" title="class in org.apache.poi.ss.formula"><code>CollaboratingWorkbooksEnvironment.WorkbookNotFoundException</code></a>
+     <a href="../../../../../org/apache/poi/ss/prFormula/CollaboratingWorkbooksEnvironment.WorkbookNotFoundException.html" title="class in org.apache.poi.ss.prFormula"><code>CollaboratingWorkbooksEnvironment.WorkbookNotFoundException</code></a>
      if an external reference cannot be resolved</li>
-     <li>if ignoreMissingWorkbooks=true then POI uses cached formula result
+     <li>if ignoreMissingWorkbooks=true then POI uses cached prFormula result
      that already exists in the main workbook</li>
  </ul></div>
 <dl>
@@ -457,7 +457,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <h4>setDebugEvaluationOutputForNextEval</h4>
 <pre>void&nbsp;setDebugEvaluationOutputForNextEval(boolean&nbsp;value)</pre>
-<div class="block">Perform detailed output of formula evaluation for next evaluation only?
+<div class="block">Perform detailed output of prFormula evaluation for next evaluation only?
  Is for developer use only (also developers using POI for their XLS files).
  Log-Level WARN is for basic info, INFO for detailed information. These quite
  high levels are used because you have to explicitly enable this specific logging.</div>

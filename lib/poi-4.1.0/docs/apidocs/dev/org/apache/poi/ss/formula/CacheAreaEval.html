@@ -48,11 +48,11 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html" title="class in org.apache.poi.ss.formula"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../org/apache/poi/ss/formula/CollaboratingWorkbooksEnvironment.html" title="class in org.apache.poi.ss.formula"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html" title="class in org.apache.poi.ss.prFormula"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/poi/ss/prFormula/CollaboratingWorkbooksEnvironment.html" title="class in org.apache.poi.ss.prFormula"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
-<li><a href="../../../../../index.html?org/apache/poi/ss/formula/CacheAreaEval.html" target="_top">Frames</a></li>
+<li><a href="../../../../../index.html?org/apache/poi/ss/prFormula/CacheAreaEval.html" target="_top">Frames</a></li>
 <li><a href="CacheAreaEval.html" target="_top">No&nbsp;Frames</a></li>
 </ul>
 <ul class="navList" id="allclasses_navbar_top">
@@ -91,7 +91,7 @@ var activeTableTab = "activeTableTab";
 <!-- ========= END OF TOP NAVBAR ========= -->
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
-<div class="subTitle">org.apache.poi.ss.formula</div>
+<div class="subTitle">org.apache.poi.ss.prFormula</div>
 <h2 title="Class CacheAreaEval" class="title">Class CacheAreaEval</h2>
 </div>
 <div class="contentContainer">
@@ -99,10 +99,10 @@ var activeTableTab = "activeTableTab";
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
-<li><a href="../../../../../org/apache/poi/ss/formula/eval/AreaEvalBase.html" title="class in org.apache.poi.ss.formula.eval">org.apache.poi.ss.formula.eval.AreaEvalBase</a></li>
+<li><a href="../../../../../org/apache/poi/ss/prFormula/eval/AreaEvalBase.html" title="class in org.apache.poi.ss.prFormula.eval">org.apache.poi.ss.prFormula.eval.AreaEvalBase</a></li>
 <li>
 <ul class="inheritance">
-<li>org.apache.poi.ss.formula.CacheAreaEval</li>
+<li>org.apache.poi.ss.prFormula.CacheAreaEval</li>
 </ul>
 </li>
 </ul>
@@ -113,12 +113,12 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><a href="../../../../../org/apache/poi/ss/formula/eval/AreaEval.html" title="interface in org.apache.poi.ss.formula.eval">AreaEval</a>, <a href="../../../../../org/apache/poi/ss/formula/eval/ValueEval.html" title="interface in org.apache.poi.ss.formula.eval">ValueEval</a>, <a href="../../../../../org/apache/poi/ss/formula/SheetRange.html" title="interface in org.apache.poi.ss.formula">SheetRange</a>, <a href="../../../../../org/apache/poi/ss/formula/ThreeDEval.html" title="interface in org.apache.poi.ss.formula">ThreeDEval</a>, <a href="../../../../../org/apache/poi/ss/formula/TwoDEval.html" title="interface in org.apache.poi.ss.formula">TwoDEval</a></dd>
+<dd><a href="../../../../../org/apache/poi/ss/prFormula/eval/AreaEval.html" title="interface in org.apache.poi.ss.prFormula.eval">AreaEval</a>, <a href="../../../../../org/apache/poi/ss/prFormula/eval/ValueEval.html" title="interface in org.apache.poi.ss.prFormula.eval">ValueEval</a>, <a href="../../../../../org/apache/poi/ss/prFormula/SheetRange.html" title="interface in org.apache.poi.ss.prFormula">SheetRange</a>, <a href="../../../../../org/apache/poi/ss/prFormula/ThreeDEval.html" title="interface in org.apache.poi.ss.prFormula">ThreeDEval</a>, <a href="../../../../../org/apache/poi/ss/prFormula/TwoDEval.html" title="interface in org.apache.poi.ss.prFormula">TwoDEval</a></dd>
 </dl>
 <hr>
 <br>
 <pre>public final class <span class="typeNameLabel">CacheAreaEval</span>
-extends <a href="../../../../../org/apache/poi/ss/formula/eval/AreaEvalBase.html" title="class in org.apache.poi.ss.formula.eval">AreaEvalBase</a></pre>
+extends <a href="../../../../../org/apache/poi/ss/prFormula/eval/AreaEvalBase.html" title="class in org.apache.poi.ss.prFormula.eval">AreaEvalBase</a></pre>
 <dl>
 <dt><span class="simpleTagLabel">Author:</span></dt>
 <dd>Robert Hulbert
@@ -143,15 +143,15 @@ extends <a href="../../../../../org/apache/poi/ss/formula/eval/AreaEvalBase.html
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/CacheAreaEval.html#CacheAreaEval-org.apache.poi.ss.formula.ptg.AreaI-org.apache.poi.ss.formula.eval.ValueEval:A-">CacheAreaEval</a></span>(<a href="../../../../../org/apache/poi/ss/formula/ptg/AreaI.html" title="interface in org.apache.poi.ss.formula.ptg">AreaI</a>&nbsp;ptg,
-             <a href="../../../../../org/apache/poi/ss/formula/eval/ValueEval.html" title="interface in org.apache.poi.ss.formula.eval">ValueEval</a>[]&nbsp;values)</code>&nbsp;</td>
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/CacheAreaEval.html#CacheAreaEval-org.apache.poi.ss.prFormula.ptg.AreaI-org.apache.poi.ss.prFormula.eval.ValueEval:A-">CacheAreaEval</a></span>(<a href="../../../../../org/apache/poi/ss/prFormula/ptg/AreaI.html" title="interface in org.apache.poi.ss.prFormula.ptg">AreaI</a>&nbsp;ptg,
+             <a href="../../../../../org/apache/poi/ss/prFormula/eval/ValueEval.html" title="interface in org.apache.poi.ss.prFormula.eval">ValueEval</a>[]&nbsp;values)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/CacheAreaEval.html#CacheAreaEval-int-int-int-int-org.apache.poi.ss.formula.eval.ValueEval:A-">CacheAreaEval</a></span>(int&nbsp;firstRow,
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/CacheAreaEval.html#CacheAreaEval-int-int-int-int-org.apache.poi.ss.prFormula.eval.ValueEval:A-">CacheAreaEval</a></span>(int&nbsp;firstRow,
              int&nbsp;firstColumn,
              int&nbsp;lastRow,
              int&nbsp;lastColumn,
-             <a href="../../../../../org/apache/poi/ss/formula/eval/ValueEval.html" title="interface in org.apache.poi.ss.formula.eval">ValueEval</a>[]&nbsp;values)</code>&nbsp;</td>
+             <a href="../../../../../org/apache/poi/ss/prFormula/eval/ValueEval.html" title="interface in org.apache.poi.ss.prFormula.eval">ValueEval</a>[]&nbsp;values)</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -169,45 +169,45 @@ extends <a href="../../../../../org/apache/poi/ss/formula/eval/AreaEvalBase.html
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/formula/TwoDEval.html" title="interface in org.apache.poi.ss.formula">TwoDEval</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/CacheAreaEval.html#getColumn-int-">getColumn</a></span>(int&nbsp;columnIndex)</code>&nbsp;</td>
+<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/prFormula/TwoDEval.html" title="interface in org.apache.poi.ss.prFormula">TwoDEval</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/CacheAreaEval.html#getColumn-int-">getColumn</a></span>(int&nbsp;columnIndex)</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/formula/eval/ValueEval.html" title="interface in org.apache.poi.ss.formula.eval">ValueEval</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/CacheAreaEval.html#getRelativeValue-int-int-">getRelativeValue</a></span>(int&nbsp;relativeRowIndex,
+<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/prFormula/eval/ValueEval.html" title="interface in org.apache.poi.ss.prFormula.eval">ValueEval</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/CacheAreaEval.html#getRelativeValue-int-int-">getRelativeValue</a></span>(int&nbsp;relativeRowIndex,
                 int&nbsp;relativeColumnIndex)</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/formula/eval/ValueEval.html" title="interface in org.apache.poi.ss.formula.eval">ValueEval</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/CacheAreaEval.html#getRelativeValue-int-int-int-">getRelativeValue</a></span>(int&nbsp;sheetIndex,
+<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/prFormula/eval/ValueEval.html" title="interface in org.apache.poi.ss.prFormula.eval">ValueEval</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/CacheAreaEval.html#getRelativeValue-int-int-int-">getRelativeValue</a></span>(int&nbsp;sheetIndex,
                 int&nbsp;relativeRowIndex,
                 int&nbsp;relativeColumnIndex)</code>&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/formula/TwoDEval.html" title="interface in org.apache.poi.ss.formula">TwoDEval</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/CacheAreaEval.html#getRow-int-">getRow</a></span>(int&nbsp;rowIndex)</code>&nbsp;</td>
+<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/prFormula/TwoDEval.html" title="interface in org.apache.poi.ss.prFormula">TwoDEval</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/CacheAreaEval.html#getRow-int-">getRow</a></span>(int&nbsp;rowIndex)</code>&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/formula/eval/AreaEval.html" title="interface in org.apache.poi.ss.formula.eval">AreaEval</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/CacheAreaEval.html#offset-int-int-int-int-">offset</a></span>(int&nbsp;relFirstRowIx,
+<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/prFormula/eval/AreaEval.html" title="interface in org.apache.poi.ss.prFormula.eval">AreaEval</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/CacheAreaEval.html#offset-int-int-int-int-">offset</a></span>(int&nbsp;relFirstRowIx,
       int&nbsp;relLastRowIx,
       int&nbsp;relFirstColIx,
       int&nbsp;relLastColIx)</code>
-<div class="block">Creates an <a href="../../../../../org/apache/poi/ss/formula/eval/AreaEval.html" title="interface in org.apache.poi.ss.formula.eval"><code>AreaEval</code></a> offset by a relative amount from from the upper left cell
+<div class="block">Creates an <a href="../../../../../org/apache/poi/ss/prFormula/eval/AreaEval.html" title="interface in org.apache.poi.ss.prFormula.eval"><code>AreaEval</code></a> offset by a relative amount from from the upper left cell
  of this area</div>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/CacheAreaEval.html#toString--">toString</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/CacheAreaEval.html#toString--">toString</a></span>()</code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
-<li class="blockList"><a name="methods.inherited.from.class.org.apache.poi.ss.formula.eval.AreaEvalBase">
+<li class="blockList"><a name="methods.inherited.from.class.org.apache.poi.ss.prFormula.eval.AreaEvalBase">
 <!--   -->
 </a>
-<h3>Methods inherited from class&nbsp;org.apache.poi.ss.formula.eval.<a href="../../../../../org/apache/poi/ss/formula/eval/AreaEvalBase.html" title="class in org.apache.poi.ss.formula.eval">AreaEvalBase</a></h3>
-<code><a href="../../../../../org/apache/poi/ss/formula/eval/AreaEvalBase.html#contains-int-int-">contains</a>, <a href="../../../../../org/apache/poi/ss/formula/eval/AreaEvalBase.html#containsColumn-int-">containsColumn</a>, <a href="../../../../../org/apache/poi/ss/formula/eval/AreaEvalBase.html#containsRow-int-">containsRow</a>, <a href="../../../../../org/apache/poi/ss/formula/eval/AreaEvalBase.html#getAbsoluteValue-int-int-">getAbsoluteValue</a>, <a href="../../../../../org/apache/poi/ss/formula/eval/AreaEvalBase.html#getFirstColumn--">getFirstColumn</a>, <a href="../../../../../org/apache/poi/ss/formula/eval/AreaEvalBase.html#getFirstRow--">getFirstRow</a>, <a href="../../../../../org/apache/poi/ss/formula/eval/AreaEvalBase.html#getFirstSheetIndex--">getFirstSheetIndex</a>, <a href="../../../../../org/apache/poi/ss/formula/eval/AreaEvalBase.html#getHeight--">getHeight</a>, <a href="../../../../../org/apache/poi/ss/formula/eval/AreaEvalBase.html#getLastColumn--">getLastColumn</a>, <a href="../../../../../org/apache/poi/ss/formula/eval/AreaEvalBase.html#getLastRow--">getLastRow</a>, <a href="../../../../../org/apache/poi/ss/formula/eval/AreaEvalBase.html#getLastSheetIndex--">getLastSheetIndex</a>, <a href="../../../../../org/apache/poi/ss/formula/eval/AreaEvalBase.html#getValue-int-int-">getValue</a>, <a href="../../../../../org/apache/poi/ss/formula/eval/AreaEvalBase.html#getValue-int-int-int-">getValue</a>, <a href="../../../../../org/apache/poi/ss/formula/eval/AreaEvalBase.html#getWidth--">getWidth</a>, <a href="../../../../../org/apache/poi/ss/formula/eval/AreaEvalBase.html#isColumn--">isColumn</a>, <a href="../../../../../org/apache/poi/ss/formula/eval/AreaEvalBase.html#isRow--">isRow</a>, <a href="../../../../../org/apache/poi/ss/formula/eval/AreaEvalBase.html#isRowHidden-int-">isRowHidden</a>, <a href="../../../../../org/apache/poi/ss/formula/eval/AreaEvalBase.html#isSubTotal-int-int-">isSubTotal</a></code></li>
+<h3>Methods inherited from class&nbsp;org.apache.poi.ss.prFormula.eval.<a href="../../../../../org/apache/poi/ss/prFormula/eval/AreaEvalBase.html" title="class in org.apache.poi.ss.prFormula.eval">AreaEvalBase</a></h3>
+<code><a href="../../../../../org/apache/poi/ss/prFormula/eval/AreaEvalBase.html#contains-int-int-">contains</a>, <a href="../../../../../org/apache/poi/ss/prFormula/eval/AreaEvalBase.html#containsColumn-int-">containsColumn</a>, <a href="../../../../../org/apache/poi/ss/prFormula/eval/AreaEvalBase.html#containsRow-int-">containsRow</a>, <a href="../../../../../org/apache/poi/ss/prFormula/eval/AreaEvalBase.html#getAbsoluteValue-int-int-">getAbsoluteValue</a>, <a href="../../../../../org/apache/poi/ss/prFormula/eval/AreaEvalBase.html#getFirstColumn--">getFirstColumn</a>, <a href="../../../../../org/apache/poi/ss/prFormula/eval/AreaEvalBase.html#getFirstRow--">getFirstRow</a>, <a href="../../../../../org/apache/poi/ss/prFormula/eval/AreaEvalBase.html#getFirstSheetIndex--">getFirstSheetIndex</a>, <a href="../../../../../org/apache/poi/ss/prFormula/eval/AreaEvalBase.html#getHeight--">getHeight</a>, <a href="../../../../../org/apache/poi/ss/prFormula/eval/AreaEvalBase.html#getLastColumn--">getLastColumn</a>, <a href="../../../../../org/apache/poi/ss/prFormula/eval/AreaEvalBase.html#getLastRow--">getLastRow</a>, <a href="../../../../../org/apache/poi/ss/prFormula/eval/AreaEvalBase.html#getLastSheetIndex--">getLastSheetIndex</a>, <a href="../../../../../org/apache/poi/ss/prFormula/eval/AreaEvalBase.html#getValue-int-int-">getValue</a>, <a href="../../../../../org/apache/poi/ss/prFormula/eval/AreaEvalBase.html#getValue-int-int-int-">getValue</a>, <a href="../../../../../org/apache/poi/ss/prFormula/eval/AreaEvalBase.html#getWidth--">getWidth</a>, <a href="../../../../../org/apache/poi/ss/prFormula/eval/AreaEvalBase.html#isColumn--">isColumn</a>, <a href="../../../../../org/apache/poi/ss/prFormula/eval/AreaEvalBase.html#isRow--">isRow</a>, <a href="../../../../../org/apache/poi/ss/prFormula/eval/AreaEvalBase.html#isRowHidden-int-">isRowHidden</a>, <a href="../../../../../org/apache/poi/ss/prFormula/eval/AreaEvalBase.html#isSubTotal-int-int-">isSubTotal</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -230,17 +230,17 @@ extends <a href="../../../../../org/apache/poi/ss/formula/eval/AreaEvalBase.html
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="CacheAreaEval-org.apache.poi.ss.formula.ptg.AreaI-org.apache.poi.ss.formula.eval.ValueEval:A-">
+<a name="CacheAreaEval-org.apache.poi.ss.prFormula.ptg.AreaI-org.apache.poi.ss.prFormula.eval.ValueEval:A-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>CacheAreaEval</h4>
-<pre>public&nbsp;CacheAreaEval(<a href="../../../../../org/apache/poi/ss/formula/ptg/AreaI.html" title="interface in org.apache.poi.ss.formula.ptg">AreaI</a>&nbsp;ptg,
-                     <a href="../../../../../org/apache/poi/ss/formula/eval/ValueEval.html" title="interface in org.apache.poi.ss.formula.eval">ValueEval</a>[]&nbsp;values)</pre>
+<pre>public&nbsp;CacheAreaEval(<a href="../../../../../org/apache/poi/ss/prFormula/ptg/AreaI.html" title="interface in org.apache.poi.ss.prFormula.ptg">AreaI</a>&nbsp;ptg,
+                     <a href="../../../../../org/apache/poi/ss/prFormula/eval/ValueEval.html" title="interface in org.apache.poi.ss.prFormula.eval">ValueEval</a>[]&nbsp;values)</pre>
 </li>
 </ul>
-<a name="CacheAreaEval-int-int-int-int-org.apache.poi.ss.formula.eval.ValueEval:A-">
+<a name="CacheAreaEval-int-int-int-int-org.apache.poi.ss.prFormula.eval.ValueEval:A-">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -250,7 +250,7 @@ extends <a href="../../../../../org/apache/poi/ss/formula/eval/AreaEvalBase.html
                      int&nbsp;firstColumn,
                      int&nbsp;lastRow,
                      int&nbsp;lastColumn,
-                     <a href="../../../../../org/apache/poi/ss/formula/eval/ValueEval.html" title="interface in org.apache.poi.ss.formula.eval">ValueEval</a>[]&nbsp;values)</pre>
+                     <a href="../../../../../org/apache/poi/ss/prFormula/eval/ValueEval.html" title="interface in org.apache.poi.ss.prFormula.eval">ValueEval</a>[]&nbsp;values)</pre>
 </li>
 </ul>
 </li>
@@ -267,16 +267,16 @@ extends <a href="../../../../../org/apache/poi/ss/formula/eval/AreaEvalBase.html
 <ul class="blockList">
 <li class="blockList">
 <h4>getRelativeValue</h4>
-<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/formula/eval/ValueEval.html" title="interface in org.apache.poi.ss.formula.eval">ValueEval</a>&nbsp;getRelativeValue(int&nbsp;relativeRowIndex,
+<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/prFormula/eval/ValueEval.html" title="interface in org.apache.poi.ss.prFormula.eval">ValueEval</a>&nbsp;getRelativeValue(int&nbsp;relativeRowIndex,
                                   int&nbsp;relativeColumnIndex)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../org/apache/poi/ss/formula/eval/AreaEval.html#getRelativeValue-int-int-">getRelativeValue</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/eval/AreaEval.html" title="interface in org.apache.poi.ss.formula.eval">AreaEval</a></code></dd>
+<dd><code><a href="../../../../../org/apache/poi/ss/prFormula/eval/AreaEval.html#getRelativeValue-int-int-">getRelativeValue</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/eval/AreaEval.html" title="interface in org.apache.poi.ss.prFormula.eval">AreaEval</a></code></dd>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../org/apache/poi/ss/formula/eval/AreaEvalBase.html#getRelativeValue-int-int-">getRelativeValue</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/eval/AreaEvalBase.html" title="class in org.apache.poi.ss.formula.eval">AreaEvalBase</a></code></dd>
+<dd><code><a href="../../../../../org/apache/poi/ss/prFormula/eval/AreaEvalBase.html#getRelativeValue-int-int-">getRelativeValue</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/eval/AreaEvalBase.html" title="class in org.apache.poi.ss.prFormula.eval">AreaEvalBase</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the ValueEval from within this area at the specified relativeRowIndex and
- relativeColumnIndex. Never <code>null</code> (possibly <a href="../../../../../org/apache/poi/ss/formula/eval/BlankEval.html" title="class in org.apache.poi.ss.formula.eval"><code>BlankEval</code></a>). The
+ relativeColumnIndex. Never <code>null</code> (possibly <a href="../../../../../org/apache/poi/ss/prFormula/eval/BlankEval.html" title="class in org.apache.poi.ss.prFormula.eval"><code>BlankEval</code></a>). The
  specified indexes should relative to the top left corner of this area.</dd>
 </dl>
 </li>
@@ -287,12 +287,12 @@ extends <a href="../../../../../org/apache/poi/ss/formula/eval/AreaEvalBase.html
 <ul class="blockList">
 <li class="blockList">
 <h4>getRelativeValue</h4>
-<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/formula/eval/ValueEval.html" title="interface in org.apache.poi.ss.formula.eval">ValueEval</a>&nbsp;getRelativeValue(int&nbsp;sheetIndex,
+<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/prFormula/eval/ValueEval.html" title="interface in org.apache.poi.ss.prFormula.eval">ValueEval</a>&nbsp;getRelativeValue(int&nbsp;sheetIndex,
                                   int&nbsp;relativeRowIndex,
                                   int&nbsp;relativeColumnIndex)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../org/apache/poi/ss/formula/eval/AreaEvalBase.html#getRelativeValue-int-int-int-">getRelativeValue</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/eval/AreaEvalBase.html" title="class in org.apache.poi.ss.formula.eval">AreaEvalBase</a></code></dd>
+<dd><code><a href="../../../../../org/apache/poi/ss/prFormula/eval/AreaEvalBase.html#getRelativeValue-int-int-int-">getRelativeValue</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/eval/AreaEvalBase.html" title="class in org.apache.poi.ss.prFormula.eval">AreaEvalBase</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -302,12 +302,12 @@ extends <a href="../../../../../org/apache/poi/ss/formula/eval/AreaEvalBase.html
 <ul class="blockList">
 <li class="blockList">
 <h4>offset</h4>
-<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/formula/eval/AreaEval.html" title="interface in org.apache.poi.ss.formula.eval">AreaEval</a>&nbsp;offset(int&nbsp;relFirstRowIx,
+<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/prFormula/eval/AreaEval.html" title="interface in org.apache.poi.ss.prFormula.eval">AreaEval</a>&nbsp;offset(int&nbsp;relFirstRowIx,
                        int&nbsp;relLastRowIx,
                        int&nbsp;relFirstColIx,
                        int&nbsp;relLastColIx)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/eval/AreaEval.html#offset-int-int-int-int-">AreaEval</a></code></span></div>
-<div class="block">Creates an <a href="../../../../../org/apache/poi/ss/formula/eval/AreaEval.html" title="interface in org.apache.poi.ss.formula.eval"><code>AreaEval</code></a> offset by a relative amount from from the upper left cell
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/eval/AreaEval.html#offset-int-int-int-int-">AreaEval</a></code></span></div>
+<div class="block">Creates an <a href="../../../../../org/apache/poi/ss/prFormula/eval/AreaEval.html" title="interface in org.apache.poi.ss.prFormula.eval"><code>AreaEval</code></a> offset by a relative amount from from the upper left cell
  of this area</div>
 </li>
 </ul>
@@ -317,12 +317,12 @@ extends <a href="../../../../../org/apache/poi/ss/formula/eval/AreaEvalBase.html
 <ul class="blockList">
 <li class="blockList">
 <h4>getRow</h4>
-<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/formula/TwoDEval.html" title="interface in org.apache.poi.ss.formula">TwoDEval</a>&nbsp;getRow(int&nbsp;rowIndex)</pre>
+<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/prFormula/TwoDEval.html" title="interface in org.apache.poi.ss.prFormula">TwoDEval</a>&nbsp;getRow(int&nbsp;rowIndex)</pre>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>rowIndex</code> - relative row index (zero based)</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>a single row <a href="../../../../../org/apache/poi/ss/formula/TwoDEval.html" title="interface in org.apache.poi.ss.formula"><code>TwoDEval</code></a></dd>
+<dd>a single row <a href="../../../../../org/apache/poi/ss/prFormula/TwoDEval.html" title="interface in org.apache.poi.ss.prFormula"><code>TwoDEval</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -332,12 +332,12 @@ extends <a href="../../../../../org/apache/poi/ss/formula/eval/AreaEvalBase.html
 <ul class="blockList">
 <li class="blockList">
 <h4>getColumn</h4>
-<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/formula/TwoDEval.html" title="interface in org.apache.poi.ss.formula">TwoDEval</a>&nbsp;getColumn(int&nbsp;columnIndex)</pre>
+<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/prFormula/TwoDEval.html" title="interface in org.apache.poi.ss.prFormula">TwoDEval</a>&nbsp;getColumn(int&nbsp;columnIndex)</pre>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>columnIndex</code> - relative column index (zero based)</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>a single column <a href="../../../../../org/apache/poi/ss/formula/TwoDEval.html" title="interface in org.apache.poi.ss.formula"><code>TwoDEval</code></a></dd>
+<dd>a single column <a href="../../../../../org/apache/poi/ss/prFormula/TwoDEval.html" title="interface in org.apache.poi.ss.prFormula"><code>TwoDEval</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -382,11 +382,11 @@ extends <a href="../../../../../org/apache/poi/ss/formula/eval/AreaEvalBase.html
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html" title="class in org.apache.poi.ss.formula"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../org/apache/poi/ss/formula/CollaboratingWorkbooksEnvironment.html" title="class in org.apache.poi.ss.formula"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html" title="class in org.apache.poi.ss.prFormula"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/poi/ss/prFormula/CollaboratingWorkbooksEnvironment.html" title="class in org.apache.poi.ss.prFormula"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
-<li><a href="../../../../../index.html?org/apache/poi/ss/formula/CacheAreaEval.html" target="_top">Frames</a></li>
+<li><a href="../../../../../index.html?org/apache/poi/ss/prFormula/CacheAreaEval.html" target="_top">Frames</a></li>
 <li><a href="CacheAreaEval.html" target="_top">No&nbsp;Frames</a></li>
 </ul>
 <ul class="navList" id="allclasses_navbar_bottom">

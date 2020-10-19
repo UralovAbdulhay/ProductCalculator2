@@ -269,7 +269,7 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/Workbook.html" ti
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/usermodel/HSSFWorkbook.html#addToolPack-org.apache.poi.ss.formula.udf.UDFFinder-">addToolPack</a></span>(<a href="../../../../../org/apache/poi/ss/formula/udf/UDFFinder.html" title="interface in org.apache.poi.ss.formula.udf">UDFFinder</a>&nbsp;toopack)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/usermodel/HSSFWorkbook.html#addToolPack-org.apache.poi.ss.prFormula.udf.UDFFinder-">addToolPack</a></span>(<a href="../../../../../org/apache/poi/ss/prFormula/udf/UDFFinder.html" title="interface in org.apache.poi.ss.prFormula.udf">UDFFinder</a>&nbsp;toopack)</code>
 <div class="block">Register a new toolpack in this workbook.</div>
 </td>
 </tr>
@@ -2476,17 +2476,17 @@ public&nbsp;<a href="../../../../../org/apache/poi/hssf/usermodel/HSSFFont.html"
 </dl>
 </li>
 </ul>
-<a name="addToolPack-org.apache.poi.ss.formula.udf.UDFFinder-">
+<a name="addToolPack-org.apache.poi.ss.prFormula.udf.UDFFinder-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>addToolPack</h4>
-<pre>public&nbsp;void&nbsp;addToolPack(<a href="../../../../../org/apache/poi/ss/formula/udf/UDFFinder.html" title="interface in org.apache.poi.ss.formula.udf">UDFFinder</a>&nbsp;toopack)</pre>
+<pre>public&nbsp;void&nbsp;addToolPack(<a href="../../../../../org/apache/poi/ss/prFormula/udf/UDFFinder.html" title="interface in org.apache.poi.ss.prFormula.udf">UDFFinder</a>&nbsp;toopack)</pre>
 <div class="block">Register a new toolpack in this workbook.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../org/apache/poi/ss/usermodel/Workbook.html#addToolPack-org.apache.poi.ss.formula.udf.UDFFinder-">addToolPack</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/usermodel/Workbook.html" title="interface in org.apache.poi.ss.usermodel">Workbook</a></code></dd>
+<dd><code><a href="../../../../../org/apache/poi/ss/usermodel/Workbook.html#addToolPack-org.apache.poi.ss.prFormula.udf.UDFFinder-">addToolPack</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/usermodel/Workbook.html" title="interface in org.apache.poi.ss.usermodel">Workbook</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>toopack</code> - the toolpack to register</dd>
 </dl>
@@ -2501,12 +2501,12 @@ public&nbsp;<a href="../../../../../org/apache/poi/hssf/usermodel/HSSFFont.html"
 <pre>public&nbsp;void&nbsp;setForceFormulaRecalculation(boolean&nbsp;value)</pre>
 <div class="block">Whether the application shall perform a full recalculation when the workbook is opened.
  <p>
- Typically you want to force formula recalculation when you modify cell formulas or values
+ Typically you want to force prFormula recalculation when you modify cell formulas or values
  of a workbook previously created by Excel. When set to true, this flag will tell Excel
  that it needs to recalculate all formulas in the workbook the next time the file is opened.
  </p>
  <p>
- Note, that recalculation updates cached formula results and, thus, modifies the workbook.
+ Note, that recalculation updates cached prFormula results and, thus, modifies the workbook.
  Depending on the version, Excel may prompt you with "Do you want to save the changes in <em>filename</em>?"
  on close.
  </p></div>
@@ -2546,7 +2546,7 @@ public&nbsp;<a href="../../../../../org/apache/poi/hssf/usermodel/HSSFFont.html"
 <pre>public&nbsp;boolean&nbsp;changeExternalReference(java.lang.String&nbsp;oldUrl,
                                        java.lang.String&nbsp;newUrl)</pre>
 <div class="block">Changes an external referenced file to another file.
- A formula in Excel which references a cell in another file is saved in two parts:
+ A prFormula in Excel which references a cell in another file is saved in two parts:
  The referenced file is stored in an reference table. the row/cell information is saved separate.
  This method invocation will only change the reference in the lookup-table itself.</div>
 <dl>

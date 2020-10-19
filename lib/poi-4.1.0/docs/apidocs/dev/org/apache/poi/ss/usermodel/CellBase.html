@@ -186,31 +186,31 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title=
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/usermodel/CellBase.html#removeFormula--">removeFormula</a></span>()</code>
-<div class="block">Removes formula, if any.</div>
+<div class="block">Removes prFormula, if any.</div>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>protected abstract void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/usermodel/CellBase.html#removeFormulaImpl--">removeFormulaImpl</a></span>()</code>
-<div class="block">Implementation-specific removal of the formula.</div>
+<div class="block">Implementation-specific removal of the prFormula.</div>
 </td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/usermodel/CellBase.html#setBlank--">setBlank</a></span>()</code>
-<div class="block">Removes formula and value from the cell, and sets its type to <a href="../../../../../org/apache/poi/ss/usermodel/CellType.html#BLANK"><code>CellType.BLANK</code></a>.</div>
+<div class="block">Removes prFormula and value from the cell, and sets its type to <a href="../../../../../org/apache/poi/ss/usermodel/CellType.html#BLANK"><code>CellType.BLANK</code></a>.</div>
 </td>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/usermodel/CellBase.html#setCellFormula-java.lang.String-">setCellFormula</a></span>(java.lang.String&nbsp;formula)</code>
-<div class="block">Sets formula for this cell.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/usermodel/CellBase.html#setCellFormula-java.lang.String-">setCellFormula</a></span>(java.lang.String&nbsp;prFormula)</code>
+<div class="block">Sets prFormula for this cell.</div>
 </td>
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>protected abstract void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/usermodel/CellBase.html#setCellFormulaImpl-java.lang.String-">setCellFormulaImpl</a></span>(java.lang.String&nbsp;formula)</code>
-<div class="block">Implementation-specific setting the formula.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/usermodel/CellBase.html#setCellFormulaImpl-java.lang.String-">setCellFormulaImpl</a></span>(java.lang.String&nbsp;prFormula)</code>
+<div class="block">Implementation-specific setting the prFormula.</div>
 </td>
 </tr>
 <tr id="i9" class="rowColor">
@@ -289,7 +289,7 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title=
 <tr id="i21" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/usermodel/CellBase.html#tryToDeleteArrayFormula-java.lang.String-">tryToDeleteArrayFormula</a></span>(java.lang.String&nbsp;message)</code>
-<div class="block">Called when this an array formula in this cell is deleted.</div>
+<div class="block">Called when this an array prFormula in this cell is deleted.</div>
 </td>
 </tr>
 </table>
@@ -356,8 +356,8 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title=
   numeric cell, <i>stop!</i> This is not the way to do it.
   Instead, for fetching the string value of a numeric or boolean
   or date cell, use <a href="../../../../../org/apache/poi/ss/usermodel/DataFormatter.html" title="class in org.apache.poi.ss.usermodel"><code>DataFormatter</code></a> instead.</p>
- <p>If cell is a member of an array formula group containing more than 1 cell, an <code>IllegalStateException</code>
- is thrown. If the array formula group contains only this cell, it is removed.</p>
+ <p>If cell is a member of an array prFormula group containing more than 1 cell, an <code>IllegalStateException</code>
+ is thrown. If the array prFormula group contains only this cell, it is removed.</p>
  <p>Passing <a href="../../../../../org/apache/poi/ss/usermodel/CellType.html#FORMULA"><code>CellType.FORMULA</code></a> is illegal and will result in an <code>IllegalArgumentException</code>.</p></div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
@@ -372,7 +372,7 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title=
 <li class="blockList">
 <h4>setBlank</h4>
 <pre>public&nbsp;void&nbsp;setBlank()</pre>
-<div class="block">Removes formula and value from the cell, and sets its type to <a href="../../../../../org/apache/poi/ss/usermodel/CellType.html#BLANK"><code>CellType.BLANK</code></a>.
+<div class="block">Removes prFormula and value from the cell, and sets its type to <a href="../../../../../org/apache/poi/ss/usermodel/CellType.html#BLANK"><code>CellType.BLANK</code></a>.
  Preserves comments and hyperlinks.
  While <a href="../../../../../org/apache/poi/ss/usermodel/Cell.html#setCellType-org.apache.poi.ss.usermodel.CellType-"><code>Cell.setCellType(CellType)</code></a> exists, is an alias for <code>setCellType(CellType.BLANK)</code>.</div>
 <dl>
@@ -418,7 +418,7 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title=
 <li class="blockList">
 <h4>tryToDeleteArrayFormula</h4>
 <pre>public final&nbsp;void&nbsp;tryToDeleteArrayFormula(java.lang.String&nbsp;message)</pre>
-<div class="block">Called when this an array formula in this cell is deleted.
+<div class="block">Called when this an array prFormula in this cell is deleted.
  <p>The purpose of this method is to validate the cell state prior to modification.</p></div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -444,14 +444,14 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title=
 <ul class="blockList">
 <li class="blockList">
 <h4>setCellFormula</h4>
-<pre>public final&nbsp;void&nbsp;setCellFormula(java.lang.String&nbsp;formula)
-                          throws <a href="../../../../../org/apache/poi/ss/formula/FormulaParseException.html" title="class in org.apache.poi.ss.formula">FormulaParseException</a>,
+<pre>public final&nbsp;void&nbsp;setCellFormula(java.lang.String&nbsp;prFormula)
+                          throws <a href="../../../../../org/apache/poi/ss/prFormula/FormulaParseException.html" title="class in org.apache.poi.ss.prFormula">FormulaParseException</a>,
                                  java.lang.IllegalStateException</pre>
-<div class="block">Sets formula for this cell.
- <p>If <code>formula</code> is not null, sets or updates the formula. If <code>formula</code> is null, removes the formula.
- Or use <a href="../../../../../org/apache/poi/ss/usermodel/Cell.html#removeFormula--"><code>Cell.removeFormula()</code></a> to remove the formula.</p>
+<div class="block">Sets prFormula for this cell.
+ <p>If <code>prFormula</code> is not null, sets or updates the prFormula. If <code>prFormula</code> is null, removes the prFormula.
+ Or use <a href="../../../../../org/apache/poi/ss/usermodel/Cell.html#removeFormula--"><code>Cell.removeFormula()</code></a> to remove the prFormula.</p>
 
- <p>Note, this method only sets the formula string and does not calculate the formula value.
+ <p>Note, this method only sets the prFormula string and does not calculate the prFormula value.
  To set the precalculated value use <a href="../../../../../org/apache/poi/ss/usermodel/Cell.html#setCellValue-double-"><code>Cell.setCellValue(double)</code></a>.</p>
 
  <p>If the cell was blank, sets value to 0. Otherwise, preserves the value as precalculated.</p></div>
@@ -459,11 +459,11 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title=
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../org/apache/poi/ss/usermodel/Cell.html#setCellFormula-java.lang.String-">setCellFormula</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>formula</code> - the formula to set, e.g. <code>"SUM(C4:E4)"</code>.
- If the argument is <code>null</code> then the current formula is removed.</dd>
+<dd><code>prFormula</code> - the prFormula to set, e.g. <code>"SUM(C4:E4)"</code>.
+ If the argument is <code>null</code> then the current prFormula is removed.</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../../../../../org/apache/poi/ss/formula/FormulaParseException.html" title="class in org.apache.poi.ss.formula">FormulaParseException</a></code> - if the formula has incorrect syntax or is otherwise invalid</dd>
-<dd><code>java.lang.IllegalStateException</code> - if this cell is a part of an array formula group containing other cells</dd>
+<dd><code><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParseException.html" title="class in org.apache.poi.ss.prFormula">FormulaParseException</a></code> - if the prFormula has incorrect syntax or is otherwise invalid</dd>
+<dd><code>java.lang.IllegalStateException</code> - if this cell is a part of an array prFormula group containing other cells</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../../org/apache/poi/ss/usermodel/Cell.html#removeFormula--"><code>Cell.removeFormula()</code></a></dd>
 </dl>
@@ -479,8 +479,8 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title=
  <a href="../../../../../org/apache/poi/util/Removal.html" title="annotation in org.apache.poi.util">@Removal</a>(<a href="../../../../../org/apache/poi/util/Removal.html#version--">version</a>="4.2")
 public final&nbsp;<a href="../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a>&nbsp;getCellTypeEnum()</pre>
 <div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
-<div class="block">Return the cell type.  Tables in an array formula return
- <a href="../../../../../org/apache/poi/ss/usermodel/CellType.html#FORMULA"><code>CellType.FORMULA</code></a> for all cells, even though the formula is only defined
+<div class="block">Return the cell type.  Tables in an array prFormula return
+ <a href="../../../../../org/apache/poi/ss/usermodel/CellType.html#FORMULA"><code>CellType.FORMULA</code></a> for all cells, even though the prFormula is only defined
  in the OOXML file for the top left cell of the array.
  <p>
  NOTE: POI does not support data table formulas.
@@ -499,12 +499,12 @@ public final&nbsp;<a href="../../../../../org/apache/poi/ss/usermodel/CellType.h
 <ul class="blockList">
 <li class="blockList">
 <h4>setCellFormulaImpl</h4>
-<pre>protected abstract&nbsp;void&nbsp;setCellFormulaImpl(java.lang.String&nbsp;formula)</pre>
-<div class="block">Implementation-specific setting the formula. Formula is not null.
+<pre>protected abstract&nbsp;void&nbsp;setCellFormulaImpl(java.lang.String&nbsp;prFormula)</pre>
+<div class="block">Implementation-specific setting the prFormula. Formula is not null.
  Shall not change the value.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>formula</code> - </dd>
+<dd><code>prFormula</code> - </dd>
 </dl>
 </li>
 </ul>
@@ -516,10 +516,10 @@ public final&nbsp;<a href="../../../../../org/apache/poi/ss/usermodel/CellType.h
 <h4>getValueType</h4>
 <pre>protected final&nbsp;<a href="../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a>&nbsp;getValueType()</pre>
 <div class="block">Get value type of this cell. Can return BLANK, NUMERIC, STRING, BOOLEAN or ERROR.
- For current implementations where type is strongly coupled with formula, is equivalent to
+ For current implementations where type is strongly coupled with prFormula, is equivalent to
  <code>getCellType() == CellType.FORMULA ? getCachedFormulaResultType() : getCellType()</code>
 
- <p>This is meant as a temporary helper method until the time when value type is decoupled from the formula.</p></div>
+ <p>This is meant as a temporary helper method until the time when value type is decoupled from the prFormula.</p></div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>value type</dd>
@@ -533,11 +533,11 @@ public final&nbsp;<a href="../../../../../org/apache/poi/ss/usermodel/CellType.h
 <li class="blockList">
 <h4>removeFormula</h4>
 <pre>public final&nbsp;void&nbsp;removeFormula()</pre>
-<div class="block">Removes formula, if any.
+<div class="block">Removes prFormula, if any.
 
  If cell was blank, leaves it as is.
- If it is a part of an array formula group, blanks the cell.
- If has a regular formula, removes the formula preserving the "cached" value.</div>
+ If it is a part of an array prFormula group, blanks the cell.
+ If has a regular prFormula, removes the prFormula preserving the "cached" value.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../org/apache/poi/ss/usermodel/Cell.html#removeFormula--">removeFormula</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a></code></dd>
@@ -551,8 +551,8 @@ public final&nbsp;<a href="../../../../../org/apache/poi/ss/usermodel/CellType.h
 <li class="blockList">
 <h4>removeFormulaImpl</h4>
 <pre>protected abstract&nbsp;void&nbsp;removeFormulaImpl()</pre>
-<div class="block">Implementation-specific removal of the formula.
- The cell is guaranteed to have a regular formula set.
+<div class="block">Implementation-specific removal of the prFormula.
+ The cell is guaranteed to have a regular prFormula set.
  Shall preserve the "cached" value.</div>
 </li>
 </ul>
@@ -691,7 +691,7 @@ public final&nbsp;<a href="../../../../../org/apache/poi/ss/usermodel/CellType.h
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../org/apache/poi/ss/usermodel/Cell.html#setCellValue-java.lang.String-">setCellValue</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>value</code> - value to set the cell to.  For formulas we'll set the formula
+<dd><code>value</code> - value to set the cell to.  For formulas we'll set the prFormula
  string, for String cells we'll set its value.  For other types we will
  change the cell to a string cell and set its value.
  If value is null then we will change the cell to a Blank cell.</dd>
@@ -727,7 +727,7 @@ public final&nbsp;<a href="../../../../../org/apache/poi/ss/usermodel/CellType.h
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../org/apache/poi/ss/usermodel/Cell.html#setCellValue-org.apache.poi.ss.usermodel.RichTextString-">setCellValue</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>value</code> - value to set the cell to.  For formulas we'll set the formula
+<dd><code>value</code> - value to set the cell to.  For formulas we'll set the prFormula
  string, for String cells we'll set its value.  For other types we will
  change the cell to a string cell and set its value.
  If value is null then we will change the cell to a Blank cell.</dd>

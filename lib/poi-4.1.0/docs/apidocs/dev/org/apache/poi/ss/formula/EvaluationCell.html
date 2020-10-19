@@ -48,11 +48,11 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../org/apache/poi/ss/formula/DataValidationEvaluator.ValidationEnum.html" title="enum in org.apache.poi.ss.formula"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../org/apache/poi/ss/formula/EvaluationConditionalFormatRule.html" title="class in org.apache.poi.ss.formula"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/poi/ss/prFormula/DataValidationEvaluator.ValidationEnum.html" title="enum in org.apache.poi.ss.prFormula"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationConditionalFormatRule.html" title="class in org.apache.poi.ss.prFormula"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
-<li><a href="../../../../../index.html?org/apache/poi/ss/formula/EvaluationCell.html" target="_top">Frames</a></li>
+<li><a href="../../../../../index.html?org/apache/poi/ss/prFormula/EvaluationCell.html" target="_top">Frames</a></li>
 <li><a href="EvaluationCell.html" target="_top">No&nbsp;Frames</a></li>
 </ul>
 <ul class="navList" id="allclasses_navbar_top">
@@ -91,7 +91,7 @@ var activeTableTab = "activeTableTab";
 <!-- ========= END OF TOP NAVBAR ========= -->
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
-<div class="subTitle">org.apache.poi.ss.formula</div>
+<div class="subTitle">org.apache.poi.ss.prFormula</div>
 <h2 title="Interface EvaluationCell" class="title">Interface EvaluationCell</h2>
 </div>
 <div class="contentContainer">
@@ -101,8 +101,8 @@ var activeTableTab = "activeTableTab";
 <hr>
 <br>
 <pre>public interface <span class="typeNameLabel">EvaluationCell</span></pre>
-<div class="block">Abstracts a cell for the purpose of formula evaluation.  This interface represents both formula
- and non-formula cells.<br>
+<div class="block">Abstracts a cell for the purpose of prFormula evaluation.  This interface represents both prFormula
+ and non-prFormula cells.<br>
  
  For POI internal use only</div>
 <dl>
@@ -129,19 +129,19 @@ var activeTableTab = "activeTableTab";
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/util/CellRangeAddress.html" title="class in org.apache.poi.ss.util">CellRangeAddress</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/EvaluationCell.html#getArrayFormulaRange--">getArrayFormulaRange</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationCell.html#getArrayFormulaRange--">getArrayFormulaRange</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/EvaluationCell.html#getBooleanCellValue--">getBooleanCellValue</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationCell.html#getBooleanCellValue--">getBooleanCellValue</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/EvaluationCell.html#getCachedFormulaResultType--">getCachedFormulaResultType</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationCell.html#getCachedFormulaResultType--">getCachedFormulaResultType</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/EvaluationCell.html#getCachedFormulaResultTypeEnum--">getCachedFormulaResultTypeEnum</a></span>()</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationCell.html#getCachedFormulaResultTypeEnum--">getCachedFormulaResultTypeEnum</a></span>()</code>
 <div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
 <div class="block"><span class="deprecationComment">POI 3.15 beta 3.
  Will be deleted when we make the CellType enum transition. See bug 59791.</span></div>
@@ -150,11 +150,11 @@ var activeTableTab = "activeTableTab";
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/EvaluationCell.html#getCellType--">getCellType</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationCell.html#getCellType--">getCellType</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/EvaluationCell.html#getCellTypeEnum--">getCellTypeEnum</a></span>()</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationCell.html#getCellTypeEnum--">getCellTypeEnum</a></span>()</code>
 <div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
 <div class="block"><span class="deprecationComment">POI 3.15 beta 3.</span></div>
 </div>
@@ -162,35 +162,35 @@ var activeTableTab = "activeTableTab";
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/EvaluationCell.html#getColumnIndex--">getColumnIndex</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationCell.html#getColumnIndex--">getColumnIndex</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/EvaluationCell.html#getErrorCellValue--">getErrorCellValue</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationCell.html#getErrorCellValue--">getErrorCellValue</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>java.lang.Object</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/EvaluationCell.html#getIdentityKey--">getIdentityKey</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationCell.html#getIdentityKey--">getIdentityKey</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code>double</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/EvaluationCell.html#getNumericCellValue--">getNumericCellValue</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationCell.html#getNumericCellValue--">getNumericCellValue</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i10" class="altColor">
 <td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/EvaluationCell.html#getRowIndex--">getRowIndex</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationCell.html#getRowIndex--">getRowIndex</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i11" class="rowColor">
-<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/formula/EvaluationSheet.html" title="interface in org.apache.poi.ss.formula">EvaluationSheet</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/EvaluationCell.html#getSheet--">getSheet</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationSheet.html" title="interface in org.apache.poi.ss.prFormula">EvaluationSheet</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationCell.html#getSheet--">getSheet</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i12" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/EvaluationCell.html#getStringCellValue--">getStringCellValue</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationCell.html#getStringCellValue--">getStringCellValue</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i13" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/EvaluationCell.html#isPartOfArrayFormulaGroup--">isPartOfArrayFormulaGroup</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationCell.html#isPartOfArrayFormulaGroup--">isPartOfArrayFormulaGroup</a></span>()</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -227,7 +227,7 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>getSheet</h4>
-<pre><a href="../../../../../org/apache/poi/ss/formula/EvaluationSheet.html" title="interface in org.apache.poi.ss.formula">EvaluationSheet</a>&nbsp;getSheet()</pre>
+<pre><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationSheet.html" title="interface in org.apache.poi.ss.prFormula">EvaluationSheet</a>&nbsp;getSheet()</pre>
 </li>
 </ul>
 <a name="getRowIndex--">
@@ -336,7 +336,7 @@ var activeTableTab = "activeTableTab";
 <pre><a href="../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a>&nbsp;getCachedFormulaResultType()</pre>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>cell type of cached formula result</dd>
+<dd>cell type of cached prFormula result</dd>
 </dl>
 </li>
 </ul>
@@ -385,11 +385,11 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../org/apache/poi/ss/formula/DataValidationEvaluator.ValidationEnum.html" title="enum in org.apache.poi.ss.formula"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../org/apache/poi/ss/formula/EvaluationConditionalFormatRule.html" title="class in org.apache.poi.ss.formula"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/poi/ss/prFormula/DataValidationEvaluator.ValidationEnum.html" title="enum in org.apache.poi.ss.prFormula"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationConditionalFormatRule.html" title="class in org.apache.poi.ss.prFormula"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
-<li><a href="../../../../../index.html?org/apache/poi/ss/formula/EvaluationCell.html" target="_top">Frames</a></li>
+<li><a href="../../../../../index.html?org/apache/poi/ss/prFormula/EvaluationCell.html" target="_top">Frames</a></li>
 <li><a href="EvaluationCell.html" target="_top">No&nbsp;Frames</a></li>
 </ul>
 <ul class="navList" id="allclasses_navbar_bottom">

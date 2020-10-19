@@ -48,11 +48,11 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../../org/apache/poi/ss/formula/functions/Areas.html" title="class in org.apache.poi.ss.formula.functions"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../../org/apache/poi/ss/formula/functions/ArrayMode.html" title="interface in org.apache.poi.ss.formula.functions"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../../org/apache/poi/ss/prFormula/functions/Areas.html" title="class in org.apache.poi.ss.prFormula.functions"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../../org/apache/poi/ss/prFormula/functions/ArrayMode.html" title="interface in org.apache.poi.ss.prFormula.functions"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
-<li><a href="../../../../../../index.html?org/apache/poi/ss/formula/functions/ArrayFunction.html" target="_top">Frames</a></li>
+<li><a href="../../../../../../index.html?org/apache/poi/ss/prFormula/functions/ArrayFunction.html" target="_top">Frames</a></li>
 <li><a href="ArrayFunction.html" target="_top">No&nbsp;Frames</a></li>
 </ul>
 <ul class="navList" id="allclasses_navbar_top">
@@ -91,7 +91,7 @@ var activeTableTab = "activeTableTab";
 <!-- ========= END OF TOP NAVBAR ========= -->
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
-<div class="subTitle">org.apache.poi.ss.formula.functions</div>
+<div class="subTitle">org.apache.poi.ss.prFormula.functions</div>
 <h2 title="Interface ArrayFunction" class="title">Interface ArrayFunction</h2>
 </div>
 <div class="contentContainer">
@@ -100,7 +100,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><a href="../../../../../../org/apache/poi/ss/formula/functions/BooleanFunction.html" title="class in org.apache.poi.ss.formula.functions">BooleanFunction</a>, <a href="../../../../../../org/apache/poi/ss/formula/functions/IfFunc.html" title="class in org.apache.poi.ss.formula.functions">IfFunc</a>, <a href="../../../../../../org/apache/poi/ss/formula/functions/LogicalFunction.html" title="class in org.apache.poi.ss.formula.functions">LogicalFunction</a>, <a href="../../../../../../org/apache/poi/ss/formula/eval/RelationalOperationEval.html" title="class in org.apache.poi.ss.formula.eval">RelationalOperationEval</a>, <a href="../../../../../../org/apache/poi/ss/formula/eval/TwoOperandNumericOperation.html" title="class in org.apache.poi.ss.formula.eval">TwoOperandNumericOperation</a>, <a href="../../../../../../org/apache/poi/ss/formula/eval/UnaryMinusEval.html" title="class in org.apache.poi.ss.formula.eval">UnaryMinusEval</a>, <a href="../../../../../../org/apache/poi/ss/formula/eval/UnaryPlusEval.html" title="class in org.apache.poi.ss.formula.eval">UnaryPlusEval</a></dd>
+<dd><a href="../../../../../../org/apache/poi/ss/prFormula/functions/BooleanFunction.html" title="class in org.apache.poi.ss.prFormula.functions">BooleanFunction</a>, <a href="../../../../../../org/apache/poi/ss/prFormula/functions/IfFunc.html" title="class in org.apache.poi.ss.prFormula.functions">IfFunc</a>, <a href="../../../../../../org/apache/poi/ss/prFormula/functions/LogicalFunction.html" title="class in org.apache.poi.ss.prFormula.functions">LogicalFunction</a>, <a href="../../../../../../org/apache/poi/ss/prFormula/eval/RelationalOperationEval.html" title="class in org.apache.poi.ss.prFormula.eval">RelationalOperationEval</a>, <a href="../../../../../../org/apache/poi/ss/prFormula/eval/TwoOperandNumericOperation.html" title="class in org.apache.poi.ss.prFormula.eval">TwoOperandNumericOperation</a>, <a href="../../../../../../org/apache/poi/ss/prFormula/eval/UnaryMinusEval.html" title="class in org.apache.poi.ss.prFormula.eval">UnaryMinusEval</a>, <a href="../../../../../../org/apache/poi/ss/prFormula/eval/UnaryPlusEval.html" title="class in org.apache.poi.ss.prFormula.eval">UnaryPlusEval</a></dd>
 </dl>
 <hr>
 <br>
@@ -108,7 +108,7 @@ var activeTableTab = "activeTableTab";
 <dl>
 <dt><span class="simpleTagLabel">Author:</span></dt>
 <dd>Robert Hulbert
- Common Interface for any excel built-in function that has implemented array formula functionality.</dd>
+ Common Interface for any excel built-in function that has implemented array prFormula functionality.</dd>
 </dl>
 </li>
 </ul>
@@ -129,25 +129,25 @@ var activeTableTab = "activeTableTab";
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code><a href="../../../../../../org/apache/poi/ss/formula/eval/ValueEval.html" title="interface in org.apache.poi.ss.formula.eval">ValueEval</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/functions/ArrayFunction.html#evaluateArray-org.apache.poi.ss.formula.eval.ValueEval:A-int-int-">evaluateArray</a></span>(<a href="../../../../../../org/apache/poi/ss/formula/eval/ValueEval.html" title="interface in org.apache.poi.ss.formula.eval">ValueEval</a>[]&nbsp;args,
+<td class="colFirst"><code><a href="../../../../../../org/apache/poi/ss/prFormula/eval/ValueEval.html" title="interface in org.apache.poi.ss.prFormula.eval">ValueEval</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/functions/ArrayFunction.html#evaluateArray-org.apache.poi.ss.prFormula.eval.ValueEval:A-int-int-">evaluateArray</a></span>(<a href="../../../../../../org/apache/poi/ss/prFormula/eval/ValueEval.html" title="interface in org.apache.poi.ss.prFormula.eval">ValueEval</a>[]&nbsp;args,
              int&nbsp;srcRowIndex,
              int&nbsp;srcColumnIndex)</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>default <a href="../../../../../../org/apache/poi/ss/formula/eval/ValueEval.html" title="interface in org.apache.poi.ss.formula.eval">ValueEval</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/functions/ArrayFunction.html#evaluateOneArrayArg-org.apache.poi.ss.formula.eval.ValueEval-int-int-java.util.function.Function-">evaluateOneArrayArg</a></span>(<a href="../../../../../../org/apache/poi/ss/formula/eval/ValueEval.html" title="interface in org.apache.poi.ss.formula.eval">ValueEval</a>&nbsp;arg0,
+<td class="colFirst"><code>default <a href="../../../../../../org/apache/poi/ss/prFormula/eval/ValueEval.html" title="interface in org.apache.poi.ss.prFormula.eval">ValueEval</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/functions/ArrayFunction.html#evaluateOneArrayArg-org.apache.poi.ss.prFormula.eval.ValueEval-int-int-java.util.function.Function-">evaluateOneArrayArg</a></span>(<a href="../../../../../../org/apache/poi/ss/prFormula/eval/ValueEval.html" title="interface in org.apache.poi.ss.prFormula.eval">ValueEval</a>&nbsp;arg0,
                    int&nbsp;srcRowIndex,
                    int&nbsp;srcColumnIndex,
-                   java.util.function.Function&lt;<a href="../../../../../../org/apache/poi/ss/formula/eval/ValueEval.html" title="interface in org.apache.poi.ss.formula.eval">ValueEval</a>,<a href="../../../../../../org/apache/poi/ss/formula/eval/ValueEval.html" title="interface in org.apache.poi.ss.formula.eval">ValueEval</a>&gt;&nbsp;evalFunc)</code>&nbsp;</td>
+                   java.util.function.Function&lt;<a href="../../../../../../org/apache/poi/ss/prFormula/eval/ValueEval.html" title="interface in org.apache.poi.ss.prFormula.eval">ValueEval</a>,<a href="../../../../../../org/apache/poi/ss/prFormula/eval/ValueEval.html" title="interface in org.apache.poi.ss.prFormula.eval">ValueEval</a>&gt;&nbsp;evalFunc)</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>default <a href="../../../../../../org/apache/poi/ss/formula/eval/ValueEval.html" title="interface in org.apache.poi.ss.formula.eval">ValueEval</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/functions/ArrayFunction.html#evaluateTwoArrayArgs-org.apache.poi.ss.formula.eval.ValueEval-org.apache.poi.ss.formula.eval.ValueEval-int-int-java.util.function.BiFunction-">evaluateTwoArrayArgs</a></span>(<a href="../../../../../../org/apache/poi/ss/formula/eval/ValueEval.html" title="interface in org.apache.poi.ss.formula.eval">ValueEval</a>&nbsp;arg0,
-                    <a href="../../../../../../org/apache/poi/ss/formula/eval/ValueEval.html" title="interface in org.apache.poi.ss.formula.eval">ValueEval</a>&nbsp;arg1,
+<td class="colFirst"><code>default <a href="../../../../../../org/apache/poi/ss/prFormula/eval/ValueEval.html" title="interface in org.apache.poi.ss.prFormula.eval">ValueEval</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/functions/ArrayFunction.html#evaluateTwoArrayArgs-org.apache.poi.ss.prFormula.eval.ValueEval-org.apache.poi.ss.prFormula.eval.ValueEval-int-int-java.util.function.BiFunction-">evaluateTwoArrayArgs</a></span>(<a href="../../../../../../org/apache/poi/ss/prFormula/eval/ValueEval.html" title="interface in org.apache.poi.ss.prFormula.eval">ValueEval</a>&nbsp;arg0,
+                    <a href="../../../../../../org/apache/poi/ss/prFormula/eval/ValueEval.html" title="interface in org.apache.poi.ss.prFormula.eval">ValueEval</a>&nbsp;arg1,
                     int&nbsp;srcRowIndex,
                     int&nbsp;srcColumnIndex,
-                    java.util.function.BiFunction&lt;<a href="../../../../../../org/apache/poi/ss/formula/eval/ValueEval.html" title="interface in org.apache.poi.ss.formula.eval">ValueEval</a>,<a href="../../../../../../org/apache/poi/ss/formula/eval/ValueEval.html" title="interface in org.apache.poi.ss.formula.eval">ValueEval</a>,<a href="../../../../../../org/apache/poi/ss/formula/eval/ValueEval.html" title="interface in org.apache.poi.ss.formula.eval">ValueEval</a>&gt;&nbsp;evalFunc)</code>
+                    java.util.function.BiFunction&lt;<a href="../../../../../../org/apache/poi/ss/prFormula/eval/ValueEval.html" title="interface in org.apache.poi.ss.prFormula.eval">ValueEval</a>,<a href="../../../../../../org/apache/poi/ss/prFormula/eval/ValueEval.html" title="interface in org.apache.poi.ss.prFormula.eval">ValueEval</a>,<a href="../../../../../../org/apache/poi/ss/prFormula/eval/ValueEval.html" title="interface in org.apache.poi.ss.prFormula.eval">ValueEval</a>&gt;&nbsp;evalFunc)</code>
 <div class="block">Evaluate an array function with two arguments.</div>
 </td>
 </tr>
@@ -166,64 +166,64 @@ var activeTableTab = "activeTableTab";
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="evaluateArray-org.apache.poi.ss.formula.eval.ValueEval:A-int-int-">
+<a name="evaluateArray-org.apache.poi.ss.prFormula.eval.ValueEval:A-int-int-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>evaluateArray</h4>
-<pre><a href="../../../../../../org/apache/poi/ss/formula/eval/ValueEval.html" title="interface in org.apache.poi.ss.formula.eval">ValueEval</a>&nbsp;evaluateArray(<a href="../../../../../../org/apache/poi/ss/formula/eval/ValueEval.html" title="interface in org.apache.poi.ss.formula.eval">ValueEval</a>[]&nbsp;args,
+<pre><a href="../../../../../../org/apache/poi/ss/prFormula/eval/ValueEval.html" title="interface in org.apache.poi.ss.prFormula.eval">ValueEval</a>&nbsp;evaluateArray(<a href="../../../../../../org/apache/poi/ss/prFormula/eval/ValueEval.html" title="interface in org.apache.poi.ss.prFormula.eval">ValueEval</a>[]&nbsp;args,
                         int&nbsp;srcRowIndex,
                         int&nbsp;srcColumnIndex)</pre>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>args</code> - the evaluated function arguments.  Empty values are represented with
- <a href="../../../../../../org/apache/poi/ss/formula/eval/BlankEval.html" title="class in org.apache.poi.ss.formula.eval"><code>BlankEval</code></a> or <a href="../../../../../../org/apache/poi/ss/formula/eval/MissingArgEval.html" title="class in org.apache.poi.ss.formula.eval"><code>MissingArgEval</code></a>, never <code>null</code>.</dd>
-<dd><code>srcRowIndex</code> - row index of the cell containing the formula under evaluation</dd>
-<dd><code>srcColumnIndex</code> - column index of the cell containing the formula under evaluation</dd>
+ <a href="../../../../../../org/apache/poi/ss/prFormula/eval/BlankEval.html" title="class in org.apache.poi.ss.prFormula.eval"><code>BlankEval</code></a> or <a href="../../../../../../org/apache/poi/ss/prFormula/eval/MissingArgEval.html" title="class in org.apache.poi.ss.prFormula.eval"><code>MissingArgEval</code></a>, never <code>null</code>.</dd>
+<dd><code>srcRowIndex</code> - row index of the cell containing the prFormula under evaluation</dd>
+<dd><code>srcColumnIndex</code> - column index of the cell containing the prFormula under evaluation</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>The evaluated result, possibly an <a href="../../../../../../org/apache/poi/ss/formula/eval/ErrorEval.html" title="class in org.apache.poi.ss.formula.eval"><code>ErrorEval</code></a>, never <code>null</code>.
+<dd>The evaluated result, possibly an <a href="../../../../../../org/apache/poi/ss/prFormula/eval/ErrorEval.html" title="class in org.apache.poi.ss.prFormula.eval"><code>ErrorEval</code></a>, never <code>null</code>.
  <b>Note</b> - Excel uses the error code <i>#NUM!</i> instead of IEEE <i>NaN</i>, so when
- numeric functions evaluate to <code>Double.NaN</code> be sure to translate the result to <a href="../../../../../../org/apache/poi/ss/formula/eval/ErrorEval.html#NUM_ERROR"><code>ErrorEval.NUM_ERROR</code></a>.</dd>
+ numeric functions evaluate to <code>Double.NaN</code> be sure to translate the result to <a href="../../../../../../org/apache/poi/ss/prFormula/eval/ErrorEval.html#NUM_ERROR"><code>ErrorEval.NUM_ERROR</code></a>.</dd>
 </dl>
 </li>
 </ul>
-<a name="evaluateTwoArrayArgs-org.apache.poi.ss.formula.eval.ValueEval-org.apache.poi.ss.formula.eval.ValueEval-int-int-java.util.function.BiFunction-">
+<a name="evaluateTwoArrayArgs-org.apache.poi.ss.prFormula.eval.ValueEval-org.apache.poi.ss.prFormula.eval.ValueEval-int-int-java.util.function.BiFunction-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>evaluateTwoArrayArgs</h4>
-<pre>default&nbsp;<a href="../../../../../../org/apache/poi/ss/formula/eval/ValueEval.html" title="interface in org.apache.poi.ss.formula.eval">ValueEval</a>&nbsp;evaluateTwoArrayArgs(<a href="../../../../../../org/apache/poi/ss/formula/eval/ValueEval.html" title="interface in org.apache.poi.ss.formula.eval">ValueEval</a>&nbsp;arg0,
-                                       <a href="../../../../../../org/apache/poi/ss/formula/eval/ValueEval.html" title="interface in org.apache.poi.ss.formula.eval">ValueEval</a>&nbsp;arg1,
+<pre>default&nbsp;<a href="../../../../../../org/apache/poi/ss/prFormula/eval/ValueEval.html" title="interface in org.apache.poi.ss.prFormula.eval">ValueEval</a>&nbsp;evaluateTwoArrayArgs(<a href="../../../../../../org/apache/poi/ss/prFormula/eval/ValueEval.html" title="interface in org.apache.poi.ss.prFormula.eval">ValueEval</a>&nbsp;arg0,
+                                       <a href="../../../../../../org/apache/poi/ss/prFormula/eval/ValueEval.html" title="interface in org.apache.poi.ss.prFormula.eval">ValueEval</a>&nbsp;arg1,
                                        int&nbsp;srcRowIndex,
                                        int&nbsp;srcColumnIndex,
-                                       java.util.function.BiFunction&lt;<a href="../../../../../../org/apache/poi/ss/formula/eval/ValueEval.html" title="interface in org.apache.poi.ss.formula.eval">ValueEval</a>,<a href="../../../../../../org/apache/poi/ss/formula/eval/ValueEval.html" title="interface in org.apache.poi.ss.formula.eval">ValueEval</a>,<a href="../../../../../../org/apache/poi/ss/formula/eval/ValueEval.html" title="interface in org.apache.poi.ss.formula.eval">ValueEval</a>&gt;&nbsp;evalFunc)</pre>
+                                       java.util.function.BiFunction&lt;<a href="../../../../../../org/apache/poi/ss/prFormula/eval/ValueEval.html" title="interface in org.apache.poi.ss.prFormula.eval">ValueEval</a>,<a href="../../../../../../org/apache/poi/ss/prFormula/eval/ValueEval.html" title="interface in org.apache.poi.ss.prFormula.eval">ValueEval</a>,<a href="../../../../../../org/apache/poi/ss/prFormula/eval/ValueEval.html" title="interface in org.apache.poi.ss.prFormula.eval">ValueEval</a>&gt;&nbsp;evalFunc)</pre>
 <div class="block">Evaluate an array function with two arguments.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>arg0</code> - the first function argument. Empty values are represented with
-        <a href="../../../../../../org/apache/poi/ss/formula/eval/BlankEval.html" title="class in org.apache.poi.ss.formula.eval"><code>BlankEval</code></a> or <a href="../../../../../../org/apache/poi/ss/formula/eval/MissingArgEval.html" title="class in org.apache.poi.ss.formula.eval"><code>MissingArgEval</code></a>, never <code>null</code></dd>
+        <a href="../../../../../../org/apache/poi/ss/prFormula/eval/BlankEval.html" title="class in org.apache.poi.ss.prFormula.eval"><code>BlankEval</code></a> or <a href="../../../../../../org/apache/poi/ss/prFormula/eval/MissingArgEval.html" title="class in org.apache.poi.ss.prFormula.eval"><code>MissingArgEval</code></a>, never <code>null</code></dd>
 <dd><code>arg1</code> - the first function argument. Empty values are represented with</dd>
-<dd><code>srcRowIndex</code> - row index of the cell containing the formula under evaluation</dd>
-<dd><code>srcColumnIndex</code> - column index of the cell containing the formula under evaluation</dd>
+<dd><code>srcRowIndex</code> - row index of the cell containing the prFormula under evaluation</dd>
+<dd><code>srcColumnIndex</code> - column index of the cell containing the prFormula under evaluation</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>The evaluated result, possibly an <a href="../../../../../../org/apache/poi/ss/formula/eval/ErrorEval.html" title="class in org.apache.poi.ss.formula.eval"><code>ErrorEval</code></a>, never <code>null</code>.
+<dd>The evaluated result, possibly an <a href="../../../../../../org/apache/poi/ss/prFormula/eval/ErrorEval.html" title="class in org.apache.poi.ss.prFormula.eval"><code>ErrorEval</code></a>, never <code>null</code>.
  <b>Note</b> - Excel uses the error code <i>#NUM!</i> instead of IEEE <i>NaN</i>, so when
- numeric functions evaluate to <code>Double.NaN</code> be sure to translate the result to <a href="../../../../../../org/apache/poi/ss/formula/eval/ErrorEval.html#NUM_ERROR"><code>ErrorEval.NUM_ERROR</code></a>.</dd>
+ numeric functions evaluate to <code>Double.NaN</code> be sure to translate the result to <a href="../../../../../../org/apache/poi/ss/prFormula/eval/ErrorEval.html#NUM_ERROR"><code>ErrorEval.NUM_ERROR</code></a>.</dd>
 </dl>
 </li>
 </ul>
-<a name="evaluateOneArrayArg-org.apache.poi.ss.formula.eval.ValueEval-int-int-java.util.function.Function-">
+<a name="evaluateOneArrayArg-org.apache.poi.ss.prFormula.eval.ValueEval-int-int-java.util.function.Function-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>evaluateOneArrayArg</h4>
-<pre>default&nbsp;<a href="../../../../../../org/apache/poi/ss/formula/eval/ValueEval.html" title="interface in org.apache.poi.ss.formula.eval">ValueEval</a>&nbsp;evaluateOneArrayArg(<a href="../../../../../../org/apache/poi/ss/formula/eval/ValueEval.html" title="interface in org.apache.poi.ss.formula.eval">ValueEval</a>&nbsp;arg0,
+<pre>default&nbsp;<a href="../../../../../../org/apache/poi/ss/prFormula/eval/ValueEval.html" title="interface in org.apache.poi.ss.prFormula.eval">ValueEval</a>&nbsp;evaluateOneArrayArg(<a href="../../../../../../org/apache/poi/ss/prFormula/eval/ValueEval.html" title="interface in org.apache.poi.ss.prFormula.eval">ValueEval</a>&nbsp;arg0,
                                       int&nbsp;srcRowIndex,
                                       int&nbsp;srcColumnIndex,
-                                      java.util.function.Function&lt;<a href="../../../../../../org/apache/poi/ss/formula/eval/ValueEval.html" title="interface in org.apache.poi.ss.formula.eval">ValueEval</a>,<a href="../../../../../../org/apache/poi/ss/formula/eval/ValueEval.html" title="interface in org.apache.poi.ss.formula.eval">ValueEval</a>&gt;&nbsp;evalFunc)</pre>
+                                      java.util.function.Function&lt;<a href="../../../../../../org/apache/poi/ss/prFormula/eval/ValueEval.html" title="interface in org.apache.poi.ss.prFormula.eval">ValueEval</a>,<a href="../../../../../../org/apache/poi/ss/prFormula/eval/ValueEval.html" title="interface in org.apache.poi.ss.prFormula.eval">ValueEval</a>&gt;&nbsp;evalFunc)</pre>
 </li>
 </ul>
 </li>
@@ -254,11 +254,11 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../../org/apache/poi/ss/formula/functions/Areas.html" title="class in org.apache.poi.ss.formula.functions"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../../org/apache/poi/ss/formula/functions/ArrayMode.html" title="interface in org.apache.poi.ss.formula.functions"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../../org/apache/poi/ss/prFormula/functions/Areas.html" title="class in org.apache.poi.ss.prFormula.functions"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../../org/apache/poi/ss/prFormula/functions/ArrayMode.html" title="interface in org.apache.poi.ss.prFormula.functions"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
-<li><a href="../../../../../../index.html?org/apache/poi/ss/formula/functions/ArrayFunction.html" target="_top">Frames</a></li>
+<li><a href="../../../../../../index.html?org/apache/poi/ss/prFormula/functions/ArrayFunction.html" target="_top">Frames</a></li>
 <li><a href="ArrayFunction.html" target="_top">No&nbsp;Frames</a></li>
 </ul>
 <ul class="navList" id="allclasses_navbar_bottom">

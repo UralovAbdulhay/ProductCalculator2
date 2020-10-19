@@ -128,7 +128,7 @@ document.write("Last Published: " + document.lastModified);
 <a href="../../components/spreadsheet/converting.html">HSSF to SS Converting</a>
 </div>
 <div class="menuitem">
-<a href="../../components/spreadsheet/formula.html">Formula Support</a>
+<a href="../../components/spreadsheet/prFormula.html">Formula Support</a>
 </div>
 <div class="menuitem">
 <a href="../../components/spreadsheet/eval.html">Formula Evaluation</a>
@@ -302,7 +302,7 @@ document.write("Last Published: " + document.lastModified);
 <img alt="mortgage calculation spreadsheet" src="images/simple-xls-with-function.jpg">
         </p>
 <p>When you actually look at the workbook you discover that rather than having
-        the formula in a cell it has been written as VBA function.  You review the 
+        the prFormula in a cell it has been written as VBA function.  You review the
         function and determine that it could be written in Java:</p>
 <p>
             
@@ -316,10 +316,10 @@ import java.io.FileNotFoundException ;
 import java.io.IOException ;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException ;
-import org.apache.poi.ss.formula.functions.FreeRefFunction ;
-import org.apache.poi.ss.formula.udf.AggregatingUDFFinder ;
-import org.apache.poi.ss.formula.udf.DefaultUDFFinder ;
-import org.apache.poi.ss.formula.udf.UDFFinder ;
+import org.apache.poi.ss.prFormula.functions.FreeRefFunction ;
+import org.apache.poi.ss.prFormula.udf.AggregatingUDFFinder ;
+import org.apache.poi.ss.prFormula.udf.DefaultUDFFinder ;
+import org.apache.poi.ss.prFormula.udf.UDFFinder ;
 import org.apache.poi.ss.usermodel.Cell ;
 import org.apache.poi.ss.usermodel.CellValue ;
 import org.apache.poi.ss.usermodel.Row ;
@@ -371,18 +371,18 @@ public class Evaluator {
 </pre>
 <p>If you run this code, you're likely to get the following error:</p>
 <pre class="code">
-Exception in thread "main" org.apache.poi.ss.formula.eval.NotImplementedException: Error evaluating cell Sheet1!B4
-    at org.apache.poi.ss.formula.WorkbookEvaluator.addExceptionInfo(WorkbookEvaluator.java:321)
-    at org.apache.poi.ss.formula.WorkbookEvaluator.evaluateAny(WorkbookEvaluator.java:288)
-    at org.apache.poi.ss.formula.WorkbookEvaluator.evaluate(WorkbookEvaluator.java:221)
+Exception in thread "main" org.apache.poi.ss.prFormula.eval.NotImplementedException: Error evaluating cell Sheet1!B4
+    at org.apache.poi.ss.prFormula.WorkbookEvaluator.addExceptionInfo(WorkbookEvaluator.java:321)
+    at org.apache.poi.ss.prFormula.WorkbookEvaluator.evaluateAny(WorkbookEvaluator.java:288)
+    at org.apache.poi.ss.prFormula.WorkbookEvaluator.evaluate(WorkbookEvaluator.java:221)
     at org.apache.poi.hssf.usermodel.HSSFFormulaEvaluator.evaluateFormulaCellValue(HSSFFormulaEvaluator.java:320)
     at org.apache.poi.hssf.usermodel.HSSFFormulaEvaluator.evaluate(HSSFFormulaEvaluator.java:182)
     at poi.tests.Evaluator.main(Evaluator.java:61)
-Caused by: org.apache.poi.ss.formula.eval.NotImplementedException: calculatePayment
-    at org.apache.poi.ss.formula.UserDefinedFunction.evaluate(UserDefinedFunction.java:59)
-    at org.apache.poi.ss.formula.OperationEvaluatorFactory.evaluate(OperationEvaluatorFactory.java:129)
-    at org.apache.poi.ss.formula.WorkbookEvaluator.evaluateFormula(WorkbookEvaluator.java:456)
-    at org.apache.poi.ss.formula.WorkbookEvaluator.evaluateAny(WorkbookEvaluator.java:279)
+Caused by: org.apache.poi.ss.prFormula.eval.NotImplementedException: calculatePayment
+    at org.apache.poi.ss.prFormula.UserDefinedFunction.evaluate(UserDefinedFunction.java:59)
+    at org.apache.poi.ss.prFormula.OperationEvaluatorFactory.evaluate(OperationEvaluatorFactory.java:129)
+    at org.apache.poi.ss.prFormula.WorkbookEvaluator.evaluateFormula(WorkbookEvaluator.java:456)
+    at org.apache.poi.ss.prFormula.WorkbookEvaluator.evaluateAny(WorkbookEvaluator.java:279)
     ... 4 more
         
 </pre>
@@ -390,7 +390,7 @@ Caused by: org.apache.poi.ss.formula.eval.NotImplementedException: calculatePaym
 <a name="Defining+Your+Function"></a>
 <h3 class="boxed">Defining Your Function</h3>
 <p>To 'convert' this code to Java and make it available to POI you need to implement
-        a FreeRefFunction instance.  FreeRefFunction is an interface in the org.apache.poi.ss.formula.functions 
+        a FreeRefFunction instance.  FreeRefFunction is an interface in the org.apache.poi.ss.prFormula.functions
         package.  This interface defines one method, evaluate(ValueEval[] args, OperationEvaluationContext ec),
         which is how you will receive the argument values from POI.</p>
 <p>The evaluate() method as defined above is where you will convert the ValueEval instances to the 
@@ -482,13 +482,13 @@ private void checkValue(double result) throws EvaluationException {
      		</pre>
 <p>So the whole class would be as follows:</p>
 <pre class="code">
-import org.apache.poi.ss.formula.OperationEvaluationContext ;
-import org.apache.poi.ss.formula.eval.ErrorEval ;
-import org.apache.poi.ss.formula.eval.EvaluationException ;
-import org.apache.poi.ss.formula.eval.NumberEval ;
-import org.apache.poi.ss.formula.eval.OperandResolver ;
-import org.apache.poi.ss.formula.eval.ValueEval ;
-import org.apache.poi.ss.formula.functions.FreeRefFunction ;
+import org.apache.poi.ss.prFormula.OperationEvaluationContext ;
+import org.apache.poi.ss.prFormula.eval.ErrorEval ;
+import org.apache.poi.ss.prFormula.eval.EvaluationException ;
+import org.apache.poi.ss.prFormula.eval.NumberEval ;
+import org.apache.poi.ss.prFormula.eval.OperandResolver ;
+import org.apache.poi.ss.prFormula.eval.ValueEval ;
+import org.apache.poi.ss.prFormula.functions.FreeRefFunction ;
 
 /**
  * A simple function to calculate principal and interest.
@@ -571,7 +571,7 @@ The UDFFinder manages FreeRefFunctions which are our analogy for the VBA code.  
 <li>The Class name of our FreeRefFunction</li>
         
 </ul>
-<p>UDFFinder is actually an interface, so we need to use an actual implementation of this interface.  Therefore we use the org.apache.poi.ss.formula.udf.DefaultUDFFinder class.  If you refer to the Javadocs you'll see that this class expects to get two arrays, one
+<p>UDFFinder is actually an interface, so we need to use an actual implementation of this interface.  Therefore we use the org.apache.poi.ss.prFormula.udf.DefaultUDFFinder class.  If you refer to the Javadocs you'll see that this class expects to get two arrays, one
      		containing the alias and the other containing an instance of the class that will represent that alias.  In our case our alias will be calculatePayment 
      		and our class instance will be of the  CalculateMortgage type.  This class needs to be available at compile and runtime.  Be sure to keep these arrays
      		well organized because you'll run into problems if these arrays are of different sizes or the alias aren't in the same relative position in their respective
@@ -595,10 +595,10 @@ import java.io.FileNotFoundException ;
 import java.io.IOException ;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException ;
-import org.apache.poi.ss.formula.functions.FreeRefFunction ;
-import org.apache.poi.ss.formula.udf.AggregatingUDFFinder ;
-import org.apache.poi.ss.formula.udf.DefaultUDFFinder ;
-import org.apache.poi.ss.formula.udf.UDFFinder ;
+import org.apache.poi.ss.prFormula.functions.FreeRefFunction ;
+import org.apache.poi.ss.prFormula.udf.AggregatingUDFFinder ;
+import org.apache.poi.ss.prFormula.udf.DefaultUDFFinder ;
+import org.apache.poi.ss.prFormula.udf.UDFFinder ;
 import org.apache.poi.ss.usermodel.Cell ;
 import org.apache.poi.ss.usermodel.CellValue ;
 import org.apache.poi.ss.usermodel.Row ;
@@ -663,7 +663,7 @@ cell: Sheet1!B4
 returns value: org.apache.poi.ss.usermodel.CellValue [790.7936267415464]
         </pre>
 <p>That is it!  Now you can create Java code and register it, allowing your POI based appliction to run spreadsheets that previously were inaccessible.</p>
-<p>This example can be found in the <a href="http://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/ss/examples/formula">src/examples/src/org/apache/poi/ss/examples/formula</a> folder in the source.</p>
+<p>This example can be found in the <a href="http://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/ss/examples/prFormula">src/examples/src/org/apache/poi/ss/examples/prFormula</a> folder in the source.</p>
 </div>
 
 <p align="right">

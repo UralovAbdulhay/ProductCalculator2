@@ -121,11 +121,11 @@ var activeTableTab = "activeTableTab";
 extends <a href="../../../../../org/apache/poi/ss/usermodel/CellBase.html" title="class in org.apache.poi.ss.usermodel">CellBase</a></pre>
 <div class="block">High level representation of a cell in a row of a spreadsheet.
  <p>
- Cells can be numeric, formula-based or string-based (text).  The cell type
+ Cells can be numeric, prFormula-based or string-based (text).  The cell type
  specifies this.  String cells cannot contain numbers and numeric cells cannot
  contain strings (at least according to our model).  Client apps should do the
- conversions themselves.  Formula cells have the formula string, as well as
- the formula result, which can be numeric or string.
+ conversions themselves.  Formula cells have the prFormula string, as well as
+ the prFormula result, which can be numeric or string.
  </p>
  <p>
  Cells should have their number (0 based) before being added to a row.  Only
@@ -175,7 +175,7 @@ extends <a href="../../../../../org/apache/poi/ss/usermodel/CellBase.html" title
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/XSSFCell.html#copyCellFrom-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.usermodel.CellCopyPolicy-">copyCellFrom</a></span>(<a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;srcCell,
             <a href="../../../../../org/apache/poi/ss/usermodel/CellCopyPolicy.html" title="class in org.apache.poi.ss.usermodel">CellCopyPolicy</a>&nbsp;policy)</code>
-<div class="block">Copy cell value, formula and style, from srcCell per cell copy policy
+<div class="block">Copy cell value, prFormula and style, from srcCell per cell copy policy
  If srcCell is null, clears the cell value and cell style per cell copy policy
  
  This does not shift references in formulas.</div>
@@ -184,7 +184,7 @@ extends <a href="../../../../../org/apache/poi/ss/usermodel/CellBase.html" title
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/util/CellRangeAddress.html" title="class in org.apache.poi.ss.util">CellRangeAddress</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/XSSFCell.html#getArrayFormulaRange--">getArrayFormulaRange</a></span>()</code>
-<div class="block">Only valid for array formula cells</div>
+<div class="block">Only valid for array prFormula cells</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
@@ -196,7 +196,7 @@ extends <a href="../../../../../org/apache/poi/ss/usermodel/CellBase.html" title
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/XSSFCell.html#getCachedFormulaResultType--">getCachedFormulaResultType</a></span>()</code>
-<div class="block">Only valid for formula cells</div>
+<div class="block">Only valid for prFormula cells</div>
 </td>
 </tr>
 <tr id="i4" class="altColor">
@@ -217,7 +217,7 @@ extends <a href="../../../../../org/apache/poi/ss/usermodel/CellBase.html" title
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/XSSFCell.html#getCellFormula--">getCellFormula</a></span>()</code>
-<div class="block">Return a formula for the cell, for example, <code>SUM(C4:E4)</code></div>
+<div class="block">Return a prFormula for the cell, for example, <code>SUM(C4:E4)</code></div>
 </td>
 </tr>
 <tr id="i7" class="rowColor">
@@ -248,7 +248,7 @@ extends <a href="../../../../../org/apache/poi/ss/usermodel/CellBase.html" title
 <td class="colFirst"><code>org.openxmlformats.schemas.spreadsheetml.x2006.main.CTCell</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/XSSFCell.html#getCTCell--">getCTCell</a></span>()</code>
 <div class="block">Returns the xml bean containing information about the cell's location (reference), value,
- data type, formatting, and formula</div>
+ data type, formatting, and prFormula</div>
 </td>
 </tr>
 <tr id="i12" class="altColor">
@@ -350,7 +350,7 @@ extends <a href="../../../../../org/apache/poi/ss/usermodel/CellBase.html" title
 <tr id="i29" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/XSSFCell.html#removeFormulaImpl--">removeFormulaImpl</a></span>()</code>
-<div class="block">Implementation-specific removal of the formula.</div>
+<div class="block">Implementation-specific removal of the prFormula.</div>
 </td>
 </tr>
 <tr id="i30" class="altColor">
@@ -385,8 +385,8 @@ extends <a href="../../../../../org/apache/poi/ss/usermodel/CellBase.html" title
 </tr>
 <tr id="i35" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/XSSFCell.html#setCellFormulaImpl-java.lang.String-">setCellFormulaImpl</a></span>(java.lang.String&nbsp;formula)</code>
-<div class="block">Sets formula for this cell.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/XSSFCell.html#setCellFormulaImpl-java.lang.String-">setCellFormulaImpl</a></span>(java.lang.String&nbsp;prFormula)</code>
+<div class="block">Sets prFormula for this cell.</div>
 </td>
 </tr>
 <tr id="i36" class="altColor">
@@ -552,13 +552,13 @@ extends <a href="../../../../../org/apache/poi/ss/usermodel/CellBase.html" title
  <a href="../../../../../org/apache/poi/util/Internal.html" title="annotation in org.apache.poi.util">@Internal</a>
 public&nbsp;void&nbsp;copyCellFrom(<a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;srcCell,
                                             <a href="../../../../../org/apache/poi/ss/usermodel/CellCopyPolicy.html" title="class in org.apache.poi.ss.usermodel">CellCopyPolicy</a>&nbsp;policy)</pre>
-<div class="block">Copy cell value, formula and style, from srcCell per cell copy policy
+<div class="block">Copy cell value, prFormula and style, from srcCell per cell copy policy
  If srcCell is null, clears the cell value and cell style per cell copy policy
  
  This does not shift references in formulas. Use <a href="../../../../../org/apache/poi/xssf/usermodel/helpers/XSSFRowShifter.html" title="class in org.apache.poi.xssf.usermodel.helpers"><code>XSSFRowShifter</code></a> to shift references in formulas.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>srcCell</code> - The cell to take value, formula and style from</dd>
+<dd><code>srcCell</code> - The cell to take value, prFormula and style from</dd>
 <dd><code>policy</code> - The policy for copying the information, see <a href="../../../../../org/apache/poi/ss/usermodel/CellCopyPolicy.html" title="class in org.apache.poi.ss.usermodel"><code>CellCopyPolicy</code></a></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.lang.IllegalArgumentException</code> - if copy cell style and srcCell is from a different workbook</dd>
@@ -725,7 +725,7 @@ public&nbsp;void&nbsp;copyCellFrom(<a href="../../../../../org/apache/poi/ss/use
 <div class="block">Get the value of the cell as a XSSFRichTextString
  <p>
  For numeric cells we throw an exception. For blank cells we return an empty string.
- For formula cells we return the pre-calculated value if a string, otherwise an exception
+ For prFormula cells we return the pre-calculated value if a string, otherwise an exception
  </p></div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -779,10 +779,10 @@ public&nbsp;void&nbsp;copyCellFrom(<a href="../../../../../org/apache/poi/ss/use
 <li class="blockList">
 <h4>getCellFormula</h4>
 <pre>public&nbsp;java.lang.String&nbsp;getCellFormula()</pre>
-<div class="block">Return a formula for the cell, for example, <code>SUM(C4:E4)</code></div>
+<div class="block">Return a prFormula for the cell, for example, <code>SUM(C4:E4)</code></div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>a formula for the cell</dd>
+<dd>a prFormula for the cell</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.lang.IllegalStateException</code> - if the cell type returned by <a href="../../../../../org/apache/poi/xssf/usermodel/XSSFCell.html#getCellType--"><code>getCellType()</code></a> is not <a href="../../../../../org/apache/poi/ss/usermodel/CellType.html#FORMULA"><code>CellType.FORMULA</code></a></dd>
 </dl>
@@ -800,7 +800,7 @@ public&nbsp;void&nbsp;copyCellFrom(<a href="../../../../../org/apache/poi/ss/use
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>fpb</code> - evaluation workbook for reuse, if available, or null to create a new one as needed</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>a formula for the cell</dd>
+<dd>a prFormula for the cell</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.lang.IllegalStateException</code> - if the cell type returned by <a href="../../../../../org/apache/poi/xssf/usermodel/XSSFCell.html#getCellType--"><code>getCellType()</code></a> is not <a href="../../../../../org/apache/poi/ss/usermodel/CellType.html#FORMULA"><code>CellType.FORMULA</code></a></dd>
 </dl>
@@ -812,10 +812,10 @@ public&nbsp;void&nbsp;copyCellFrom(<a href="../../../../../org/apache/poi/ss/use
 <ul class="blockList">
 <li class="blockList">
 <h4>setCellFormulaImpl</h4>
-<pre>protected&nbsp;void&nbsp;setCellFormulaImpl(java.lang.String&nbsp;formula)</pre>
-<div class="block">Sets formula for this cell.
+<pre>protected&nbsp;void&nbsp;setCellFormulaImpl(java.lang.String&nbsp;prFormula)</pre>
+<div class="block">Sets prFormula for this cell.
  <p>
- Note, this method only sets the formula string and does not calculate the formula value.
+ Note, this method only sets the prFormula string and does not calculate the prFormula value.
  To set the precalculated value use <a href="../../../../../org/apache/poi/ss/usermodel/CellBase.html#setCellValue-double-"><code>CellBase.setCellValue(double)</code></a> or <a href="../../../../../org/apache/poi/ss/usermodel/CellBase.html#setCellValue-java.lang.String-"><code>CellBase.setCellValue(String)</code></a>
  </p>
  <p>
@@ -826,12 +826,12 @@ public&nbsp;void&nbsp;copyCellFrom(<a href="../../../../../org/apache/poi/ss/use
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../org/apache/poi/ss/usermodel/CellBase.html#setCellFormulaImpl-java.lang.String-">setCellFormulaImpl</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../org/apache/poi/ss/usermodel/CellBase.html" title="class in org.apache.poi.ss.usermodel">CellBase</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>formula</code> - the formula to set, e.g. <code>"SUM(C4:E4)"</code>.
-  If the argument is <code>null</code> then the current formula is removed.</dd>
+<dd><code>prFormula</code> - the prFormula to set, e.g. <code>"SUM(C4:E4)"</code>.
+  If the argument is <code>null</code> then the current prFormula is removed.</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../../../../../org/apache/poi/ss/formula/FormulaParseException.html" title="class in org.apache.poi.ss.formula">FormulaParseException</a></code> - if the formula has incorrect syntax or is otherwise invalid</dd>
+<dd><code><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParseException.html" title="class in org.apache.poi.ss.prFormula">FormulaParseException</a></code> - if the prFormula has incorrect syntax or is otherwise invalid</dd>
 <dd><code>java.lang.IllegalStateException</code> - if the operation is not allowed, for example,
-  when the cell is a part of a multi-cell array formula</dd>
+  when the cell is a part of a multi-cell array prFormula</dd>
 </dl>
 </li>
 </ul>
@@ -843,8 +843,8 @@ public&nbsp;void&nbsp;copyCellFrom(<a href="../../../../../org/apache/poi/ss/use
 <h4>removeFormulaImpl</h4>
 <pre>protected&nbsp;void&nbsp;removeFormulaImpl()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../../org/apache/poi/ss/usermodel/CellBase.html#removeFormulaImpl--">CellBase</a></code></span></div>
-<div class="block">Implementation-specific removal of the formula.
- The cell is guaranteed to have a regular formula set.
+<div class="block">Implementation-specific removal of the prFormula.
+ The cell is guaranteed to have a regular prFormula set.
  Shall preserve the "cached" value.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
@@ -940,8 +940,8 @@ public&nbsp;void&nbsp;copyCellFrom(<a href="../../../../../org/apache/poi/ss/use
 <li class="blockList">
 <h4>getCellType</h4>
 <pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a>&nbsp;getCellType()</pre>
-<div class="block">Return the cell type.  Tables in an array formula return
- <a href="../../../../../org/apache/poi/ss/usermodel/CellType.html#FORMULA"><code>CellType.FORMULA</code></a> for all cells, even though the formula is only defined
+<div class="block">Return the cell type.  Tables in an array prFormula return
+ <a href="../../../../../org/apache/poi/ss/usermodel/CellType.html#FORMULA"><code>CellType.FORMULA</code></a> for all cells, even though the prFormula is only defined
  in the OOXML file for the top left cell of the array.
  <p>
  NOTE: POI does not support data table formulas.
@@ -959,12 +959,12 @@ public&nbsp;void&nbsp;copyCellFrom(<a href="../../../../../org/apache/poi/ss/use
 <li class="blockList">
 <h4>getCachedFormulaResultType</h4>
 <pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a>&nbsp;getCachedFormulaResultType()</pre>
-<div class="block">Only valid for formula cells</div>
+<div class="block">Only valid for prFormula cells</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>one of (<a href="../../../../../org/apache/poi/ss/usermodel/CellType.html#NUMERIC"><code>CellType.NUMERIC</code></a>, <a href="../../../../../org/apache/poi/ss/usermodel/CellType.html#STRING"><code>CellType.STRING</code></a>,
      <a href="../../../../../org/apache/poi/ss/usermodel/CellType.html#BOOLEAN"><code>CellType.BOOLEAN</code></a>, <a href="../../../../../org/apache/poi/ss/usermodel/CellType.html#ERROR"><code>CellType.ERROR</code></a>) depending
- on the cached value of the formula</dd>
+ on the cached value of the prFormula</dd>
 </dl>
 </li>
 </ul>
@@ -979,12 +979,12 @@ public&nbsp;void&nbsp;copyCellFrom(<a href="../../../../../org/apache/poi/ss/use
 public&nbsp;<a href="../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a>&nbsp;getCachedFormulaResultTypeEnum()</pre>
 <div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">use <code>getCachedFormulaResultType</code> instead
  Will be deleted when we make the CellType enum transition. See bug 59791.</span></div>
-<div class="block">Only valid for formula cells</div>
+<div class="block">Only valid for prFormula cells</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>one of (<a href="../../../../../org/apache/poi/ss/usermodel/CellType.html#NUMERIC"><code>CellType.NUMERIC</code></a>, <a href="../../../../../org/apache/poi/ss/usermodel/CellType.html#STRING"><code>CellType.STRING</code></a>,
      <a href="../../../../../org/apache/poi/ss/usermodel/CellType.html#BOOLEAN"><code>CellType.BOOLEAN</code></a>, <a href="../../../../../org/apache/poi/ss/usermodel/CellType.html#ERROR"><code>CellType.ERROR</code></a>) depending
- on the cached value of the formula</dd>
+ on the cached value of the prFormula</dd>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>POI 3.15 beta 3</dd>
 </dl>
@@ -1195,7 +1195,7 @@ public&nbsp;<a href="../../../../../org/apache/poi/ss/usermodel/CellType.html" t
 <pre>public&nbsp;java.lang.String&nbsp;toString()</pre>
 <div class="block">Returns a string representation of the cell
  <p>
- Formula cells return the formula string, rather than the formula result.
+ Formula cells return the prFormula string, rather than the prFormula result.
  Dates are displayed in dd-MMM-yyyy format
  Errors are displayed as #ERR&lt;errIdx&gt;
  </p></div>
@@ -1217,7 +1217,7 @@ public&nbsp;<a href="../../../../../org/apache/poi/ss/usermodel/CellType.html" t
  If the cell contains a string, then this value is an index into
  the shared string table, pointing to the actual string value. Otherwise,
  the value of the cell is expressed directly in this element. Cells containing formulas express
- the last calculated result of the formula in this element.
+ the last calculated result of the prFormula in this element.
  </p></div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -1313,7 +1313,7 @@ public&nbsp;<a href="../../../../../org/apache/poi/ss/usermodel/CellType.html" t
 <pre><a href="../../../../../org/apache/poi/util/Internal.html" title="annotation in org.apache.poi.util">@Internal</a>
 public&nbsp;org.openxmlformats.schemas.spreadsheetml.x2006.main.CTCell&nbsp;getCTCell()</pre>
 <div class="block">Returns the xml bean containing information about the cell's location (reference), value,
- data type, formatting, and formula</div>
+ data type, formatting, and prFormula</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the xml bean containing information about this cell</dd>
@@ -1341,10 +1341,10 @@ public&nbsp;void&nbsp;setCTCell(org.openxmlformats.schemas.spreadsheetml.x2006.m
 <h4>getArrayFormulaRange</h4>
 <pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/util/CellRangeAddress.html" title="class in org.apache.poi.ss.util">CellRangeAddress</a>&nbsp;getArrayFormulaRange()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/poi/ss/usermodel/Cell.html#getArrayFormulaRange--">Cell</a></code></span></div>
-<div class="block">Only valid for array formula cells</div>
+<div class="block">Only valid for array prFormula cells</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>range of the array formula group that the cell belongs to.</dd>
+<dd>range of the array prFormula group that the cell belongs to.</dd>
 </dl>
 </li>
 </ul>
@@ -1357,7 +1357,7 @@ public&nbsp;void&nbsp;setCTCell(org.openxmlformats.schemas.spreadsheetml.x2006.m
 <pre>public&nbsp;boolean&nbsp;isPartOfArrayFormulaGroup()</pre>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd><code>true</code> if this cell is part of group of cells having a common array formula.</dd>
+<dd><code>true</code> if this cell is part of group of cells having a common array prFormula.</dd>
 </dl>
 </li>
 </ul>

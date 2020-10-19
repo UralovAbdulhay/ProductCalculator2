@@ -48,11 +48,11 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../../org/apache/poi/ss/formula/ptg/RangePtg.html" title="class in org.apache.poi.ss.formula.ptg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../../org/apache/poi/ss/formula/ptg/Ref3DPxg.html" title="class in org.apache.poi.ss.formula.ptg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../../org/apache/poi/ss/prFormula/ptg/RangePtg.html" title="class in org.apache.poi.ss.prFormula.ptg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ref3DPxg.html" title="class in org.apache.poi.ss.prFormula.ptg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
-<li><a href="../../../../../../index.html?org/apache/poi/ss/formula/ptg/Ref3DPtg.html" target="_top">Frames</a></li>
+<li><a href="../../../../../../index.html?org/apache/poi/ss/prFormula/ptg/Ref3DPtg.html" target="_top">Frames</a></li>
 <li><a href="Ref3DPtg.html" target="_top">No&nbsp;Frames</a></li>
 </ul>
 <ul class="navList" id="allclasses_navbar_top">
@@ -91,7 +91,7 @@ var activeTableTab = "activeTableTab";
 <!-- ========= END OF TOP NAVBAR ========= -->
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
-<div class="subTitle">org.apache.poi.ss.formula.ptg</div>
+<div class="subTitle">org.apache.poi.ss.prFormula.ptg</div>
 <h2 title="Class Ref3DPtg" class="title">Class Ref3DPtg</h2>
 </div>
 <div class="contentContainer">
@@ -99,16 +99,16 @@ var activeTableTab = "activeTableTab";
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
-<li><a href="../../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">org.apache.poi.ss.formula.ptg.Ptg</a></li>
+<li><a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">org.apache.poi.ss.prFormula.ptg.Ptg</a></li>
 <li>
 <ul class="inheritance">
-<li><a href="../../../../../../org/apache/poi/ss/formula/ptg/OperandPtg.html" title="class in org.apache.poi.ss.formula.ptg">org.apache.poi.ss.formula.ptg.OperandPtg</a></li>
+<li><a href="../../../../../../org/apache/poi/ss/prFormula/ptg/OperandPtg.html" title="class in org.apache.poi.ss.prFormula.ptg">org.apache.poi.ss.prFormula.ptg.OperandPtg</a></li>
 <li>
 <ul class="inheritance">
-<li><a href="../../../../../../org/apache/poi/ss/formula/ptg/RefPtgBase.html" title="class in org.apache.poi.ss.formula.ptg">org.apache.poi.ss.formula.ptg.RefPtgBase</a></li>
+<li><a href="../../../../../../org/apache/poi/ss/prFormula/ptg/RefPtgBase.html" title="class in org.apache.poi.ss.prFormula.ptg">org.apache.poi.ss.prFormula.ptg.RefPtgBase</a></li>
 <li>
 <ul class="inheritance">
-<li>org.apache.poi.ss.formula.ptg.Ref3DPtg</li>
+<li>org.apache.poi.ss.prFormula.ptg.Ref3DPtg</li>
 </ul>
 </li>
 </ul>
@@ -123,20 +123,20 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd>java.lang.Cloneable, <a href="../../../../../../org/apache/poi/ss/formula/ExternSheetReferenceToken.html" title="interface in org.apache.poi.ss.formula">ExternSheetReferenceToken</a>, <a href="../../../../../../org/apache/poi/ss/formula/WorkbookDependentFormula.html" title="interface in org.apache.poi.ss.formula">WorkbookDependentFormula</a></dd>
+<dd>java.lang.Cloneable, <a href="../../../../../../org/apache/poi/ss/prFormula/ExternSheetReferenceToken.html" title="interface in org.apache.poi.ss.prFormula">ExternSheetReferenceToken</a>, <a href="../../../../../../org/apache/poi/ss/prFormula/WorkbookDependentFormula.html" title="interface in org.apache.poi.ss.prFormula">WorkbookDependentFormula</a></dd>
 </dl>
 <hr>
 <br>
 <pre>public final class <span class="typeNameLabel">Ref3DPtg</span>
-extends <a href="../../../../../../org/apache/poi/ss/formula/ptg/RefPtgBase.html" title="class in org.apache.poi.ss.formula.ptg">RefPtgBase</a>
-implements <a href="../../../../../../org/apache/poi/ss/formula/WorkbookDependentFormula.html" title="interface in org.apache.poi.ss.formula">WorkbookDependentFormula</a>, <a href="../../../../../../org/apache/poi/ss/formula/ExternSheetReferenceToken.html" title="interface in org.apache.poi.ss.formula">ExternSheetReferenceToken</a></pre>
+extends <a href="../../../../../../org/apache/poi/ss/prFormula/ptg/RefPtgBase.html" title="class in org.apache.poi.ss.prFormula.ptg">RefPtgBase</a>
+implements <a href="../../../../../../org/apache/poi/ss/prFormula/WorkbookDependentFormula.html" title="interface in org.apache.poi.ss.prFormula">WorkbookDependentFormula</a>, <a href="../../../../../../org/apache/poi/ss/prFormula/ExternSheetReferenceToken.html" title="interface in org.apache.poi.ss.prFormula">ExternSheetReferenceToken</a></pre>
 <div class="block"><p>Title:        Reference 3D Ptg</p>
  <p>Description:  Defined a cell in extern sheet.</p>
  <p>REFERENCE: </p>
  
  <p>This is HSSF only, as it matches the HSSF file format way of
   referring to the sheet by an extern index. The XSSF equivalent
-  is <a href="../../../../../../org/apache/poi/ss/formula/ptg/Ref3DPxg.html" title="class in org.apache.poi.ss.formula.ptg"><code>Ref3DPxg</code></a></div>
+  is <a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ref3DPxg.html" title="class in org.apache.poi.ss.prFormula.ptg"><code>Ref3DPxg</code></a></div>
 </li>
 </ul>
 </div>
@@ -157,15 +157,15 @@ implements <a href="../../../../../../org/apache/poi/ss/formula/WorkbookDependen
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static byte</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/ptg/Ref3DPtg.html#sid">sid</a></span></code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ref3DPtg.html#sid">sid</a></span></code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
-<li class="blockList"><a name="fields.inherited.from.class.org.apache.poi.ss.formula.ptg.Ptg">
+<li class="blockList"><a name="fields.inherited.from.class.org.apache.poi.ss.prFormula.ptg.Ptg">
 <!--   -->
 </a>
-<h3>Fields inherited from class&nbsp;org.apache.poi.ss.formula.ptg.<a href="../../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a></h3>
-<code><a href="../../../../../../org/apache/poi/ss/formula/ptg/Ptg.html#CLASS_ARRAY">CLASS_ARRAY</a>, <a href="../../../../../../org/apache/poi/ss/formula/ptg/Ptg.html#CLASS_REF">CLASS_REF</a>, <a href="../../../../../../org/apache/poi/ss/formula/ptg/Ptg.html#CLASS_VALUE">CLASS_VALUE</a>, <a href="../../../../../../org/apache/poi/ss/formula/ptg/Ptg.html#EMPTY_PTG_ARRAY">EMPTY_PTG_ARRAY</a></code></li>
+<h3>Fields inherited from class&nbsp;org.apache.poi.ss.prFormula.ptg.<a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a></h3>
+<code><a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html#CLASS_ARRAY">CLASS_ARRAY</a>, <a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html#CLASS_REF">CLASS_REF</a>, <a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html#CLASS_VALUE">CLASS_VALUE</a>, <a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html#EMPTY_PTG_ARRAY">EMPTY_PTG_ARRAY</a></code></li>
 </ul>
 </li>
 </ul>
@@ -181,14 +181,14 @@ implements <a href="../../../../../../org/apache/poi/ss/formula/WorkbookDependen
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/ptg/Ref3DPtg.html#Ref3DPtg-org.apache.poi.ss.util.CellReference-int-">Ref3DPtg</a></span>(<a href="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</a>&nbsp;c,
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ref3DPtg.html#Ref3DPtg-org.apache.poi.ss.util.CellReference-int-">Ref3DPtg</a></span>(<a href="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</a>&nbsp;c,
         int&nbsp;externIdx)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/ptg/Ref3DPtg.html#Ref3DPtg-org.apache.poi.util.LittleEndianInput-">Ref3DPtg</a></span>(<a href="../../../../../../org/apache/poi/util/LittleEndianInput.html" title="interface in org.apache.poi.util">LittleEndianInput</a>&nbsp;in)</code>&nbsp;</td>
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ref3DPtg.html#Ref3DPtg-org.apache.poi.util.LittleEndianInput-">Ref3DPtg</a></span>(<a href="../../../../../../org/apache/poi/util/LittleEndianInput.html" title="interface in org.apache.poi.util">LittleEndianInput</a>&nbsp;in)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/ptg/Ref3DPtg.html#Ref3DPtg-java.lang.String-int-">Ref3DPtg</a></span>(java.lang.String&nbsp;cellref,
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ref3DPtg.html#Ref3DPtg-java.lang.String-int-">Ref3DPtg</a></span>(java.lang.String&nbsp;cellref,
         int&nbsp;externIdx)</code>&nbsp;</td>
 </tr>
 </table>
@@ -208,61 +208,61 @@ implements <a href="../../../../../../org/apache/poi/ss/formula/WorkbookDependen
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/ptg/Ref3DPtg.html#format2DRefAsString--">format2DRefAsString</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ref3DPtg.html#format2DRefAsString--">format2DRefAsString</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/ptg/Ref3DPtg.html#getExternSheetIndex--">getExternSheetIndex</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ref3DPtg.html#getExternSheetIndex--">getExternSheetIndex</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/ptg/Ref3DPtg.html#getSize--">getSize</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ref3DPtg.html#getSize--">getSize</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/ptg/Ref3DPtg.html#setExternSheetIndex-int-">setExternSheetIndex</a></span>(int&nbsp;index)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ref3DPtg.html#setExternSheetIndex-int-">setExternSheetIndex</a></span>(int&nbsp;index)</code>&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/ptg/Ref3DPtg.html#toFormulaString--">toFormulaString</a></span>()</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ref3DPtg.html#toFormulaString--">toFormulaString</a></span>()</code>
 <div class="block">return a string representation of this token alone</div>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/ptg/Ref3DPtg.html#toFormulaString-org.apache.poi.ss.formula.FormulaRenderingWorkbook-">toFormulaString</a></span>(<a href="../../../../../../org/apache/poi/ss/formula/FormulaRenderingWorkbook.html" title="interface in org.apache.poi.ss.formula">FormulaRenderingWorkbook</a>&nbsp;book)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ref3DPtg.html#toFormulaString-org.apache.poi.ss.prFormula.FormulaRenderingWorkbook-">toFormulaString</a></span>(<a href="../../../../../../org/apache/poi/ss/prFormula/FormulaRenderingWorkbook.html" title="interface in org.apache.poi.ss.prFormula">FormulaRenderingWorkbook</a>&nbsp;book)</code>&nbsp;</td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/ptg/Ref3DPtg.html#toString--">toString</a></span>()</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ref3DPtg.html#toString--">toString</a></span>()</code>
 <div class="block">Overridden toString method to ensure object hash is not printed.</div>
 </td>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/ptg/Ref3DPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ref3DPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
-<li class="blockList"><a name="methods.inherited.from.class.org.apache.poi.ss.formula.ptg.RefPtgBase">
+<li class="blockList"><a name="methods.inherited.from.class.org.apache.poi.ss.prFormula.ptg.RefPtgBase">
 <!--   -->
 </a>
-<h3>Methods inherited from class&nbsp;org.apache.poi.ss.formula.ptg.<a href="../../../../../../org/apache/poi/ss/formula/ptg/RefPtgBase.html" title="class in org.apache.poi.ss.formula.ptg">RefPtgBase</a></h3>
-<code><a href="../../../../../../org/apache/poi/ss/formula/ptg/RefPtgBase.html#formatReferenceAsString--">formatReferenceAsString</a>, <a href="../../../../../../org/apache/poi/ss/formula/ptg/RefPtgBase.html#getColumn--">getColumn</a>, <a href="../../../../../../org/apache/poi/ss/formula/ptg/RefPtgBase.html#getDefaultOperandClass--">getDefaultOperandClass</a>, <a href="../../../../../../org/apache/poi/ss/formula/ptg/RefPtgBase.html#getRow--">getRow</a>, <a href="../../../../../../org/apache/poi/ss/formula/ptg/RefPtgBase.html#isColRelative--">isColRelative</a>, <a href="../../../../../../org/apache/poi/ss/formula/ptg/RefPtgBase.html#isRowRelative--">isRowRelative</a>, <a href="../../../../../../org/apache/poi/ss/formula/ptg/RefPtgBase.html#readCoordinates-org.apache.poi.util.LittleEndianInput-">readCoordinates</a>, <a href="../../../../../../org/apache/poi/ss/formula/ptg/RefPtgBase.html#setColRelative-boolean-">setColRelative</a>, <a href="../../../../../../org/apache/poi/ss/formula/ptg/RefPtgBase.html#setColumn-int-">setColumn</a>, <a href="../../../../../../org/apache/poi/ss/formula/ptg/RefPtgBase.html#setRow-int-">setRow</a>, <a href="../../../../../../org/apache/poi/ss/formula/ptg/RefPtgBase.html#setRowRelative-boolean-">setRowRelative</a>, <a href="../../../../../../org/apache/poi/ss/formula/ptg/RefPtgBase.html#writeCoordinates-org.apache.poi.util.LittleEndianOutput-">writeCoordinates</a></code></li>
+<h3>Methods inherited from class&nbsp;org.apache.poi.ss.prFormula.ptg.<a href="../../../../../../org/apache/poi/ss/prFormula/ptg/RefPtgBase.html" title="class in org.apache.poi.ss.prFormula.ptg">RefPtgBase</a></h3>
+<code><a href="../../../../../../org/apache/poi/ss/prFormula/ptg/RefPtgBase.html#formatReferenceAsString--">formatReferenceAsString</a>, <a href="../../../../../../org/apache/poi/ss/prFormula/ptg/RefPtgBase.html#getColumn--">getColumn</a>, <a href="../../../../../../org/apache/poi/ss/prFormula/ptg/RefPtgBase.html#getDefaultOperandClass--">getDefaultOperandClass</a>, <a href="../../../../../../org/apache/poi/ss/prFormula/ptg/RefPtgBase.html#getRow--">getRow</a>, <a href="../../../../../../org/apache/poi/ss/prFormula/ptg/RefPtgBase.html#isColRelative--">isColRelative</a>, <a href="../../../../../../org/apache/poi/ss/prFormula/ptg/RefPtgBase.html#isRowRelative--">isRowRelative</a>, <a href="../../../../../../org/apache/poi/ss/prFormula/ptg/RefPtgBase.html#readCoordinates-org.apache.poi.util.LittleEndianInput-">readCoordinates</a>, <a href="../../../../../../org/apache/poi/ss/prFormula/ptg/RefPtgBase.html#setColRelative-boolean-">setColRelative</a>, <a href="../../../../../../org/apache/poi/ss/prFormula/ptg/RefPtgBase.html#setColumn-int-">setColumn</a>, <a href="../../../../../../org/apache/poi/ss/prFormula/ptg/RefPtgBase.html#setRow-int-">setRow</a>, <a href="../../../../../../org/apache/poi/ss/prFormula/ptg/RefPtgBase.html#setRowRelative-boolean-">setRowRelative</a>, <a href="../../../../../../org/apache/poi/ss/prFormula/ptg/RefPtgBase.html#writeCoordinates-org.apache.poi.util.LittleEndianOutput-">writeCoordinates</a></code></li>
 </ul>
 <ul class="blockList">
-<li class="blockList"><a name="methods.inherited.from.class.org.apache.poi.ss.formula.ptg.OperandPtg">
+<li class="blockList"><a name="methods.inherited.from.class.org.apache.poi.ss.prFormula.ptg.OperandPtg">
 <!--   -->
 </a>
-<h3>Methods inherited from class&nbsp;org.apache.poi.ss.formula.ptg.<a href="../../../../../../org/apache/poi/ss/formula/ptg/OperandPtg.html" title="class in org.apache.poi.ss.formula.ptg">OperandPtg</a></h3>
-<code><a href="../../../../../../org/apache/poi/ss/formula/ptg/OperandPtg.html#copy--">copy</a>, <a href="../../../../../../org/apache/poi/ss/formula/ptg/OperandPtg.html#isBaseToken--">isBaseToken</a></code></li>
+<h3>Methods inherited from class&nbsp;org.apache.poi.ss.prFormula.ptg.<a href="../../../../../../org/apache/poi/ss/prFormula/ptg/OperandPtg.html" title="class in org.apache.poi.ss.prFormula.ptg">OperandPtg</a></h3>
+<code><a href="../../../../../../org/apache/poi/ss/prFormula/ptg/OperandPtg.html#copy--">copy</a>, <a href="../../../../../../org/apache/poi/ss/prFormula/ptg/OperandPtg.html#isBaseToken--">isBaseToken</a></code></li>
 </ul>
 <ul class="blockList">
-<li class="blockList"><a name="methods.inherited.from.class.org.apache.poi.ss.formula.ptg.Ptg">
+<li class="blockList"><a name="methods.inherited.from.class.org.apache.poi.ss.prFormula.ptg.Ptg">
 <!--   -->
 </a>
-<h3>Methods inherited from class&nbsp;org.apache.poi.ss.formula.ptg.<a href="../../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a></h3>
-<code><a href="../../../../../../org/apache/poi/ss/formula/ptg/Ptg.html#createPtg-org.apache.poi.util.LittleEndianInput-">createPtg</a>, <a href="../../../../../../org/apache/poi/ss/formula/ptg/Ptg.html#doesFormulaReferToDeletedCell-org.apache.poi.ss.formula.ptg.Ptg:A-">doesFormulaReferToDeletedCell</a>, <a href="../../../../../../org/apache/poi/ss/formula/ptg/Ptg.html#getEncodedSize-org.apache.poi.ss.formula.ptg.Ptg:A-">getEncodedSize</a>, <a href="../../../../../../org/apache/poi/ss/formula/ptg/Ptg.html#getEncodedSizeWithoutArrayData-org.apache.poi.ss.formula.ptg.Ptg:A-">getEncodedSizeWithoutArrayData</a>, <a href="../../../../../../org/apache/poi/ss/formula/ptg/Ptg.html#getPtgClass--">getPtgClass</a>, <a href="../../../../../../org/apache/poi/ss/formula/ptg/Ptg.html#getRVAType--">getRVAType</a>, <a href="../../../../../../org/apache/poi/ss/formula/ptg/Ptg.html#readTokens-int-org.apache.poi.util.LittleEndianInput-">readTokens</a>, <a href="../../../../../../org/apache/poi/ss/formula/ptg/Ptg.html#serializePtgs-org.apache.poi.ss.formula.ptg.Ptg:A-byte:A-int-">serializePtgs</a>, <a href="../../../../../../org/apache/poi/ss/formula/ptg/Ptg.html#setClass-byte-">setClass</a></code></li>
+<h3>Methods inherited from class&nbsp;org.apache.poi.ss.prFormula.ptg.<a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a></h3>
+<code><a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html#createPtg-org.apache.poi.util.LittleEndianInput-">createPtg</a>, <a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html#doesFormulaReferToDeletedCell-org.apache.poi.ss.prFormula.ptg.Ptg:A-">doesFormulaReferToDeletedCell</a>, <a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html#getEncodedSize-org.apache.poi.ss.prFormula.ptg.Ptg:A-">getEncodedSize</a>, <a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html#getEncodedSizeWithoutArrayData-org.apache.poi.ss.prFormula.ptg.Ptg:A-">getEncodedSizeWithoutArrayData</a>, <a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html#getPtgClass--">getPtgClass</a>, <a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html#getRVAType--">getRVAType</a>, <a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html#readTokens-int-org.apache.poi.util.LittleEndianInput-">readTokens</a>, <a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html#serializePtgs-org.apache.poi.ss.prFormula.ptg.Ptg:A-byte:A-int-">serializePtgs</a>, <a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html#setClass-byte-">setClass</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -294,7 +294,7 @@ implements <a href="../../../../../../org/apache/poi/ss/formula/WorkbookDependen
 <pre>public static final&nbsp;byte sid</pre>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../../../../constant-values.html#org.apache.poi.ss.formula.ptg.Ref3DPtg.sid">Constant Field Values</a></dd>
+<dd><a href="../../../../../../constant-values.html#org.apache.poi.ss.prFormula.ptg.Ref3DPtg.sid">Constant Field Values</a></dd>
 </dl>
 </li>
 </ul>
@@ -350,13 +350,13 @@ implements <a href="../../../../../../org/apache/poi/ss/formula/WorkbookDependen
 <li class="blockList">
 <h4>toString</h4>
 <pre>public&nbsp;java.lang.String&nbsp;toString()</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../../../org/apache/poi/ss/formula/ptg/Ptg.html#toString--">Ptg</a></code></span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html#toString--">Ptg</a></code></span></div>
 <div class="block">Overridden toString method to ensure object hash is not printed.
  This helps get rid of gratuitous diffs when comparing two dumps
  Subclasses may output more relevant information by overriding this method</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="../../../../../../org/apache/poi/ss/formula/ptg/Ptg.html#toString--">toString</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a></code></dd>
+<dd><code><a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html#toString--">toString</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -369,7 +369,7 @@ implements <a href="../../../../../../org/apache/poi/ss/formula/WorkbookDependen
 <pre>public&nbsp;void&nbsp;write(<a href="../../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../../org/apache/poi/ss/formula/ptg/Ptg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a></code></dd>
+<dd><code><a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -382,7 +382,7 @@ implements <a href="../../../../../../org/apache/poi/ss/formula/WorkbookDependen
 <pre>public&nbsp;int&nbsp;getSize()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../../org/apache/poi/ss/formula/ptg/Ptg.html#getSize--">getSize</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a></code></dd>
+<dd><code><a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html#getSize--">getSize</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the encoded length of this Ptg, including the initial Ptg type identifier byte.</dd>
 </dl>
@@ -397,7 +397,7 @@ implements <a href="../../../../../../org/apache/poi/ss/formula/WorkbookDependen
 <pre>public&nbsp;int&nbsp;getExternSheetIndex()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../../org/apache/poi/ss/formula/ExternSheetReferenceToken.html#getExternSheetIndex--">getExternSheetIndex</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../org/apache/poi/ss/formula/ExternSheetReferenceToken.html" title="interface in org.apache.poi.ss.formula">ExternSheetReferenceToken</a></code></dd>
+<dd><code><a href="../../../../../../org/apache/poi/ss/prFormula/ExternSheetReferenceToken.html#getExternSheetIndex--">getExternSheetIndex</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../org/apache/poi/ss/prFormula/ExternSheetReferenceToken.html" title="interface in org.apache.poi.ss.prFormula">ExternSheetReferenceToken</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -419,22 +419,22 @@ implements <a href="../../../../../../org/apache/poi/ss/formula/WorkbookDependen
 <pre>public&nbsp;java.lang.String&nbsp;format2DRefAsString()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../../org/apache/poi/ss/formula/ExternSheetReferenceToken.html#format2DRefAsString--">format2DRefAsString</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../org/apache/poi/ss/formula/ExternSheetReferenceToken.html" title="interface in org.apache.poi.ss.formula">ExternSheetReferenceToken</a></code></dd>
+<dd><code><a href="../../../../../../org/apache/poi/ss/prFormula/ExternSheetReferenceToken.html#format2DRefAsString--">format2DRefAsString</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../org/apache/poi/ss/prFormula/ExternSheetReferenceToken.html" title="interface in org.apache.poi.ss.prFormula">ExternSheetReferenceToken</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>formula text for this reference token without the qualifying sheet name</dd>
+<dd>prFormula text for this reference token without the qualifying sheet name</dd>
 </dl>
 </li>
 </ul>
-<a name="toFormulaString-org.apache.poi.ss.formula.FormulaRenderingWorkbook-">
+<a name="toFormulaString-org.apache.poi.ss.prFormula.FormulaRenderingWorkbook-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>toFormulaString</h4>
-<pre>public&nbsp;java.lang.String&nbsp;toFormulaString(<a href="../../../../../../org/apache/poi/ss/formula/FormulaRenderingWorkbook.html" title="interface in org.apache.poi.ss.formula">FormulaRenderingWorkbook</a>&nbsp;book)</pre>
+<pre>public&nbsp;java.lang.String&nbsp;toFormulaString(<a href="../../../../../../org/apache/poi/ss/prFormula/FormulaRenderingWorkbook.html" title="interface in org.apache.poi.ss.prFormula">FormulaRenderingWorkbook</a>&nbsp;book)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../../org/apache/poi/ss/formula/WorkbookDependentFormula.html#toFormulaString-org.apache.poi.ss.formula.FormulaRenderingWorkbook-">toFormulaString</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../org/apache/poi/ss/formula/WorkbookDependentFormula.html" title="interface in org.apache.poi.ss.formula">WorkbookDependentFormula</a></code></dd>
+<dd><code><a href="../../../../../../org/apache/poi/ss/prFormula/WorkbookDependentFormula.html#toFormulaString-org.apache.poi.ss.prFormula.FormulaRenderingWorkbook-">toFormulaString</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../org/apache/poi/ss/prFormula/WorkbookDependentFormula.html" title="interface in org.apache.poi.ss.prFormula">WorkbookDependentFormula</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>text representation of this cell reference that can be used in text
  formulas. The sheet name will get properly delimited if required.</dd>
@@ -448,11 +448,11 @@ implements <a href="../../../../../../org/apache/poi/ss/formula/WorkbookDependen
 <li class="blockList">
 <h4>toFormulaString</h4>
 <pre>public&nbsp;java.lang.String&nbsp;toFormulaString()</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../../../org/apache/poi/ss/formula/ptg/Ptg.html#toFormulaString--">Ptg</a></code></span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html#toFormulaString--">Ptg</a></code></span></div>
 <div class="block">return a string representation of this token alone</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../../org/apache/poi/ss/formula/ptg/Ptg.html#toFormulaString--">toFormulaString</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a></code></dd>
+<dd><code><a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html#toFormulaString--">toFormulaString</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -484,11 +484,11 @@ implements <a href="../../../../../../org/apache/poi/ss/formula/WorkbookDependen
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../../org/apache/poi/ss/formula/ptg/RangePtg.html" title="class in org.apache.poi.ss.formula.ptg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../../org/apache/poi/ss/formula/ptg/Ref3DPxg.html" title="class in org.apache.poi.ss.formula.ptg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../../org/apache/poi/ss/prFormula/ptg/RangePtg.html" title="class in org.apache.poi.ss.prFormula.ptg"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ref3DPxg.html" title="class in org.apache.poi.ss.prFormula.ptg"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
-<li><a href="../../../../../../index.html?org/apache/poi/ss/formula/ptg/Ref3DPtg.html" target="_top">Frames</a></li>
+<li><a href="../../../../../../index.html?org/apache/poi/ss/prFormula/ptg/Ref3DPtg.html" target="_top">Frames</a></li>
 <li><a href="Ref3DPtg.html" target="_top">No&nbsp;Frames</a></li>
 </ul>
 <ul class="navList" id="allclasses_navbar_bottom">

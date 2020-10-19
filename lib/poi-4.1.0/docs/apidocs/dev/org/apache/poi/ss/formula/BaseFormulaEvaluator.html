@@ -49,10 +49,10 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li>Prev&nbsp;Class</li>
-<li><a href="../../../../../org/apache/poi/ss/formula/CacheAreaEval.html" title="class in org.apache.poi.ss.formula"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/poi/ss/prFormula/CacheAreaEval.html" title="class in org.apache.poi.ss.prFormula"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
-<li><a href="../../../../../index.html?org/apache/poi/ss/formula/BaseFormulaEvaluator.html" target="_top">Frames</a></li>
+<li><a href="../../../../../index.html?org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html" target="_top">Frames</a></li>
 <li><a href="BaseFormulaEvaluator.html" target="_top">No&nbsp;Frames</a></li>
 </ul>
 <ul class="navList" id="allclasses_navbar_top">
@@ -91,7 +91,7 @@ var activeTableTab = "activeTableTab";
 <!-- ========= END OF TOP NAVBAR ========= -->
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
-<div class="subTitle">org.apache.poi.ss.formula</div>
+<div class="subTitle">org.apache.poi.ss.prFormula</div>
 <h2 title="Class BaseFormulaEvaluator" class="title">Class BaseFormulaEvaluator</h2>
 </div>
 <div class="contentContainer">
@@ -99,7 +99,7 @@ var activeTableTab = "activeTableTab";
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
-<li>org.apache.poi.ss.formula.BaseFormulaEvaluator</li>
+<li>org.apache.poi.ss.prFormula.BaseFormulaEvaluator</li>
 </ul>
 </li>
 </ul>
@@ -108,7 +108,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><a href="../../../../../org/apache/poi/ss/formula/WorkbookEvaluatorProvider.html" title="interface in org.apache.poi.ss.formula">WorkbookEvaluatorProvider</a>, <a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html" title="interface in org.apache.poi.ss.usermodel">FormulaEvaluator</a></dd>
+<dd><a href="../../../../../org/apache/poi/ss/prFormula/WorkbookEvaluatorProvider.html" title="interface in org.apache.poi.ss.prFormula">WorkbookEvaluatorProvider</a>, <a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html" title="interface in org.apache.poi.ss.usermodel">FormulaEvaluator</a></dd>
 </dl>
 <dl>
 <dt>Direct Known Subclasses:</dt>
@@ -118,8 +118,8 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public abstract class <span class="typeNameLabel">BaseFormulaEvaluator</span>
 extends java.lang.Object
-implements <a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html" title="interface in org.apache.poi.ss.usermodel">FormulaEvaluator</a>, <a href="../../../../../org/apache/poi/ss/formula/WorkbookEvaluatorProvider.html" title="interface in org.apache.poi.ss.formula">WorkbookEvaluatorProvider</a></pre>
-<div class="block">Common functionality across file formats for evaluating formula cells.<p></div>
+implements <a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html" title="interface in org.apache.poi.ss.usermodel">FormulaEvaluator</a>, <a href="../../../../../org/apache/poi/ss/prFormula/WorkbookEvaluatorProvider.html" title="interface in org.apache.poi.ss.prFormula">WorkbookEvaluatorProvider</a></pre>
+<div class="block">Common functionality across file formats for evaluating prFormula cells.<p></div>
 </li>
 </ul>
 </div>
@@ -139,8 +139,8 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.
 <th class="colLast" scope="col">Field and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>protected <a href="../../../../../org/apache/poi/ss/formula/WorkbookEvaluator.html" title="class in org.apache.poi.ss.formula">WorkbookEvaluator</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#Z:Z_bookEvaluator">_bookEvaluator</a></span></code>&nbsp;</td>
+<td class="colFirst"><code>protected <a href="../../../../../org/apache/poi/ss/prFormula/WorkbookEvaluator.html" title="class in org.apache.poi.ss.prFormula">WorkbookEvaluator</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#Z:Z_bookEvaluator">_bookEvaluator</a></span></code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -159,7 +159,7 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected </code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#BaseFormulaEvaluator-org.apache.poi.ss.formula.WorkbookEvaluator-">BaseFormulaEvaluator</a></span>(<a href="../../../../../org/apache/poi/ss/formula/WorkbookEvaluator.html" title="class in org.apache.poi.ss.formula">WorkbookEvaluator</a>&nbsp;bookEvaluator)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#BaseFormulaEvaluator-org.apache.poi.ss.prFormula.WorkbookEvaluator-">BaseFormulaEvaluator</a></span>(<a href="../../../../../org/apache/poi/ss/prFormula/WorkbookEvaluator.html" title="class in org.apache.poi.ss.prFormula">WorkbookEvaluator</a>&nbsp;bookEvaluator)</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -177,51 +177,51 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/formula/WorkbookEvaluator.html" title="class in org.apache.poi.ss.formula">WorkbookEvaluator</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#Z:Z_getWorkbookEvaluator--">_getWorkbookEvaluator</a></span>()</code>
+<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/prFormula/WorkbookEvaluator.html" title="class in org.apache.poi.ss.prFormula">WorkbookEvaluator</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#Z:Z_getWorkbookEvaluator--">_getWorkbookEvaluator</a></span>()</code>
 <div class="block">Provide the underlying WorkbookEvaluator</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#clearAllCachedResultValues--">clearAllCachedResultValues</a></span>()</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#clearAllCachedResultValues--">clearAllCachedResultValues</a></span>()</code>
 <div class="block">Should be called whenever there are major changes (e.g.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>protected abstract <a href="../../../../../org/apache/poi/ss/usermodel/RichTextString.html" title="interface in org.apache.poi.ss.usermodel">RichTextString</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#createRichTextString-java.lang.String-">createRichTextString</a></span>(java.lang.String&nbsp;str)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#createRichTextString-java.lang.String-">createRichTextString</a></span>(java.lang.String&nbsp;str)</code>&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/usermodel/CellValue.html" title="class in org.apache.poi.ss.usermodel">CellValue</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#evaluate-org.apache.poi.ss.usermodel.Cell-">evaluate</a></span>(<a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>
-<div class="block">If cell contains a formula, the formula is evaluated and returned,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#evaluate-org.apache.poi.ss.usermodel.Cell-">evaluate</a></span>(<a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>
+<div class="block">If cell contains a prFormula, the prFormula is evaluated and returned,
  else the CellValue simply copies the appropriate cell value from
  the cell and also its cell type.</div>
 </td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#evaluateAllFormulaCells-org.apache.poi.ss.usermodel.Workbook-">evaluateAllFormulaCells</a></span>(<a href="../../../../../org/apache/poi/ss/usermodel/Workbook.html" title="interface in org.apache.poi.ss.usermodel">Workbook</a>&nbsp;wb)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#evaluateAllFormulaCells-org.apache.poi.ss.usermodel.Workbook-">evaluateAllFormulaCells</a></span>(<a href="../../../../../org/apache/poi/ss/usermodel/Workbook.html" title="interface in org.apache.poi.ss.usermodel">Workbook</a>&nbsp;wb)</code>
 <div class="block">Loops over all cells in all sheets of the supplied
   workbook.</div>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>protected static void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#evaluateAllFormulaCells-org.apache.poi.ss.usermodel.Workbook-org.apache.poi.ss.usermodel.FormulaEvaluator-">evaluateAllFormulaCells</a></span>(<a href="../../../../../org/apache/poi/ss/usermodel/Workbook.html" title="interface in org.apache.poi.ss.usermodel">Workbook</a>&nbsp;wb,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#evaluateAllFormulaCells-org.apache.poi.ss.usermodel.Workbook-org.apache.poi.ss.usermodel.FormulaEvaluator-">evaluateAllFormulaCells</a></span>(<a href="../../../../../org/apache/poi/ss/usermodel/Workbook.html" title="interface in org.apache.poi.ss.usermodel">Workbook</a>&nbsp;wb,
                        <a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html" title="interface in org.apache.poi.ss.usermodel">FormulaEvaluator</a>&nbsp;evaluator)</code>&nbsp;</td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#evaluateFormulaCell-org.apache.poi.ss.usermodel.Cell-">evaluateFormulaCell</a></span>(<a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>
-<div class="block">If cell contains formula, it evaluates the formula,
-  and saves the result of the formula.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#evaluateFormulaCell-org.apache.poi.ss.usermodel.Cell-">evaluateFormulaCell</a></span>(<a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>
+<div class="block">If cell contains prFormula, it evaluates the prFormula,
+  and saves the result of the prFormula.</div>
 </td>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#evaluateFormulaCellEnum-org.apache.poi.ss.usermodel.Cell-">evaluateFormulaCellEnum</a></span>(<a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#evaluateFormulaCellEnum-org.apache.poi.ss.usermodel.Cell-">evaluateFormulaCellEnum</a></span>(<a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>
 <div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
 <div class="block"><span class="deprecationComment">use <code>evaluateFormulaCell(cell)</code> instead</span></div>
 </div>
@@ -229,66 +229,66 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>protected abstract <a href="../../../../../org/apache/poi/ss/usermodel/CellValue.html" title="class in org.apache.poi.ss.usermodel">CellValue</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#evaluateFormulaCellValue-org.apache.poi.ss.usermodel.Cell-">evaluateFormulaCellValue</a></span>(<a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#evaluateFormulaCellValue-org.apache.poi.ss.usermodel.Cell-">evaluateFormulaCellValue</a></span>(<a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>&nbsp;</td>
 </tr>
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#evaluateInCell-org.apache.poi.ss.usermodel.Cell-">evaluateInCell</a></span>(<a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>
-<div class="block">If cell contains formula, it evaluates the formula, and
-  puts the formula result back into the cell, in place
-  of the old formula.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#evaluateInCell-org.apache.poi.ss.usermodel.Cell-">evaluateInCell</a></span>(<a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>
+<div class="block">If cell contains prFormula, it evaluates the prFormula, and
+  puts the prFormula result back into the cell, in place
+  of the old prFormula.</div>
 </td>
 </tr>
 <tr id="i10" class="altColor">
-<td class="colFirst"><code>protected <a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.formula">EvaluationWorkbook</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#getEvaluationWorkbook--">getEvaluationWorkbook</a></span>()</code>
+<td class="colFirst"><code>protected <a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.prFormula">EvaluationWorkbook</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#getEvaluationWorkbook--">getEvaluationWorkbook</a></span>()</code>
 <div class="block">internal use</div>
 </td>
 </tr>
 <tr id="i11" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#setCellType-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.usermodel.CellType-">setCellType</a></span>(<a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#setCellType-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.usermodel.CellType-">setCellType</a></span>(<a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell,
            <a href="../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a>&nbsp;cellType)</code>
 <div class="block">Override if a different variation is needed, e.g.</div>
 </td>
 </tr>
 <tr id="i12" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#setCellType-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.usermodel.CellValue-">setCellType</a></span>(<a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#setCellType-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.usermodel.CellValue-">setCellType</a></span>(<a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell,
            <a href="../../../../../org/apache/poi/ss/usermodel/CellValue.html" title="class in org.apache.poi.ss.usermodel">CellValue</a>&nbsp;cv)</code>
 <div class="block">set the cell type</div>
 </td>
 </tr>
 <tr id="i13" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#setCellValue-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.usermodel.CellValue-">setCellValue</a></span>(<a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#setCellValue-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.usermodel.CellValue-">setCellValue</a></span>(<a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell,
             <a href="../../../../../org/apache/poi/ss/usermodel/CellValue.html" title="class in org.apache.poi.ss.usermodel">CellValue</a>&nbsp;cv)</code>&nbsp;</td>
 </tr>
 <tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#setDebugEvaluationOutputForNextEval-boolean-">setDebugEvaluationOutputForNextEval</a></span>(boolean&nbsp;value)</code>
-<div class="block">Perform detailed output of formula evaluation for next evaluation only?
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#setDebugEvaluationOutputForNextEval-boolean-">setDebugEvaluationOutputForNextEval</a></span>(boolean&nbsp;value)</code>
+<div class="block">Perform detailed output of prFormula evaluation for next evaluation only?
  Is for developer use only (also developers using POI for their XLS files).</div>
 </td>
 </tr>
 <tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#setIgnoreMissingWorkbooks-boolean-">setIgnoreMissingWorkbooks</a></span>(boolean&nbsp;ignore)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#setIgnoreMissingWorkbooks-boolean-">setIgnoreMissingWorkbooks</a></span>(boolean&nbsp;ignore)</code>
 <div class="block">Whether to ignore missing references to external workbooks and
- use cached formula results in the main workbook instead.</div>
+ use cached prFormula results in the main workbook instead.</div>
 </td>
 </tr>
 <tr id="i16" class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#setupEnvironment-java.lang.String:A-org.apache.poi.ss.formula.BaseFormulaEvaluator:A-">setupEnvironment</a></span>(java.lang.String[]&nbsp;workbookNames,
-                <a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html" title="class in org.apache.poi.ss.formula">BaseFormulaEvaluator</a>[]&nbsp;evaluators)</code>
-<div class="block">Coordinates several formula evaluators together so that formulas that involve external
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#setupEnvironment-java.lang.String:A-org.apache.poi.ss.prFormula.BaseFormulaEvaluator:A-">setupEnvironment</a></span>(java.lang.String[]&nbsp;workbookNames,
+                <a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html" title="class in org.apache.poi.ss.prFormula">BaseFormulaEvaluator</a>[]&nbsp;evaluators)</code>
+<div class="block">Coordinates several prFormula evaluators together so that formulas that involve external
  references can be evaluated.</div>
 </td>
 </tr>
 <tr id="i17" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#setupReferencedWorkbooks-java.util.Map-">setupReferencedWorkbooks</a></span>(java.util.Map&lt;java.lang.String,<a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html" title="interface in org.apache.poi.ss.usermodel">FormulaEvaluator</a>&gt;&nbsp;evaluators)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#setupReferencedWorkbooks-java.util.Map-">setupReferencedWorkbooks</a></span>(java.util.Map&lt;java.lang.String,<a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html" title="interface in org.apache.poi.ss.usermodel">FormulaEvaluator</a>&gt;&nbsp;evaluators)</code>
 <div class="block">Sets up the Formula Evaluator to be able to reference and resolve
   links to other workbooks, eg [Test.xls]Sheet1!A1.</div>
 </td>
@@ -328,7 +328,7 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.
 <ul class="blockListLast">
 <li class="blockList">
 <h4>_bookEvaluator</h4>
-<pre>protected final&nbsp;<a href="../../../../../org/apache/poi/ss/formula/WorkbookEvaluator.html" title="class in org.apache.poi.ss.formula">WorkbookEvaluator</a> _bookEvaluator</pre>
+<pre>protected final&nbsp;<a href="../../../../../org/apache/poi/ss/prFormula/WorkbookEvaluator.html" title="class in org.apache.poi.ss.prFormula">WorkbookEvaluator</a> _bookEvaluator</pre>
 </li>
 </ul>
 </li>
@@ -339,13 +339,13 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="BaseFormulaEvaluator-org.apache.poi.ss.formula.WorkbookEvaluator-">
+<a name="BaseFormulaEvaluator-org.apache.poi.ss.prFormula.WorkbookEvaluator-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>BaseFormulaEvaluator</h4>
-<pre>protected&nbsp;BaseFormulaEvaluator(<a href="../../../../../org/apache/poi/ss/formula/WorkbookEvaluator.html" title="class in org.apache.poi.ss.formula">WorkbookEvaluator</a>&nbsp;bookEvaluator)</pre>
+<pre>protected&nbsp;BaseFormulaEvaluator(<a href="../../../../../org/apache/poi/ss/prFormula/WorkbookEvaluator.html" title="class in org.apache.poi.ss.prFormula">WorkbookEvaluator</a>&nbsp;bookEvaluator)</pre>
 </li>
 </ul>
 </li>
@@ -356,20 +356,20 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="setupEnvironment-java.lang.String:A-org.apache.poi.ss.formula.BaseFormulaEvaluator:A-">
+<a name="setupEnvironment-java.lang.String:A-org.apache.poi.ss.prFormula.BaseFormulaEvaluator:A-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>setupEnvironment</h4>
 <pre>public static&nbsp;void&nbsp;setupEnvironment(java.lang.String[]&nbsp;workbookNames,
-                                    <a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html" title="class in org.apache.poi.ss.formula">BaseFormulaEvaluator</a>[]&nbsp;evaluators)</pre>
-<div class="block">Coordinates several formula evaluators together so that formulas that involve external
+                                    <a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html" title="class in org.apache.poi.ss.prFormula">BaseFormulaEvaluator</a>[]&nbsp;evaluators)</pre>
+<div class="block">Coordinates several prFormula evaluators together so that formulas that involve external
  references can be evaluated.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>workbookNames</code> - the simple file names used to identify the workbooks in formulas
- with external links (for example "MyData.xls" as used in a formula "[MyData.xls]Sheet1!A1")</dd>
+ with external links (for example "MyData.xls" as used in a prFormula "[MyData.xls]Sheet1!A1")</dd>
 <dd><code>evaluators</code> - all evaluators for the full set of workbooks required by the formulas.</dd>
 </dl>
 </li>
@@ -401,12 +401,12 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.
 <ul class="blockList">
 <li class="blockList">
 <h4>_getWorkbookEvaluator</h4>
-<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/formula/WorkbookEvaluator.html" title="class in org.apache.poi.ss.formula">WorkbookEvaluator</a>&nbsp;_getWorkbookEvaluator()</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/WorkbookEvaluatorProvider.html#Z:Z_getWorkbookEvaluator--">WorkbookEvaluatorProvider</a></code></span></div>
+<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/prFormula/WorkbookEvaluator.html" title="class in org.apache.poi.ss.prFormula">WorkbookEvaluator</a>&nbsp;_getWorkbookEvaluator()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/WorkbookEvaluatorProvider.html#Z:Z_getWorkbookEvaluator--">WorkbookEvaluatorProvider</a></code></span></div>
 <div class="block">Provide the underlying WorkbookEvaluator</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../org/apache/poi/ss/formula/WorkbookEvaluatorProvider.html#Z:Z_getWorkbookEvaluator--">_getWorkbookEvaluator</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/WorkbookEvaluatorProvider.html" title="interface in org.apache.poi.ss.formula">WorkbookEvaluatorProvider</a></code></dd>
+<dd><code><a href="../../../../../org/apache/poi/ss/prFormula/WorkbookEvaluatorProvider.html#Z:Z_getWorkbookEvaluator--">_getWorkbookEvaluator</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/WorkbookEvaluatorProvider.html" title="interface in org.apache.poi.ss.prFormula">WorkbookEvaluatorProvider</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -416,7 +416,7 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.
 <ul class="blockList">
 <li class="blockList">
 <h4>getEvaluationWorkbook</h4>
-<pre>protected&nbsp;<a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.formula">EvaluationWorkbook</a>&nbsp;getEvaluationWorkbook()</pre>
+<pre>protected&nbsp;<a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.prFormula">EvaluationWorkbook</a>&nbsp;getEvaluationWorkbook()</pre>
 <div class="block">internal use</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -450,7 +450,7 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.
 <li class="blockList">
 <h4>evaluate</h4>
 <pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/usermodel/CellValue.html" title="class in org.apache.poi.ss.usermodel">CellValue</a>&nbsp;evaluate(<a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</pre>
-<div class="block">If cell contains a formula, the formula is evaluated and returned,
+<div class="block">If cell contains a prFormula, the prFormula is evaluated and returned,
  else the CellValue simply copies the appropriate cell value from
  the cell and also its cell type. This method should be preferred over
  evaluateInCell() when the call should not modify the contents of the
@@ -472,10 +472,10 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.
 <li class="blockList">
 <h4>evaluateInCell</h4>
 <pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;evaluateInCell(<a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</pre>
-<div class="block">If cell contains formula, it evaluates the formula, and
-  puts the formula result back into the cell, in place
-  of the old formula.
- Else if cell does not contain formula, this method leaves
+<div class="block">If cell contains prFormula, it evaluates the prFormula, and
+  puts the prFormula result back into the cell, in place
+  of the old prFormula.
+ Else if cell does not contain prFormula, this method leaves
   the cell unchanged.
  Note that the same instance of <a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel"><code>Cell</code></a> is returned to
  allow chained calls like:
@@ -483,8 +483,8 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.
  int evaluatedCellType = evaluator.evaluateInCell(cell).getCellType();
  </pre>
  Be aware that your cell value will be changed to hold the
-  result of the formula. If you simply want the formula
-  value computed for you, use <a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#evaluateFormulaCell-org.apache.poi.ss.usermodel.Cell-"><code>evaluateFormulaCell(Cell)</code></a>}</div>
+  result of the prFormula. If you simply want the prFormula
+  value computed for you, use <a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#evaluateFormulaCell-org.apache.poi.ss.usermodel.Cell-"><code>evaluateFormulaCell(Cell)</code></a>}</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html#evaluateInCell-org.apache.poi.ss.usermodel.Cell-">evaluateInCell</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html" title="interface in org.apache.poi.ss.usermodel">FormulaEvaluator</a></code></dd>
@@ -511,28 +511,28 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.
 <li class="blockList">
 <h4>evaluateFormulaCell</h4>
 <pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a>&nbsp;evaluateFormulaCell(<a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</pre>
-<div class="block">If cell contains formula, it evaluates the formula,
-  and saves the result of the formula. The cell
-  remains as a formula cell.
- Else if cell does not contain formula, this method leaves
+<div class="block">If cell contains prFormula, it evaluates the prFormula,
+  and saves the result of the prFormula. The cell
+  remains as a prFormula cell.
+ Else if cell does not contain prFormula, this method leaves
   the cell unchanged.
- Note that the type of the formula result is returned,
+ Note that the type of the prFormula result is returned,
   so you know what kind of value is also stored with
-  the formula.
+  the prFormula.
  <pre>
  CellType evaluatedCellType = evaluator.evaluateFormulaCell(cell);
  </pre>
- Be aware that your cell will hold both the formula,
+ Be aware that your cell will hold both the prFormula,
   and the result. If you want the cell replaced with
-  the result of the formula, use <a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#evaluate-org.apache.poi.ss.usermodel.Cell-"><code>evaluate(org.apache.poi.ss.usermodel.Cell)</code></a> }</div>
+  the result of the prFormula, use <a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#evaluate-org.apache.poi.ss.usermodel.Cell-"><code>evaluate(org.apache.poi.ss.usermodel.Cell)</code></a> }</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html#evaluateFormulaCell-org.apache.poi.ss.usermodel.Cell-">evaluateFormulaCell</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html" title="interface in org.apache.poi.ss.usermodel">FormulaEvaluator</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>cell</code> - The cell to evaluate</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>The type of the formula result (the cell's type remains as CellType.FORMULA however)
-         If cell is not a formula cell, returns <a href="../../../../../org/apache/poi/ss/usermodel/CellType.html#Z:Z_NONE"><code>CellType._NONE</code></a> rather than throwing an exception.</dd>
+<dd>The type of the prFormula result (the cell's type remains as CellType.FORMULA however)
+         If cell is not a prFormula cell, returns <a href="../../../../../org/apache/poi/ss/usermodel/CellType.html#Z:Z_NONE"><code>CellType._NONE</code></a> rather than throwing an exception.</dd>
 </dl>
 </li>
 </ul>
@@ -546,28 +546,28 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.
  <a href="../../../../../org/apache/poi/util/Removal.html" title="annotation in org.apache.poi.util">@Removal</a>(<a href="../../../../../org/apache/poi/util/Removal.html#version--">version</a>="4.2")
 public&nbsp;<a href="../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a>&nbsp;evaluateFormulaCellEnum(<a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</pre>
 <div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">use <code>evaluateFormulaCell(cell)</code> instead</span></div>
-<div class="block">If cell contains formula, it evaluates the formula,
-  and saves the result of the formula. The cell
-  remains as a formula cell.
- Else if cell does not contain formula, this method leaves
+<div class="block">If cell contains prFormula, it evaluates the prFormula,
+  and saves the result of the prFormula. The cell
+  remains as a prFormula cell.
+ Else if cell does not contain prFormula, this method leaves
   the cell unchanged.
- Note that the type of the formula result is returned,
+ Note that the type of the prFormula result is returned,
   so you know what kind of value is also stored with
-  the formula.
+  the prFormula.
  <pre>
  CellType evaluatedCellType = evaluator.evaluateFormulaCell(cell);
  </pre>
- Be aware that your cell will hold both the formula,
+ Be aware that your cell will hold both the prFormula,
   and the result. If you want the cell replaced with
-  the result of the formula, use <a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#evaluate-org.apache.poi.ss.usermodel.Cell-"><code>evaluate(org.apache.poi.ss.usermodel.Cell)</code></a> }</div>
+  the result of the prFormula, use <a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#evaluate-org.apache.poi.ss.usermodel.Cell-"><code>evaluate(org.apache.poi.ss.usermodel.Cell)</code></a> }</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html#evaluateFormulaCellEnum-org.apache.poi.ss.usermodel.Cell-">evaluateFormulaCellEnum</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html" title="interface in org.apache.poi.ss.usermodel">FormulaEvaluator</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>cell</code> - The cell to evaluate</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>The type of the formula result (the cell's type remains as CellType.FORMULA however)
-         If cell is not a formula cell, returns <a href="../../../../../org/apache/poi/ss/usermodel/CellType.html#Z:Z_NONE"><code>CellType._NONE</code></a> rather than throwing an exception.</dd>
+<dd>The type of the prFormula result (the cell's type remains as CellType.FORMULA however)
+         If cell is not a prFormula cell, returns <a href="../../../../../org/apache/poi/ss/usermodel/CellType.html#Z:Z_NONE"><code>CellType._NONE</code></a> rather than throwing an exception.</dd>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>POI 3.15 beta 3</dd>
 </dl>
@@ -635,7 +635,7 @@ public&nbsp;<a href="../../../../../org/apache/poi/ss/usermodel/CellType.html" t
   workbook.
  For cells that contain formulas, their formulas are
   evaluated, and the results are saved. These cells
-  remain as formula cells.
+  remain as prFormula cells.
  For cells that do not contain formulas, no changes
   are made.
  This is a helpful wrapper around looping over all
@@ -660,15 +660,15 @@ public&nbsp;<a href="../../../../../org/apache/poi/ss/usermodel/CellType.html" t
 <h4>setIgnoreMissingWorkbooks</h4>
 <pre>public&nbsp;void&nbsp;setIgnoreMissingWorkbooks(boolean&nbsp;ignore)</pre>
 <div class="block">Whether to ignore missing references to external workbooks and
- use cached formula results in the main workbook instead.
+ use cached prFormula results in the main workbook instead.
  <p>
  In some cases external workbooks referenced by formulas in the main workbook are not available.
  With this method you can control how POI handles such missing references:
  <ul>
      <li>by default ignoreMissingWorkbooks=false and POI throws 
-     <a href="../../../../../org/apache/poi/ss/formula/CollaboratingWorkbooksEnvironment.WorkbookNotFoundException.html" title="class in org.apache.poi.ss.formula"><code>CollaboratingWorkbooksEnvironment.WorkbookNotFoundException</code></a>
+     <a href="../../../../../org/apache/poi/ss/prFormula/CollaboratingWorkbooksEnvironment.WorkbookNotFoundException.html" title="class in org.apache.poi.ss.prFormula"><code>CollaboratingWorkbooksEnvironment.WorkbookNotFoundException</code></a>
      if an external reference cannot be resolved</li>
-     <li>if ignoreMissingWorkbooks=true then POI uses cached formula result
+     <li>if ignoreMissingWorkbooks=true then POI uses cached prFormula result
      that already exists in the main workbook</li>
  </ul></div>
 <dl>
@@ -686,7 +686,7 @@ public&nbsp;<a href="../../../../../org/apache/poi/ss/usermodel/CellType.html" t
 <li class="blockList">
 <h4>setDebugEvaluationOutputForNextEval</h4>
 <pre>public&nbsp;void&nbsp;setDebugEvaluationOutputForNextEval(boolean&nbsp;value)</pre>
-<div class="block">Perform detailed output of formula evaluation for next evaluation only?
+<div class="block">Perform detailed output of prFormula evaluation for next evaluation only?
  Is for developer use only (also developers using POI for their XLS files).
  Log-Level WARN is for basic info, INFO for detailed information. These quite
  high levels are used because you have to explicitly enable this specific logging.</div>
@@ -727,10 +727,10 @@ public&nbsp;<a href="../../../../../org/apache/poi/ss/usermodel/CellType.html" t
 <div class="subNav">
 <ul class="navList">
 <li>Prev&nbsp;Class</li>
-<li><a href="../../../../../org/apache/poi/ss/formula/CacheAreaEval.html" title="class in org.apache.poi.ss.formula"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/poi/ss/prFormula/CacheAreaEval.html" title="class in org.apache.poi.ss.prFormula"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
-<li><a href="../../../../../index.html?org/apache/poi/ss/formula/BaseFormulaEvaluator.html" target="_top">Frames</a></li>
+<li><a href="../../../../../index.html?org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html" target="_top">Frames</a></li>
 <li><a href="BaseFormulaEvaluator.html" target="_top">No&nbsp;Frames</a></li>
 </ul>
 <ul class="navList" id="allclasses_navbar_bottom">

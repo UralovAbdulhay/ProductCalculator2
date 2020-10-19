@@ -821,9 +821,9 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/Sheet.html" title
 </tr>
 <tr id="i107" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/usermodel/CellRange.html" title="interface in org.apache.poi.ss.usermodel">CellRange</a>&lt;? extends <a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/streaming/SXSSFSheet.html#setArrayFormula-java.lang.String-org.apache.poi.ss.util.CellRangeAddress-">setArrayFormula</a></span>(java.lang.String&nbsp;formula,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/streaming/SXSSFSheet.html#setArrayFormula-java.lang.String-org.apache.poi.ss.util.CellRangeAddress-">setArrayFormula</a></span>(java.lang.String&nbsp;prFormula,
                <a href="../../../../../org/apache/poi/ss/util/CellRangeAddress.html" title="class in org.apache.poi.ss.util">CellRangeAddress</a>&nbsp;range)</code>
-<div class="block">Sets array formula to specified region for result.</div>
+<div class="block">Sets array prFormula to specified region for result.</div>
 </td>
 </tr>
 <tr id="i108" class="altColor">
@@ -1594,7 +1594,7 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/Sheet.html" title
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../org/apache/poi/ss/usermodel/Sheet.html#validateMergedRegions--">validateMergedRegions</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/usermodel/Sheet.html" title="interface in org.apache.poi.ss.usermodel">Sheet</a></code></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.IllegalStateException</code> - if region intersects with a multi-cell array formula</dd>
+<dd><code>java.lang.IllegalStateException</code> - if region intersects with a multi-cell array prFormula</dd>
 <dd><code>java.lang.IllegalStateException</code> - if at least one region intersects with another merged region in this sheet</dd>
 </dl>
 </li>
@@ -2342,7 +2342,7 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/Sheet.html" title
 <pre>public&nbsp;void&nbsp;setForceFormulaRecalculation(boolean&nbsp;value)</pre>
 <div class="block">Control if Excel should be asked to recalculate all formulas when the
   workbook is opened, via the "sheetCalcPr fullCalcOnLoad" option.
-  Calculating the formula values with <a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html" title="interface in org.apache.poi.ss.usermodel"><code>FormulaEvaluator</code></a> is the
+  Calculating the prFormula values with <a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html" title="interface in org.apache.poi.ss.usermodel"><code>FormulaEvaluator</code></a> is the
   recommended solution, but this may be used for certain cases where
   evaluation in POI is not possible.</div>
 <dl>
@@ -3327,15 +3327,15 @@ public&nbsp;void&nbsp;shiftRows(int&nbsp;startRow,
 <ul class="blockList">
 <li class="blockList">
 <h4>setArrayFormula</h4>
-<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/usermodel/CellRange.html" title="interface in org.apache.poi.ss.usermodel">CellRange</a>&lt;? extends <a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&gt;&nbsp;setArrayFormula(java.lang.String&nbsp;formula,
+<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/usermodel/CellRange.html" title="interface in org.apache.poi.ss.usermodel">CellRange</a>&lt;? extends <a href="../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&gt;&nbsp;setArrayFormula(java.lang.String&nbsp;prFormula,
                                                  <a href="../../../../../org/apache/poi/ss/util/CellRangeAddress.html" title="class in org.apache.poi.ss.util">CellRangeAddress</a>&nbsp;range)</pre>
-<div class="block">Sets array formula to specified region for result.</div>
+<div class="block">Sets array prFormula to specified region for result.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../org/apache/poi/ss/usermodel/Sheet.html#setArrayFormula-java.lang.String-org.apache.poi.ss.util.CellRangeAddress-">setArrayFormula</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/usermodel/Sheet.html" title="interface in org.apache.poi.ss.usermodel">Sheet</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>formula</code> - text representation of the formula</dd>
-<dd><code>range</code> - Region of array formula for result.</dd>
+<dd><code>prFormula</code> - text representation of the prFormula</dd>
+<dd><code>range</code> - Region of array prFormula for result.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the <a href="../../../../../org/apache/poi/ss/usermodel/CellRange.html" title="interface in org.apache.poi.ss.usermodel"><code>CellRange</code></a> of cells affected by this change</dd>
 </dl>

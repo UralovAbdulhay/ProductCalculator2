@@ -94,7 +94,7 @@
 </td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><a href="#org.apache.poi.ss.formula">org.apache.poi.ss.formula</a></td>
+<td class="colFirst"><a href="#org.apache.poi.ss.prFormula">org.apache.poi.ss.prFormula</a></td>
 <td class="colLast">
 <div class="block">This package contains common internal POI code for manipulating formulas.</div>
 </td>
@@ -130,7 +130,7 @@
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a></code></td>
 <td class="colLast"><span class="typeNameLabel">HSSFCell.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/hssf/usermodel/HSSFCell.html#getCachedFormulaResultType--">getCachedFormulaResultType</a></span>()</code>
-<div class="block">Only valid for formula cells</div>
+<div class="block">Only valid for prFormula cells</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -145,7 +145,7 @@
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a></code></td>
 <td class="colLast"><span class="typeNameLabel">HSSFCell.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/hssf/usermodel/HSSFCell.html#getCellType--">getCellType</a></span>()</code>
-<div class="block">get the cells type (numeric, formula or string)</div>
+<div class="block">get the cells type (numeric, prFormula or string)</div>
 </td>
 </tr>
 </tbody>
@@ -216,12 +216,12 @@
 </tbody>
 </table>
 </li>
-<li class="blockList"><a name="org.apache.poi.ss.formula">
+<li class="blockList"><a name="org.apache.poi.ss.prFormula">
 <!--   -->
 </a>
-<h3>Uses of <a href="../../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a> in <a href="../../../../../../org/apache/poi/ss/formula/package-summary.html">org.apache.poi.ss.formula</a></h3>
+<h3>Uses of <a href="../../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a> in <a href="../../../../../../org/apache/poi/ss/prFormula/package-summary.html">org.apache.poi.ss.prFormula</a></h3>
 <table class="useSummary" border="0" cellpadding="3" cellspacing="0" summary="Use table, listing methods, and an explanation">
-<caption><span>Methods in <a href="../../../../../../org/apache/poi/ss/formula/package-summary.html">org.apache.poi.ss.formula</a> that return <a href="../../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a></span><span class="tabEnd">&nbsp;</span></caption>
+<caption><span>Methods in <a href="../../../../../../org/apache/poi/ss/prFormula/package-summary.html">org.apache.poi.ss.prFormula</a> that return <a href="../../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a></span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -229,14 +229,14 @@
 <tbody>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a></code></td>
-<td class="colLast"><span class="typeNameLabel">BaseFormulaEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#evaluateFormulaCell-org.apache.poi.ss.usermodel.Cell-">evaluateFormulaCell</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>
-<div class="block">If cell contains formula, it evaluates the formula,
-  and saves the result of the formula.</div>
+<td class="colLast"><span class="typeNameLabel">BaseFormulaEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#evaluateFormulaCell-org.apache.poi.ss.usermodel.Cell-">evaluateFormulaCell</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>
+<div class="block">If cell contains prFormula, it evaluates the prFormula,
+  and saves the result of the prFormula.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a></code></td>
-<td class="colLast"><span class="typeNameLabel">BaseFormulaEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#evaluateFormulaCellEnum-org.apache.poi.ss.usermodel.Cell-">evaluateFormulaCellEnum</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>
+<td class="colLast"><span class="typeNameLabel">BaseFormulaEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#evaluateFormulaCellEnum-org.apache.poi.ss.usermodel.Cell-">evaluateFormulaCellEnum</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>
 <div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
 <div class="block"><span class="deprecationComment">use <code>evaluateFormulaCell(cell)</code> instead</span></div>
 </div>
@@ -244,11 +244,11 @@
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a></code></td>
-<td class="colLast"><span class="typeNameLabel">EvaluationCell.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/EvaluationCell.html#getCachedFormulaResultType--">getCachedFormulaResultType</a></span>()</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">EvaluationCell.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/EvaluationCell.html#getCachedFormulaResultType--">getCachedFormulaResultType</a></span>()</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a></code></td>
-<td class="colLast"><span class="typeNameLabel">EvaluationCell.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/EvaluationCell.html#getCachedFormulaResultTypeEnum--">getCachedFormulaResultTypeEnum</a></span>()</code>
+<td class="colLast"><span class="typeNameLabel">EvaluationCell.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/EvaluationCell.html#getCachedFormulaResultTypeEnum--">getCachedFormulaResultTypeEnum</a></span>()</code>
 <div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
 <div class="block"><span class="deprecationComment">POI 3.15 beta 3.
  Will be deleted when we make the CellType enum transition. See bug 59791.</span></div>
@@ -257,11 +257,11 @@
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a></code></td>
-<td class="colLast"><span class="typeNameLabel">EvaluationCell.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/EvaluationCell.html#getCellType--">getCellType</a></span>()</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">EvaluationCell.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/EvaluationCell.html#getCellType--">getCellType</a></span>()</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a></code></td>
-<td class="colLast"><span class="typeNameLabel">EvaluationCell.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/EvaluationCell.html#getCellTypeEnum--">getCellTypeEnum</a></span>()</code>
+<td class="colLast"><span class="typeNameLabel">EvaluationCell.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/EvaluationCell.html#getCellTypeEnum--">getCellTypeEnum</a></span>()</code>
 <div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
 <div class="block"><span class="deprecationComment">POI 3.15 beta 3.</span></div>
 </div>
@@ -270,7 +270,7 @@
 </tbody>
 </table>
 <table class="useSummary" border="0" cellpadding="3" cellspacing="0" summary="Use table, listing methods, and an explanation">
-<caption><span>Methods in <a href="../../../../../../org/apache/poi/ss/formula/package-summary.html">org.apache.poi.ss.formula</a> with parameters of type <a href="../../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a></span><span class="tabEnd">&nbsp;</span></caption>
+<caption><span>Methods in <a href="../../../../../../org/apache/poi/ss/prFormula/package-summary.html">org.apache.poi.ss.prFormula</a> with parameters of type <a href="../../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a></span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -278,14 +278,14 @@
 <tbody>
 <tr class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
-<td class="colLast"><span class="typeNameLabel">DataValidationEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/DataValidationEvaluator.html#isType-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.usermodel.CellType-">isType</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell,
+<td class="colLast"><span class="typeNameLabel">DataValidationEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/DataValidationEvaluator.html#isType-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.usermodel.CellType-">isType</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell,
       <a href="../../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a>&nbsp;type)</code>
 <div class="block">Note that this assumes the cell cached value is up to date and in sync with data edits</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><span class="typeNameLabel">BaseFormulaEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html#setCellType-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.usermodel.CellType-">setCellType</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell,
+<td class="colLast"><span class="typeNameLabel">BaseFormulaEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html#setCellType-org.apache.poi.ss.usermodel.Cell-org.apache.poi.ss.usermodel.CellType-">setCellType</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell,
            <a href="../../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a>&nbsp;cellType)</code>
 <div class="block">Override if a different variation is needed, e.g.</div>
 </td>
@@ -307,8 +307,8 @@
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a></code></td>
 <td class="colLast"><span class="typeNameLabel">FormulaEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html#evaluateFormulaCell-org.apache.poi.ss.usermodel.Cell-">evaluateFormulaCell</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&nbsp;cell)</code>
-<div class="block">If cell contains formula, it evaluates the formula,
-  and saves the result of the formula.</div>
+<div class="block">If cell contains prFormula, it evaluates the prFormula,
+  and saves the result of the prFormula.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -330,7 +330,7 @@
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a></code></td>
 <td class="colLast"><span class="typeNameLabel">Cell.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html#getCachedFormulaResultType--">getCachedFormulaResultType</a></span>()</code>
-<div class="block">Only valid for formula cells
+<div class="block">Only valid for prFormula cells
 
  Will return <a href="../../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel"><code>CellType</code></a> in a future version of POI.</div>
 </td>
@@ -453,7 +453,7 @@ the order they are declared.</div>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a></code></td>
 <td class="colLast"><span class="typeNameLabel">SXSSFCell.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/xssf/streaming/SXSSFCell.html#getCachedFormulaResultType--">getCachedFormulaResultType</a></span>()</code>
-<div class="block">Only valid for formula cells</div>
+<div class="block">Only valid for prFormula cells</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -519,7 +519,7 @@ the order they are declared.</div>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../../org/apache/poi/ss/usermodel/CellType.html" title="enum in org.apache.poi.ss.usermodel">CellType</a></code></td>
 <td class="colLast"><span class="typeNameLabel">XSSFCell.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/xssf/usermodel/XSSFCell.html#getCachedFormulaResultType--">getCachedFormulaResultType</a></span>()</code>
-<div class="block">Only valid for formula cells</div>
+<div class="block">Only valid for prFormula cells</div>
 </td>
 </tr>
 <tr class="rowColor">

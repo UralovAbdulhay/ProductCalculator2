@@ -121,7 +121,7 @@ HSSF concepts.</div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><a href="#org.apache.poi.ss.formula">org.apache.poi.ss.formula</a></td>
+<td class="colFirst"><a href="#org.apache.poi.ss.prFormula">org.apache.poi.ss.prFormula</a></td>
 <td class="colLast">
 <div class="block">This package contains common internal POI code for manipulating formulas.</div>
 </td>
@@ -345,7 +345,7 @@ HSSF concepts.</div>
 <td class="colFirst"><code><a href="../../../../../../org/apache/poi/ss/util/CellRangeAddress.html" title="class in org.apache.poi.ss.util">CellRangeAddress</a></code></td>
 <td class="colLast"><span class="typeNameLabel">FormulaRecordAggregate.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/hssf/record/aggregates/FormulaRecordAggregate.html#removeArrayFormula-int-int-">removeArrayFormula</a></span>(int&nbsp;rowIndex,
                   int&nbsp;columnIndex)</code>
-<div class="block">Removes an array formula</div>
+<div class="block">Removes an array prFormula</div>
 </td>
 </tr>
 </tbody>
@@ -359,8 +359,8 @@ HSSF concepts.</div>
 <tbody>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="typeNameLabel">FormulaRecordAggregate.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/hssf/record/aggregates/FormulaRecordAggregate.html#setArrayFormula-org.apache.poi.ss.util.CellRangeAddress-org.apache.poi.ss.formula.ptg.Ptg:A-">setArrayFormula</a></span>(<a href="../../../../../../org/apache/poi/ss/util/CellRangeAddress.html" title="class in org.apache.poi.ss.util">CellRangeAddress</a>&nbsp;r,
-               <a href="../../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]&nbsp;ptgs)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">FormulaRecordAggregate.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/hssf/record/aggregates/FormulaRecordAggregate.html#setArrayFormula-org.apache.poi.ss.util.CellRangeAddress-org.apache.poi.ss.prFormula.ptg.Ptg:A-">setArrayFormula</a></span>(<a href="../../../../../../org/apache/poi/ss/util/CellRangeAddress.html" title="class in org.apache.poi.ss.util">CellRangeAddress</a>&nbsp;r,
+               <a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]&nbsp;ptgs)</code>&nbsp;</td>
 </tr>
 </tbody>
 </table>
@@ -513,7 +513,7 @@ HSSF concepts.</div>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../../org/apache/poi/ss/usermodel/CellRange.html" title="interface in org.apache.poi.ss.usermodel">CellRange</a>&lt;<a href="../../../../../../org/apache/poi/hssf/usermodel/HSSFCell.html" title="class in org.apache.poi.hssf.usermodel">HSSFCell</a>&gt;</code></td>
-<td class="colLast"><span class="typeNameLabel">HSSFSheet.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/hssf/usermodel/HSSFSheet.html#setArrayFormula-java.lang.String-org.apache.poi.ss.util.CellRangeAddress-">setArrayFormula</a></span>(java.lang.String&nbsp;formula,
+<td class="colLast"><span class="typeNameLabel">HSSFSheet.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/hssf/usermodel/HSSFSheet.html#setArrayFormula-java.lang.String-org.apache.poi.ss.util.CellRangeAddress-">setArrayFormula</a></span>(java.lang.String&nbsp;prFormula,
                <a href="../../../../../../org/apache/poi/ss/util/CellRangeAddress.html" title="class in org.apache.poi.ss.util">CellRangeAddress</a>&nbsp;range)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
@@ -630,12 +630,12 @@ HSSF concepts.</div>
 </tbody>
 </table>
 </li>
-<li class="blockList"><a name="org.apache.poi.ss.formula">
+<li class="blockList"><a name="org.apache.poi.ss.prFormula">
 <!--   -->
 </a>
-<h3>Uses of <a href="../../../../../../org/apache/poi/ss/util/CellRangeAddress.html" title="class in org.apache.poi.ss.util">CellRangeAddress</a> in <a href="../../../../../../org/apache/poi/ss/formula/package-summary.html">org.apache.poi.ss.formula</a></h3>
+<h3>Uses of <a href="../../../../../../org/apache/poi/ss/util/CellRangeAddress.html" title="class in org.apache.poi.ss.util">CellRangeAddress</a> in <a href="../../../../../../org/apache/poi/ss/prFormula/package-summary.html">org.apache.poi.ss.prFormula</a></h3>
 <table class="useSummary" border="0" cellpadding="3" cellspacing="0" summary="Use table, listing methods, and an explanation">
-<caption><span>Methods in <a href="../../../../../../org/apache/poi/ss/formula/package-summary.html">org.apache.poi.ss.formula</a> that return <a href="../../../../../../org/apache/poi/ss/util/CellRangeAddress.html" title="class in org.apache.poi.ss.util">CellRangeAddress</a></span><span class="tabEnd">&nbsp;</span></caption>
+<caption><span>Methods in <a href="../../../../../../org/apache/poi/ss/prFormula/package-summary.html">org.apache.poi.ss.prFormula</a> that return <a href="../../../../../../org/apache/poi/ss/util/CellRangeAddress.html" title="class in org.apache.poi.ss.util">CellRangeAddress</a></span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -643,22 +643,22 @@ HSSF concepts.</div>
 <tbody>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../../org/apache/poi/ss/util/CellRangeAddress.html" title="class in org.apache.poi.ss.util">CellRangeAddress</a></code></td>
-<td class="colLast"><span class="typeNameLabel">EvaluationCell.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/EvaluationCell.html#getArrayFormulaRange--">getArrayFormulaRange</a></span>()</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">EvaluationCell.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/EvaluationCell.html#getArrayFormulaRange--">getArrayFormulaRange</a></span>()</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../../../org/apache/poi/ss/util/CellRangeAddress.html" title="class in org.apache.poi.ss.util">CellRangeAddress</a>[]</code></td>
-<td class="colLast"><span class="typeNameLabel">EvaluationConditionalFormatRule.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/EvaluationConditionalFormatRule.html#getRegions--">getRegions</a></span>()</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">EvaluationConditionalFormatRule.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/EvaluationConditionalFormatRule.html#getRegions--">getRegions</a></span>()</code>&nbsp;</td>
 </tr>
 </tbody>
 </table>
 <table class="useSummary" border="0" cellpadding="3" cellspacing="0" summary="Use table, listing constructors, and an explanation">
-<caption><span>Constructors in <a href="../../../../../../org/apache/poi/ss/formula/package-summary.html">org.apache.poi.ss.formula</a> with parameters of type <a href="../../../../../../org/apache/poi/ss/util/CellRangeAddress.html" title="class in org.apache.poi.ss.util">CellRangeAddress</a></span><span class="tabEnd">&nbsp;</span></caption>
+<caption><span>Constructors in <a href="../../../../../../org/apache/poi/ss/prFormula/package-summary.html">org.apache.poi.ss.prFormula</a> with parameters of type <a href="../../../../../../org/apache/poi/ss/util/CellRangeAddress.html" title="class in org.apache.poi.ss.util">CellRangeAddress</a></span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tbody>
 <tr class="altColor">
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/EvaluationConditionalFormatRule.html#EvaluationConditionalFormatRule-org.apache.poi.ss.formula.WorkbookEvaluator-org.apache.poi.ss.usermodel.Sheet-org.apache.poi.ss.usermodel.ConditionalFormatting-int-org.apache.poi.ss.usermodel.ConditionalFormattingRule-int-org.apache.poi.ss.util.CellRangeAddress:A-">EvaluationConditionalFormatRule</a></span>(<a href="../../../../../../org/apache/poi/ss/formula/WorkbookEvaluator.html" title="class in org.apache.poi.ss.formula">WorkbookEvaluator</a>&nbsp;workbookEvaluator,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/EvaluationConditionalFormatRule.html#EvaluationConditionalFormatRule-org.apache.poi.ss.prFormula.WorkbookEvaluator-org.apache.poi.ss.usermodel.Sheet-org.apache.poi.ss.usermodel.ConditionalFormatting-int-org.apache.poi.ss.usermodel.ConditionalFormattingRule-int-org.apache.poi.ss.util.CellRangeAddress:A-">EvaluationConditionalFormatRule</a></span>(<a href="../../../../../../org/apache/poi/ss/prFormula/WorkbookEvaluator.html" title="class in org.apache.poi.ss.prFormula">WorkbookEvaluator</a>&nbsp;workbookEvaluator,
                                <a href="../../../../../../org/apache/poi/ss/usermodel/Sheet.html" title="interface in org.apache.poi.ss.usermodel">Sheet</a>&nbsp;sheet,
                                <a href="../../../../../../org/apache/poi/ss/usermodel/ConditionalFormatting.html" title="interface in org.apache.poi.ss.usermodel">ConditionalFormatting</a>&nbsp;formatting,
                                int&nbsp;formattingIndex,
@@ -683,7 +683,7 @@ HSSF concepts.</div>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../../org/apache/poi/ss/util/CellRangeAddress.html" title="class in org.apache.poi.ss.util">CellRangeAddress</a></code></td>
 <td class="colLast"><span class="typeNameLabel">Cell.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html#getArrayFormulaRange--">getArrayFormulaRange</a></span>()</code>
-<div class="block">Only valid for array formula cells</div>
+<div class="block">Only valid for array prFormula cells</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -777,9 +777,9 @@ HSSF concepts.</div>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../../org/apache/poi/ss/usermodel/CellRange.html" title="interface in org.apache.poi.ss.usermodel">CellRange</a>&lt;? extends <a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&gt;</code></td>
-<td class="colLast"><span class="typeNameLabel">Sheet.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/usermodel/Sheet.html#setArrayFormula-java.lang.String-org.apache.poi.ss.util.CellRangeAddress-">setArrayFormula</a></span>(java.lang.String&nbsp;formula,
+<td class="colLast"><span class="typeNameLabel">Sheet.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/usermodel/Sheet.html#setArrayFormula-java.lang.String-org.apache.poi.ss.util.CellRangeAddress-">setArrayFormula</a></span>(java.lang.String&nbsp;prFormula,
                <a href="../../../../../../org/apache/poi/ss/util/CellRangeAddress.html" title="class in org.apache.poi.ss.util">CellRangeAddress</a>&nbsp;range)</code>
-<div class="block">Sets array formula to specified region for result.</div>
+<div class="block">Sets array prFormula to specified region for result.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -852,7 +852,7 @@ HSSF concepts.</div>
 <tbody>
 <tr class="altColor">
 <td class="colFirst"><code>static <a href="../../../../../../org/apache/poi/ss/util/CellRangeAddress.html" title="class in org.apache.poi.ss.util">CellRangeAddress</a></code></td>
-<td class="colLast"><span class="typeNameLabel">BaseRowColShifter.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/usermodel/helpers/BaseRowColShifter.html#shiftRange-org.apache.poi.ss.formula.FormulaShifter-org.apache.poi.ss.util.CellRangeAddress-int-">shiftRange</a></span>(<a href="../../../../../../org/apache/poi/ss/formula/FormulaShifter.html" title="class in org.apache.poi.ss.formula">FormulaShifter</a>&nbsp;formulaShifter,
+<td class="colLast"><span class="typeNameLabel">BaseRowColShifter.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/usermodel/helpers/BaseRowColShifter.html#shiftRange-org.apache.poi.ss.prFormula.FormulaShifter-org.apache.poi.ss.util.CellRangeAddress-int-">shiftRange</a></span>(<a href="../../../../../../org/apache/poi/ss/prFormula/FormulaShifter.html" title="class in org.apache.poi.ss.prFormula">FormulaShifter</a>&nbsp;formulaShifter,
           <a href="../../../../../../org/apache/poi/ss/util/CellRangeAddress.html" title="class in org.apache.poi.ss.util">CellRangeAddress</a>&nbsp;cra,
           int&nbsp;currentExternSheetIx)</code>&nbsp;</td>
 </tr>
@@ -901,7 +901,7 @@ HSSF concepts.</div>
 <tbody>
 <tr class="altColor">
 <td class="colFirst"><code>static <a href="../../../../../../org/apache/poi/ss/util/CellRangeAddress.html" title="class in org.apache.poi.ss.util">CellRangeAddress</a></code></td>
-<td class="colLast"><span class="typeNameLabel">BaseRowColShifter.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/usermodel/helpers/BaseRowColShifter.html#shiftRange-org.apache.poi.ss.formula.FormulaShifter-org.apache.poi.ss.util.CellRangeAddress-int-">shiftRange</a></span>(<a href="../../../../../../org/apache/poi/ss/formula/FormulaShifter.html" title="class in org.apache.poi.ss.formula">FormulaShifter</a>&nbsp;formulaShifter,
+<td class="colLast"><span class="typeNameLabel">BaseRowColShifter.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/usermodel/helpers/BaseRowColShifter.html#shiftRange-org.apache.poi.ss.prFormula.FormulaShifter-org.apache.poi.ss.util.CellRangeAddress-int-">shiftRange</a></span>(<a href="../../../../../../org/apache/poi/ss/prFormula/FormulaShifter.html" title="class in org.apache.poi.ss.prFormula">FormulaShifter</a>&nbsp;formulaShifter,
           <a href="../../../../../../org/apache/poi/ss/util/CellRangeAddress.html" title="class in org.apache.poi.ss.util">CellRangeAddress</a>&nbsp;cra,
           int&nbsp;currentExternSheetIx)</code>&nbsp;</td>
 </tr>
@@ -1185,7 +1185,7 @@ HSSF concepts.</div>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../../org/apache/poi/ss/util/CellRangeAddress.html" title="class in org.apache.poi.ss.util">CellRangeAddress</a></code></td>
 <td class="colLast"><span class="typeNameLabel">SXSSFCell.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/xssf/streaming/SXSSFCell.html#getArrayFormulaRange--">getArrayFormulaRange</a></span>()</code>
-<div class="block">Only valid for array formula cells</div>
+<div class="block">Only valid for array prFormula cells</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -1240,9 +1240,9 @@ HSSF concepts.</div>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../../org/apache/poi/ss/usermodel/CellRange.html" title="interface in org.apache.poi.ss.usermodel">CellRange</a>&lt;? extends <a href="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</a>&gt;</code></td>
-<td class="colLast"><span class="typeNameLabel">SXSSFSheet.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/xssf/streaming/SXSSFSheet.html#setArrayFormula-java.lang.String-org.apache.poi.ss.util.CellRangeAddress-">setArrayFormula</a></span>(java.lang.String&nbsp;formula,
+<td class="colLast"><span class="typeNameLabel">SXSSFSheet.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/xssf/streaming/SXSSFSheet.html#setArrayFormula-java.lang.String-org.apache.poi.ss.util.CellRangeAddress-">setArrayFormula</a></span>(java.lang.String&nbsp;prFormula,
                <a href="../../../../../../org/apache/poi/ss/util/CellRangeAddress.html" title="class in org.apache.poi.ss.util">CellRangeAddress</a>&nbsp;range)</code>
-<div class="block">Sets array formula to specified region for result.</div>
+<div class="block">Sets array prFormula to specified region for result.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -1363,7 +1363,7 @@ HSSF concepts.</div>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../../org/apache/poi/ss/usermodel/CellRange.html" title="interface in org.apache.poi.ss.usermodel">CellRange</a>&lt;<a href="../../../../../../org/apache/poi/xssf/usermodel/XSSFCell.html" title="class in org.apache.poi.xssf.usermodel">XSSFCell</a>&gt;</code></td>
-<td class="colLast"><span class="typeNameLabel">XSSFSheet.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/xssf/usermodel/XSSFSheet.html#setArrayFormula-java.lang.String-org.apache.poi.ss.util.CellRangeAddress-">setArrayFormula</a></span>(java.lang.String&nbsp;formula,
+<td class="colLast"><span class="typeNameLabel">XSSFSheet.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/xssf/usermodel/XSSFSheet.html#setArrayFormula-java.lang.String-org.apache.poi.ss.util.CellRangeAddress-">setArrayFormula</a></span>(java.lang.String&nbsp;prFormula,
                <a href="../../../../../../org/apache/poi/ss/util/CellRangeAddress.html" title="class in org.apache.poi.ss.util">CellRangeAddress</a>&nbsp;range)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">

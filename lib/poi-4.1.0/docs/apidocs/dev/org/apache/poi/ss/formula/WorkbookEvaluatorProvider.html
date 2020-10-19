@@ -48,11 +48,11 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../org/apache/poi/ss/formula/WorkbookEvaluator.html" title="class in org.apache.poi.ss.formula"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/poi/ss/prFormula/WorkbookEvaluator.html" title="class in org.apache.poi.ss.prFormula"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li>Next&nbsp;Class</li>
 </ul>
 <ul class="navList">
-<li><a href="../../../../../index.html?org/apache/poi/ss/formula/WorkbookEvaluatorProvider.html" target="_top">Frames</a></li>
+<li><a href="../../../../../index.html?org/apache/poi/ss/prFormula/WorkbookEvaluatorProvider.html" target="_top">Frames</a></li>
 <li><a href="WorkbookEvaluatorProvider.html" target="_top">No&nbsp;Frames</a></li>
 </ul>
 <ul class="navList" id="allclasses_navbar_top">
@@ -91,7 +91,7 @@ var activeTableTab = "activeTableTab";
 <!-- ========= END OF TOP NAVBAR ========= -->
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
-<div class="subTitle">org.apache.poi.ss.formula</div>
+<div class="subTitle">org.apache.poi.ss.prFormula</div>
 <h2 title="Interface WorkbookEvaluatorProvider" class="title">Interface WorkbookEvaluatorProvider</h2>
 </div>
 <div class="contentContainer">
@@ -100,14 +100,14 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><a href="../../../../../org/apache/poi/ss/formula/BaseFormulaEvaluator.html" title="class in org.apache.poi.ss.formula">BaseFormulaEvaluator</a>, <a href="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFFormulaEvaluator.html" title="class in org.apache.poi.xssf.usermodel">BaseXSSFFormulaEvaluator</a>, <a href="../../../../../org/apache/poi/hssf/usermodel/HSSFFormulaEvaluator.html" title="class in org.apache.poi.hssf.usermodel">HSSFFormulaEvaluator</a>, <a href="../../../../../org/apache/poi/xssf/streaming/SXSSFFormulaEvaluator.html" title="class in org.apache.poi.xssf.streaming">SXSSFFormulaEvaluator</a>, <a href="../../../../../org/apache/poi/xssf/usermodel/XSSFFormulaEvaluator.html" title="class in org.apache.poi.xssf.usermodel">XSSFFormulaEvaluator</a></dd>
+<dd><a href="../../../../../org/apache/poi/ss/prFormula/BaseFormulaEvaluator.html" title="class in org.apache.poi.ss.prFormula">BaseFormulaEvaluator</a>, <a href="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFFormulaEvaluator.html" title="class in org.apache.poi.xssf.usermodel">BaseXSSFFormulaEvaluator</a>, <a href="../../../../../org/apache/poi/hssf/usermodel/HSSFFormulaEvaluator.html" title="class in org.apache.poi.hssf.usermodel">HSSFFormulaEvaluator</a>, <a href="../../../../../org/apache/poi/xssf/streaming/SXSSFFormulaEvaluator.html" title="class in org.apache.poi.xssf.streaming">SXSSFFormulaEvaluator</a>, <a href="../../../../../org/apache/poi/xssf/usermodel/XSSFFormulaEvaluator.html" title="class in org.apache.poi.xssf.usermodel">XSSFFormulaEvaluator</a></dd>
 </dl>
 <hr>
 <br>
 <pre><a href="../../../../../org/apache/poi/util/Internal.html" title="annotation in org.apache.poi.util">@Internal</a>
 public interface <span class="typeNameLabel">WorkbookEvaluatorProvider</span></pre>
-<div class="block">Provides access to a <a href="../../../../../org/apache/poi/ss/formula/WorkbookEvaluator.html" title="class in org.apache.poi.ss.formula"><code>WorkbookEvaluator</code></a>, eg for use with
-  <a href="../../../../../org/apache/poi/ss/formula/CollaboratingWorkbooksEnvironment.html" title="class in org.apache.poi.ss.formula"><code>CollaboratingWorkbooksEnvironment</code></a>
+<div class="block">Provides access to a <a href="../../../../../org/apache/poi/ss/prFormula/WorkbookEvaluator.html" title="class in org.apache.poi.ss.prFormula"><code>WorkbookEvaluator</code></a>, eg for use with
+  <a href="../../../../../org/apache/poi/ss/prFormula/CollaboratingWorkbooksEnvironment.html" title="class in org.apache.poi.ss.prFormula"><code>CollaboratingWorkbooksEnvironment</code></a>
  
  <p>For POI internal use only</div>
 </li>
@@ -129,8 +129,8 @@ public interface <span class="typeNameLabel">WorkbookEvaluatorProvider</span></p
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/formula/WorkbookEvaluator.html" title="class in org.apache.poi.ss.formula">WorkbookEvaluator</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/WorkbookEvaluatorProvider.html#Z:Z_getWorkbookEvaluator--">_getWorkbookEvaluator</a></span>()</code>
+<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/prFormula/WorkbookEvaluator.html" title="class in org.apache.poi.ss.prFormula">WorkbookEvaluator</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/WorkbookEvaluatorProvider.html#Z:Z_getWorkbookEvaluator--">_getWorkbookEvaluator</a></span>()</code>
 <div class="block">Provide the underlying WorkbookEvaluator</div>
 </td>
 </tr>
@@ -155,7 +155,7 @@ public interface <span class="typeNameLabel">WorkbookEvaluatorProvider</span></p
 <ul class="blockListLast">
 <li class="blockList">
 <h4>_getWorkbookEvaluator</h4>
-<pre><a href="../../../../../org/apache/poi/ss/formula/WorkbookEvaluator.html" title="class in org.apache.poi.ss.formula">WorkbookEvaluator</a>&nbsp;_getWorkbookEvaluator()</pre>
+<pre><a href="../../../../../org/apache/poi/ss/prFormula/WorkbookEvaluator.html" title="class in org.apache.poi.ss.prFormula">WorkbookEvaluator</a>&nbsp;_getWorkbookEvaluator()</pre>
 <div class="block">Provide the underlying WorkbookEvaluator</div>
 </li>
 </ul>
@@ -187,11 +187,11 @@ public interface <span class="typeNameLabel">WorkbookEvaluatorProvider</span></p
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../org/apache/poi/ss/formula/WorkbookEvaluator.html" title="class in org.apache.poi.ss.formula"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/poi/ss/prFormula/WorkbookEvaluator.html" title="class in org.apache.poi.ss.prFormula"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li>Next&nbsp;Class</li>
 </ul>
 <ul class="navList">
-<li><a href="../../../../../index.html?org/apache/poi/ss/formula/WorkbookEvaluatorProvider.html" target="_top">Frames</a></li>
+<li><a href="../../../../../index.html?org/apache/poi/ss/prFormula/WorkbookEvaluatorProvider.html" target="_top">Frames</a></li>
 <li><a href="WorkbookEvaluatorProvider.html" target="_top">No&nbsp;Frames</a></li>
 </ul>
 <ul class="navList" id="allclasses_navbar_bottom">

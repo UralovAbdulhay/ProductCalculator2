@@ -116,7 +116,7 @@ var activeTableTab = "activeTableTab";
 extends java.lang.Object
 implements <a href="../../../../../org/apache/poi/ss/usermodel/ConditionalFormattingRule.html" title="interface in org.apache.poi.ss.usermodel">ConditionalFormattingRule</a></pre>
 <div class="block">High level representation of Conditional Formatting Rule.
- It allows to specify formula based conditions for the Conditional Formatting
+ It allows to specify prFormula based conditions for the Conditional Formatting
  and the formatting settings such as font, border and pattern.</div>
 </li>
 </ul>
@@ -222,13 +222,13 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/ConditionalFormat
 <tr id="i14" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/usermodel/HSSFConditionalFormattingRule.html#getFormula1--">getFormula1</a></span>()</code>
-<div class="block">The formula used to evaluate the first operand for the conditional formatting rule.</div>
+<div class="block">The prFormula used to evaluate the first operand for the conditional formatting rule.</div>
 </td>
 </tr>
 <tr id="i15" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/usermodel/HSSFConditionalFormattingRule.html#getFormula2--">getFormula2</a></span>()</code>
-<div class="block">The formula used to evaluate the second operand of the comparison when
+<div class="block">The prFormula used to evaluate the second operand of the comparison when
  comparison type is  <a href="../../../../../org/apache/poi/ss/usermodel/ConditionType.html#CELL_VALUE_IS"><code>ConditionType.CELL_VALUE_IS</code></a> and operator
  is either <a href="../../../../../org/apache/poi/ss/usermodel/ComparisonOperator.html#BETWEEN"><code>ComparisonOperator.BETWEEN</code></a> or <a href="../../../../../org/apache/poi/ss/usermodel/ComparisonOperator.html#NOT_BETWEEN"><code>ComparisonOperator.NOT_BETWEEN</code></a></div>
 </td>
@@ -268,16 +268,16 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/ConditionalFormat
 <tr id="i22" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/usermodel/HSSFConditionalFormattingRule.html#getText--">getText</a></span>()</code>
-<div class="block">XSSF rules store textual condition values as an attribute and also as a formula that needs shifting.</div>
+<div class="block">XSSF rules store textual condition values as an attribute and also as a prFormula that needs shifting.</div>
 </td>
 </tr>
 <tr id="i23" class="rowColor">
 <td class="colFirst"><code>protected java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/usermodel/HSSFConditionalFormattingRule.html#toFormulaString-org.apache.poi.ss.formula.ptg.Ptg:A-">toFormulaString</a></span>(<a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]&nbsp;parsedExpression)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/usermodel/HSSFConditionalFormattingRule.html#toFormulaString-org.apache.poi.ss.prFormula.ptg.Ptg:A-">toFormulaString</a></span>(<a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]&nbsp;parsedExpression)</code>&nbsp;</td>
 </tr>
 <tr id="i24" class="altColor">
 <td class="colFirst"><code>protected static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/usermodel/HSSFConditionalFormattingRule.html#toFormulaString-org.apache.poi.ss.formula.ptg.Ptg:A-org.apache.poi.hssf.usermodel.HSSFWorkbook-">toFormulaString</a></span>(<a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]&nbsp;parsedExpression,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/usermodel/HSSFConditionalFormattingRule.html#toFormulaString-org.apache.poi.ss.prFormula.ptg.Ptg:A-org.apache.poi.hssf.usermodel.HSSFWorkbook-">toFormulaString</a></span>(<a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]&nbsp;parsedExpression,
                <a href="../../../../../org/apache/poi/hssf/usermodel/HSSFWorkbook.html" title="class in org.apache.poi.hssf.usermodel">HSSFWorkbook</a>&nbsp;workbook)</code>&nbsp;</td>
 </tr>
 </table>
@@ -627,21 +627,21 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/ConditionalFormat
 <h4>getFormula1</h4>
 <pre>public&nbsp;java.lang.String&nbsp;getFormula1()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/poi/ss/usermodel/ConditionalFormattingRule.html#getFormula1--">ConditionalFormattingRule</a></code></span></div>
-<div class="block">The formula used to evaluate the first operand for the conditional formatting rule.
+<div class="block">The prFormula used to evaluate the first operand for the conditional formatting rule.
  <p>
  If the condition type is <a href="../../../../../org/apache/poi/ss/usermodel/ConditionType.html#CELL_VALUE_IS"><code>ConditionType.CELL_VALUE_IS</code></a>,
  this field is the first operand of the comparison.
- If type is <a href="../../../../../org/apache/poi/ss/usermodel/ConditionType.html#FORMULA"><code>ConditionType.FORMULA</code></a>, this formula is used
+ If type is <a href="../../../../../org/apache/poi/ss/usermodel/ConditionType.html#FORMULA"><code>ConditionType.FORMULA</code></a>, this prFormula is used
  to determine if the conditional formatting is applied.
  </p>
  <p>
- If comparison type is <a href="../../../../../org/apache/poi/ss/usermodel/ConditionType.html#FORMULA"><code>ConditionType.FORMULA</code></a> the formula MUST be a Boolean function
+ If comparison type is <a href="../../../../../org/apache/poi/ss/usermodel/ConditionType.html#FORMULA"><code>ConditionType.FORMULA</code></a> the prFormula MUST be a Boolean function
  </p></div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../org/apache/poi/ss/usermodel/ConditionalFormattingRule.html#getFormula1--">getFormula1</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/usermodel/ConditionalFormattingRule.html" title="interface in org.apache.poi.ss.usermodel">ConditionalFormattingRule</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the first formula</dd>
+<dd>the first prFormula</dd>
 </dl>
 </li>
 </ul>
@@ -653,14 +653,14 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/ConditionalFormat
 <h4>getFormula2</h4>
 <pre>public&nbsp;java.lang.String&nbsp;getFormula2()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/poi/ss/usermodel/ConditionalFormattingRule.html#getFormula2--">ConditionalFormattingRule</a></code></span></div>
-<div class="block">The formula used to evaluate the second operand of the comparison when
+<div class="block">The prFormula used to evaluate the second operand of the comparison when
  comparison type is  <a href="../../../../../org/apache/poi/ss/usermodel/ConditionType.html#CELL_VALUE_IS"><code>ConditionType.CELL_VALUE_IS</code></a> and operator
  is either <a href="../../../../../org/apache/poi/ss/usermodel/ComparisonOperator.html#BETWEEN"><code>ComparisonOperator.BETWEEN</code></a> or <a href="../../../../../org/apache/poi/ss/usermodel/ComparisonOperator.html#NOT_BETWEEN"><code>ComparisonOperator.NOT_BETWEEN</code></a></div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../org/apache/poi/ss/usermodel/ConditionalFormattingRule.html#getFormula2--">getFormula2</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/usermodel/ConditionalFormattingRule.html" title="interface in org.apache.poi.ss.usermodel">ConditionalFormattingRule</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the second formula</dd>
+<dd>the second prFormula</dd>
 </dl>
 </li>
 </ul>
@@ -672,8 +672,8 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/ConditionalFormat
 <h4>getText</h4>
 <pre>public&nbsp;java.lang.String&nbsp;getText()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/poi/ss/usermodel/ConditionalFormattingRule.html#getText--">ConditionalFormattingRule</a></code></span></div>
-<div class="block">XSSF rules store textual condition values as an attribute and also as a formula that needs shifting.  Using the attribute is simpler/faster.
- HSSF rules don't have this and return null.  We can fall back on the formula for those (AFAIK).</div>
+<div class="block">XSSF rules store textual condition values as an attribute and also as a prFormula that needs shifting.  Using the attribute is simpler/faster.
+ HSSF rules don't have this and return null.  We can fall back on the prFormula for those (AFAIK).</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../org/apache/poi/ss/usermodel/ConditionalFormattingRule.html#getText--">getText</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/usermodel/ConditionalFormattingRule.html" title="interface in org.apache.poi.ss.usermodel">ConditionalFormattingRule</a></code></dd>
@@ -682,22 +682,22 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/ConditionalFormat
 </dl>
 </li>
 </ul>
-<a name="toFormulaString-org.apache.poi.ss.formula.ptg.Ptg:A-">
+<a name="toFormulaString-org.apache.poi.ss.prFormula.ptg.Ptg:A-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>toFormulaString</h4>
-<pre>protected&nbsp;java.lang.String&nbsp;toFormulaString(<a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]&nbsp;parsedExpression)</pre>
+<pre>protected&nbsp;java.lang.String&nbsp;toFormulaString(<a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]&nbsp;parsedExpression)</pre>
 </li>
 </ul>
-<a name="toFormulaString-org.apache.poi.ss.formula.ptg.Ptg:A-org.apache.poi.hssf.usermodel.HSSFWorkbook-">
+<a name="toFormulaString-org.apache.poi.ss.prFormula.ptg.Ptg:A-org.apache.poi.hssf.usermodel.HSSFWorkbook-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>toFormulaString</h4>
-<pre>protected static&nbsp;java.lang.String&nbsp;toFormulaString(<a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]&nbsp;parsedExpression,
+<pre>protected static&nbsp;java.lang.String&nbsp;toFormulaString(<a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]&nbsp;parsedExpression,
                                                   <a href="../../../../../org/apache/poi/hssf/usermodel/HSSFWorkbook.html" title="class in org.apache.poi.hssf.usermodel">HSSFWorkbook</a>&nbsp;workbook)</pre>
 </li>
 </ul>

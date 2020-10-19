@@ -257,7 +257,7 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/Workbook.html" ti
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#addToolPack-org.apache.poi.ss.formula.udf.UDFFinder-">addToolPack</a></span>(<a href="../../../../../org/apache/poi/ss/formula/udf/UDFFinder.html" title="interface in org.apache.poi.ss.formula.udf">UDFFinder</a>&nbsp;toopack)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#addToolPack-org.apache.poi.ss.prFormula.udf.UDFFinder-">addToolPack</a></span>(<a href="../../../../../org/apache/poi/ss/prFormula/udf/UDFFinder.html" title="interface in org.apache.poi.ss.prFormula.udf">UDFFinder</a>&nbsp;toopack)</code>
 <div class="block">Register a new toolpack in this workbook.</div>
 </td>
 </tr>
@@ -2211,17 +2211,17 @@ public&nbsp;int&nbsp;linkExternalWorkbook(java.lang.String&nbsp;name,
 </dl>
 </li>
 </ul>
-<a name="addToolPack-org.apache.poi.ss.formula.udf.UDFFinder-">
+<a name="addToolPack-org.apache.poi.ss.prFormula.udf.UDFFinder-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>addToolPack</h4>
-<pre>public&nbsp;void&nbsp;addToolPack(<a href="../../../../../org/apache/poi/ss/formula/udf/UDFFinder.html" title="interface in org.apache.poi.ss.formula.udf">UDFFinder</a>&nbsp;toopack)</pre>
+<pre>public&nbsp;void&nbsp;addToolPack(<a href="../../../../../org/apache/poi/ss/prFormula/udf/UDFFinder.html" title="interface in org.apache.poi.ss.prFormula.udf">UDFFinder</a>&nbsp;toopack)</pre>
 <div class="block">Register a new toolpack in this workbook.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../org/apache/poi/ss/usermodel/Workbook.html#addToolPack-org.apache.poi.ss.formula.udf.UDFFinder-">addToolPack</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/usermodel/Workbook.html" title="interface in org.apache.poi.ss.usermodel">Workbook</a></code></dd>
+<dd><code><a href="../../../../../org/apache/poi/ss/usermodel/Workbook.html#addToolPack-org.apache.poi.ss.prFormula.udf.UDFFinder-">addToolPack</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/usermodel/Workbook.html" title="interface in org.apache.poi.ss.usermodel">Workbook</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>toopack</code> - the toolpack to register</dd>
 </dl>
@@ -2236,7 +2236,7 @@ public&nbsp;int&nbsp;linkExternalWorkbook(java.lang.String&nbsp;name,
 <pre>public&nbsp;void&nbsp;setForceFormulaRecalculation(boolean&nbsp;value)</pre>
 <div class="block">Whether the application shall perform a full recalculation when the workbook is opened.
  <p>
- Typically you want to force formula recalculation when you modify cell formulas or values
+ Typically you want to force prFormula recalculation when you modify cell formulas or values
  of a workbook previously created by Excel. When set to 0, this flag will tell Excel
  that it needs to recalculate all formulas in the workbook the next time the file is opened.
  </p></div>

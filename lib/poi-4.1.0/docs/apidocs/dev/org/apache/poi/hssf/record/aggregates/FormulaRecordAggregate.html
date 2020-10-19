@@ -125,7 +125,7 @@ var activeTableTab = "activeTableTab";
 <pre>public final class <span class="typeNameLabel">FormulaRecordAggregate</span>
 extends <a href="../../../../../../org/apache/poi/hssf/record/aggregates/RecordAggregate.html" title="class in org.apache.poi.hssf.record.aggregates">RecordAggregate</a>
 implements <a href="../../../../../../org/apache/poi/hssf/record/CellValueRecordInterface.html" title="interface in org.apache.poi.hssf.record">CellValueRecordInterface</a></pre>
-<div class="block">The formula record aggregate is used to join together the formula record and it's
+<div class="block">The prFormula record aggregate is used to join together the prFormula record and it's
  (optional) string record and (optional) Shared Formula Record (template reads, excel optimization).</div>
 <dl>
 <dt><span class="simpleTagLabel">Author:</span></dt>
@@ -196,7 +196,7 @@ implements <a href="../../../../../../org/apache/poi/hssf/record/CellValueRecord
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/hssf/record/aggregates/FormulaRecordAggregate.html#getFormulaRecord--">getFormulaRecord</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code><a href="../../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]</code></td>
+<td class="colFirst"><code><a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/hssf/record/aggregates/FormulaRecordAggregate.html#getFormulaTokens--">getFormulaTokens</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
@@ -225,7 +225,7 @@ implements <a href="../../../../../../org/apache/poi/hssf/record/CellValueRecord
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/hssf/record/aggregates/FormulaRecordAggregate.html#notifyFormulaChanging--">notifyFormulaChanging</a></span>()</code>
-<div class="block">Should be called by any code which is either deleting this formula cell, or changing
+<div class="block">Should be called by any code which is either deleting this prFormula cell, or changing
  its type.</div>
 </td>
 </tr>
@@ -233,13 +233,13 @@ implements <a href="../../../../../../org/apache/poi/hssf/record/CellValueRecord
 <td class="colFirst"><code><a href="../../../../../../org/apache/poi/ss/util/CellRangeAddress.html" title="class in org.apache.poi.ss.util">CellRangeAddress</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/hssf/record/aggregates/FormulaRecordAggregate.html#removeArrayFormula-int-int-">removeArrayFormula</a></span>(int&nbsp;rowIndex,
                   int&nbsp;columnIndex)</code>
-<div class="block">Removes an array formula</div>
+<div class="block">Removes an array prFormula</div>
 </td>
 </tr>
 <tr id="i11" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/hssf/record/aggregates/FormulaRecordAggregate.html#setArrayFormula-org.apache.poi.ss.util.CellRangeAddress-org.apache.poi.ss.formula.ptg.Ptg:A-">setArrayFormula</a></span>(<a href="../../../../../../org/apache/poi/ss/util/CellRangeAddress.html" title="class in org.apache.poi.ss.util">CellRangeAddress</a>&nbsp;r,
-               <a href="../../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]&nbsp;ptgs)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/hssf/record/aggregates/FormulaRecordAggregate.html#setArrayFormula-org.apache.poi.ss.util.CellRangeAddress-org.apache.poi.ss.prFormula.ptg.Ptg:A-">setArrayFormula</a></span>(<a href="../../../../../../org/apache/poi/ss/util/CellRangeAddress.html" title="class in org.apache.poi.ss.util">CellRangeAddress</a>&nbsp;r,
+               <a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]&nbsp;ptgs)</code>&nbsp;</td>
 </tr>
 <tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
@@ -267,8 +267,8 @@ implements <a href="../../../../../../org/apache/poi/hssf/record/CellValueRecord
 </tr>
 <tr id="i18" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/hssf/record/aggregates/FormulaRecordAggregate.html#setParsedExpression-org.apache.poi.ss.formula.ptg.Ptg:A-">setParsedExpression</a></span>(<a href="../../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]&nbsp;ptgs)</code>
-<div class="block">Also checks for a related shared formula and unlinks it if found</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/hssf/record/aggregates/FormulaRecordAggregate.html#setParsedExpression-org.apache.poi.ss.prFormula.ptg.Ptg:A-">setParsedExpression</a></span>(<a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]&nbsp;ptgs)</code>
+<div class="block">Also checks for a related shared prFormula and unlinks it if found</div>
 </td>
 </tr>
 <tr id="i19" class="rowColor">
@@ -334,7 +334,7 @@ implements <a href="../../../../../../org/apache/poi/hssf/record/CellValueRecord
                               <a href="../../../../../../org/apache/poi/hssf/record/aggregates/SharedValueManager.html" title="class in org.apache.poi.hssf.record.aggregates">SharedValueManager</a>&nbsp;svm)</pre>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>stringRec</code> - may be <code>null</code> if this formula does not have a cached text
+<dd><code>stringRec</code> - may be <code>null</code> if this prFormula does not have a cached text
  value.</dd>
 <dd><code>svm</code> - the <a href="../../../../../../org/apache/poi/hssf/record/aggregates/SharedValueManager.html" title="class in org.apache.poi.hssf.record.aggregates"><code>SharedValueManager</code></a> for the current sheet</dd>
 </dl>
@@ -547,17 +547,17 @@ implements <a href="../../../../../../org/apache/poi/hssf/record/CellValueRecord
 <ul class="blockList">
 <li class="blockList">
 <h4>getFormulaTokens</h4>
-<pre>public&nbsp;<a href="../../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]&nbsp;getFormulaTokens()</pre>
+<pre>public&nbsp;<a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]&nbsp;getFormulaTokens()</pre>
 </li>
 </ul>
-<a name="setParsedExpression-org.apache.poi.ss.formula.ptg.Ptg:A-">
+<a name="setParsedExpression-org.apache.poi.ss.prFormula.ptg.Ptg:A-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>setParsedExpression</h4>
-<pre>public&nbsp;void&nbsp;setParsedExpression(<a href="../../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]&nbsp;ptgs)</pre>
-<div class="block">Also checks for a related shared formula and unlinks it if found</div>
+<pre>public&nbsp;void&nbsp;setParsedExpression(<a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]&nbsp;ptgs)</pre>
+<div class="block">Also checks for a related shared prFormula and unlinks it if found</div>
 </li>
 </ul>
 <a name="unlinkSharedFormula--">
@@ -576,9 +576,9 @@ implements <a href="../../../../../../org/apache/poi/hssf/record/CellValueRecord
 <li class="blockList">
 <h4>notifyFormulaChanging</h4>
 <pre>public&nbsp;void&nbsp;notifyFormulaChanging()</pre>
-<div class="block">Should be called by any code which is either deleting this formula cell, or changing
- its type.  This method gives the aggregate a chance to unlink any shared formula
- that may be involved with this cell formula.</div>
+<div class="block">Should be called by any code which is either deleting this prFormula cell, or changing
+ its type.  This method gives the aggregate a chance to unlink any shared prFormula
+ that may be involved with this cell prFormula.</div>
 </li>
 </ul>
 <a name="isPartOfArrayFormula--">
@@ -599,14 +599,14 @@ implements <a href="../../../../../../org/apache/poi/hssf/record/CellValueRecord
 <pre>public&nbsp;<a href="../../../../../../org/apache/poi/ss/util/CellRangeAddress.html" title="class in org.apache.poi.ss.util">CellRangeAddress</a>&nbsp;getArrayFormulaRange()</pre>
 </li>
 </ul>
-<a name="setArrayFormula-org.apache.poi.ss.util.CellRangeAddress-org.apache.poi.ss.formula.ptg.Ptg:A-">
+<a name="setArrayFormula-org.apache.poi.ss.util.CellRangeAddress-org.apache.poi.ss.prFormula.ptg.Ptg:A-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>setArrayFormula</h4>
 <pre>public&nbsp;void&nbsp;setArrayFormula(<a href="../../../../../../org/apache/poi/ss/util/CellRangeAddress.html" title="class in org.apache.poi.ss.util">CellRangeAddress</a>&nbsp;r,
-                            <a href="../../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]&nbsp;ptgs)</pre>
+                            <a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]&nbsp;ptgs)</pre>
 </li>
 </ul>
 <a name="removeArrayFormula-int-int-">
@@ -617,10 +617,10 @@ implements <a href="../../../../../../org/apache/poi/hssf/record/CellValueRecord
 <h4>removeArrayFormula</h4>
 <pre>public&nbsp;<a href="../../../../../../org/apache/poi/ss/util/CellRangeAddress.html" title="class in org.apache.poi.ss.util">CellRangeAddress</a>&nbsp;removeArrayFormula(int&nbsp;rowIndex,
                                            int&nbsp;columnIndex)</pre>
-<div class="block">Removes an array formula</div>
+<div class="block">Removes an array prFormula</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the range of the array formula containing the specified cell. Never <code>null</code></dd>
+<dd>the range of the array prFormula containing the specified cell. Never <code>null</code></dd>
 </dl>
 </li>
 </ul>

@@ -151,7 +151,7 @@
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../../../org/apache/poi/ss/usermodel/CellRange.html" title="interface in org.apache.poi.ss.usermodel">CellRange</a>&lt;<a href="../../../../../../org/apache/poi/xssf/usermodel/XSSFCell.html" title="class in org.apache.poi.xssf.usermodel">XSSFCell</a>&gt;</code></td>
-<td class="colLast"><span class="typeNameLabel">XSSFSheet.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/xssf/usermodel/XSSFSheet.html#setArrayFormula-java.lang.String-org.apache.poi.ss.util.CellRangeAddress-">setArrayFormula</a></span>(java.lang.String&nbsp;formula,
+<td class="colLast"><span class="typeNameLabel">XSSFSheet.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/xssf/usermodel/XSSFSheet.html#setArrayFormula-java.lang.String-org.apache.poi.ss.util.CellRangeAddress-">setArrayFormula</a></span>(java.lang.String&nbsp;prFormula,
                <a href="../../../../../../org/apache/poi/ss/util/CellRangeAddress.html" title="class in org.apache.poi.ss.util">CellRangeAddress</a>&nbsp;range)</code>&nbsp;</td>
 </tr>
 </tbody>
@@ -166,7 +166,7 @@
 <tr class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><span class="typeNameLabel">XSSFWorkbook.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/xssf/usermodel/XSSFWorkbook.html#onDeleteFormula-org.apache.poi.xssf.usermodel.XSSFCell-">onDeleteFormula</a></span>(<a href="../../../../../../org/apache/poi/xssf/usermodel/XSSFCell.html" title="class in org.apache.poi.xssf.usermodel">XSSFCell</a>&nbsp;cell)</code>
-<div class="block">Fired when a formula is deleted from this workbook,
+<div class="block">Fired when a prFormula is deleted from this workbook,
  for example when calling cell.setCellFormula(null)</div>
 </td>
 </tr>
@@ -174,7 +174,7 @@
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><span class="typeNameLabel">XSSFSheet.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/xssf/usermodel/XSSFSheet.html#onDeleteFormula-org.apache.poi.xssf.usermodel.XSSFCell-org.apache.poi.xssf.usermodel.BaseXSSFEvaluationWorkbook-">onDeleteFormula</a></span>(<a href="../../../../../../org/apache/poi/xssf/usermodel/XSSFCell.html" title="class in org.apache.poi.xssf.usermodel">XSSFCell</a>&nbsp;cell,
                <a href="../../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html" title="class in org.apache.poi.xssf.usermodel">BaseXSSFEvaluationWorkbook</a>&nbsp;evalWb)</code>
-<div class="block">when a cell with a 'master' shared formula is removed,  the next cell in the range becomes the master</div>
+<div class="block">when a cell with a 'master' shared prFormula is removed,  the next cell in the range becomes the master</div>
 </td>
 </tr>
 </tbody>

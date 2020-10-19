@@ -361,10 +361,10 @@ implements java.lang.Cloneable</pre>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected </code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/record/CFRuleBase.html#CFRuleBase-byte-byte-org.apache.poi.ss.formula.ptg.Ptg:A-org.apache.poi.ss.formula.ptg.Ptg:A-">CFRuleBase</a></span>(byte&nbsp;conditionType,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/record/CFRuleBase.html#CFRuleBase-byte-byte-org.apache.poi.ss.prFormula.ptg.Ptg:A-org.apache.poi.ss.prFormula.ptg.Ptg:A-">CFRuleBase</a></span>(byte&nbsp;conditionType,
           byte&nbsp;comparisonOperation,
-          <a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]&nbsp;formula1,
-          <a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]&nbsp;formula2)</code>&nbsp;</td>
+          <a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]&nbsp;formula1,
+          <a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]&nbsp;formula2)</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -430,16 +430,16 @@ implements java.lang.Cloneable</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/record/CFRuleBase.html#getFormattingBlockSize--">getFormattingBlockSize</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i12" class="altColor">
-<td class="colFirst"><code>protected <a href="../../../../../org/apache/poi/ss/formula/Formula.html" title="class in org.apache.poi.ss.formula">Formula</a></code></td>
+<td class="colFirst"><code>protected <a href="../../../../../org/apache/poi/ss/prFormula/Formula.html" title="class in org.apache.poi.ss.prFormula">Formula</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/record/CFRuleBase.html#getFormula1--">getFormula1</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i13" class="rowColor">
-<td class="colFirst"><code>protected <a href="../../../../../org/apache/poi/ss/formula/Formula.html" title="class in org.apache.poi.ss.formula">Formula</a></code></td>
+<td class="colFirst"><code>protected <a href="../../../../../org/apache/poi/ss/prFormula/Formula.html" title="class in org.apache.poi.ss.prFormula">Formula</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/record/CFRuleBase.html#getFormula2--">getFormula2</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i14" class="altColor">
 <td class="colFirst"><code>protected static int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/record/CFRuleBase.html#getFormulaSize-org.apache.poi.ss.formula.Formula-">getFormulaSize</a></span>(<a href="../../../../../org/apache/poi/ss/formula/Formula.html" title="class in org.apache.poi.ss.formula">Formula</a>&nbsp;formula)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/record/CFRuleBase.html#getFormulaSize-org.apache.poi.ss.prFormula.Formula-">getFormulaSize</a></span>(<a href="../../../../../org/apache/poi/ss/prFormula/Formula.html" title="class in org.apache.poi.ss.prFormula">Formula</a>&nbsp;prFormula)</code>&nbsp;</td>
 </tr>
 <tr id="i15" class="rowColor">
 <td class="colFirst"><code>int</code></td>
@@ -448,13 +448,13 @@ implements java.lang.Cloneable</pre>
 </td>
 </tr>
 <tr id="i16" class="altColor">
-<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]</code></td>
+<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/record/CFRuleBase.html#getParsedExpression1--">getParsedExpression1</a></span>()</code>
 <div class="block">get the stack of the 1st expression as a list</div>
 </td>
 </tr>
 <tr id="i17" class="rowColor">
-<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]</code></td>
+<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/record/CFRuleBase.html#getParsedExpression2--">getParsedExpression2</a></span>()</code>
 <div class="block">get the stack of the 2nd expression as a list</div>
 </td>
@@ -500,8 +500,8 @@ implements java.lang.Cloneable</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/record/CFRuleBase.html#isTopLeftBottomRightBorderModified--">isTopLeftBottomRightBorderModified</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i28" class="altColor">
-<td class="colFirst"><code>static <a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/record/CFRuleBase.html#parseFormula-java.lang.String-org.apache.poi.hssf.usermodel.HSSFSheet-">parseFormula</a></span>(java.lang.String&nbsp;formula,
+<td class="colFirst"><code>static <a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/record/CFRuleBase.html#parseFormula-java.lang.String-org.apache.poi.hssf.usermodel.HSSFSheet-">parseFormula</a></span>(java.lang.String&nbsp;prFormula,
             <a href="../../../../../org/apache/poi/hssf/usermodel/HSSFSheet.html" title="class in org.apache.poi.hssf.usermodel">HSSFSheet</a>&nbsp;sheet)</code>
 <div class="block">TODO - parse conditional format formulas properly i.e.</div>
 </td>
@@ -544,11 +544,11 @@ implements java.lang.Cloneable</pre>
 </tr>
 <tr id="i38" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/record/CFRuleBase.html#setFormula1-org.apache.poi.ss.formula.Formula-">setFormula1</a></span>(<a href="../../../../../org/apache/poi/ss/formula/Formula.html" title="class in org.apache.poi.ss.formula">Formula</a>&nbsp;formula1)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/record/CFRuleBase.html#setFormula1-org.apache.poi.ss.prFormula.Formula-">setFormula1</a></span>(<a href="../../../../../org/apache/poi/ss/prFormula/Formula.html" title="class in org.apache.poi.ss.prFormula">Formula</a>&nbsp;formula1)</code>&nbsp;</td>
 </tr>
 <tr id="i39" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/record/CFRuleBase.html#setFormula2-org.apache.poi.ss.formula.Formula-">setFormula2</a></span>(<a href="../../../../../org/apache/poi/ss/formula/Formula.html" title="class in org.apache.poi.ss.formula">Formula</a>&nbsp;formula2)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/record/CFRuleBase.html#setFormula2-org.apache.poi.ss.prFormula.Formula-">setFormula2</a></span>(<a href="../../../../../org/apache/poi/ss/prFormula/Formula.html" title="class in org.apache.poi.ss.prFormula">Formula</a>&nbsp;formula2)</code>&nbsp;</td>
 </tr>
 <tr id="i40" class="altColor">
 <td class="colFirst"><code>void</code></td>
@@ -556,11 +556,11 @@ implements java.lang.Cloneable</pre>
 </tr>
 <tr id="i41" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/record/CFRuleBase.html#setParsedExpression1-org.apache.poi.ss.formula.ptg.Ptg:A-">setParsedExpression1</a></span>(<a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]&nbsp;ptgs)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/record/CFRuleBase.html#setParsedExpression1-org.apache.poi.ss.prFormula.ptg.Ptg:A-">setParsedExpression1</a></span>(<a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]&nbsp;ptgs)</code>&nbsp;</td>
 </tr>
 <tr id="i42" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/record/CFRuleBase.html#setParsedExpression2-org.apache.poi.ss.formula.ptg.Ptg:A-">setParsedExpression2</a></span>(<a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]&nbsp;ptgs)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/record/CFRuleBase.html#setParsedExpression2-org.apache.poi.ss.prFormula.ptg.Ptg:A-">setParsedExpression2</a></span>(<a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]&nbsp;ptgs)</code>&nbsp;</td>
 </tr>
 <tr id="i43" class="rowColor">
 <td class="colFirst"><code>void</code></td>
@@ -1137,7 +1137,7 @@ implements java.lang.Cloneable</pre>
 </dl>
 </li>
 </ul>
-<a name="CFRuleBase-byte-byte-org.apache.poi.ss.formula.ptg.Ptg:A-org.apache.poi.ss.formula.ptg.Ptg:A-">
+<a name="CFRuleBase-byte-byte-org.apache.poi.ss.prFormula.ptg.Ptg:A-org.apache.poi.ss.prFormula.ptg.Ptg:A-">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -1145,8 +1145,8 @@ implements java.lang.Cloneable</pre>
 <h4>CFRuleBase</h4>
 <pre>protected&nbsp;CFRuleBase(byte&nbsp;conditionType,
                      byte&nbsp;comparisonOperation,
-                     <a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]&nbsp;formula1,
-                     <a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]&nbsp;formula2)</pre>
+                     <a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]&nbsp;formula1,
+                     <a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]&nbsp;formula2)</pre>
 </li>
 </ul>
 <a name="CFRuleBase--">
@@ -1528,7 +1528,7 @@ implements java.lang.Cloneable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getParsedExpression1</h4>
-<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]&nbsp;getParsedExpression1()</pre>
+<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]&nbsp;getParsedExpression1()</pre>
 <div class="block">get the stack of the 1st expression as a list</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -1539,13 +1539,13 @@ implements java.lang.Cloneable</pre>
 </dl>
 </li>
 </ul>
-<a name="setParsedExpression1-org.apache.poi.ss.formula.ptg.Ptg:A-">
+<a name="setParsedExpression1-org.apache.poi.ss.prFormula.ptg.Ptg:A-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>setParsedExpression1</h4>
-<pre>public&nbsp;void&nbsp;setParsedExpression1(<a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]&nbsp;ptgs)</pre>
+<pre>public&nbsp;void&nbsp;setParsedExpression1(<a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]&nbsp;ptgs)</pre>
 </li>
 </ul>
 <a name="getFormula1--">
@@ -1554,16 +1554,16 @@ implements java.lang.Cloneable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getFormula1</h4>
-<pre>protected&nbsp;<a href="../../../../../org/apache/poi/ss/formula/Formula.html" title="class in org.apache.poi.ss.formula">Formula</a>&nbsp;getFormula1()</pre>
+<pre>protected&nbsp;<a href="../../../../../org/apache/poi/ss/prFormula/Formula.html" title="class in org.apache.poi.ss.prFormula">Formula</a>&nbsp;getFormula1()</pre>
 </li>
 </ul>
-<a name="setFormula1-org.apache.poi.ss.formula.Formula-">
+<a name="setFormula1-org.apache.poi.ss.prFormula.Formula-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>setFormula1</h4>
-<pre>protected&nbsp;void&nbsp;setFormula1(<a href="../../../../../org/apache/poi/ss/formula/Formula.html" title="class in org.apache.poi.ss.formula">Formula</a>&nbsp;formula1)</pre>
+<pre>protected&nbsp;void&nbsp;setFormula1(<a href="../../../../../org/apache/poi/ss/prFormula/Formula.html" title="class in org.apache.poi.ss.prFormula">Formula</a>&nbsp;formula1)</pre>
 </li>
 </ul>
 <a name="getParsedExpression2--">
@@ -1572,21 +1572,21 @@ implements java.lang.Cloneable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getParsedExpression2</h4>
-<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]&nbsp;getParsedExpression2()</pre>
+<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]&nbsp;getParsedExpression2()</pre>
 <div class="block">get the stack of the 2nd expression as a list</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>array of <a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg"><code>Ptg</code></a>s, possibly <code>null</code></dd>
+<dd>array of <a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg"><code>Ptg</code></a>s, possibly <code>null</code></dd>
 </dl>
 </li>
 </ul>
-<a name="setParsedExpression2-org.apache.poi.ss.formula.ptg.Ptg:A-">
+<a name="setParsedExpression2-org.apache.poi.ss.prFormula.ptg.Ptg:A-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>setParsedExpression2</h4>
-<pre>public&nbsp;void&nbsp;setParsedExpression2(<a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]&nbsp;ptgs)</pre>
+<pre>public&nbsp;void&nbsp;setParsedExpression2(<a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]&nbsp;ptgs)</pre>
 </li>
 </ul>
 <a name="getFormula2--">
@@ -1595,30 +1595,30 @@ implements java.lang.Cloneable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getFormula2</h4>
-<pre>protected&nbsp;<a href="../../../../../org/apache/poi/ss/formula/Formula.html" title="class in org.apache.poi.ss.formula">Formula</a>&nbsp;getFormula2()</pre>
+<pre>protected&nbsp;<a href="../../../../../org/apache/poi/ss/prFormula/Formula.html" title="class in org.apache.poi.ss.prFormula">Formula</a>&nbsp;getFormula2()</pre>
 </li>
 </ul>
-<a name="setFormula2-org.apache.poi.ss.formula.Formula-">
+<a name="setFormula2-org.apache.poi.ss.prFormula.Formula-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>setFormula2</h4>
-<pre>protected&nbsp;void&nbsp;setFormula2(<a href="../../../../../org/apache/poi/ss/formula/Formula.html" title="class in org.apache.poi.ss.formula">Formula</a>&nbsp;formula2)</pre>
+<pre>protected&nbsp;void&nbsp;setFormula2(<a href="../../../../../org/apache/poi/ss/prFormula/Formula.html" title="class in org.apache.poi.ss.prFormula">Formula</a>&nbsp;formula2)</pre>
 </li>
 </ul>
-<a name="getFormulaSize-org.apache.poi.ss.formula.Formula-">
+<a name="getFormulaSize-org.apache.poi.ss.prFormula.Formula-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getFormulaSize</h4>
-<pre>protected static&nbsp;int&nbsp;getFormulaSize(<a href="../../../../../org/apache/poi/ss/formula/Formula.html" title="class in org.apache.poi.ss.formula">Formula</a>&nbsp;formula)</pre>
+<pre>protected static&nbsp;int&nbsp;getFormulaSize(<a href="../../../../../org/apache/poi/ss/prFormula/Formula.html" title="class in org.apache.poi.ss.prFormula">Formula</a>&nbsp;prFormula)</pre>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>formula</code> - must not be <code>null</code></dd>
+<dd><code>prFormula</code> - must not be <code>null</code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>encoded size of the formula tokens (does not include 2 bytes for ushort length)</dd>
+<dd>encoded size of the prFormula tokens (does not include 2 bytes for ushort length)</dd>
 </dl>
 </li>
 </ul>
@@ -1628,18 +1628,18 @@ implements java.lang.Cloneable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>parseFormula</h4>
-<pre>public static&nbsp;<a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]&nbsp;parseFormula(java.lang.String&nbsp;formula,
+<pre>public static&nbsp;<a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]&nbsp;parseFormula(java.lang.String&nbsp;prFormula,
                                  <a href="../../../../../org/apache/poi/hssf/usermodel/HSSFSheet.html" title="class in org.apache.poi.hssf.usermodel">HSSFSheet</a>&nbsp;sheet)</pre>
 <div class="block">TODO - parse conditional format formulas properly i.e. produce tRefN and tAreaN instead of tRef and tArea
- this call will produce the wrong results if the formula contains any cell references
+ this call will produce the wrong results if the prFormula contains any cell references
  One approach might be to apply the inverse of SharedFormulaRecord.convertSharedFormulas(Stack, int, int)
  Note - two extra parameters (rowIx &amp; colIx) will be required. They probably come from one of the Region objects.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>formula</code> - The formula to parse, excluding the leading equals sign.</dd>
-<dd><code>sheet</code> - The sheet that the formula is on.</dd>
+<dd><code>prFormula</code> - The prFormula to parse, excluding the leading equals sign.</dd>
+<dd><code>sheet</code> - The sheet that the prFormula is on.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd><code>null</code> if <tt>formula</tt> was null.</dd>
+<dd><code>null</code> if <tt>prFormula</tt> was null.</dd>
 </dl>
 </li>
 </ul>

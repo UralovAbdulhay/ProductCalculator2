@@ -360,12 +360,12 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i29" class="rowColor">
-<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.ExternalName.html" title="class in org.apache.poi.ss.formula">EvaluationWorkbook.ExternalName</a></code></td>
+<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.ExternalName.html" title="class in org.apache.poi.ss.prFormula">EvaluationWorkbook.ExternalName</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/model/InternalWorkbook.html#getExternalName-int-int-">getExternalName</a></span>(int&nbsp;externSheetIndex,
                int&nbsp;externNameIndex)</code>&nbsp;</td>
 </tr>
 <tr id="i30" class="altColor">
-<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.ExternalSheet.html" title="class in org.apache.poi.ss.formula">EvaluationWorkbook.ExternalSheet</a></code></td>
+<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.ExternalSheet.html" title="class in org.apache.poi.ss.prFormula">EvaluationWorkbook.ExternalSheet</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/model/InternalWorkbook.html#getExternalSheet-int-">getExternalSheet</a></span>(int&nbsp;externSheetIndex)</code>&nbsp;</td>
 </tr>
 <tr id="i31" class="rowColor">
@@ -438,15 +438,15 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i43" class="rowColor">
-<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/formula/ptg/NameXPtg.html" title="class in org.apache.poi.ss.formula.ptg">NameXPtg</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/model/InternalWorkbook.html#getNameXPtg-java.lang.String-int-org.apache.poi.ss.formula.udf.UDFFinder-">getNameXPtg</a></span>(java.lang.String&nbsp;name,
+<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/prFormula/ptg/NameXPtg.html" title="class in org.apache.poi.ss.prFormula.ptg">NameXPtg</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/model/InternalWorkbook.html#getNameXPtg-java.lang.String-int-org.apache.poi.ss.prFormula.udf.UDFFinder-">getNameXPtg</a></span>(java.lang.String&nbsp;name,
            int&nbsp;sheetRefIndex,
-           <a href="../../../../../org/apache/poi/ss/formula/udf/UDFFinder.html" title="interface in org.apache.poi.ss.formula.udf">UDFFinder</a>&nbsp;udf)</code>&nbsp;</td>
+           <a href="../../../../../org/apache/poi/ss/prFormula/udf/UDFFinder.html" title="interface in org.apache.poi.ss.prFormula.udf">UDFFinder</a>&nbsp;udf)</code>&nbsp;</td>
 </tr>
 <tr id="i44" class="altColor">
-<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/formula/ptg/NameXPtg.html" title="class in org.apache.poi.ss.formula.ptg">NameXPtg</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/model/InternalWorkbook.html#getNameXPtg-java.lang.String-org.apache.poi.ss.formula.udf.UDFFinder-">getNameXPtg</a></span>(java.lang.String&nbsp;name,
-           <a href="../../../../../org/apache/poi/ss/formula/udf/UDFFinder.html" title="interface in org.apache.poi.ss.formula.udf">UDFFinder</a>&nbsp;udf)</code>&nbsp;</td>
+<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/prFormula/ptg/NameXPtg.html" title="class in org.apache.poi.ss.prFormula.ptg">NameXPtg</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/model/InternalWorkbook.html#getNameXPtg-java.lang.String-org.apache.poi.ss.prFormula.udf.UDFFinder-">getNameXPtg</a></span>(java.lang.String&nbsp;name,
+           <a href="../../../../../org/apache/poi/ss/prFormula/udf/UDFFinder.html" title="interface in org.apache.poi.ss.prFormula.udf">UDFFinder</a>&nbsp;udf)</code>&nbsp;</td>
 </tr>
 <tr id="i45" class="rowColor">
 <td class="colFirst"><code>int</code></td>
@@ -690,7 +690,7 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i85" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/model/InternalWorkbook.html#updateNamesAfterCellShift-org.apache.poi.ss.formula.FormulaShifter-">updateNamesAfterCellShift</a></span>(<a href="../../../../../org/apache/poi/ss/formula/FormulaShifter.html" title="class in org.apache.poi.ss.formula">FormulaShifter</a>&nbsp;shifter)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/model/InternalWorkbook.html#updateNamesAfterCellShift-org.apache.poi.ss.prFormula.FormulaShifter-">updateNamesAfterCellShift</a></span>(<a href="../../../../../org/apache/poi/ss/prFormula/FormulaShifter.html" title="class in org.apache.poi.ss.prFormula">FormulaShifter</a>&nbsp;shifter)</code>
 <div class="block">Updates named ranges due to moving of cells</div>
 </td>
 </tr>
@@ -1441,7 +1441,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getExternalSheet</h4>
-<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.ExternalSheet.html" title="class in org.apache.poi.ss.formula">EvaluationWorkbook.ExternalSheet</a>&nbsp;getExternalSheet(int&nbsp;externSheetIndex)</pre>
+<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.ExternalSheet.html" title="class in org.apache.poi.ss.prFormula">EvaluationWorkbook.ExternalSheet</a>&nbsp;getExternalSheet(int&nbsp;externSheetIndex)</pre>
 </li>
 </ul>
 <a name="getExternalName-int-int-">
@@ -1450,7 +1450,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getExternalName</h4>
-<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.ExternalName.html" title="class in org.apache.poi.ss.formula">EvaluationWorkbook.ExternalName</a>&nbsp;getExternalName(int&nbsp;externSheetIndex,
+<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.ExternalName.html" title="class in org.apache.poi.ss.prFormula">EvaluationWorkbook.ExternalName</a>&nbsp;getExternalName(int&nbsp;externSheetIndex,
                                                        int&nbsp;externNameIndex)</pre>
 </li>
 </ul>
@@ -1962,15 +1962,15 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a name="getNameXPtg-java.lang.String-int-org.apache.poi.ss.formula.udf.UDFFinder-">
+<a name="getNameXPtg-java.lang.String-int-org.apache.poi.ss.prFormula.udf.UDFFinder-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getNameXPtg</h4>
-<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/formula/ptg/NameXPtg.html" title="class in org.apache.poi.ss.formula.ptg">NameXPtg</a>&nbsp;getNameXPtg(java.lang.String&nbsp;name,
+<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/prFormula/ptg/NameXPtg.html" title="class in org.apache.poi.ss.prFormula.ptg">NameXPtg</a>&nbsp;getNameXPtg(java.lang.String&nbsp;name,
                             int&nbsp;sheetRefIndex,
-                            <a href="../../../../../org/apache/poi/ss/formula/udf/UDFFinder.html" title="interface in org.apache.poi.ss.formula.udf">UDFFinder</a>&nbsp;udf)</pre>
+                            <a href="../../../../../org/apache/poi/ss/prFormula/udf/UDFFinder.html" title="interface in org.apache.poi.ss.prFormula.udf">UDFFinder</a>&nbsp;udf)</pre>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - the  name of an external function, typically a name of a UDF</dd>
@@ -1981,14 +1981,14 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a name="getNameXPtg-java.lang.String-org.apache.poi.ss.formula.udf.UDFFinder-">
+<a name="getNameXPtg-java.lang.String-org.apache.poi.ss.prFormula.udf.UDFFinder-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getNameXPtg</h4>
-<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/formula/ptg/NameXPtg.html" title="class in org.apache.poi.ss.formula.ptg">NameXPtg</a>&nbsp;getNameXPtg(java.lang.String&nbsp;name,
-                            <a href="../../../../../org/apache/poi/ss/formula/udf/UDFFinder.html" title="interface in org.apache.poi.ss.formula.udf">UDFFinder</a>&nbsp;udf)</pre>
+<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/prFormula/ptg/NameXPtg.html" title="class in org.apache.poi.ss.prFormula.ptg">NameXPtg</a>&nbsp;getNameXPtg(java.lang.String&nbsp;name,
+                            <a href="../../../../../org/apache/poi/ss/prFormula/udf/UDFFinder.html" title="interface in org.apache.poi.ss.prFormula.udf">UDFFinder</a>&nbsp;udf)</pre>
 </li>
 </ul>
 <a name="cloneDrawings-org.apache.poi.hssf.model.InternalSheet-">
@@ -2016,17 +2016,17 @@ extends java.lang.Object</pre>
                               int&nbsp;newSheetIndex)</pre>
 </li>
 </ul>
-<a name="updateNamesAfterCellShift-org.apache.poi.ss.formula.FormulaShifter-">
+<a name="updateNamesAfterCellShift-org.apache.poi.ss.prFormula.FormulaShifter-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>updateNamesAfterCellShift</h4>
-<pre>public&nbsp;void&nbsp;updateNamesAfterCellShift(<a href="../../../../../org/apache/poi/ss/formula/FormulaShifter.html" title="class in org.apache.poi.ss.formula">FormulaShifter</a>&nbsp;shifter)</pre>
+<pre>public&nbsp;void&nbsp;updateNamesAfterCellShift(<a href="../../../../../org/apache/poi/ss/prFormula/FormulaShifter.html" title="class in org.apache.poi.ss.prFormula">FormulaShifter</a>&nbsp;shifter)</pre>
 <div class="block">Updates named ranges due to moving of cells</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>shifter</code> - the formula shifter</dd>
+<dd><code>shifter</code> - the prFormula shifter</dd>
 </dl>
 </li>
 </ul>

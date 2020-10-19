@@ -95,7 +95,7 @@ HSSF concepts.</div>
 </td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><a href="#org.apache.poi.ss.formula">org.apache.poi.ss.formula</a></td>
+<td class="colFirst"><a href="#org.apache.poi.ss.prFormula">org.apache.poi.ss.prFormula</a></td>
 <td class="colLast">
 <div class="block">This package contains common internal POI code for manipulating formulas.</div>
 </td>
@@ -172,12 +172,12 @@ HSSF concepts.</div>
 </tbody>
 </table>
 </li>
-<li class="blockList"><a name="org.apache.poi.ss.formula">
+<li class="blockList"><a name="org.apache.poi.ss.prFormula">
 <!--   -->
 </a>
-<h3>Uses of <a href="../../../../../../org/apache/poi/ss/util/CellRangeAddressBase.html" title="class in org.apache.poi.ss.util">CellRangeAddressBase</a> in <a href="../../../../../../org/apache/poi/ss/formula/package-summary.html">org.apache.poi.ss.formula</a></h3>
+<h3>Uses of <a href="../../../../../../org/apache/poi/ss/util/CellRangeAddressBase.html" title="class in org.apache.poi.ss.util">CellRangeAddressBase</a> in <a href="../../../../../../org/apache/poi/ss/prFormula/package-summary.html">org.apache.poi.ss.prFormula</a></h3>
 <table class="useSummary" border="0" cellpadding="3" cellspacing="0" summary="Use table, listing methods, and an explanation">
-<caption><span>Methods in <a href="../../../../../../org/apache/poi/ss/formula/package-summary.html">org.apache.poi.ss.formula</a> that return <a href="../../../../../../org/apache/poi/ss/util/CellRangeAddressBase.html" title="class in org.apache.poi.ss.util">CellRangeAddressBase</a></span><span class="tabEnd">&nbsp;</span></caption>
+<caption><span>Methods in <a href="../../../../../../org/apache/poi/ss/prFormula/package-summary.html">org.apache.poi.ss.prFormula</a> that return <a href="../../../../../../org/apache/poi/ss/util/CellRangeAddressBase.html" title="class in org.apache.poi.ss.util">CellRangeAddressBase</a></span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -185,12 +185,12 @@ HSSF concepts.</div>
 <tbody>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../../org/apache/poi/ss/util/CellRangeAddressBase.html" title="class in org.apache.poi.ss.util">CellRangeAddressBase</a></code></td>
-<td class="colLast"><span class="typeNameLabel">DataValidationEvaluator.DataValidationContext.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/DataValidationEvaluator.DataValidationContext.html#getRegion--">getRegion</a></span>()</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">DataValidationEvaluator.DataValidationContext.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/DataValidationEvaluator.DataValidationContext.html#getRegion--">getRegion</a></span>()</code>&nbsp;</td>
 </tr>
 </tbody>
 </table>
 <table class="useSummary" border="0" cellpadding="3" cellspacing="0" summary="Use table, listing methods, and an explanation">
-<caption><span>Methods in <a href="../../../../../../org/apache/poi/ss/formula/package-summary.html">org.apache.poi.ss.formula</a> with parameters of type <a href="../../../../../../org/apache/poi/ss/util/CellRangeAddressBase.html" title="class in org.apache.poi.ss.util">CellRangeAddressBase</a></span><span class="tabEnd">&nbsp;</span></caption>
+<caption><span>Methods in <a href="../../../../../../org/apache/poi/ss/prFormula/package-summary.html">org.apache.poi.ss.prFormula</a> with parameters of type <a href="../../../../../../org/apache/poi/ss/util/CellRangeAddressBase.html" title="class in org.apache.poi.ss.util">CellRangeAddressBase</a></span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -198,15 +198,15 @@ HSSF concepts.</div>
 <tbody>
 <tr class="altColor">
 <td class="colFirst"><code>protected boolean</code></td>
-<td class="colLast"><span class="typeNameLabel">WorkbookEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/WorkbookEvaluator.html#adjustRegionRelativeReference-org.apache.poi.ss.formula.ptg.Ptg:A-org.apache.poi.ss.util.CellReference-org.apache.poi.ss.util.CellRangeAddressBase-">adjustRegionRelativeReference</a></span>(<a href="../../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]&nbsp;ptgs,
+<td class="colLast"><span class="typeNameLabel">WorkbookEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/WorkbookEvaluator.html#adjustRegionRelativeReference-org.apache.poi.ss.prFormula.ptg.Ptg:A-org.apache.poi.ss.util.CellReference-org.apache.poi.ss.util.CellRangeAddressBase-">adjustRegionRelativeReference</a></span>(<a href="../../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]&nbsp;ptgs,
                              <a href="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</a>&nbsp;target,
                              <a href="../../../../../../org/apache/poi/ss/util/CellRangeAddressBase.html" title="class in org.apache.poi.ss.util">CellRangeAddressBase</a>&nbsp;region)</code>
-<div class="block">Adjust formula relative references by the offset between the start of the given region and the given target cell.</div>
+<div class="block">Adjust prFormula relative references by the offset between the start of the given region and the given target cell.</div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code><a href="../../../../../../org/apache/poi/ss/formula/eval/ValueEval.html" title="interface in org.apache.poi.ss.formula.eval">ValueEval</a></code></td>
-<td class="colLast"><span class="typeNameLabel">WorkbookEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/WorkbookEvaluator.html#evaluate-java.lang.String-org.apache.poi.ss.util.CellReference-org.apache.poi.ss.util.CellRangeAddressBase-">evaluate</a></span>(java.lang.String&nbsp;formula,
+<td class="colFirst"><code><a href="../../../../../../org/apache/poi/ss/prFormula/eval/ValueEval.html" title="interface in org.apache.poi.ss.prFormula.eval">ValueEval</a></code></td>
+<td class="colLast"><span class="typeNameLabel">WorkbookEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/WorkbookEvaluator.html#evaluate-java.lang.String-org.apache.poi.ss.util.CellReference-org.apache.poi.ss.util.CellRangeAddressBase-">evaluate</a></span>(java.lang.String&nbsp;prFormula,
         <a href="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</a>&nbsp;target,
         <a href="../../../../../../org/apache/poi/ss/util/CellRangeAddressBase.html" title="class in org.apache.poi.ss.util">CellRangeAddressBase</a>&nbsp;region)</code>
 <div class="block">Some expressions need to be evaluated in terms of an offset from the top left corner of a region,
@@ -215,8 +215,8 @@ HSSF concepts.</div>
 </td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code><a href="../../../../../../org/apache/poi/ss/formula/eval/ValueEval.html" title="interface in org.apache.poi.ss.formula.eval">ValueEval</a></code></td>
-<td class="colLast"><span class="typeNameLabel">WorkbookEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/WorkbookEvaluator.html#evaluateList-java.lang.String-org.apache.poi.ss.util.CellReference-org.apache.poi.ss.util.CellRangeAddressBase-">evaluateList</a></span>(java.lang.String&nbsp;formula,
+<td class="colFirst"><code><a href="../../../../../../org/apache/poi/ss/prFormula/eval/ValueEval.html" title="interface in org.apache.poi.ss.prFormula.eval">ValueEval</a></code></td>
+<td class="colLast"><span class="typeNameLabel">WorkbookEvaluator.</span><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/WorkbookEvaluator.html#evaluateList-java.lang.String-org.apache.poi.ss.util.CellReference-org.apache.poi.ss.util.CellRangeAddressBase-">evaluateList</a></span>(java.lang.String&nbsp;prFormula,
             <a href="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</a>&nbsp;target,
             <a href="../../../../../../org/apache/poi/ss/util/CellRangeAddressBase.html" title="class in org.apache.poi.ss.util">CellRangeAddressBase</a>&nbsp;region)</code>
 <div class="block">Some expressions need to be evaluated in terms of an offset from the top left corner of a region,
@@ -227,14 +227,14 @@ HSSF concepts.</div>
 </tbody>
 </table>
 <table class="useSummary" border="0" cellpadding="3" cellspacing="0" summary="Use table, listing constructors, and an explanation">
-<caption><span>Constructors in <a href="../../../../../../org/apache/poi/ss/formula/package-summary.html">org.apache.poi.ss.formula</a> with parameters of type <a href="../../../../../../org/apache/poi/ss/util/CellRangeAddressBase.html" title="class in org.apache.poi.ss.util">CellRangeAddressBase</a></span><span class="tabEnd">&nbsp;</span></caption>
+<caption><span>Constructors in <a href="../../../../../../org/apache/poi/ss/prFormula/package-summary.html">org.apache.poi.ss.prFormula</a> with parameters of type <a href="../../../../../../org/apache/poi/ss/util/CellRangeAddressBase.html" title="class in org.apache.poi.ss.util">CellRangeAddressBase</a></span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tbody>
 <tr class="altColor">
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/DataValidationEvaluator.DataValidationContext.html#DataValidationContext-org.apache.poi.ss.usermodel.DataValidation-org.apache.poi.ss.formula.DataValidationEvaluator-org.apache.poi.ss.util.CellRangeAddressBase-org.apache.poi.ss.util.CellReference-">DataValidationContext</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/DataValidation.html" title="interface in org.apache.poi.ss.usermodel">DataValidation</a>&nbsp;dv,
-                     <a href="../../../../../../org/apache/poi/ss/formula/DataValidationEvaluator.html" title="class in org.apache.poi.ss.formula">DataValidationEvaluator</a>&nbsp;dve,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/DataValidationEvaluator.DataValidationContext.html#DataValidationContext-org.apache.poi.ss.usermodel.DataValidation-org.apache.poi.ss.prFormula.DataValidationEvaluator-org.apache.poi.ss.util.CellRangeAddressBase-org.apache.poi.ss.util.CellReference-">DataValidationContext</a></span>(<a href="../../../../../../org/apache/poi/ss/usermodel/DataValidation.html" title="interface in org.apache.poi.ss.usermodel">DataValidation</a>&nbsp;dv,
+                     <a href="../../../../../../org/apache/poi/ss/prFormula/DataValidationEvaluator.html" title="class in org.apache.poi.ss.prFormula">DataValidationEvaluator</a>&nbsp;dve,
                      <a href="../../../../../../org/apache/poi/ss/util/CellRangeAddressBase.html" title="class in org.apache.poi.ss.util">CellRangeAddressBase</a>&nbsp;region,
                      <a href="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</a>&nbsp;target)</code>
 <div class="block">Populate the context with the necessary values.</div>

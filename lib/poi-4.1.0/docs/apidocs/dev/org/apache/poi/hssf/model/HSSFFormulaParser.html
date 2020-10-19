@@ -111,7 +111,7 @@ var activeTableTab = "activeTableTab";
 <pre><a href="../../../../../org/apache/poi/util/Internal.html" title="annotation in org.apache.poi.util">@Internal</a>
 public final class <span class="typeNameLabel">HSSFFormulaParser</span>
 extends java.lang.Object</pre>
-<div class="block">HSSF wrapper for the <a href="../../../../../org/apache/poi/ss/formula/FormulaParser.html" title="class in org.apache.poi.ss.formula"><code>FormulaParser</code></a> and <a href="../../../../../org/apache/poi/ss/formula/FormulaRenderer.html" title="class in org.apache.poi.ss.formula"><code>FormulaRenderer</code></a></div>
+<div class="block">HSSF wrapper for the <a href="../../../../../org/apache/poi/ss/prFormula/FormulaParser.html" title="class in org.apache.poi.ss.prFormula"><code>FormulaParser</code></a> and <a href="../../../../../org/apache/poi/ss/prFormula/FormulaRenderer.html" title="class in org.apache.poi.ss.prFormula"><code>FormulaRenderer</code></a></div>
 </li>
 </ul>
 </div>
@@ -131,30 +131,30 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>static <a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/model/HSSFFormulaParser.html#parse-java.lang.String-org.apache.poi.hssf.usermodel.HSSFWorkbook-">parse</a></span>(java.lang.String&nbsp;formula,
+<td class="colFirst"><code>static <a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/model/HSSFFormulaParser.html#parse-java.lang.String-org.apache.poi.hssf.usermodel.HSSFWorkbook-">parse</a></span>(java.lang.String&nbsp;prFormula,
      <a href="../../../../../org/apache/poi/hssf/usermodel/HSSFWorkbook.html" title="class in org.apache.poi.hssf.usermodel">HSSFWorkbook</a>&nbsp;workbook)</code>
 <div class="block">Convenience method for parsing cell formulas.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>static <a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/model/HSSFFormulaParser.html#parse-java.lang.String-org.apache.poi.hssf.usermodel.HSSFWorkbook-org.apache.poi.ss.formula.FormulaType-">parse</a></span>(java.lang.String&nbsp;formula,
+<td class="colFirst"><code>static <a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/model/HSSFFormulaParser.html#parse-java.lang.String-org.apache.poi.hssf.usermodel.HSSFWorkbook-org.apache.poi.ss.prFormula.FormulaType-">parse</a></span>(java.lang.String&nbsp;prFormula,
      <a href="../../../../../org/apache/poi/hssf/usermodel/HSSFWorkbook.html" title="class in org.apache.poi.hssf.usermodel">HSSFWorkbook</a>&nbsp;workbook,
-     <a href="../../../../../org/apache/poi/ss/formula/FormulaType.html" title="enum in org.apache.poi.ss.formula">FormulaType</a>&nbsp;formulaType)</code>&nbsp;</td>
+     <a href="../../../../../org/apache/poi/ss/prFormula/FormulaType.html" title="enum in org.apache.poi.ss.prFormula">FormulaType</a>&nbsp;formulaType)</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>static <a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/model/HSSFFormulaParser.html#parse-java.lang.String-org.apache.poi.hssf.usermodel.HSSFWorkbook-org.apache.poi.ss.formula.FormulaType-int-">parse</a></span>(java.lang.String&nbsp;formula,
+<td class="colFirst"><code>static <a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/model/HSSFFormulaParser.html#parse-java.lang.String-org.apache.poi.hssf.usermodel.HSSFWorkbook-org.apache.poi.ss.prFormula.FormulaType-int-">parse</a></span>(java.lang.String&nbsp;prFormula,
      <a href="../../../../../org/apache/poi/hssf/usermodel/HSSFWorkbook.html" title="class in org.apache.poi.hssf.usermodel">HSSFWorkbook</a>&nbsp;workbook,
-     <a href="../../../../../org/apache/poi/ss/formula/FormulaType.html" title="enum in org.apache.poi.ss.formula">FormulaType</a>&nbsp;formulaType,
+     <a href="../../../../../org/apache/poi/ss/prFormula/FormulaType.html" title="enum in org.apache.poi.ss.prFormula">FormulaType</a>&nbsp;formulaType,
      int&nbsp;sheetIndex)</code>&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/model/HSSFFormulaParser.html#toFormulaString-org.apache.poi.hssf.usermodel.HSSFWorkbook-org.apache.poi.ss.formula.ptg.Ptg:A-">toFormulaString</a></span>(<a href="../../../../../org/apache/poi/hssf/usermodel/HSSFWorkbook.html" title="class in org.apache.poi.hssf.usermodel">HSSFWorkbook</a>&nbsp;book,
-               <a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]&nbsp;ptgs)</code>
-<div class="block">Static method to convert an array of <a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg"><code>Ptg</code></a>s in RPN order
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/model/HSSFFormulaParser.html#toFormulaString-org.apache.poi.hssf.usermodel.HSSFWorkbook-org.apache.poi.ss.prFormula.ptg.Ptg:A-">toFormulaString</a></span>(<a href="../../../../../org/apache/poi/hssf/usermodel/HSSFWorkbook.html" title="class in org.apache.poi.hssf.usermodel">HSSFWorkbook</a>&nbsp;book,
+               <a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]&nbsp;ptgs)</code>
+<div class="block">Static method to convert an array of <a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg"><code>Ptg</code></a>s in RPN order
  to a human readable string format in infix mode.</div>
 </td>
 </tr>
@@ -186,78 +186,78 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>parse</h4>
-<pre>public static&nbsp;<a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]&nbsp;parse(java.lang.String&nbsp;formula,
+<pre>public static&nbsp;<a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]&nbsp;parse(java.lang.String&nbsp;prFormula,
                           <a href="../../../../../org/apache/poi/hssf/usermodel/HSSFWorkbook.html" title="class in org.apache.poi.hssf.usermodel">HSSFWorkbook</a>&nbsp;workbook)
-                   throws <a href="../../../../../org/apache/poi/ss/formula/FormulaParseException.html" title="class in org.apache.poi.ss.formula">FormulaParseException</a></pre>
-<div class="block">Convenience method for parsing cell formulas. see <a href="../../../../../org/apache/poi/hssf/model/HSSFFormulaParser.html#parse-java.lang.String-org.apache.poi.hssf.usermodel.HSSFWorkbook-org.apache.poi.ss.formula.FormulaType-int-"><code>parse(String, HSSFWorkbook, FormulaType, int)</code></a></div>
+                   throws <a href="../../../../../org/apache/poi/ss/prFormula/FormulaParseException.html" title="class in org.apache.poi.ss.prFormula">FormulaParseException</a></pre>
+<div class="block">Convenience method for parsing cell formulas. see <a href="../../../../../org/apache/poi/hssf/model/HSSFFormulaParser.html#parse-java.lang.String-org.apache.poi.hssf.usermodel.HSSFWorkbook-org.apache.poi.ss.prFormula.FormulaType-int-"><code>parse(String, HSSFWorkbook, FormulaType, int)</code></a></div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>formula</code> - The formula to parse, excluding the leading equals sign</dd>
+<dd><code>prFormula</code> - The prFormula to parse, excluding the leading equals sign</dd>
 <dd><code>workbook</code> - The parent workbook</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the parsed formula tokens</dd>
+<dd>the parsed prFormula tokens</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../../../../../org/apache/poi/ss/formula/FormulaParseException.html" title="class in org.apache.poi.ss.formula">FormulaParseException</a></code> - if the formula has incorrect syntax or is otherwise invalid</dd>
+<dd><code><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParseException.html" title="class in org.apache.poi.ss.prFormula">FormulaParseException</a></code> - if the prFormula has incorrect syntax or is otherwise invalid</dd>
 </dl>
 </li>
 </ul>
-<a name="parse-java.lang.String-org.apache.poi.hssf.usermodel.HSSFWorkbook-org.apache.poi.ss.formula.FormulaType-">
+<a name="parse-java.lang.String-org.apache.poi.hssf.usermodel.HSSFWorkbook-org.apache.poi.ss.prFormula.FormulaType-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>parse</h4>
-<pre>public static&nbsp;<a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]&nbsp;parse(java.lang.String&nbsp;formula,
+<pre>public static&nbsp;<a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]&nbsp;parse(java.lang.String&nbsp;prFormula,
                           <a href="../../../../../org/apache/poi/hssf/usermodel/HSSFWorkbook.html" title="class in org.apache.poi.hssf.usermodel">HSSFWorkbook</a>&nbsp;workbook,
-                          <a href="../../../../../org/apache/poi/ss/formula/FormulaType.html" title="enum in org.apache.poi.ss.formula">FormulaType</a>&nbsp;formulaType)
-                   throws <a href="../../../../../org/apache/poi/ss/formula/FormulaParseException.html" title="class in org.apache.poi.ss.formula">FormulaParseException</a></pre>
+                          <a href="../../../../../org/apache/poi/ss/prFormula/FormulaType.html" title="enum in org.apache.poi.ss.prFormula">FormulaType</a>&nbsp;formulaType)
+                   throws <a href="../../../../../org/apache/poi/ss/prFormula/FormulaParseException.html" title="class in org.apache.poi.ss.prFormula">FormulaParseException</a></pre>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>formula</code> - The formula to parse, excluding the leading equals sign</dd>
+<dd><code>prFormula</code> - The prFormula to parse, excluding the leading equals sign</dd>
 <dd><code>workbook</code> - The parent workbook</dd>
-<dd><code>formulaType</code> - The type of formula</dd>
+<dd><code>formulaType</code> - The type of prFormula</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>The parsed formula tokens</dd>
+<dd>The parsed prFormula tokens</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../../../../../org/apache/poi/ss/formula/FormulaParseException.html" title="class in org.apache.poi.ss.formula">FormulaParseException</a></code> - if the formula has incorrect syntax or is otherwise invalid</dd>
+<dd><code><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParseException.html" title="class in org.apache.poi.ss.prFormula">FormulaParseException</a></code> - if the prFormula has incorrect syntax or is otherwise invalid</dd>
 </dl>
 </li>
 </ul>
-<a name="parse-java.lang.String-org.apache.poi.hssf.usermodel.HSSFWorkbook-org.apache.poi.ss.formula.FormulaType-int-">
+<a name="parse-java.lang.String-org.apache.poi.hssf.usermodel.HSSFWorkbook-org.apache.poi.ss.prFormula.FormulaType-int-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>parse</h4>
-<pre>public static&nbsp;<a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]&nbsp;parse(java.lang.String&nbsp;formula,
+<pre>public static&nbsp;<a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]&nbsp;parse(java.lang.String&nbsp;prFormula,
                           <a href="../../../../../org/apache/poi/hssf/usermodel/HSSFWorkbook.html" title="class in org.apache.poi.hssf.usermodel">HSSFWorkbook</a>&nbsp;workbook,
-                          <a href="../../../../../org/apache/poi/ss/formula/FormulaType.html" title="enum in org.apache.poi.ss.formula">FormulaType</a>&nbsp;formulaType,
+                          <a href="../../../../../org/apache/poi/ss/prFormula/FormulaType.html" title="enum in org.apache.poi.ss.prFormula">FormulaType</a>&nbsp;formulaType,
                           int&nbsp;sheetIndex)
-                   throws <a href="../../../../../org/apache/poi/ss/formula/FormulaParseException.html" title="class in org.apache.poi.ss.formula">FormulaParseException</a></pre>
+                   throws <a href="../../../../../org/apache/poi/ss/prFormula/FormulaParseException.html" title="class in org.apache.poi.ss.prFormula">FormulaParseException</a></pre>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>formula</code> - The formula to parse</dd>
+<dd><code>prFormula</code> - The prFormula to parse</dd>
 <dd><code>workbook</code> - The parent workbook</dd>
-<dd><code>formulaType</code> - The type of formula</dd>
-<dd><code>sheetIndex</code> - The 0-based index of the sheet this formula belongs to.
+<dd><code>formulaType</code> - The type of prFormula</dd>
+<dd><code>sheetIndex</code> - The 0-based index of the sheet this prFormula belongs to.
  The sheet index is required to resolve sheet-level names. <code>-1</code> means that
  the scope of the name will be ignored and  the parser will match named ranges only by name</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the parsed formula tokens</dd>
+<dd>the parsed prFormula tokens</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../../../../../org/apache/poi/ss/formula/FormulaParseException.html" title="class in org.apache.poi.ss.formula">FormulaParseException</a></code> - if the formula has incorrect syntax or is otherwise invalid</dd>
+<dd><code><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParseException.html" title="class in org.apache.poi.ss.prFormula">FormulaParseException</a></code> - if the prFormula has incorrect syntax or is otherwise invalid</dd>
 </dl>
 </li>
 </ul>
-<a name="toFormulaString-org.apache.poi.hssf.usermodel.HSSFWorkbook-org.apache.poi.ss.formula.ptg.Ptg:A-">
+<a name="toFormulaString-org.apache.poi.hssf.usermodel.HSSFWorkbook-org.apache.poi.ss.prFormula.ptg.Ptg:A-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>toFormulaString</h4>
 <pre>public static&nbsp;java.lang.String&nbsp;toFormulaString(<a href="../../../../../org/apache/poi/hssf/usermodel/HSSFWorkbook.html" title="class in org.apache.poi.hssf.usermodel">HSSFWorkbook</a>&nbsp;book,
-                                               <a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]&nbsp;ptgs)</pre>
-<div class="block">Static method to convert an array of <a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg"><code>Ptg</code></a>s in RPN order
+                                               <a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]&nbsp;ptgs)</pre>
+<div class="block">Static method to convert an array of <a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg"><code>Ptg</code></a>s in RPN order
  to a human readable string format in infix mode.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>

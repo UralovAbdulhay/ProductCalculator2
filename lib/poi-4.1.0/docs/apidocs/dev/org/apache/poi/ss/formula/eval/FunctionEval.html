@@ -48,11 +48,11 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../../org/apache/poi/ss/formula/eval/ExternalNameEval.html" title="class in org.apache.poi.ss.formula.eval"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../../org/apache/poi/ss/formula/eval/FunctionNameEval.html" title="class in org.apache.poi.ss.formula.eval"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../../org/apache/poi/ss/prFormula/eval/ExternalNameEval.html" title="class in org.apache.poi.ss.prFormula.eval"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../../org/apache/poi/ss/prFormula/eval/FunctionNameEval.html" title="class in org.apache.poi.ss.prFormula.eval"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
-<li><a href="../../../../../../index.html?org/apache/poi/ss/formula/eval/FunctionEval.html" target="_top">Frames</a></li>
+<li><a href="../../../../../../index.html?org/apache/poi/ss/prFormula/eval/FunctionEval.html" target="_top">Frames</a></li>
 <li><a href="FunctionEval.html" target="_top">No&nbsp;Frames</a></li>
 </ul>
 <ul class="navList" id="allclasses_navbar_top">
@@ -91,7 +91,7 @@ var activeTableTab = "activeTableTab";
 <!-- ========= END OF TOP NAVBAR ========= -->
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
-<div class="subTitle">org.apache.poi.ss.formula.eval</div>
+<div class="subTitle">org.apache.poi.ss.prFormula.eval</div>
 <h2 title="Class FunctionEval" class="title">Class FunctionEval</h2>
 </div>
 <div class="contentContainer">
@@ -99,7 +99,7 @@ var activeTableTab = "activeTableTab";
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
-<li>org.apache.poi.ss.formula.eval.FunctionEval</li>
+<li>org.apache.poi.ss.prFormula.eval.FunctionEval</li>
 </ul>
 </li>
 </ul>
@@ -131,8 +131,8 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Field and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>protected static <a href="../../../../../../org/apache/poi/ss/formula/functions/Function.html" title="interface in org.apache.poi.ss.formula.functions">Function</a>[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/eval/FunctionEval.html#functions">functions</a></span></code>
+<td class="colFirst"><code>protected static <a href="../../../../../../org/apache/poi/ss/prFormula/functions/Function.html" title="interface in org.apache.poi.ss.prFormula.functions">Function</a>[]</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/eval/FunctionEval.html#functions">functions</a></span></code>
 <div class="block">Array elements corresponding to unimplemented functions are <code>null</code></div>
 </td>
 </tr>
@@ -152,25 +152,25 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>static <a href="../../../../../../org/apache/poi/ss/formula/functions/Function.html" title="interface in org.apache.poi.ss.formula.functions">Function</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/eval/FunctionEval.html#getBasicFunction-int-">getBasicFunction</a></span>(int&nbsp;functionIndex)</code>&nbsp;</td>
+<td class="colFirst"><code>static <a href="../../../../../../org/apache/poi/ss/prFormula/functions/Function.html" title="interface in org.apache.poi.ss.prFormula.functions">Function</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/eval/FunctionEval.html#getBasicFunction-int-">getBasicFunction</a></span>(int&nbsp;functionIndex)</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>static java.util.Collection&lt;java.lang.String&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/eval/FunctionEval.html#getNotSupportedFunctionNames--">getNotSupportedFunctionNames</a></span>()</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/eval/FunctionEval.html#getNotSupportedFunctionNames--">getNotSupportedFunctionNames</a></span>()</code>
 <div class="block">Returns an array of function names NOT implemented by POI.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>static java.util.Collection&lt;java.lang.String&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/eval/FunctionEval.html#getSupportedFunctionNames--">getSupportedFunctionNames</a></span>()</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/eval/FunctionEval.html#getSupportedFunctionNames--">getSupportedFunctionNames</a></span>()</code>
 <div class="block">Returns a collection of function names implemented by POI.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/formula/eval/FunctionEval.html#registerFunction-java.lang.String-org.apache.poi.ss.formula.functions.Function-">registerFunction</a></span>(java.lang.String&nbsp;name,
-                <a href="../../../../../../org/apache/poi/ss/formula/functions/Function.html" title="interface in org.apache.poi.ss.formula.functions">Function</a>&nbsp;func)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/apache/poi/ss/prFormula/eval/FunctionEval.html#registerFunction-java.lang.String-org.apache.poi.ss.prFormula.functions.Function-">registerFunction</a></span>(java.lang.String&nbsp;name,
+                <a href="../../../../../../org/apache/poi/ss/prFormula/functions/Function.html" title="interface in org.apache.poi.ss.prFormula.functions">Function</a>&nbsp;func)</code>
 <div class="block">Register a new function in runtime.</div>
 </td>
 </tr>
@@ -202,7 +202,7 @@ extends java.lang.Object</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>functions</h4>
-<pre>protected static final&nbsp;<a href="../../../../../../org/apache/poi/ss/formula/functions/Function.html" title="interface in org.apache.poi.ss.formula.functions">Function</a>[] functions</pre>
+<pre>protected static final&nbsp;<a href="../../../../../../org/apache/poi/ss/prFormula/functions/Function.html" title="interface in org.apache.poi.ss.prFormula.functions">Function</a>[] functions</pre>
 <div class="block">Array elements corresponding to unimplemented functions are <code>null</code></div>
 </li>
 </ul>
@@ -220,21 +220,21 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getBasicFunction</h4>
-<pre>public static&nbsp;<a href="../../../../../../org/apache/poi/ss/formula/functions/Function.html" title="interface in org.apache.poi.ss.formula.functions">Function</a>&nbsp;getBasicFunction(int&nbsp;functionIndex)</pre>
+<pre>public static&nbsp;<a href="../../../../../../org/apache/poi/ss/prFormula/functions/Function.html" title="interface in org.apache.poi.ss.prFormula.functions">Function</a>&nbsp;getBasicFunction(int&nbsp;functionIndex)</pre>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd><code>null</code> if the specified functionIndex is for INDIRECT() or any external (add-in) function.</dd>
 </dl>
 </li>
 </ul>
-<a name="registerFunction-java.lang.String-org.apache.poi.ss.formula.functions.Function-">
+<a name="registerFunction-java.lang.String-org.apache.poi.ss.prFormula.functions.Function-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>registerFunction</h4>
 <pre>public static&nbsp;void&nbsp;registerFunction(java.lang.String&nbsp;name,
-                                    <a href="../../../../../../org/apache/poi/ss/formula/functions/Function.html" title="interface in org.apache.poi.ss.formula.functions">Function</a>&nbsp;func)</pre>
+                                    <a href="../../../../../../org/apache/poi/ss/prFormula/functions/Function.html" title="interface in org.apache.poi.ss.prFormula.functions">Function</a>&nbsp;func)</pre>
 <div class="block">Register a new function in runtime.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -307,11 +307,11 @@ extends java.lang.Object</pre>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../../org/apache/poi/ss/formula/eval/ExternalNameEval.html" title="class in org.apache.poi.ss.formula.eval"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../../org/apache/poi/ss/formula/eval/FunctionNameEval.html" title="class in org.apache.poi.ss.formula.eval"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../../org/apache/poi/ss/prFormula/eval/ExternalNameEval.html" title="class in org.apache.poi.ss.prFormula.eval"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../../org/apache/poi/ss/prFormula/eval/FunctionNameEval.html" title="class in org.apache.poi.ss.prFormula.eval"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
-<li><a href="../../../../../../index.html?org/apache/poi/ss/formula/eval/FunctionEval.html" target="_top">Frames</a></li>
+<li><a href="../../../../../../index.html?org/apache/poi/ss/prFormula/eval/FunctionEval.html" target="_top">Frames</a></li>
 <li><a href="FunctionEval.html" target="_top">No&nbsp;Frames</a></li>
 </ul>
 <ul class="navList" id="allclasses_navbar_bottom">

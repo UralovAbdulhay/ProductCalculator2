@@ -208,9 +208,9 @@ extends <a href="../../../../../org/apache/poi/hssf/record/SharedValueRecordBase
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/record/SharedFormulaRecord.html#getExtraDataSize--">getExtraDataSize</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/record/SharedFormulaRecord.html#getFormulaTokens-org.apache.poi.hssf.record.FormulaRecord-">getFormulaTokens</a></span>(<a href="../../../../../org/apache/poi/hssf/record/FormulaRecord.html" title="class in org.apache.poi.hssf.record">FormulaRecord</a>&nbsp;formula)</code>
-<div class="block">Convert formula into an array of <a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg"><code>Ptg</code></a> tokens.</div>
+<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/record/SharedFormulaRecord.html#getFormulaTokens-org.apache.poi.hssf.record.FormulaRecord-">getFormulaTokens</a></span>(<a href="../../../../../org/apache/poi/hssf/record/FormulaRecord.html" title="class in org.apache.poi.hssf.record">FormulaRecord</a>&nbsp;prFormula)</code>
+<div class="block">Convert prFormula into an array of <a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg"><code>Ptg</code></a> tokens.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
@@ -390,13 +390,13 @@ extends <a href="../../../../../org/apache/poi/hssf/record/SharedValueRecordBase
 <ul class="blockList">
 <li class="blockList">
 <h4>getFormulaTokens</h4>
-<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]&nbsp;getFormulaTokens(<a href="../../../../../org/apache/poi/hssf/record/FormulaRecord.html" title="class in org.apache.poi.hssf.record">FormulaRecord</a>&nbsp;formula)</pre>
-<div class="block">Convert formula into an array of <a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg"><code>Ptg</code></a> tokens.</div>
+<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]&nbsp;getFormulaTokens(<a href="../../../../../org/apache/poi/hssf/record/FormulaRecord.html" title="class in org.apache.poi.hssf.record">FormulaRecord</a>&nbsp;prFormula)</pre>
+<div class="block">Convert prFormula into an array of <a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg"><code>Ptg</code></a> tokens.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>formula</code> - The record to break into tokens, cannot be null</dd>
+<dd><code>prFormula</code> - The record to break into tokens, cannot be null</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the equivalent <a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg"><code>Ptg</code></a> array that the formula would have, were it not shared.</dd>
+<dd>the equivalent <a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg"><code>Ptg</code></a> array that the prFormula would have, were it not shared.</dd>
 </dl>
 </li>
 </ul>

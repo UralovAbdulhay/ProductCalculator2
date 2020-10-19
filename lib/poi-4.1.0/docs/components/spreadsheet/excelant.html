@@ -128,7 +128,7 @@ document.write("Last Published: " + document.lastModified);
 <a href="../../components/spreadsheet/converting.html">HSSF to SS Converting</a>
 </div>
 <div class="menuitem">
-<a href="../../components/spreadsheet/formula.html">Formula Support</a>
+<a href="../../components/spreadsheet/prFormula.html">Formula Support</a>
 </div>
 <div class="menuitem">
 <a href="../../components/spreadsheet/eval.html">Formula Evaluation</a>
@@ -384,8 +384,8 @@ workbooks then you need to have the following jars in your path:</p>
      to evaluate the B4 on the sheet named 'MortgageCalculator'.   There are some assumptions
      here that are worth explaining.  For starters, ExcelAnt is focused on the testing
      numerically oriented sheets.  The &lt;evaluate&gt; task is actually evaluating the
-     cell as a formula using a FormulaEvaluator instance from POI.  Therefore it will fail
-     if you point it to a cell that doesn't contain a formula or a test a plain old number.</p>
+     cell as a prFormula using a FormulaEvaluator instance from POI.  Therefore it will fail
+     if you point it to a cell that doesn't contain a prFormula or a test a plain old number.</p>
 <p>Having said all that, here is what the output looks like:</p>
 <pre class="code">
 simpleTest:
@@ -411,7 +411,7 @@ Total time: 391 milliseconds
         
 <li>setDouble() - sets the specified cell as a double.</li>
         
-<li>setFormula() - sets the specified cell as a formula.</li>
+<li>setFormula() - sets the specified cell as a prFormula.</li>
         
 <li>setString() = sets the specified cell as a String.</li>
      
@@ -525,18 +525,18 @@ Total time: 390 milliseconds
      For each &lt;excelant&gt; task you define you can nest a &lt;udf&gt; tag 
      which allows you to specify the function alias and the class name.</p>
 <p>Consider the previous example of the mortgage calculator.  What if, instead
-     of being a formula in a cell, it was a function defined in a VB macro?  As luck
+     of being a prFormula in a cell, it was a function defined in a VB macro?  As luck
      would have it, we already have an example of this in the examples from the 
      User Defined Functions example, so let's use that. In the example spreadsheet
      there is a tab for  MortgageCalculatorFunction, which will use.  If you look in
-     cell B4, you see that rather than a messy cell based formula, there is only the function
+     cell B4, you see that rather than a messy cell based prFormula, there is only the function
      call.  Let's not get bogged down in the function/Java implementation, as these
      are covered in the User Defined Function documentation.  Let's just add
      a new target and test to our existing build file:</p>
 <pre class="code">
   &lt;target name="functionTest"&gt;
       &lt;excelant fileName="${xls.file}"&gt;
-          &lt;udf functionAlias="calculatePayment" class="org.apache.poi.ss.examples.formula.CalculateMortgage"/&gt;
+          &lt;udf functionAlias="calculatePayment" class="org.apache.poi.ss.examples.prFormula.CalculateMortgage"/&gt;
           &lt;precision value="1.0e-3"/&gt;
           &lt;test name="checkValue" showFailureDetail="true"&gt;
               &lt;setDouble cell="'MortgageCalculator'!$B$1" value="240000"/&gt;

@@ -311,7 +311,7 @@ extends <a href="../../../../../org/apache/poi/hssf/record/cont/ContinuableRecor
 </td>
 </tr>
 <tr id="i8" class="altColor">
-<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]</code></td>
+<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/record/NameRecord.html#getNameDefinition--">getNameDefinition</a></span>()</code>
 <div class="block">gets the definition, reference (Formula)</div>
 </td>
@@ -418,7 +418,7 @@ extends <a href="../../../../../org/apache/poi/hssf/record/cont/ContinuableRecor
 </tr>
 <tr id="i28" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/record/NameRecord.html#setNameDefinition-org.apache.poi.ss.formula.ptg.Ptg:A-">setNameDefinition</a></span>(<a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]&nbsp;ptgs)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/hssf/record/NameRecord.html#setNameDefinition-org.apache.poi.ss.prFormula.ptg.Ptg:A-">setNameDefinition</a></span>(<a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]&nbsp;ptgs)</code>&nbsp;</td>
 </tr>
 <tr id="i29" class="rowColor">
 <td class="colFirst"><code>void</code></td>
@@ -956,7 +956,7 @@ extends <a href="../../../../../org/apache/poi/hssf/record/cont/ContinuableRecor
 <pre>public&nbsp;boolean&nbsp;hasFormula()</pre>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd><code>true</code> if name has a formula (named range or defined value)</dd>
+<dd><code>true</code> if name has a prFormula (named range or defined value)</dd>
 </dl>
 </li>
 </ul>
@@ -995,7 +995,7 @@ extends <a href="../../../../../org/apache/poi/hssf/record/cont/ContinuableRecor
 <pre>public&nbsp;boolean&nbsp;isComplexFunction()</pre>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>true if array formula or user defined</dd>
+<dd>true if array prFormula or user defined</dd>
 </dl>
 </li>
 </ul>
@@ -1047,21 +1047,21 @@ extends <a href="../../../../../org/apache/poi/hssf/record/cont/ContinuableRecor
 <ul class="blockList">
 <li class="blockList">
 <h4>getNameDefinition</h4>
-<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]&nbsp;getNameDefinition()</pre>
+<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]&nbsp;getNameDefinition()</pre>
 <div class="block">gets the definition, reference (Formula)</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the name formula. never <code>null</code></dd>
+<dd>the name prFormula. never <code>null</code></dd>
 </dl>
 </li>
 </ul>
-<a name="setNameDefinition-org.apache.poi.ss.formula.ptg.Ptg:A-">
+<a name="setNameDefinition-org.apache.poi.ss.prFormula.ptg.Ptg:A-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>setNameDefinition</h4>
-<pre>public&nbsp;void&nbsp;setNameDefinition(<a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]&nbsp;ptgs)</pre>
+<pre>public&nbsp;void&nbsp;setNameDefinition(<a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]&nbsp;ptgs)</pre>
 </li>
 </ul>
 <a name="getCustomMenuText--">

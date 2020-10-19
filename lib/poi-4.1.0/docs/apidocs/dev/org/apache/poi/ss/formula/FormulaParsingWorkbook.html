@@ -48,11 +48,11 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../org/apache/poi/ss/formula/FormulaParser.html" title="class in org.apache.poi.ss.formula"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../org/apache/poi/ss/formula/FormulaRenderer.html" title="class in org.apache.poi.ss.formula"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParser.html" title="class in org.apache.poi.ss.prFormula"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/poi/ss/prFormula/FormulaRenderer.html" title="class in org.apache.poi.ss.prFormula"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
-<li><a href="../../../../../index.html?org/apache/poi/ss/formula/FormulaParsingWorkbook.html" target="_top">Frames</a></li>
+<li><a href="../../../../../index.html?org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html" target="_top">Frames</a></li>
 <li><a href="FormulaParsingWorkbook.html" target="_top">No&nbsp;Frames</a></li>
 </ul>
 <ul class="navList" id="allclasses_navbar_top">
@@ -91,7 +91,7 @@ var activeTableTab = "activeTableTab";
 <!-- ========= END OF TOP NAVBAR ========= -->
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
-<div class="subTitle">org.apache.poi.ss.formula</div>
+<div class="subTitle">org.apache.poi.ss.prFormula</div>
 <h2 title="Interface FormulaParsingWorkbook" class="title">Interface FormulaParsingWorkbook</h2>
 </div>
 <div class="contentContainer">
@@ -105,7 +105,7 @@ var activeTableTab = "activeTableTab";
 <hr>
 <br>
 <pre>public interface <span class="typeNameLabel">FormulaParsingWorkbook</span></pre>
-<div class="block">Abstracts a workbook for the purpose of formula parsing.<br>
+<div class="block">Abstracts a workbook for the purpose of prFormula parsing.<br>
 
  For POI internal use only</div>
 <dl>
@@ -132,61 +132,61 @@ var activeTableTab = "activeTableTab";
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/usermodel/Name.html" title="interface in org.apache.poi.ss.usermodel">Name</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html#createName--">createName</a></span>()</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html#createName--">createName</a></span>()</code>
 <div class="block">Return the underlying workbook</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html#get3DReferencePtg-org.apache.poi.ss.util.AreaReference-org.apache.poi.ss.formula.SheetIdentifier-">get3DReferencePtg</a></span>(<a href="../../../../../org/apache/poi/ss/util/AreaReference.html" title="class in org.apache.poi.ss.util">AreaReference</a>&nbsp;area,
-                 <a href="../../../../../org/apache/poi/ss/formula/SheetIdentifier.html" title="class in org.apache.poi.ss.formula">SheetIdentifier</a>&nbsp;sheet)</code>
+<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html#get3DReferencePtg-org.apache.poi.ss.util.AreaReference-org.apache.poi.ss.prFormula.SheetIdentifier-">get3DReferencePtg</a></span>(<a href="../../../../../org/apache/poi/ss/util/AreaReference.html" title="class in org.apache.poi.ss.util">AreaReference</a>&nbsp;area,
+                 <a href="../../../../../org/apache/poi/ss/prFormula/SheetIdentifier.html" title="class in org.apache.poi.ss.prFormula">SheetIdentifier</a>&nbsp;sheet)</code>
 <div class="block">Produce the appropriate Ptg for a 3d area reference</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html#get3DReferencePtg-org.apache.poi.ss.util.CellReference-org.apache.poi.ss.formula.SheetIdentifier-">get3DReferencePtg</a></span>(<a href="../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</a>&nbsp;cell,
-                 <a href="../../../../../org/apache/poi/ss/formula/SheetIdentifier.html" title="class in org.apache.poi.ss.formula">SheetIdentifier</a>&nbsp;sheet)</code>
+<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html#get3DReferencePtg-org.apache.poi.ss.util.CellReference-org.apache.poi.ss.prFormula.SheetIdentifier-">get3DReferencePtg</a></span>(<a href="../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</a>&nbsp;cell,
+                 <a href="../../../../../org/apache/poi/ss/prFormula/SheetIdentifier.html" title="class in org.apache.poi.ss.prFormula">SheetIdentifier</a>&nbsp;sheet)</code>
 <div class="block">Produce the appropriate Ptg for a 3d cell reference</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html#getExternalSheetIndex-java.lang.String-">getExternalSheetIndex</a></span>(java.lang.String&nbsp;sheetName)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html#getExternalSheetIndex-java.lang.String-">getExternalSheetIndex</a></span>(java.lang.String&nbsp;sheetName)</code>
 <div class="block">gets the externSheet index for a sheet from this workbook</div>
 </td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html#getExternalSheetIndex-java.lang.String-java.lang.String-">getExternalSheetIndex</a></span>(java.lang.String&nbsp;workbookName,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html#getExternalSheetIndex-java.lang.String-java.lang.String-">getExternalSheetIndex</a></span>(java.lang.String&nbsp;workbookName,
                      java.lang.String&nbsp;sheetName)</code>
 <div class="block">gets the externSheet index for a sheet from an external workbook</div>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
-<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/formula/EvaluationName.html" title="interface in org.apache.poi.ss.formula">EvaluationName</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html#getName-java.lang.String-int-">getName</a></span>(java.lang.String&nbsp;name,
+<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationName.html" title="interface in org.apache.poi.ss.prFormula">EvaluationName</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html#getName-java.lang.String-int-">getName</a></span>(java.lang.String&nbsp;name,
        int&nbsp;sheetIndex)</code>
 <div class="block">named range name matching is case insensitive</div>
 </td>
 </tr>
 <tr id="i6" class="altColor">
-<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html#getNameXPtg-java.lang.String-org.apache.poi.ss.formula.SheetIdentifier-">getNameXPtg</a></span>(java.lang.String&nbsp;name,
-           <a href="../../../../../org/apache/poi/ss/formula/SheetIdentifier.html" title="class in org.apache.poi.ss.formula">SheetIdentifier</a>&nbsp;sheet)</code>
+<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html#getNameXPtg-java.lang.String-org.apache.poi.ss.prFormula.SheetIdentifier-">getNameXPtg</a></span>(java.lang.String&nbsp;name,
+           <a href="../../../../../org/apache/poi/ss/prFormula/SheetIdentifier.html" title="class in org.apache.poi.ss.prFormula">SheetIdentifier</a>&nbsp;sheet)</code>
 <div class="block">Return an external name (named range, function, user-defined function) Ptg</div>
 </td>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/SpreadsheetVersion.html" title="enum in org.apache.poi.ss">SpreadsheetVersion</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html#getSpreadsheetVersion--">getSpreadsheetVersion</a></span>()</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html#getSpreadsheetVersion--">getSpreadsheetVersion</a></span>()</code>
 <div class="block">Returns an enum holding spreadhseet properties specific to an Excel version (
  max column and row numbers, max arguments to a function, etc.)</div>
 </td>
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/usermodel/Table.html" title="interface in org.apache.poi.ss.usermodel">Table</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html#getTable-java.lang.String-">getTable</a></span>(java.lang.String&nbsp;name)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html#getTable-java.lang.String-">getTable</a></span>(java.lang.String&nbsp;name)</code>
 <div class="block">XSSF Only - gets a table that exists in the worksheet</div>
 </td>
 </tr>
@@ -211,7 +211,7 @@ var activeTableTab = "activeTableTab";
 <ul class="blockList">
 <li class="blockList">
 <h4>getName</h4>
-<pre><a href="../../../../../org/apache/poi/ss/formula/EvaluationName.html" title="interface in org.apache.poi.ss.formula">EvaluationName</a>&nbsp;getName(java.lang.String&nbsp;name,
+<pre><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationName.html" title="interface in org.apache.poi.ss.prFormula">EvaluationName</a>&nbsp;getName(java.lang.String&nbsp;name,
                        int&nbsp;sheetIndex)</pre>
 <div class="block">named range name matching is case insensitive</div>
 </li>
@@ -236,36 +236,36 @@ var activeTableTab = "activeTableTab";
 <div class="block">XSSF Only - gets a table that exists in the worksheet</div>
 </li>
 </ul>
-<a name="getNameXPtg-java.lang.String-org.apache.poi.ss.formula.SheetIdentifier-">
+<a name="getNameXPtg-java.lang.String-org.apache.poi.ss.prFormula.SheetIdentifier-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getNameXPtg</h4>
-<pre><a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>&nbsp;getNameXPtg(java.lang.String&nbsp;name,
-                <a href="../../../../../org/apache/poi/ss/formula/SheetIdentifier.html" title="class in org.apache.poi.ss.formula">SheetIdentifier</a>&nbsp;sheet)</pre>
+<pre><a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>&nbsp;getNameXPtg(java.lang.String&nbsp;name,
+                <a href="../../../../../org/apache/poi/ss/prFormula/SheetIdentifier.html" title="class in org.apache.poi.ss.prFormula">SheetIdentifier</a>&nbsp;sheet)</pre>
 <div class="block">Return an external name (named range, function, user-defined function) Ptg</div>
 </li>
 </ul>
-<a name="get3DReferencePtg-org.apache.poi.ss.util.CellReference-org.apache.poi.ss.formula.SheetIdentifier-">
+<a name="get3DReferencePtg-org.apache.poi.ss.util.CellReference-org.apache.poi.ss.prFormula.SheetIdentifier-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>get3DReferencePtg</h4>
-<pre><a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>&nbsp;get3DReferencePtg(<a href="../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</a>&nbsp;cell,
-                      <a href="../../../../../org/apache/poi/ss/formula/SheetIdentifier.html" title="class in org.apache.poi.ss.formula">SheetIdentifier</a>&nbsp;sheet)</pre>
+<pre><a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>&nbsp;get3DReferencePtg(<a href="../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</a>&nbsp;cell,
+                      <a href="../../../../../org/apache/poi/ss/prFormula/SheetIdentifier.html" title="class in org.apache.poi.ss.prFormula">SheetIdentifier</a>&nbsp;sheet)</pre>
 <div class="block">Produce the appropriate Ptg for a 3d cell reference</div>
 </li>
 </ul>
-<a name="get3DReferencePtg-org.apache.poi.ss.util.AreaReference-org.apache.poi.ss.formula.SheetIdentifier-">
+<a name="get3DReferencePtg-org.apache.poi.ss.util.AreaReference-org.apache.poi.ss.prFormula.SheetIdentifier-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>get3DReferencePtg</h4>
-<pre><a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>&nbsp;get3DReferencePtg(<a href="../../../../../org/apache/poi/ss/util/AreaReference.html" title="class in org.apache.poi.ss.util">AreaReference</a>&nbsp;area,
-                      <a href="../../../../../org/apache/poi/ss/formula/SheetIdentifier.html" title="class in org.apache.poi.ss.formula">SheetIdentifier</a>&nbsp;sheet)</pre>
+<pre><a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>&nbsp;get3DReferencePtg(<a href="../../../../../org/apache/poi/ss/util/AreaReference.html" title="class in org.apache.poi.ss.util">AreaReference</a>&nbsp;area,
+                      <a href="../../../../../org/apache/poi/ss/prFormula/SheetIdentifier.html" title="class in org.apache.poi.ss.prFormula">SheetIdentifier</a>&nbsp;sheet)</pre>
 <div class="block">Produce the appropriate Ptg for a 3d area reference</div>
 </li>
 </ul>
@@ -334,11 +334,11 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../org/apache/poi/ss/formula/FormulaParser.html" title="class in org.apache.poi.ss.formula"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../org/apache/poi/ss/formula/FormulaRenderer.html" title="class in org.apache.poi.ss.formula"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParser.html" title="class in org.apache.poi.ss.prFormula"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/poi/ss/prFormula/FormulaRenderer.html" title="class in org.apache.poi.ss.prFormula"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
-<li><a href="../../../../../index.html?org/apache/poi/ss/formula/FormulaParsingWorkbook.html" target="_top">Frames</a></li>
+<li><a href="../../../../../index.html?org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html" target="_top">Frames</a></li>
 <li><a href="FormulaParsingWorkbook.html" target="_top">No&nbsp;Frames</a></li>
 </ul>
 <ul class="navList" id="allclasses_navbar_bottom">

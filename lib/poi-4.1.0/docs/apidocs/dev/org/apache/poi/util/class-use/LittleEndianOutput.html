@@ -125,19 +125,19 @@ HSSF concepts.</div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><a href="#org.apache.poi.ss.formula">org.apache.poi.ss.formula</a></td>
+<td class="colFirst"><a href="#org.apache.poi.ss.prFormula">org.apache.poi.ss.prFormula</a></td>
 <td class="colLast">
 <div class="block">This package contains common internal POI code for manipulating formulas.</div>
 </td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><a href="#org.apache.poi.ss.formula.constant">org.apache.poi.ss.formula.constant</a></td>
+<td class="colFirst"><a href="#org.apache.poi.ss.prFormula.constant">org.apache.poi.ss.prFormula.constant</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><a href="#org.apache.poi.ss.formula.ptg">org.apache.poi.ss.formula.ptg</a></td>
+<td class="colFirst"><a href="#org.apache.poi.ss.prFormula.ptg">org.apache.poi.ss.prFormula.ptg</a></td>
 <td class="colLast">
-<div class="block">formula package contains binary PTG structures used in Formulas</div>
+<div class="block">prFormula package contains binary PTG structures used in Formulas</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -1114,12 +1114,12 @@ HSSF concepts.</div>
 </tbody>
 </table>
 </li>
-<li class="blockList"><a name="org.apache.poi.ss.formula">
+<li class="blockList"><a name="org.apache.poi.ss.prFormula">
 <!--   -->
 </a>
-<h3>Uses of <a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a> in <a href="../../../../../org/apache/poi/ss/formula/package-summary.html">org.apache.poi.ss.formula</a></h3>
+<h3>Uses of <a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a> in <a href="../../../../../org/apache/poi/ss/prFormula/package-summary.html">org.apache.poi.ss.prFormula</a></h3>
 <table class="useSummary" border="0" cellpadding="3" cellspacing="0" summary="Use table, listing methods, and an explanation">
-<caption><span>Methods in <a href="../../../../../org/apache/poi/ss/formula/package-summary.html">org.apache.poi.ss.formula</a> with parameters of type <a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a></span><span class="tabEnd">&nbsp;</span></caption>
+<caption><span>Methods in <a href="../../../../../org/apache/poi/ss/prFormula/package-summary.html">org.apache.poi.ss.prFormula</a> with parameters of type <a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a></span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -1127,8 +1127,8 @@ HSSF concepts.</div>
 <tbody>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="typeNameLabel">Formula.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/Formula.html#serialize-org.apache.poi.util.LittleEndianOutput-">serialize</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>
-<div class="block">Writes  The formula encoding is includes:
+<td class="colLast"><span class="typeNameLabel">Formula.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/Formula.html#serialize-org.apache.poi.util.LittleEndianOutput-">serialize</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>
+<div class="block">Writes  The prFormula encoding is includes:
  
  ushort tokenDataLen
  tokenData
@@ -1138,21 +1138,21 @@ HSSF concepts.</div>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="typeNameLabel">Formula.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/Formula.html#serializeArrayConstantData-org.apache.poi.util.LittleEndianOutput-">serializeArrayConstantData</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">Formula.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/Formula.html#serializeArrayConstantData-org.apache.poi.util.LittleEndianOutput-">serializeArrayConstantData</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="typeNameLabel">Formula.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/Formula.html#serializeTokens-org.apache.poi.util.LittleEndianOutput-">serializeTokens</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">Formula.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/Formula.html#serializeTokens-org.apache.poi.util.LittleEndianOutput-">serializeTokens</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
 </tr>
 </tbody>
 </table>
 </li>
-<li class="blockList"><a name="org.apache.poi.ss.formula.constant">
+<li class="blockList"><a name="org.apache.poi.ss.prFormula.constant">
 <!--   -->
 </a>
-<h3>Uses of <a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a> in <a href="../../../../../org/apache/poi/ss/formula/constant/package-summary.html">org.apache.poi.ss.formula.constant</a></h3>
+<h3>Uses of <a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a> in <a href="../../../../../org/apache/poi/ss/prFormula/constant/package-summary.html">org.apache.poi.ss.prFormula.constant</a></h3>
 <table class="useSummary" border="0" cellpadding="3" cellspacing="0" summary="Use table, listing methods, and an explanation">
-<caption><span>Methods in <a href="../../../../../org/apache/poi/ss/formula/constant/package-summary.html">org.apache.poi.ss.formula.constant</a> with parameters of type <a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a></span><span class="tabEnd">&nbsp;</span></caption>
+<caption><span>Methods in <a href="../../../../../org/apache/poi/ss/prFormula/constant/package-summary.html">org.apache.poi.ss.prFormula.constant</a> with parameters of type <a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a></span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -1160,18 +1160,18 @@ HSSF concepts.</div>
 <tbody>
 <tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><span class="typeNameLabel">ConstantValueParser.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/constant/ConstantValueParser.html#encode-org.apache.poi.util.LittleEndianOutput-java.lang.Object:A-">encode</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out,
+<td class="colLast"><span class="typeNameLabel">ConstantValueParser.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/constant/ConstantValueParser.html#encode-org.apache.poi.util.LittleEndianOutput-java.lang.Object:A-">encode</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out,
       java.lang.Object[]&nbsp;values)</code>&nbsp;</td>
 </tr>
 </tbody>
 </table>
 </li>
-<li class="blockList"><a name="org.apache.poi.ss.formula.ptg">
+<li class="blockList"><a name="org.apache.poi.ss.prFormula.ptg">
 <!--   -->
 </a>
-<h3>Uses of <a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a> in <a href="../../../../../org/apache/poi/ss/formula/ptg/package-summary.html">org.apache.poi.ss.formula.ptg</a></h3>
+<h3>Uses of <a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a> in <a href="../../../../../org/apache/poi/ss/prFormula/ptg/package-summary.html">org.apache.poi.ss.prFormula.ptg</a></h3>
 <table class="useSummary" border="0" cellpadding="3" cellspacing="0" summary="Use table, listing methods, and an explanation">
-<caption><span>Methods in <a href="../../../../../org/apache/poi/ss/formula/ptg/package-summary.html">org.apache.poi.ss.formula.ptg</a> with parameters of type <a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a></span><span class="tabEnd">&nbsp;</span></caption>
+<caption><span>Methods in <a href="../../../../../org/apache/poi/ss/prFormula/ptg/package-summary.html">org.apache.poi.ss.prFormula.ptg</a> with parameters of type <a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a></span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -1179,155 +1179,155 @@ HSSF concepts.</div>
 <tbody>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="typeNameLabel">ValueOperatorPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/ptg/ValueOperatorPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">ValueOperatorPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/ptg/ValueOperatorPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="typeNameLabel">UnknownPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/ptg/UnknownPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">UnknownPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/ptg/UnknownPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="typeNameLabel">UnionPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/ptg/UnionPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">UnionPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/ptg/UnionPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="typeNameLabel">TblPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/ptg/TblPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">TblPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/ptg/TblPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="typeNameLabel">StringPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/ptg/StringPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">StringPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/ptg/StringPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="typeNameLabel">RefErrorPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/ptg/RefErrorPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">RefErrorPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/ptg/RefErrorPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="typeNameLabel">Ref3DPxg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/ptg/Ref3DPxg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">Ref3DPxg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ref3DPxg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="typeNameLabel">Ref3DPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/ptg/Ref3DPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">Ref3DPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ref3DPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="typeNameLabel">RangePtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/ptg/RangePtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">RangePtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/ptg/RangePtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>abstract void</code></td>
-<td class="colLast"><span class="typeNameLabel">Ptg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">Ptg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="typeNameLabel">ParenthesisPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/ptg/ParenthesisPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">ParenthesisPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/ptg/ParenthesisPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="typeNameLabel">NumberPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/ptg/NumberPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">NumberPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/ptg/NumberPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="typeNameLabel">NameXPxg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/ptg/NameXPxg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">NameXPxg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/ptg/NameXPxg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="typeNameLabel">NameXPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/ptg/NameXPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">NameXPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/ptg/NameXPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="typeNameLabel">NamePtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/ptg/NamePtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">NamePtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/ptg/NamePtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="typeNameLabel">MissingArgPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/ptg/MissingArgPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">MissingArgPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/ptg/MissingArgPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="typeNameLabel">MemFuncPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/ptg/MemFuncPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">MemFuncPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/ptg/MemFuncPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="typeNameLabel">MemErrPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/ptg/MemErrPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">MemErrPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/ptg/MemErrPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="typeNameLabel">MemAreaPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/ptg/MemAreaPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">MemAreaPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/ptg/MemAreaPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="typeNameLabel">IntPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/ptg/IntPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">IntPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/ptg/IntPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="typeNameLabel">IntersectionPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/ptg/IntersectionPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">IntersectionPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/ptg/IntersectionPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="typeNameLabel">FuncVarPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/ptg/FuncVarPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">FuncVarPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/ptg/FuncVarPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="typeNameLabel">FuncPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/ptg/FuncPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">FuncPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/ptg/FuncPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="typeNameLabel">ExpPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/ptg/ExpPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">ExpPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/ptg/ExpPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="typeNameLabel">ErrPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/ptg/ErrPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">ErrPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/ptg/ErrPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="typeNameLabel">DeletedRef3DPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/ptg/DeletedRef3DPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">DeletedRef3DPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/ptg/DeletedRef3DPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="typeNameLabel">DeletedArea3DPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/ptg/DeletedArea3DPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">DeletedArea3DPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/ptg/DeletedArea3DPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="typeNameLabel">Deleted3DPxg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/ptg/Deleted3DPxg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">Deleted3DPxg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/ptg/Deleted3DPxg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="typeNameLabel">BoolPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/ptg/BoolPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">BoolPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/ptg/BoolPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="typeNameLabel">AttrPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/ptg/AttrPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">AttrPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/ptg/AttrPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="typeNameLabel">ArrayPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/ptg/ArrayPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">ArrayPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/ptg/ArrayPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="typeNameLabel">AreaErrPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/ptg/AreaErrPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">AreaErrPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/ptg/AreaErrPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="typeNameLabel">Area3DPxg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/ptg/Area3DPxg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">Area3DPxg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/ptg/Area3DPxg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="typeNameLabel">Area3DPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/ptg/Area3DPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">Area3DPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/ptg/Area3DPtg.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="typeNameLabel">Area2DPtgBase.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/ptg/Area2DPtgBase.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">Area2DPtgBase.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/ptg/Area2DPtgBase.html#write-org.apache.poi.util.LittleEndianOutput-">write</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><span class="typeNameLabel">RefPtgBase.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/ptg/RefPtgBase.html#writeCoordinates-org.apache.poi.util.LittleEndianOutput-">writeCoordinates</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">RefPtgBase.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/ptg/RefPtgBase.html#writeCoordinates-org.apache.poi.util.LittleEndianOutput-">writeCoordinates</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><span class="typeNameLabel">AreaPtgBase.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/ptg/AreaPtgBase.html#writeCoordinates-org.apache.poi.util.LittleEndianOutput-">writeCoordinates</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">AreaPtgBase.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/ptg/AreaPtgBase.html#writeCoordinates-org.apache.poi.util.LittleEndianOutput-">writeCoordinates</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>int</code></td>
-<td class="colLast"><span class="typeNameLabel">ArrayPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/ptg/ArrayPtg.html#writeTokenValueBytes-org.apache.poi.util.LittleEndianOutput-">writeTokenValueBytes</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
+<td class="colLast"><span class="typeNameLabel">ArrayPtg.</span><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/ptg/ArrayPtg.html#writeTokenValueBytes-org.apache.poi.util.LittleEndianOutput-">writeTokenValueBytes</a></span>(<a href="../../../../../org/apache/poi/util/LittleEndianOutput.html" title="interface in org.apache.poi.util">LittleEndianOutput</a>&nbsp;out)</code>&nbsp;</td>
 </tr>
 </tbody>
 </table>

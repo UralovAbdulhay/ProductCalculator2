@@ -108,7 +108,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.formula">EvaluationWorkbook</a>, <a href="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.formula">FormulaParsingWorkbook</a>, <a href="../../../../../org/apache/poi/ss/formula/FormulaRenderingWorkbook.html" title="interface in org.apache.poi.ss.formula">FormulaRenderingWorkbook</a></dd>
+<dd><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.prFormula">EvaluationWorkbook</a>, <a href="../../../../../org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.prFormula">FormulaParsingWorkbook</a>, <a href="../../../../../org/apache/poi/ss/prFormula/FormulaRenderingWorkbook.html" title="interface in org.apache.poi.ss.prFormula">FormulaRenderingWorkbook</a></dd>
 </dl>
 <dl>
 <dt>Direct Known Subclasses:</dt>
@@ -119,7 +119,7 @@ var activeTableTab = "activeTableTab";
 <pre><a href="../../../../../org/apache/poi/util/Internal.html" title="annotation in org.apache.poi.util">@Internal</a>
 public abstract class <span class="typeNameLabel">BaseXSSFEvaluationWorkbook</span>
 extends java.lang.Object
-implements <a href="../../../../../org/apache/poi/ss/formula/FormulaRenderingWorkbook.html" title="interface in org.apache.poi.ss.formula">FormulaRenderingWorkbook</a>, <a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.formula">EvaluationWorkbook</a>, <a href="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.formula">FormulaParsingWorkbook</a></pre>
+implements <a href="../../../../../org/apache/poi/ss/prFormula/FormulaRenderingWorkbook.html" title="interface in org.apache.poi.ss.prFormula">FormulaRenderingWorkbook</a>, <a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.prFormula">EvaluationWorkbook</a>, <a href="../../../../../org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.prFormula">FormulaParsingWorkbook</a></pre>
 <div class="block">Internal POI use only - parent of XSSF and SXSSF evaluation workbooks</div>
 </li>
 </ul>
@@ -134,11 +134,11 @@ implements <a href="../../../../../org/apache/poi/ss/formula/FormulaRenderingWor
 </a>
 <h3>Nested Class Summary</h3>
 <ul class="blockList">
-<li class="blockList"><a name="nested.classes.inherited.from.class.org.apache.poi.ss.formula.EvaluationWorkbook">
+<li class="blockList"><a name="nested.classes.inherited.from.class.org.apache.poi.ss.prFormula.EvaluationWorkbook">
 <!--   -->
 </a>
-<h3>Nested classes/interfaces inherited from interface&nbsp;org.apache.poi.ss.formula.<a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.formula">EvaluationWorkbook</a></h3>
-<code><a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.ExternalName.html" title="class in org.apache.poi.ss.formula">EvaluationWorkbook.ExternalName</a>, <a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.ExternalSheet.html" title="class in org.apache.poi.ss.formula">EvaluationWorkbook.ExternalSheet</a>, <a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.ExternalSheetRange.html" title="class in org.apache.poi.ss.formula">EvaluationWorkbook.ExternalSheetRange</a></code></li>
+<h3>Nested classes/interfaces inherited from interface&nbsp;org.apache.poi.ss.prFormula.<a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.prFormula">EvaluationWorkbook</a></h3>
+<code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.ExternalName.html" title="class in org.apache.poi.ss.prFormula">EvaluationWorkbook.ExternalName</a>, <a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.ExternalSheet.html" title="class in org.apache.poi.ss.prFormula">EvaluationWorkbook.ExternalSheet</a>, <a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.ExternalSheetRange.html" title="class in org.apache.poi.ss.prFormula">EvaluationWorkbook.ExternalSheetRange</a></code></li>
 </ul>
 </li>
 </ul>
@@ -195,7 +195,7 @@ implements <a href="../../../../../org/apache/poi/ss/formula/FormulaRenderingWor
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#clearAllCachedResultValues--">clearAllCachedResultValues</a></span>()</code>
-<div class="block">Propagated from <a href="../../../../../org/apache/poi/ss/formula/WorkbookEvaluator.html#clearAllCachedResultValues--"><code>WorkbookEvaluator.clearAllCachedResultValues()</code></a> to clear locally cached data.</div>
+<div class="block">Propagated from <a href="../../../../../org/apache/poi/ss/prFormula/WorkbookEvaluator.html#clearAllCachedResultValues--"><code>WorkbookEvaluator.clearAllCachedResultValues()</code></a> to clear locally cached data.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
@@ -212,28 +212,28 @@ implements <a href="../../../../../org/apache/poi/ss/formula/FormulaRenderingWor
 </td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#get3DReferencePtg-org.apache.poi.ss.util.AreaReference-org.apache.poi.ss.formula.SheetIdentifier-">get3DReferencePtg</a></span>(<a href="../../../../../org/apache/poi/ss/util/AreaReference.html" title="class in org.apache.poi.ss.util">AreaReference</a>&nbsp;area,
-                 <a href="../../../../../org/apache/poi/ss/formula/SheetIdentifier.html" title="class in org.apache.poi.ss.formula">SheetIdentifier</a>&nbsp;sheet)</code>
+<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#get3DReferencePtg-org.apache.poi.ss.util.AreaReference-org.apache.poi.ss.prFormula.SheetIdentifier-">get3DReferencePtg</a></span>(<a href="../../../../../org/apache/poi/ss/util/AreaReference.html" title="class in org.apache.poi.ss.util">AreaReference</a>&nbsp;area,
+                 <a href="../../../../../org/apache/poi/ss/prFormula/SheetIdentifier.html" title="class in org.apache.poi.ss.prFormula">SheetIdentifier</a>&nbsp;sheet)</code>
 <div class="block">Produce the appropriate Ptg for a 3d area reference</div>
 </td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#get3DReferencePtg-org.apache.poi.ss.util.CellReference-org.apache.poi.ss.formula.SheetIdentifier-">get3DReferencePtg</a></span>(<a href="../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</a>&nbsp;cell,
-                 <a href="../../../../../org/apache/poi/ss/formula/SheetIdentifier.html" title="class in org.apache.poi.ss.formula">SheetIdentifier</a>&nbsp;sheet)</code>
+<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#get3DReferencePtg-org.apache.poi.ss.util.CellReference-org.apache.poi.ss.prFormula.SheetIdentifier-">get3DReferencePtg</a></span>(<a href="../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</a>&nbsp;cell,
+                 <a href="../../../../../org/apache/poi/ss/prFormula/SheetIdentifier.html" title="class in org.apache.poi.ss.prFormula">SheetIdentifier</a>&nbsp;sheet)</code>
 <div class="block">Produce the appropriate Ptg for a 3d cell reference</div>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
-<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.ExternalName.html" title="class in org.apache.poi.ss.formula">EvaluationWorkbook.ExternalName</a></code></td>
+<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.ExternalName.html" title="class in org.apache.poi.ss.prFormula">EvaluationWorkbook.ExternalName</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#getExternalName-int-int-">getExternalName</a></span>(int&nbsp;externSheetIndex,
                int&nbsp;externNameIndex)</code>
 <div class="block">HSSF Only - fetch the external-style name details</div>
 </td>
 </tr>
 <tr id="i6" class="altColor">
-<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.ExternalName.html" title="class in org.apache.poi.ss.formula">EvaluationWorkbook.ExternalName</a></code></td>
+<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.ExternalName.html" title="class in org.apache.poi.ss.prFormula">EvaluationWorkbook.ExternalName</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#getExternalName-java.lang.String-java.lang.String-int-">getExternalName</a></span>(java.lang.String&nbsp;nameName,
                java.lang.String&nbsp;sheetName,
                int&nbsp;externalWorkbookNumber)</code>
@@ -241,13 +241,13 @@ implements <a href="../../../../../org/apache/poi/ss/formula/FormulaRenderingWor
 </td>
 </tr>
 <tr id="i7" class="rowColor">
-<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.ExternalSheet.html" title="class in org.apache.poi.ss.formula">EvaluationWorkbook.ExternalSheet</a></code></td>
+<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.ExternalSheet.html" title="class in org.apache.poi.ss.prFormula">EvaluationWorkbook.ExternalSheet</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#getExternalSheet-int-">getExternalSheet</a></span>(int&nbsp;externSheetIndex)</code>
 <div class="block">HSSF Only - fetch the external-style sheet details</div>
 </td>
 </tr>
 <tr id="i8" class="altColor">
-<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.ExternalSheet.html" title="class in org.apache.poi.ss.formula">EvaluationWorkbook.ExternalSheet</a></code></td>
+<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.ExternalSheet.html" title="class in org.apache.poi.ss.prFormula">EvaluationWorkbook.ExternalSheet</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#getExternalSheet-java.lang.String-java.lang.String-int-">getExternalSheet</a></span>(java.lang.String&nbsp;firstSheetName,
                 java.lang.String&nbsp;lastSheetName,
                 int&nbsp;externalWorkbookNumber)</code>
@@ -268,11 +268,11 @@ implements <a href="../../../../../org/apache/poi/ss/formula/FormulaRenderingWor
 </td>
 </tr>
 <tr id="i11" class="rowColor">
-<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/formula/EvaluationName.html" title="interface in org.apache.poi.ss.formula">EvaluationName</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#getName-org.apache.poi.ss.formula.ptg.NamePtg-">getName</a></span>(<a href="../../../../../org/apache/poi/ss/formula/ptg/NamePtg.html" title="class in org.apache.poi.ss.formula.ptg">NamePtg</a>&nbsp;namePtg)</code>&nbsp;</td>
+<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationName.html" title="interface in org.apache.poi.ss.prFormula">EvaluationName</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#getName-org.apache.poi.ss.prFormula.ptg.NamePtg-">getName</a></span>(<a href="../../../../../org/apache/poi/ss/prFormula/ptg/NamePtg.html" title="class in org.apache.poi.ss.prFormula.ptg">NamePtg</a>&nbsp;namePtg)</code>&nbsp;</td>
 </tr>
 <tr id="i12" class="altColor">
-<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/formula/EvaluationName.html" title="interface in org.apache.poi.ss.formula">EvaluationName</a></code></td>
+<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationName.html" title="interface in org.apache.poi.ss.prFormula">EvaluationName</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#getName-java.lang.String-int-">getName</a></span>(java.lang.String&nbsp;name,
        int&nbsp;sheetIndex)</code>
 <div class="block">Return EvaluationName wrapper around the matching XSSFName (named range)</div>
@@ -280,12 +280,12 @@ implements <a href="../../../../../org/apache/poi/ss/formula/FormulaRenderingWor
 </tr>
 <tr id="i13" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#getNameText-org.apache.poi.ss.formula.ptg.NamePtg-">getNameText</a></span>(<a href="../../../../../org/apache/poi/ss/formula/ptg/NamePtg.html" title="class in org.apache.poi.ss.formula.ptg">NamePtg</a>&nbsp;namePtg)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#getNameText-org.apache.poi.ss.prFormula.ptg.NamePtg-">getNameText</a></span>(<a href="../../../../../org/apache/poi/ss/prFormula/ptg/NamePtg.html" title="class in org.apache.poi.ss.prFormula.ptg">NamePtg</a>&nbsp;namePtg)</code>&nbsp;</td>
 </tr>
 <tr id="i14" class="altColor">
-<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/formula/ptg/NameXPxg.html" title="class in org.apache.poi.ss.formula.ptg">NameXPxg</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#getNameXPtg-java.lang.String-org.apache.poi.ss.formula.SheetIdentifier-">getNameXPtg</a></span>(java.lang.String&nbsp;name,
-           <a href="../../../../../org/apache/poi/ss/formula/SheetIdentifier.html" title="class in org.apache.poi.ss.formula">SheetIdentifier</a>&nbsp;sheet)</code>
+<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/prFormula/ptg/NameXPxg.html" title="class in org.apache.poi.ss.prFormula.ptg">NameXPxg</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#getNameXPtg-java.lang.String-org.apache.poi.ss.prFormula.SheetIdentifier-">getNameXPtg</a></span>(java.lang.String&nbsp;name,
+           <a href="../../../../../org/apache/poi/ss/prFormula/SheetIdentifier.html" title="class in org.apache.poi.ss.prFormula">SheetIdentifier</a>&nbsp;sheet)</code>
 <div class="block">Return an external name (named range, function, user-defined function) Pxg</div>
 </td>
 </tr>
@@ -321,12 +321,12 @@ implements <a href="../../../../../org/apache/poi/ss/formula/FormulaRenderingWor
 </td>
 </tr>
 <tr id="i21" class="rowColor">
-<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/formula/udf/UDFFinder.html" title="interface in org.apache.poi.ss.formula.udf">UDFFinder</a></code></td>
+<td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/prFormula/udf/UDFFinder.html" title="interface in org.apache.poi.ss.prFormula.udf">UDFFinder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#getUDFFinder--">getUDFFinder</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i22" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#resolveNameXText-org.apache.poi.ss.formula.ptg.NameXPtg-">resolveNameXText</a></span>(<a href="../../../../../org/apache/poi/ss/formula/ptg/NameXPtg.html" title="class in org.apache.poi.ss.formula.ptg">NameXPtg</a>&nbsp;n)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#resolveNameXText-org.apache.poi.ss.prFormula.ptg.NameXPtg-">resolveNameXText</a></span>(<a href="../../../../../org/apache/poi/ss/prFormula/ptg/NameXPtg.html" title="class in org.apache.poi.ss.prFormula.ptg">NameXPtg</a>&nbsp;n)</code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -337,11 +337,11 @@ implements <a href="../../../../../org/apache/poi/ss/formula/FormulaRenderingWor
 <code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
 </ul>
 <ul class="blockList">
-<li class="blockList"><a name="methods.inherited.from.class.org.apache.poi.ss.formula.EvaluationWorkbook">
+<li class="blockList"><a name="methods.inherited.from.class.org.apache.poi.ss.prFormula.EvaluationWorkbook">
 <!--   -->
 </a>
-<h3>Methods inherited from interface&nbsp;org.apache.poi.ss.formula.<a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.formula">EvaluationWorkbook</a></h3>
-<code><a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#getFormulaTokens-org.apache.poi.ss.formula.EvaluationCell-">getFormulaTokens</a>, <a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#getSheet-int-">getSheet</a>, <a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#getSheetIndex-org.apache.poi.ss.formula.EvaluationSheet-">getSheetIndex</a></code></li>
+<h3>Methods inherited from interface&nbsp;org.apache.poi.ss.prFormula.<a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.prFormula">EvaluationWorkbook</a></h3>
+<code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html#getFormulaTokens-org.apache.poi.ss.prFormula.EvaluationCell-">getFormulaTokens</a>, <a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html#getSheet-int-">getSheet</a>, <a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html#getSheetIndex-org.apache.poi.ss.prFormula.EvaluationSheet-">getSheetIndex</a></code></li>
 </ul>
 </li>
 </ul>
@@ -398,14 +398,14 @@ implements <a href="../../../../../org/apache/poi/ss/formula/FormulaRenderingWor
 <li class="blockList">
 <h4>clearAllCachedResultValues</h4>
 <pre>public&nbsp;void&nbsp;clearAllCachedResultValues()</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#clearAllCachedResultValues--">EvaluationWorkbook</a></code></span></div>
-<div class="block">Propagated from <a href="../../../../../org/apache/poi/ss/formula/WorkbookEvaluator.html#clearAllCachedResultValues--"><code>WorkbookEvaluator.clearAllCachedResultValues()</code></a> to clear locally cached data.
- Implementations must call the same method on all referenced <a href="../../../../../org/apache/poi/ss/formula/EvaluationSheet.html" title="interface in org.apache.poi.ss.formula"><code>EvaluationSheet</code></a> instances, as well as clearing local caches.</div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html#clearAllCachedResultValues--">EvaluationWorkbook</a></code></span></div>
+<div class="block">Propagated from <a href="../../../../../org/apache/poi/ss/prFormula/WorkbookEvaluator.html#clearAllCachedResultValues--"><code>WorkbookEvaluator.clearAllCachedResultValues()</code></a> to clear locally cached data.
+ Implementations must call the same method on all referenced <a href="../../../../../org/apache/poi/ss/prFormula/EvaluationSheet.html" title="interface in org.apache.poi.ss.prFormula"><code>EvaluationSheet</code></a> instances, as well as clearing local caches.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#clearAllCachedResultValues--">clearAllCachedResultValues</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.formula">EvaluationWorkbook</a></code></dd>
+<dd><code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html#clearAllCachedResultValues--">clearAllCachedResultValues</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.prFormula">EvaluationWorkbook</a></code></dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../../../org/apache/poi/ss/formula/WorkbookEvaluator.html#clearAllCachedResultValues--"><code>WorkbookEvaluator.clearAllCachedResultValues()</code></a></dd>
+<dd><a href="../../../../../org/apache/poi/ss/prFormula/WorkbookEvaluator.html#clearAllCachedResultValues--"><code>WorkbookEvaluator.clearAllCachedResultValues()</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -420,7 +420,7 @@ implements <a href="../../../../../org/apache/poi/ss/formula/FormulaRenderingWor
  it just as a local index</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#convertFromExternSheetIndex-int-">convertFromExternSheetIndex</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.formula">EvaluationWorkbook</a></code></dd>
+<dd><code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html#convertFromExternSheetIndex-int-">convertFromExternSheetIndex</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.prFormula">EvaluationWorkbook</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -431,11 +431,11 @@ implements <a href="../../../../../org/apache/poi/ss/formula/FormulaRenderingWor
 <li class="blockList">
 <h4>getExternalSheetIndex</h4>
 <pre>public&nbsp;int&nbsp;getExternalSheetIndex(java.lang.String&nbsp;sheetName)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html#getExternalSheetIndex-java.lang.String-">FormulaParsingWorkbook</a></code></span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html#getExternalSheetIndex-java.lang.String-">FormulaParsingWorkbook</a></code></span></div>
 <div class="block">gets the externSheet index for a sheet from this workbook</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html#getExternalSheetIndex-java.lang.String-">getExternalSheetIndex</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.formula">FormulaParsingWorkbook</a></code></dd>
+<dd><code><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html#getExternalSheetIndex-java.lang.String-">getExternalSheetIndex</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.prFormula">FormulaParsingWorkbook</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -445,14 +445,14 @@ implements <a href="../../../../../org/apache/poi/ss/formula/FormulaRenderingWor
 <ul class="blockList">
 <li class="blockList">
 <h4>getName</h4>
-<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/formula/EvaluationName.html" title="interface in org.apache.poi.ss.formula">EvaluationName</a>&nbsp;getName(java.lang.String&nbsp;name,
+<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/prFormula/EvaluationName.html" title="interface in org.apache.poi.ss.prFormula">EvaluationName</a>&nbsp;getName(java.lang.String&nbsp;name,
                               int&nbsp;sheetIndex)</pre>
 <div class="block">Return EvaluationName wrapper around the matching XSSFName (named range)</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#getName-java.lang.String-int-">getName</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.formula">EvaluationWorkbook</a></code></dd>
+<dd><code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html#getName-java.lang.String-int-">getName</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.prFormula">EvaluationWorkbook</a></code></dd>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html#getName-java.lang.String-int-">getName</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.formula">FormulaParsingWorkbook</a></code></dd>
+<dd><code><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html#getName-java.lang.String-int-">getName</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.prFormula">FormulaParsingWorkbook</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - case-aware but case-insensitive named range in workbook</dd>
 <dd><code>sheetIndex</code> - index of sheet if named range scope is limited to one sheet
@@ -473,7 +473,7 @@ implements <a href="../../../../../org/apache/poi/ss/formula/FormulaRenderingWor
 <pre>public&nbsp;java.lang.String&nbsp;getSheetName(int&nbsp;sheetIndex)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#getSheetName-int-">getSheetName</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.formula">EvaluationWorkbook</a></code></dd>
+<dd><code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html#getSheetName-int-">getSheetName</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.prFormula">EvaluationWorkbook</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -483,13 +483,13 @@ implements <a href="../../../../../org/apache/poi/ss/formula/FormulaRenderingWor
 <ul class="blockList">
 <li class="blockList">
 <h4>getExternalName</h4>
-<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.ExternalName.html" title="class in org.apache.poi.ss.formula">EvaluationWorkbook.ExternalName</a>&nbsp;getExternalName(int&nbsp;externSheetIndex,
+<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.ExternalName.html" title="class in org.apache.poi.ss.prFormula">EvaluationWorkbook.ExternalName</a>&nbsp;getExternalName(int&nbsp;externSheetIndex,
                                                        int&nbsp;externNameIndex)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#getExternalName-int-int-">EvaluationWorkbook</a></code></span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html#getExternalName-int-int-">EvaluationWorkbook</a></code></span></div>
 <div class="block">HSSF Only - fetch the external-style name details</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#getExternalName-int-int-">getExternalName</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.formula">EvaluationWorkbook</a></code></dd>
+<dd><code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html#getExternalName-int-int-">getExternalName</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.prFormula">EvaluationWorkbook</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -499,76 +499,76 @@ implements <a href="../../../../../org/apache/poi/ss/formula/FormulaRenderingWor
 <ul class="blockList">
 <li class="blockList">
 <h4>getExternalName</h4>
-<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.ExternalName.html" title="class in org.apache.poi.ss.formula">EvaluationWorkbook.ExternalName</a>&nbsp;getExternalName(java.lang.String&nbsp;nameName,
+<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.ExternalName.html" title="class in org.apache.poi.ss.prFormula">EvaluationWorkbook.ExternalName</a>&nbsp;getExternalName(java.lang.String&nbsp;nameName,
                                                        java.lang.String&nbsp;sheetName,
                                                        int&nbsp;externalWorkbookNumber)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#getExternalName-java.lang.String-java.lang.String-int-">EvaluationWorkbook</a></code></span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html#getExternalName-java.lang.String-java.lang.String-int-">EvaluationWorkbook</a></code></span></div>
 <div class="block">XSSF Only - fetch the external-style name details</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#getExternalName-java.lang.String-java.lang.String-int-">getExternalName</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.formula">EvaluationWorkbook</a></code></dd>
+<dd><code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html#getExternalName-java.lang.String-java.lang.String-int-">getExternalName</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.prFormula">EvaluationWorkbook</a></code></dd>
 </dl>
 </li>
 </ul>
-<a name="getNameXPtg-java.lang.String-org.apache.poi.ss.formula.SheetIdentifier-">
+<a name="getNameXPtg-java.lang.String-org.apache.poi.ss.prFormula.SheetIdentifier-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getNameXPtg</h4>
-<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/formula/ptg/NameXPxg.html" title="class in org.apache.poi.ss.formula.ptg">NameXPxg</a>&nbsp;getNameXPtg(java.lang.String&nbsp;name,
-                            <a href="../../../../../org/apache/poi/ss/formula/SheetIdentifier.html" title="class in org.apache.poi.ss.formula">SheetIdentifier</a>&nbsp;sheet)</pre>
+<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/prFormula/ptg/NameXPxg.html" title="class in org.apache.poi.ss.prFormula.ptg">NameXPxg</a>&nbsp;getNameXPtg(java.lang.String&nbsp;name,
+                            <a href="../../../../../org/apache/poi/ss/prFormula/SheetIdentifier.html" title="class in org.apache.poi.ss.prFormula">SheetIdentifier</a>&nbsp;sheet)</pre>
 <div class="block">Return an external name (named range, function, user-defined function) Pxg</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html#getNameXPtg-java.lang.String-org.apache.poi.ss.formula.SheetIdentifier-">getNameXPtg</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.formula">FormulaParsingWorkbook</a></code></dd>
+<dd><code><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html#getNameXPtg-java.lang.String-org.apache.poi.ss.prFormula.SheetIdentifier-">getNameXPtg</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.prFormula">FormulaParsingWorkbook</a></code></dd>
 </dl>
 </li>
 </ul>
-<a name="get3DReferencePtg-org.apache.poi.ss.util.CellReference-org.apache.poi.ss.formula.SheetIdentifier-">
+<a name="get3DReferencePtg-org.apache.poi.ss.util.CellReference-org.apache.poi.ss.prFormula.SheetIdentifier-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>get3DReferencePtg</h4>
-<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>&nbsp;get3DReferencePtg(<a href="../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</a>&nbsp;cell,
-                             <a href="../../../../../org/apache/poi/ss/formula/SheetIdentifier.html" title="class in org.apache.poi.ss.formula">SheetIdentifier</a>&nbsp;sheet)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html#get3DReferencePtg-org.apache.poi.ss.util.CellReference-org.apache.poi.ss.formula.SheetIdentifier-">FormulaParsingWorkbook</a></code></span></div>
+<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>&nbsp;get3DReferencePtg(<a href="../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</a>&nbsp;cell,
+                             <a href="../../../../../org/apache/poi/ss/prFormula/SheetIdentifier.html" title="class in org.apache.poi.ss.prFormula">SheetIdentifier</a>&nbsp;sheet)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html#get3DReferencePtg-org.apache.poi.ss.util.CellReference-org.apache.poi.ss.prFormula.SheetIdentifier-">FormulaParsingWorkbook</a></code></span></div>
 <div class="block">Produce the appropriate Ptg for a 3d cell reference</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html#get3DReferencePtg-org.apache.poi.ss.util.CellReference-org.apache.poi.ss.formula.SheetIdentifier-">get3DReferencePtg</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.formula">FormulaParsingWorkbook</a></code></dd>
+<dd><code><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html#get3DReferencePtg-org.apache.poi.ss.util.CellReference-org.apache.poi.ss.prFormula.SheetIdentifier-">get3DReferencePtg</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.prFormula">FormulaParsingWorkbook</a></code></dd>
 </dl>
 </li>
 </ul>
-<a name="get3DReferencePtg-org.apache.poi.ss.util.AreaReference-org.apache.poi.ss.formula.SheetIdentifier-">
+<a name="get3DReferencePtg-org.apache.poi.ss.util.AreaReference-org.apache.poi.ss.prFormula.SheetIdentifier-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>get3DReferencePtg</h4>
-<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>&nbsp;get3DReferencePtg(<a href="../../../../../org/apache/poi/ss/util/AreaReference.html" title="class in org.apache.poi.ss.util">AreaReference</a>&nbsp;area,
-                             <a href="../../../../../org/apache/poi/ss/formula/SheetIdentifier.html" title="class in org.apache.poi.ss.formula">SheetIdentifier</a>&nbsp;sheet)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html#get3DReferencePtg-org.apache.poi.ss.util.AreaReference-org.apache.poi.ss.formula.SheetIdentifier-">FormulaParsingWorkbook</a></code></span></div>
+<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>&nbsp;get3DReferencePtg(<a href="../../../../../org/apache/poi/ss/util/AreaReference.html" title="class in org.apache.poi.ss.util">AreaReference</a>&nbsp;area,
+                             <a href="../../../../../org/apache/poi/ss/prFormula/SheetIdentifier.html" title="class in org.apache.poi.ss.prFormula">SheetIdentifier</a>&nbsp;sheet)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html#get3DReferencePtg-org.apache.poi.ss.util.AreaReference-org.apache.poi.ss.prFormula.SheetIdentifier-">FormulaParsingWorkbook</a></code></span></div>
 <div class="block">Produce the appropriate Ptg for a 3d area reference</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html#get3DReferencePtg-org.apache.poi.ss.util.AreaReference-org.apache.poi.ss.formula.SheetIdentifier-">get3DReferencePtg</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.formula">FormulaParsingWorkbook</a></code></dd>
+<dd><code><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html#get3DReferencePtg-org.apache.poi.ss.util.AreaReference-org.apache.poi.ss.prFormula.SheetIdentifier-">get3DReferencePtg</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.prFormula">FormulaParsingWorkbook</a></code></dd>
 </dl>
 </li>
 </ul>
-<a name="resolveNameXText-org.apache.poi.ss.formula.ptg.NameXPtg-">
+<a name="resolveNameXText-org.apache.poi.ss.prFormula.ptg.NameXPtg-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>resolveNameXText</h4>
-<pre>public&nbsp;java.lang.String&nbsp;resolveNameXText(<a href="../../../../../org/apache/poi/ss/formula/ptg/NameXPtg.html" title="class in org.apache.poi.ss.formula.ptg">NameXPtg</a>&nbsp;n)</pre>
+<pre>public&nbsp;java.lang.String&nbsp;resolveNameXText(<a href="../../../../../org/apache/poi/ss/prFormula/ptg/NameXPtg.html" title="class in org.apache.poi.ss.prFormula.ptg">NameXPtg</a>&nbsp;n)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#resolveNameXText-org.apache.poi.ss.formula.ptg.NameXPtg-">resolveNameXText</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.formula">EvaluationWorkbook</a></code></dd>
+<dd><code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html#resolveNameXText-org.apache.poi.ss.prFormula.ptg.NameXPtg-">resolveNameXText</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.prFormula">EvaluationWorkbook</a></code></dd>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../org/apache/poi/ss/formula/FormulaRenderingWorkbook.html#resolveNameXText-org.apache.poi.ss.formula.ptg.NameXPtg-">resolveNameXText</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/FormulaRenderingWorkbook.html" title="interface in org.apache.poi.ss.formula">FormulaRenderingWorkbook</a></code></dd>
+<dd><code><a href="../../../../../org/apache/poi/ss/prFormula/FormulaRenderingWorkbook.html#resolveNameXText-org.apache.poi.ss.prFormula.ptg.NameXPtg-">resolveNameXText</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/FormulaRenderingWorkbook.html" title="interface in org.apache.poi.ss.prFormula">FormulaRenderingWorkbook</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -578,15 +578,15 @@ implements <a href="../../../../../org/apache/poi/ss/formula/FormulaRenderingWor
 <ul class="blockList">
 <li class="blockList">
 <h4>getExternalSheet</h4>
-<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.ExternalSheet.html" title="class in org.apache.poi.ss.formula">EvaluationWorkbook.ExternalSheet</a>&nbsp;getExternalSheet(int&nbsp;externSheetIndex)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#getExternalSheet-int-">EvaluationWorkbook</a></code></span></div>
+<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.ExternalSheet.html" title="class in org.apache.poi.ss.prFormula">EvaluationWorkbook.ExternalSheet</a>&nbsp;getExternalSheet(int&nbsp;externSheetIndex)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html#getExternalSheet-int-">EvaluationWorkbook</a></code></span></div>
 <div class="block">HSSF Only - fetch the external-style sheet details
  <p>Return will have no workbook set if it's actually in our own workbook</p></div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#getExternalSheet-int-">getExternalSheet</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.formula">EvaluationWorkbook</a></code></dd>
+<dd><code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html#getExternalSheet-int-">getExternalSheet</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.prFormula">EvaluationWorkbook</a></code></dd>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../org/apache/poi/ss/formula/FormulaRenderingWorkbook.html#getExternalSheet-int-">getExternalSheet</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/FormulaRenderingWorkbook.html" title="interface in org.apache.poi.ss.formula">FormulaRenderingWorkbook</a></code></dd>
+<dd><code><a href="../../../../../org/apache/poi/ss/prFormula/FormulaRenderingWorkbook.html#getExternalSheet-int-">getExternalSheet</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/FormulaRenderingWorkbook.html" title="interface in org.apache.poi.ss.prFormula">FormulaRenderingWorkbook</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd><code>null</code> if externSheetIndex refers to a sheet inside the current workbook</dd>
 </dl>
@@ -598,15 +598,15 @@ implements <a href="../../../../../org/apache/poi/ss/formula/FormulaRenderingWor
 <ul class="blockList">
 <li class="blockList">
 <h4>getExternalSheet</h4>
-<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.ExternalSheet.html" title="class in org.apache.poi.ss.formula">EvaluationWorkbook.ExternalSheet</a>&nbsp;getExternalSheet(java.lang.String&nbsp;firstSheetName,
+<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.ExternalSheet.html" title="class in org.apache.poi.ss.prFormula">EvaluationWorkbook.ExternalSheet</a>&nbsp;getExternalSheet(java.lang.String&nbsp;firstSheetName,
                                                          java.lang.String&nbsp;lastSheetName,
                                                          int&nbsp;externalWorkbookNumber)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#getExternalSheet-java.lang.String-java.lang.String-int-">EvaluationWorkbook</a></code></span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html#getExternalSheet-java.lang.String-java.lang.String-int-">EvaluationWorkbook</a></code></span></div>
 <div class="block">XSSF Only - fetch the external-style sheet details
  <p>Return will have no workbook set if it's actually in our own workbook</p></div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#getExternalSheet-java.lang.String-java.lang.String-int-">getExternalSheet</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.formula">EvaluationWorkbook</a></code></dd>
+<dd><code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html#getExternalSheet-java.lang.String-java.lang.String-int-">getExternalSheet</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.prFormula">EvaluationWorkbook</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -619,11 +619,11 @@ implements <a href="../../../../../org/apache/poi/ss/formula/FormulaRenderingWor
 <pre><a href="../../../../../org/apache/poi/util/NotImplemented.html" title="annotation in org.apache.poi.util">@NotImplemented</a>
 public&nbsp;int&nbsp;getExternalSheetIndex(java.lang.String&nbsp;workbookName,
                                                   java.lang.String&nbsp;sheetName)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html#getExternalSheetIndex-java.lang.String-java.lang.String-">FormulaParsingWorkbook</a></code></span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html#getExternalSheetIndex-java.lang.String-java.lang.String-">FormulaParsingWorkbook</a></code></span></div>
 <div class="block">gets the externSheet index for a sheet from an external workbook</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html#getExternalSheetIndex-java.lang.String-java.lang.String-">getExternalSheetIndex</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.formula">FormulaParsingWorkbook</a></code></dd>
+<dd><code><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html#getExternalSheetIndex-java.lang.String-java.lang.String-">getExternalSheetIndex</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.prFormula">FormulaParsingWorkbook</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>workbookName</code> - e.g. "Budget.xls"</dd>
 <dd><code>sheetName</code> - a name of a sheet in that workbook</dd>
@@ -637,11 +637,11 @@ public&nbsp;int&nbsp;getExternalSheetIndex(java.lang.String&nbsp;workbookName,
 <li class="blockList">
 <h4>getSheetIndex</h4>
 <pre>public&nbsp;int&nbsp;getSheetIndex(java.lang.String&nbsp;sheetName)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#getSheetIndex-java.lang.String-">EvaluationWorkbook</a></code></span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html#getSheetIndex-java.lang.String-">EvaluationWorkbook</a></code></span></div>
 <div class="block">Finds a sheet index by case insensitive name.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#getSheetIndex-java.lang.String-">getSheetIndex</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.formula">EvaluationWorkbook</a></code></dd>
+<dd><code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html#getSheetIndex-java.lang.String-">getSheetIndex</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.prFormula">EvaluationWorkbook</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the index of the sheet matching the specified name.  -1 if not found</dd>
 </dl>
@@ -656,7 +656,7 @@ public&nbsp;int&nbsp;getExternalSheetIndex(java.lang.String&nbsp;workbookName,
 <pre>public&nbsp;java.lang.String&nbsp;getSheetFirstNameByExternSheet(int&nbsp;externSheetIndex)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../org/apache/poi/ss/formula/FormulaRenderingWorkbook.html#getSheetFirstNameByExternSheet-int-">getSheetFirstNameByExternSheet</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/FormulaRenderingWorkbook.html" title="interface in org.apache.poi.ss.formula">FormulaRenderingWorkbook</a></code></dd>
+<dd><code><a href="../../../../../org/apache/poi/ss/prFormula/FormulaRenderingWorkbook.html#getSheetFirstNameByExternSheet-int-">getSheetFirstNameByExternSheet</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/FormulaRenderingWorkbook.html" title="interface in org.apache.poi.ss.prFormula">FormulaRenderingWorkbook</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the name of the (first) sheet referred to by the given external sheet index</dd>
 </dl>
@@ -671,35 +671,35 @@ public&nbsp;int&nbsp;getExternalSheetIndex(java.lang.String&nbsp;workbookName,
 <pre>public&nbsp;java.lang.String&nbsp;getSheetLastNameByExternSheet(int&nbsp;externSheetIndex)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../org/apache/poi/ss/formula/FormulaRenderingWorkbook.html#getSheetLastNameByExternSheet-int-">getSheetLastNameByExternSheet</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/FormulaRenderingWorkbook.html" title="interface in org.apache.poi.ss.formula">FormulaRenderingWorkbook</a></code></dd>
+<dd><code><a href="../../../../../org/apache/poi/ss/prFormula/FormulaRenderingWorkbook.html#getSheetLastNameByExternSheet-int-">getSheetLastNameByExternSheet</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/FormulaRenderingWorkbook.html" title="interface in org.apache.poi.ss.prFormula">FormulaRenderingWorkbook</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the name of the (last) sheet referred to by the given external sheet index</dd>
 </dl>
 </li>
 </ul>
-<a name="getNameText-org.apache.poi.ss.formula.ptg.NamePtg-">
+<a name="getNameText-org.apache.poi.ss.prFormula.ptg.NamePtg-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getNameText</h4>
-<pre>public&nbsp;java.lang.String&nbsp;getNameText(<a href="../../../../../org/apache/poi/ss/formula/ptg/NamePtg.html" title="class in org.apache.poi.ss.formula.ptg">NamePtg</a>&nbsp;namePtg)</pre>
+<pre>public&nbsp;java.lang.String&nbsp;getNameText(<a href="../../../../../org/apache/poi/ss/prFormula/ptg/NamePtg.html" title="class in org.apache.poi.ss.prFormula.ptg">NamePtg</a>&nbsp;namePtg)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../org/apache/poi/ss/formula/FormulaRenderingWorkbook.html#getNameText-org.apache.poi.ss.formula.ptg.NamePtg-">getNameText</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/FormulaRenderingWorkbook.html" title="interface in org.apache.poi.ss.formula">FormulaRenderingWorkbook</a></code></dd>
+<dd><code><a href="../../../../../org/apache/poi/ss/prFormula/FormulaRenderingWorkbook.html#getNameText-org.apache.poi.ss.prFormula.ptg.NamePtg-">getNameText</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/FormulaRenderingWorkbook.html" title="interface in org.apache.poi.ss.prFormula">FormulaRenderingWorkbook</a></code></dd>
 </dl>
 </li>
 </ul>
-<a name="getName-org.apache.poi.ss.formula.ptg.NamePtg-">
+<a name="getName-org.apache.poi.ss.prFormula.ptg.NamePtg-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getName</h4>
-<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/formula/EvaluationName.html" title="interface in org.apache.poi.ss.formula">EvaluationName</a>&nbsp;getName(<a href="../../../../../org/apache/poi/ss/formula/ptg/NamePtg.html" title="class in org.apache.poi.ss.formula.ptg">NamePtg</a>&nbsp;namePtg)</pre>
+<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/prFormula/EvaluationName.html" title="interface in org.apache.poi.ss.prFormula">EvaluationName</a>&nbsp;getName(<a href="../../../../../org/apache/poi/ss/prFormula/ptg/NamePtg.html" title="class in org.apache.poi.ss.prFormula.ptg">NamePtg</a>&nbsp;namePtg)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#getName-org.apache.poi.ss.formula.ptg.NamePtg-">getName</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.formula">EvaluationWorkbook</a></code></dd>
+<dd><code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html#getName-org.apache.poi.ss.prFormula.ptg.NamePtg-">getName</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.prFormula">EvaluationWorkbook</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -710,11 +710,11 @@ public&nbsp;int&nbsp;getExternalSheetIndex(java.lang.String&nbsp;workbookName,
 <li class="blockList">
 <h4>createName</h4>
 <pre>public&nbsp;<a href="../../../../../org/apache/poi/xssf/usermodel/XSSFName.html" title="class in org.apache.poi.xssf.usermodel">XSSFName</a>&nbsp;createName()</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html#createName--">FormulaParsingWorkbook</a></code></span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html#createName--">FormulaParsingWorkbook</a></code></span></div>
 <div class="block">Return the underlying workbook</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html#createName--">createName</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.formula">FormulaParsingWorkbook</a></code></dd>
+<dd><code><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html#createName--">createName</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.prFormula">FormulaParsingWorkbook</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -726,12 +726,12 @@ public&nbsp;int&nbsp;getExternalSheetIndex(java.lang.String&nbsp;workbookName,
 <h4>getTable</h4>
 <pre>public&nbsp;<a href="../../../../../org/apache/poi/xssf/usermodel/XSSFTable.html" title="class in org.apache.poi.xssf.usermodel">XSSFTable</a>&nbsp;getTable(java.lang.String&nbsp;name)</pre>
 <div class="block">Returns the data table with the given name (case insensitive).
- Tables are cached for performance (formula evaluation looks them up by name repeatedly).
+ Tables are cached for performance (prFormula evaluation looks them up by name repeatedly).
  After the first table lookup, adding or removing a table from the document structure will cause trouble.
  This is meant to be used on documents whose structure is essentially static at the point formulas are evaluated.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html#getTable-java.lang.String-">getTable</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.formula">FormulaParsingWorkbook</a></code></dd>
+<dd><code><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html#getTable-java.lang.String-">getTable</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.prFormula">FormulaParsingWorkbook</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - the data table name (case-insensitive)</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -747,10 +747,10 @@ public&nbsp;int&nbsp;getExternalSheetIndex(java.lang.String&nbsp;workbookName,
 <ul class="blockList">
 <li class="blockList">
 <h4>getUDFFinder</h4>
-<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/formula/udf/UDFFinder.html" title="interface in org.apache.poi.ss.formula.udf">UDFFinder</a>&nbsp;getUDFFinder()</pre>
+<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/prFormula/udf/UDFFinder.html" title="interface in org.apache.poi.ss.prFormula.udf">UDFFinder</a>&nbsp;getUDFFinder()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#getUDFFinder--">getUDFFinder</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.formula">EvaluationWorkbook</a></code></dd>
+<dd><code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html#getUDFFinder--">getUDFFinder</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.prFormula">EvaluationWorkbook</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -761,14 +761,14 @@ public&nbsp;int&nbsp;getExternalSheetIndex(java.lang.String&nbsp;workbookName,
 <li class="blockList">
 <h4>getSpreadsheetVersion</h4>
 <pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/SpreadsheetVersion.html" title="enum in org.apache.poi.ss">SpreadsheetVersion</a>&nbsp;getSpreadsheetVersion()</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html#getSpreadsheetVersion--">FormulaParsingWorkbook</a></code></span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html#getSpreadsheetVersion--">FormulaParsingWorkbook</a></code></span></div>
 <div class="block">Returns an enum holding spreadhseet properties specific to an Excel version (
  max column and row numbers, max arguments to a function, etc.)</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#getSpreadsheetVersion--">getSpreadsheetVersion</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.formula">EvaluationWorkbook</a></code></dd>
+<dd><code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html#getSpreadsheetVersion--">getSpreadsheetVersion</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.prFormula">EvaluationWorkbook</a></code></dd>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html#getSpreadsheetVersion--">getSpreadsheetVersion</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.formula">FormulaParsingWorkbook</a></code></dd>
+<dd><code><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html#getSpreadsheetVersion--">getSpreadsheetVersion</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.prFormula">FormulaParsingWorkbook</a></code></dd>
 </dl>
 </li>
 </ul>

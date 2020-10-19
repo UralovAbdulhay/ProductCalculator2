@@ -288,7 +288,7 @@ document.write("Last Published: " + document.lastModified);
 <h2 class="boxed">Introduction</h2>
 <div class="section">
 <p>
-                This document describes the current state of formula support in POI. 
+                This document describes the current state of prFormula support in POI.
                 The information in this document currently applies to the 3.13 version of POI. 
                 Since this area is a work in progress, this document will be updated with new 
                 features as and when they are added. 
@@ -301,8 +301,8 @@ document.write("Last Published: " + document.lastModified);
 <p>
                 In org.apache.poi.ss.usermodel.Cell
                 <strong> setCellFormula("formulaString") </strong> is used to add a 
-                formula to a sheet, and <strong> getCellFormula() </strong> is used to retrieve 
-                the string representation of a formula. 
+                prFormula to a sheet, and <strong> getCellFormula() </strong> is used to retrieve
+                the string representation of a prFormula.
             </p>
 <p>
                 We aim to support the complete excel grammar for formulas. Thus, the string that 
@@ -358,15 +358,15 @@ document.write("Last Published: " + document.lastModified);
 <a name="Supported+Functions"></a>
 <h2 class="boxed">Supported Functions</h2>
 <div class="section">
-<p>To get the list of formula functions that POI supports, you need to
+<p>To get the list of prFormula functions that POI supports, you need to
                call some code!</p>
 <p>The methods you need are available on 
-               <a href="../../apidocs/dev/org/apache/poi/ss/formula/eval/FunctionEval.html">org.apache.poi.ss.formula.eval.FunctionEval</a>.
+               <a href="../../apidocs/dev/org/apache/poi/ss/prFormula/eval/FunctionEval.html">org.apache.poi.ss.prFormula.eval.FunctionEval</a>.
                To find which functions your copy of Apache POI supports, use 
-               <a href="../../apidocs/dev/org/apache/poi/ss/formula/eval/FunctionEval.html#getSupportedFunctionNames()">getSupportedFunctionNames()</a>
+               <a href="../../apidocs/dev/org/apache/poi/ss/prFormula/eval/FunctionEval.html#getSupportedFunctionNames()">getSupportedFunctionNames()</a>
                to get a list of the implemented function names. For the list of functions that
                POI knows the name of, but doesn't currently implement, use
-               <a href="../../apidocs/dev/org/apache/poi/ss/formula/eval/FunctionEval.html#getNotSupportedFunctionNames()">getNotSupportedFunctionNames()</a>
+               <a href="../../apidocs/dev/org/apache/poi/ss/prFormula/eval/FunctionEval.html#getNotSupportedFunctionNames()">getNotSupportedFunctionNames()</a>
             
 </p>
 </div>
@@ -382,11 +382,11 @@ document.write("Last Published: " + document.lastModified);
             </p>
 <p>
                 The tokens used by excel are modeled as individual *Ptg classes in the <strong>
-                org.apache.poi.hssf.record.formula</strong> package. 
+                org.apache.poi.hssf.record.prFormula</strong> package.
             </p>
 <p>
-                The task of parsing a formula string into an array of RPN ordered tokens is done by the <strong>
-                org.apache.poi.ss.formula.FormulaParser</strong> class. This class implements a hand 
+                The task of parsing a prFormula string into an array of RPN ordered tokens is done by the <strong>
+                org.apache.poi.ss.prFormula.FormulaParser</strong> class. This class implements a hand
                 written recursive descent parser. 
             </p>
 <p>
@@ -396,7 +396,7 @@ document.write("Last Published: " + document.lastModified);
                 are not sure if we have covered all bases (since there is no documentation for this area.)
                 We would therefore like you to report any
                 occurrence of #VALUE! in a cell upon opening a POI generated workbook in excel. (Check that
-                typing the formula into Excel directly gives a valid result.)
+                typing the prFormula into Excel directly gives a valid result.)
             </p>
 <p>Check out the <a href="../../apidocs/dev/">javadocs </a> for details.
             </p>
@@ -426,7 +426,7 @@ document.write("Last Published: " + document.lastModified);
 </div>
 <div id="feedback">
         Send feedback about the website to:
-    <a id="feedbackto" href="mailto:dev@poi.apache.org?subject=Feedback%C2%A0components/spreadsheet/formula.html">dev@poi.apache.org</a>
+    <a id="feedbackto" href="mailto:dev@poi.apache.org?subject=Feedback%C2%A0components/spreadsheet/prFormula.html">dev@poi.apache.org</a>
 </div>
 <!--+
     |end bottomstrip

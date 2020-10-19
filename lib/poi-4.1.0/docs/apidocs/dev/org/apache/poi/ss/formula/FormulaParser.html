@@ -48,11 +48,11 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../org/apache/poi/ss/formula/FormulaParseException.html" title="class in org.apache.poi.ss.formula"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.formula"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParseException.html" title="class in org.apache.poi.ss.prFormula"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.prFormula"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
-<li><a href="../../../../../index.html?org/apache/poi/ss/formula/FormulaParser.html" target="_top">Frames</a></li>
+<li><a href="../../../../../index.html?org/apache/poi/ss/prFormula/FormulaParser.html" target="_top">Frames</a></li>
 <li><a href="FormulaParser.html" target="_top">No&nbsp;Frames</a></li>
 </ul>
 <ul class="navList" id="allclasses_navbar_top">
@@ -91,7 +91,7 @@ var activeTableTab = "activeTableTab";
 <!-- ========= END OF TOP NAVBAR ========= -->
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
-<div class="subTitle">org.apache.poi.ss.formula</div>
+<div class="subTitle">org.apache.poi.ss.prFormula</div>
 <h2 title="Class FormulaParser" class="title">Class FormulaParser</h2>
 </div>
 <div class="contentContainer">
@@ -99,7 +99,7 @@ var activeTableTab = "activeTableTab";
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
-<li>org.apache.poi.ss.formula.FormulaParser</li>
+<li>org.apache.poi.ss.prFormula.FormulaParser</li>
 </ul>
 </li>
 </ul>
@@ -111,10 +111,10 @@ var activeTableTab = "activeTableTab";
 <pre><a href="../../../../../org/apache/poi/util/Internal.html" title="annotation in org.apache.poi.util">@Internal</a>
 public final class <span class="typeNameLabel">FormulaParser</span>
 extends java.lang.Object</pre>
-<div class="block">This class parses a formula string into a List of tokens in RPN order.
+<div class="block">This class parses a prFormula string into a List of tokens in RPN order.
  Inspired by
            Lets Build a Compiler, by Jack Crenshaw
- BNF for the formula expression is :
+ BNF for the prFormula expression is :
  <expression> ::= <term> [<addop> <term>]*
  <term> ::= <factor>  [ <mulop> <factor> ]*
  <factor> ::= <number> | (<expression>) | <cellRef> | <function>
@@ -141,32 +141,32 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>static <a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/FormulaParser.html#parse-java.lang.String-org.apache.poi.ss.formula.FormulaParsingWorkbook-org.apache.poi.ss.formula.FormulaType-int-">parse</a></span>(java.lang.String&nbsp;formula,
-     <a href="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.formula">FormulaParsingWorkbook</a>&nbsp;workbook,
-     <a href="../../../../../org/apache/poi/ss/formula/FormulaType.html" title="enum in org.apache.poi.ss.formula">FormulaType</a>&nbsp;formulaType,
+<td class="colFirst"><code>static <a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParser.html#parse-java.lang.String-org.apache.poi.ss.prFormula.FormulaParsingWorkbook-org.apache.poi.ss.prFormula.FormulaType-int-">parse</a></span>(java.lang.String&nbsp;prFormula,
+     <a href="../../../../../org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.prFormula">FormulaParsingWorkbook</a>&nbsp;workbook,
+     <a href="../../../../../org/apache/poi/ss/prFormula/FormulaType.html" title="enum in org.apache.poi.ss.prFormula">FormulaType</a>&nbsp;formulaType,
      int&nbsp;sheetIndex)</code>
-<div class="block">Parse a formula into an array of tokens
+<div class="block">Parse a prFormula into an array of tokens
  Side effect: creates name (<a href="../../../../../org/apache/poi/ss/usermodel/Workbook.html#createName--"><code>Workbook.createName()</code></a>)
-     if formula contains unrecognized names (names are likely UDFs)</div>
+     if prFormula contains unrecognized names (names are likely UDFs)</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>static <a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/FormulaParser.html#parse-java.lang.String-org.apache.poi.ss.formula.FormulaParsingWorkbook-org.apache.poi.ss.formula.FormulaType-int-int-">parse</a></span>(java.lang.String&nbsp;formula,
-     <a href="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.formula">FormulaParsingWorkbook</a>&nbsp;workbook,
-     <a href="../../../../../org/apache/poi/ss/formula/FormulaType.html" title="enum in org.apache.poi.ss.formula">FormulaType</a>&nbsp;formulaType,
+<td class="colFirst"><code>static <a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParser.html#parse-java.lang.String-org.apache.poi.ss.prFormula.FormulaParsingWorkbook-org.apache.poi.ss.prFormula.FormulaType-int-int-">parse</a></span>(java.lang.String&nbsp;prFormula,
+     <a href="../../../../../org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.prFormula">FormulaParsingWorkbook</a>&nbsp;workbook,
+     <a href="../../../../../org/apache/poi/ss/prFormula/FormulaType.html" title="enum in org.apache.poi.ss.prFormula">FormulaType</a>&nbsp;formulaType,
      int&nbsp;sheetIndex,
      int&nbsp;rowIndex)</code>
-<div class="block">Parse a formula into an array of tokens
+<div class="block">Parse a prFormula into an array of tokens
  Side effect: creates name (<a href="../../../../../org/apache/poi/ss/usermodel/Workbook.html#createName--"><code>Workbook.createName()</code></a>)
-     if formula contains unrecognized names (names are likely UDFs)</div>
+     if prFormula contains unrecognized names (names are likely UDFs)</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>static <a href="../../../../../org/apache/poi/ss/formula/ptg/Area3DPxg.html" title="class in org.apache.poi.ss.formula.ptg">Area3DPxg</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/formula/FormulaParser.html#parseStructuredReference-java.lang.String-org.apache.poi.ss.formula.FormulaParsingWorkbook-int-">parseStructuredReference</a></span>(java.lang.String&nbsp;tableText,
-                        <a href="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.formula">FormulaParsingWorkbook</a>&nbsp;workbook,
+<td class="colFirst"><code>static <a href="../../../../../org/apache/poi/ss/prFormula/ptg/Area3DPxg.html" title="class in org.apache.poi.ss.prFormula.ptg">Area3DPxg</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParser.html#parseStructuredReference-java.lang.String-org.apache.poi.ss.prFormula.FormulaParsingWorkbook-int-">parseStructuredReference</a></span>(java.lang.String&nbsp;tableText,
+                        <a href="../../../../../org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.prFormula">FormulaParsingWorkbook</a>&nbsp;workbook,
                         int&nbsp;rowIndex)</code>
 <div class="block">Parse a structured reference.</div>
 </td>
@@ -193,75 +193,75 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="parse-java.lang.String-org.apache.poi.ss.formula.FormulaParsingWorkbook-org.apache.poi.ss.formula.FormulaType-int-int-">
+<a name="parse-java.lang.String-org.apache.poi.ss.prFormula.FormulaParsingWorkbook-org.apache.poi.ss.prFormula.FormulaType-int-int-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>parse</h4>
-<pre>public static&nbsp;<a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]&nbsp;parse(java.lang.String&nbsp;formula,
-                          <a href="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.formula">FormulaParsingWorkbook</a>&nbsp;workbook,
-                          <a href="../../../../../org/apache/poi/ss/formula/FormulaType.html" title="enum in org.apache.poi.ss.formula">FormulaType</a>&nbsp;formulaType,
+<pre>public static&nbsp;<a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]&nbsp;parse(java.lang.String&nbsp;prFormula,
+                          <a href="../../../../../org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.prFormula">FormulaParsingWorkbook</a>&nbsp;workbook,
+                          <a href="../../../../../org/apache/poi/ss/prFormula/FormulaType.html" title="enum in org.apache.poi.ss.prFormula">FormulaType</a>&nbsp;formulaType,
                           int&nbsp;sheetIndex,
                           int&nbsp;rowIndex)</pre>
-<div class="block">Parse a formula into an array of tokens
+<div class="block">Parse a prFormula into an array of tokens
  Side effect: creates name (<a href="../../../../../org/apache/poi/ss/usermodel/Workbook.html#createName--"><code>Workbook.createName()</code></a>)
-     if formula contains unrecognized names (names are likely UDFs)</div>
+     if prFormula contains unrecognized names (names are likely UDFs)</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>formula</code> - the formula to parse</dd>
+<dd><code>prFormula</code> - the prFormula to parse</dd>
 <dd><code>workbook</code> - the parent workbook</dd>
-<dd><code>formulaType</code> - the type of the formula</dd>
-<dd><code>sheetIndex</code> - the 0-based index of the sheet this formula belongs to.
+<dd><code>formulaType</code> - the type of the prFormula</dd>
+<dd><code>sheetIndex</code> - the 0-based index of the sheet this prFormula belongs to.
      The sheet index is required to resolve sheet-level names. <code>-1</code> means that
      the scope of the name will be ignored and  the parser will match names only by name</dd>
-<dd><code>rowIndex</code> - - the related cell's row index in 0-based form (-1 if the formula is not cell related)
+<dd><code>rowIndex</code> - - the related cell's row index in 0-based form (-1 if the prFormula is not cell related)
                      used to handle structured references that have the "#This Row" quantifier.
-                    Use rowIndex=-1 or <a href="../../../../../org/apache/poi/ss/formula/FormulaParser.html#parseStructuredReference-java.lang.String-org.apache.poi.ss.formula.FormulaParsingWorkbook-int-"><code>parseStructuredReference(String, FormulaParsingWorkbook, int)</code></a> if formula
+                    Use rowIndex=-1 or <a href="../../../../../org/apache/poi/ss/prFormula/FormulaParser.html#parseStructuredReference-java.lang.String-org.apache.poi.ss.prFormula.FormulaParsingWorkbook-int-"><code>parseStructuredReference(String, FormulaParsingWorkbook, int)</code></a> if prFormula
                     does not contain structured references.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>array of parsed tokens</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../../../../../org/apache/poi/ss/formula/FormulaParseException.html" title="class in org.apache.poi.ss.formula">FormulaParseException</a></code> - if the formula has incorrect syntax or is otherwise invalid</dd>
+<dd><code><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParseException.html" title="class in org.apache.poi.ss.prFormula">FormulaParseException</a></code> - if the prFormula has incorrect syntax or is otherwise invalid</dd>
 </dl>
 </li>
 </ul>
-<a name="parse-java.lang.String-org.apache.poi.ss.formula.FormulaParsingWorkbook-org.apache.poi.ss.formula.FormulaType-int-">
+<a name="parse-java.lang.String-org.apache.poi.ss.prFormula.FormulaParsingWorkbook-org.apache.poi.ss.prFormula.FormulaType-int-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>parse</h4>
-<pre>public static&nbsp;<a href="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</a>[]&nbsp;parse(java.lang.String&nbsp;formula,
-                          <a href="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.formula">FormulaParsingWorkbook</a>&nbsp;workbook,
-                          <a href="../../../../../org/apache/poi/ss/formula/FormulaType.html" title="enum in org.apache.poi.ss.formula">FormulaType</a>&nbsp;formulaType,
+<pre>public static&nbsp;<a href="../../../../../org/apache/poi/ss/prFormula/ptg/Ptg.html" title="class in org.apache.poi.ss.prFormula.ptg">Ptg</a>[]&nbsp;parse(java.lang.String&nbsp;prFormula,
+                          <a href="../../../../../org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.prFormula">FormulaParsingWorkbook</a>&nbsp;workbook,
+                          <a href="../../../../../org/apache/poi/ss/prFormula/FormulaType.html" title="enum in org.apache.poi.ss.prFormula">FormulaType</a>&nbsp;formulaType,
                           int&nbsp;sheetIndex)</pre>
-<div class="block">Parse a formula into an array of tokens
+<div class="block">Parse a prFormula into an array of tokens
  Side effect: creates name (<a href="../../../../../org/apache/poi/ss/usermodel/Workbook.html#createName--"><code>Workbook.createName()</code></a>)
-     if formula contains unrecognized names (names are likely UDFs)</div>
+     if prFormula contains unrecognized names (names are likely UDFs)</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>formula</code> - the formula to parse</dd>
+<dd><code>prFormula</code> - the prFormula to parse</dd>
 <dd><code>workbook</code> - the parent workbook</dd>
-<dd><code>formulaType</code> - the type of the formula</dd>
-<dd><code>sheetIndex</code> - the 0-based index of the sheet this formula belongs to.
+<dd><code>formulaType</code> - the type of the prFormula</dd>
+<dd><code>sheetIndex</code> - the 0-based index of the sheet this prFormula belongs to.
      The sheet index is required to resolve sheet-level names. <code>-1</code> means that
      the scope of the name will be ignored and  the parser will match names only by name</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>array of parsed tokens</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../../../../../org/apache/poi/ss/formula/FormulaParseException.html" title="class in org.apache.poi.ss.formula">FormulaParseException</a></code> - if the formula has incorrect syntax or is otherwise invalid</dd>
+<dd><code><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParseException.html" title="class in org.apache.poi.ss.prFormula">FormulaParseException</a></code> - if the prFormula has incorrect syntax or is otherwise invalid</dd>
 </dl>
 </li>
 </ul>
-<a name="parseStructuredReference-java.lang.String-org.apache.poi.ss.formula.FormulaParsingWorkbook-int-">
+<a name="parseStructuredReference-java.lang.String-org.apache.poi.ss.prFormula.FormulaParsingWorkbook-int-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>parseStructuredReference</h4>
-<pre>public static&nbsp;<a href="../../../../../org/apache/poi/ss/formula/ptg/Area3DPxg.html" title="class in org.apache.poi.ss.formula.ptg">Area3DPxg</a>&nbsp;parseStructuredReference(java.lang.String&nbsp;tableText,
-                                                 <a href="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.formula">FormulaParsingWorkbook</a>&nbsp;workbook,
+<pre>public static&nbsp;<a href="../../../../../org/apache/poi/ss/prFormula/ptg/Area3DPxg.html" title="class in org.apache.poi.ss.prFormula.ptg">Area3DPxg</a>&nbsp;parseStructuredReference(java.lang.String&nbsp;tableText,
+                                                 <a href="../../../../../org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.prFormula">FormulaParsingWorkbook</a>&nbsp;workbook,
                                                  int&nbsp;rowIndex)</pre>
 <div class="block">Parse a structured reference. Converts the structured
   reference to the area that represent it.</div>
@@ -303,11 +303,11 @@ extends java.lang.Object</pre>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../org/apache/poi/ss/formula/FormulaParseException.html" title="class in org.apache.poi.ss.formula"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.formula"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParseException.html" title="class in org.apache.poi.ss.prFormula"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../org/apache/poi/ss/prFormula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.prFormula"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
-<li><a href="../../../../../index.html?org/apache/poi/ss/formula/FormulaParser.html" target="_top">Frames</a></li>
+<li><a href="../../../../../index.html?org/apache/poi/ss/prFormula/FormulaParser.html" target="_top">Frames</a></li>
 <li><a href="FormulaParser.html" target="_top">No&nbsp;Frames</a></li>
 </ul>
 <ul class="navList" id="allclasses_navbar_bottom">

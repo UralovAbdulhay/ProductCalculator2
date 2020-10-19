@@ -772,7 +772,7 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/Sheet.html" title
 <tr id="i84" class="altColor">
 <td class="colFirst"><code>org.openxmlformats.schemas.spreadsheetml.x2006.main.CTCellFormula</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/XSSFSheet.html#getSharedFormula-int-">getSharedFormula</a></span>(int&nbsp;sid)</code>
-<div class="block">Return a master shared formula by index</div>
+<div class="block">Return a master shared prFormula by index</div>
 </td>
 </tr>
 <tr id="i85" class="rowColor">
@@ -1081,7 +1081,7 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/Sheet.html" title
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/XSSFSheet.html#onDeleteFormula-org.apache.poi.xssf.usermodel.XSSFCell-org.apache.poi.xssf.usermodel.BaseXSSFEvaluationWorkbook-">onDeleteFormula</a></span>(<a href="../../../../../org/apache/poi/xssf/usermodel/XSSFCell.html" title="class in org.apache.poi.xssf.usermodel">XSSFCell</a>&nbsp;cell,
                <a href="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html" title="class in org.apache.poi.xssf.usermodel">BaseXSSFEvaluationWorkbook</a>&nbsp;evalWb)</code>
-<div class="block">when a cell with a 'master' shared formula is removed,  the next cell in the range becomes the master</div>
+<div class="block">when a cell with a 'master' shared prFormula is removed,  the next cell in the range becomes the master</div>
 </td>
 </tr>
 <tr id="i141" class="rowColor">
@@ -1185,9 +1185,9 @@ implements <a href="../../../../../org/apache/poi/ss/usermodel/Sheet.html" title
 </tr>
 <tr id="i157" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/apache/poi/ss/usermodel/CellRange.html" title="interface in org.apache.poi.ss.usermodel">CellRange</a>&lt;<a href="../../../../../org/apache/poi/xssf/usermodel/XSSFCell.html" title="class in org.apache.poi.xssf.usermodel">XSSFCell</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/XSSFSheet.html#setArrayFormula-java.lang.String-org.apache.poi.ss.util.CellRangeAddress-">setArrayFormula</a></span>(java.lang.String&nbsp;formula,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../org/apache/poi/xssf/usermodel/XSSFSheet.html#setArrayFormula-java.lang.String-org.apache.poi.ss.util.CellRangeAddress-">setArrayFormula</a></span>(java.lang.String&nbsp;prFormula,
                <a href="../../../../../org/apache/poi/ss/util/CellRangeAddress.html" title="class in org.apache.poi.ss.util">CellRangeAddress</a>&nbsp;range)</code>
-<div class="block">Sets array formula to specified region for result.</div>
+<div class="block">Sets array prFormula to specified region for result.</div>
 </td>
 </tr>
 <tr id="i158" class="altColor">
@@ -1697,7 +1697,7 @@ public&nbsp;org.openxmlformats.schemas.spreadsheetml.x2006.main.CTWorksheet&nbsp
 <dd>index of this region</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.lang.IllegalArgumentException</code> - if region contains fewer than 2 cells</dd>
-<dd><code>java.lang.IllegalStateException</code> - if region intersects with a multi-cell array formula</dd>
+<dd><code>java.lang.IllegalStateException</code> - if region intersects with a multi-cell array prFormula</dd>
 <dd><code>java.lang.IllegalStateException</code> - if region intersects with an existing region on this sheet</dd>
 </dl>
 </li>
@@ -1711,8 +1711,8 @@ public&nbsp;org.openxmlformats.schemas.spreadsheetml.x2006.main.CTWorksheet&nbsp
 <pre>public&nbsp;int&nbsp;addMergedRegionUnsafe(<a href="../../../../../org/apache/poi/ss/util/CellRangeAddress.html" title="class in org.apache.poi.ss.util">CellRangeAddress</a>&nbsp;region)</pre>
 <div class="block">Adds a merged region of cells (hence those cells form one).
  Skips validation. It is possible to create overlapping merged regions
- or create a merged region that intersects a multi-cell array formula
- with this formula, which may result in a corrupt workbook.
+ or create a merged region that intersects a multi-cell array prFormula
+ with this prFormula, which may result in a corrupt workbook.
 
  To check for merged regions overlapping array formulas or other merged regions
  after addMergedRegionUnsafe has been called, call <a href="../../../../../org/apache/poi/xssf/usermodel/XSSFSheet.html#validateMergedRegions--"><code>validateMergedRegions()</code></a>, which runs in O(n^2) time.</div>
@@ -1741,7 +1741,7 @@ public&nbsp;org.openxmlformats.schemas.spreadsheetml.x2006.main.CTWorksheet&nbsp
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../org/apache/poi/ss/usermodel/Sheet.html#validateMergedRegions--">validateMergedRegions</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/usermodel/Sheet.html" title="interface in org.apache.poi.ss.usermodel">Sheet</a></code></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.IllegalStateException</code> - if region intersects with a multi-cell array formula</dd>
+<dd><code>java.lang.IllegalStateException</code> - if region intersects with a multi-cell array prFormula</dd>
 <dd><code>java.lang.IllegalStateException</code> - if at least one region intersects with another merged region in this sheet</dd>
 </dl>
 </li>
@@ -3260,7 +3260,7 @@ public&nbsp;org.openxmlformats.schemas.spreadsheetml.x2006.main.CTWorksheet&nbsp
  when the workbook is opened.
 
   <p>
-  Calculating the formula values with <a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html" title="interface in org.apache.poi.ss.usermodel"><code>FormulaEvaluator</code></a> is the
+  Calculating the prFormula values with <a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html" title="interface in org.apache.poi.ss.usermodel"><code>FormulaEvaluator</code></a> is the
   recommended solution, but this may be used for certain cases where
   evaluation in POI is not possible.
   </p>
@@ -3453,7 +3453,7 @@ public&nbsp;org.openxmlformats.schemas.spreadsheetml.x2006.main.CTWorksheet&nbsp
  </p>
  <p>
  To compute the actual number of visible characters,
-  Excel uses the following formula (Section 3.3.1.12 of the OOXML spec):
+  Excel uses the following prFormula (Section 3.3.1.12 of the OOXML spec):
  </p>
  <code>
      width = Truncate([{Number of Visible Characters} *
@@ -4029,12 +4029,12 @@ public&nbsp;void&nbsp;removeHyperlink(int&nbsp;row,
 <h4>getSharedFormula</h4>
 <pre><a href="../../../../../org/apache/poi/util/Internal.html" title="annotation in org.apache.poi.util">@Internal</a>
 public&nbsp;org.openxmlformats.schemas.spreadsheetml.x2006.main.CTCellFormula&nbsp;getSharedFormula(int&nbsp;sid)</pre>
-<div class="block">Return a master shared formula by index</div>
+<div class="block">Return a master shared prFormula by index</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>sid</code> - shared group index</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>a CTCellFormula bean holding shared formula or <code>null</code> if not found</dd>
+<dd>a CTCellFormula bean holding shared prFormula or <code>null</code> if not found</dd>
 </dl>
 </li>
 </ul>
@@ -4498,10 +4498,10 @@ public&nbsp;org.openxmlformats.schemas.spreadsheetml.x2006.main.CTCellFormula&nb
 <ul class="blockList">
 <li class="blockList">
 <h4>setArrayFormula</h4>
-<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/usermodel/CellRange.html" title="interface in org.apache.poi.ss.usermodel">CellRange</a>&lt;<a href="../../../../../org/apache/poi/xssf/usermodel/XSSFCell.html" title="class in org.apache.poi.xssf.usermodel">XSSFCell</a>&gt;&nbsp;setArrayFormula(java.lang.String&nbsp;formula,
+<pre>public&nbsp;<a href="../../../../../org/apache/poi/ss/usermodel/CellRange.html" title="interface in org.apache.poi.ss.usermodel">CellRange</a>&lt;<a href="../../../../../org/apache/poi/xssf/usermodel/XSSFCell.html" title="class in org.apache.poi.xssf.usermodel">XSSFCell</a>&gt;&nbsp;setArrayFormula(java.lang.String&nbsp;prFormula,
                                            <a href="../../../../../org/apache/poi/ss/util/CellRangeAddress.html" title="class in org.apache.poi.ss.util">CellRangeAddress</a>&nbsp;range)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../org/apache/poi/ss/usermodel/Sheet.html#setArrayFormula-java.lang.String-org.apache.poi.ss.util.CellRangeAddress-">Sheet</a></code></span></div>
-<div class="block">Sets array formula to specified region for result.
+<div class="block">Sets array prFormula to specified region for result.
  <p>
  Note if there are shared formulas this will invalidate any 
  <a href="../../../../../org/apache/poi/ss/usermodel/FormulaEvaluator.html" title="interface in org.apache.poi.ss.usermodel"><code>FormulaEvaluator</code></a> instances based on this workbook
@@ -4510,8 +4510,8 @@ public&nbsp;org.openxmlformats.schemas.spreadsheetml.x2006.main.CTCellFormula&nb
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../org/apache/poi/ss/usermodel/Sheet.html#setArrayFormula-java.lang.String-org.apache.poi.ss.util.CellRangeAddress-">setArrayFormula</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../org/apache/poi/ss/usermodel/Sheet.html" title="interface in org.apache.poi.ss.usermodel">Sheet</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>formula</code> - text representation of the formula</dd>
-<dd><code>range</code> - Region of array formula for result.</dd>
+<dd><code>prFormula</code> - text representation of the prFormula</dd>
+<dd><code>range</code> - Region of array prFormula for result.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the <a href="../../../../../org/apache/poi/ss/usermodel/CellRange.html" title="interface in org.apache.poi.ss.usermodel"><code>CellRange</code></a> of cells affected by this change</dd>
 </dl>
@@ -5032,7 +5032,7 @@ public&nbsp;java.util.List&lt;<a href="../../../../../org/apache/poi/xssf/usermo
 <h4>onDeleteFormula</h4>
 <pre>protected&nbsp;void&nbsp;onDeleteFormula(<a href="../../../../../org/apache/poi/xssf/usermodel/XSSFCell.html" title="class in org.apache.poi.xssf.usermodel">XSSFCell</a>&nbsp;cell,
                                <a href="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html" title="class in org.apache.poi.xssf.usermodel">BaseXSSFEvaluationWorkbook</a>&nbsp;evalWb)</pre>
-<div class="block">when a cell with a 'master' shared formula is removed,  the next cell in the range becomes the master</div>
+<div class="block">when a cell with a 'master' shared prFormula is removed,  the next cell in the range becomes the master</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>cell</code> - The cell that is removed</dd>

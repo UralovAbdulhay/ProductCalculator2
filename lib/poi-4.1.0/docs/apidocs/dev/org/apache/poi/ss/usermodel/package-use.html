@@ -139,17 +139,17 @@ HSSF concepts.</div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><a href="#org.apache.poi.ss.formula">org.apache.poi.ss.formula</a></td>
+<td class="colFirst"><a href="#org.apache.poi.ss.prFormula">org.apache.poi.ss.prFormula</a></td>
 <td class="colLast">
 <div class="block">This package contains common internal POI code for manipulating formulas.</div>
 </td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><a href="#org.apache.poi.ss.formula.eval.forked">org.apache.poi.ss.formula.eval.forked</a></td>
+<td class="colFirst"><a href="#org.apache.poi.ss.prFormula.eval.forked">org.apache.poi.ss.prFormula.eval.forked</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><a href="#org.apache.poi.ss.formula.functions">org.apache.poi.ss.formula.functions</a></td>
+<td class="colFirst"><a href="#org.apache.poi.ss.prFormula.functions">org.apache.poi.ss.prFormula.functions</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
@@ -301,7 +301,7 @@ for streaming/read-only processing of xlsb files.</div>
 <tbody>
 <tr class="altColor">
 <td class="colOne"><a href="../../../../../org/apache/poi/ss/usermodel/class-use/FormulaError.html#org.apache.poi.hssf.record">FormulaError</a>
-<div class="block">Enumerates error values in SpreadsheetML formula calculations.</div>
+<div class="block">Enumerates error values in SpreadsheetML prFormula calculations.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -321,7 +321,7 @@ for streaming/read-only processing of xlsb files.</div>
 <tbody>
 <tr class="altColor">
 <td class="colOne"><a href="../../../../../org/apache/poi/ss/usermodel/class-use/FormulaError.html#org.apache.poi.hssf.record.aggregates">FormulaError</a>
-<div class="block">Enumerates error values in SpreadsheetML formula calculations.</div>
+<div class="block">Enumerates error values in SpreadsheetML prFormula calculations.</div>
 </td>
 </tr>
 </tbody>
@@ -534,12 +534,12 @@ for streaming/read-only processing of xlsb files.</div>
 </tr>
 <tr class="altColor">
 <td class="colOne"><a href="../../../../../org/apache/poi/ss/usermodel/class-use/FormulaError.html#org.apache.poi.hssf.usermodel">FormulaError</a>
-<div class="block">Enumerates error values in SpreadsheetML formula calculations.</div>
+<div class="block">Enumerates error values in SpreadsheetML prFormula calculations.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colOne"><a href="../../../../../org/apache/poi/ss/usermodel/class-use/FormulaEvaluator.html#org.apache.poi.hssf.usermodel">FormulaEvaluator</a>
-<div class="block">Evaluates formula cells.</div>
+<div class="block">Evaluates prFormula cells.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -758,113 +758,113 @@ for streaming/read-only processing of xlsb files.</div>
 </tbody>
 </table>
 </li>
-<li class="blockList"><a name="org.apache.poi.ss.formula">
+<li class="blockList"><a name="org.apache.poi.ss.prFormula">
 <!--   -->
 </a>
 <table class="useSummary" border="0" cellpadding="3" cellspacing="0" summary="Use table, listing classes, and an explanation">
-<caption><span>Classes in <a href="../../../../../org/apache/poi/ss/usermodel/package-summary.html">org.apache.poi.ss.usermodel</a> used by <a href="../../../../../org/apache/poi/ss/formula/package-summary.html">org.apache.poi.ss.formula</a></span><span class="tabEnd">&nbsp;</span></caption>
+<caption><span>Classes in <a href="../../../../../org/apache/poi/ss/usermodel/package-summary.html">org.apache.poi.ss.usermodel</a> used by <a href="../../../../../org/apache/poi/ss/prFormula/package-summary.html">org.apache.poi.ss.prFormula</a></span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
 <th class="colOne" scope="col">Class and Description</th>
 </tr>
 <tbody>
 <tr class="altColor">
-<td class="colOne"><a href="../../../../../org/apache/poi/ss/usermodel/class-use/Cell.html#org.apache.poi.ss.formula">Cell</a>
+<td class="colOne"><a href="../../../../../org/apache/poi/ss/usermodel/class-use/Cell.html#org.apache.poi.ss.prFormula">Cell</a>
 <div class="block">High level representation of a cell in a row of a spreadsheet.</div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colOne"><a href="../../../../../org/apache/poi/ss/usermodel/class-use/CellType.html#org.apache.poi.ss.formula">CellType</a>&nbsp;</td>
+<td class="colOne"><a href="../../../../../org/apache/poi/ss/usermodel/class-use/CellType.html#org.apache.poi.ss.prFormula">CellType</a>&nbsp;</td>
 </tr>
 <tr class="altColor">
-<td class="colOne"><a href="../../../../../org/apache/poi/ss/usermodel/class-use/CellValue.html#org.apache.poi.ss.formula">CellValue</a>
+<td class="colOne"><a href="../../../../../org/apache/poi/ss/usermodel/class-use/CellValue.html#org.apache.poi.ss.prFormula">CellValue</a>
 <div class="block">Mimics the 'data view' of a cell.</div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colOne"><a href="../../../../../org/apache/poi/ss/usermodel/class-use/ConditionalFormatting.html#org.apache.poi.ss.formula">ConditionalFormatting</a>
+<td class="colOne"><a href="../../../../../org/apache/poi/ss/usermodel/class-use/ConditionalFormatting.html#org.apache.poi.ss.prFormula">ConditionalFormatting</a>
 <div class="block">The ConditionalFormatting class encapsulates all settings of Conditional Formatting.</div>
 </td>
 </tr>
 <tr class="altColor">
-<td class="colOne"><a href="../../../../../org/apache/poi/ss/usermodel/class-use/ConditionalFormattingRule.html#org.apache.poi.ss.formula">ConditionalFormattingRule</a>
+<td class="colOne"><a href="../../../../../org/apache/poi/ss/usermodel/class-use/ConditionalFormattingRule.html#org.apache.poi.ss.prFormula">ConditionalFormattingRule</a>
 <div class="block">Represents a description of a conditional formatting rule</div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colOne"><a href="../../../../../org/apache/poi/ss/usermodel/class-use/ConditionType.html#org.apache.poi.ss.formula">ConditionType</a>
+<td class="colOne"><a href="../../../../../org/apache/poi/ss/usermodel/class-use/ConditionType.html#org.apache.poi.ss.prFormula">ConditionType</a>
 <div class="block">Represents a type of a conditional formatting rule</div>
 </td>
 </tr>
 <tr class="altColor">
-<td class="colOne"><a href="../../../../../org/apache/poi/ss/usermodel/class-use/DataValidation.html#org.apache.poi.ss.formula">DataValidation</a>&nbsp;</td>
+<td class="colOne"><a href="../../../../../org/apache/poi/ss/usermodel/class-use/DataValidation.html#org.apache.poi.ss.prFormula">DataValidation</a>&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colOne"><a href="../../../../../org/apache/poi/ss/usermodel/class-use/ExcelNumberFormat.html#org.apache.poi.ss.formula">ExcelNumberFormat</a>
+<td class="colOne"><a href="../../../../../org/apache/poi/ss/usermodel/class-use/ExcelNumberFormat.html#org.apache.poi.ss.prFormula">ExcelNumberFormat</a>
 <div class="block">Object to hold a number format index and string, for various formatting evaluations</div>
 </td>
 </tr>
 <tr class="altColor">
-<td class="colOne"><a href="../../../../../org/apache/poi/ss/usermodel/class-use/FormulaEvaluator.html#org.apache.poi.ss.formula">FormulaEvaluator</a>
-<div class="block">Evaluates formula cells.</div>
+<td class="colOne"><a href="../../../../../org/apache/poi/ss/usermodel/class-use/FormulaEvaluator.html#org.apache.poi.ss.prFormula">FormulaEvaluator</a>
+<div class="block">Evaluates prFormula cells.</div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colOne"><a href="../../../../../org/apache/poi/ss/usermodel/class-use/Name.html#org.apache.poi.ss.formula">Name</a>
+<td class="colOne"><a href="../../../../../org/apache/poi/ss/usermodel/class-use/Name.html#org.apache.poi.ss.prFormula">Name</a>
 <div class="block">Represents a defined name for a range of cells.</div>
 </td>
 </tr>
 <tr class="altColor">
-<td class="colOne"><a href="../../../../../org/apache/poi/ss/usermodel/class-use/RichTextString.html#org.apache.poi.ss.formula">RichTextString</a>
+<td class="colOne"><a href="../../../../../org/apache/poi/ss/usermodel/class-use/RichTextString.html#org.apache.poi.ss.prFormula">RichTextString</a>
 <div class="block">Rich text unicode string.</div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colOne"><a href="../../../../../org/apache/poi/ss/usermodel/class-use/Sheet.html#org.apache.poi.ss.formula">Sheet</a>
+<td class="colOne"><a href="../../../../../org/apache/poi/ss/usermodel/class-use/Sheet.html#org.apache.poi.ss.prFormula">Sheet</a>
 <div class="block">High level representation of a Excel worksheet.</div>
 </td>
 </tr>
 <tr class="altColor">
-<td class="colOne"><a href="../../../../../org/apache/poi/ss/usermodel/class-use/Table.html#org.apache.poi.ss.formula">Table</a>
+<td class="colOne"><a href="../../../../../org/apache/poi/ss/usermodel/class-use/Table.html#org.apache.poi.ss.prFormula">Table</a>
 <div class="block">XSSF Only!
  High level abstraction of table in a workbook.</div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colOne"><a href="../../../../../org/apache/poi/ss/usermodel/class-use/Workbook.html#org.apache.poi.ss.formula">Workbook</a>
+<td class="colOne"><a href="../../../../../org/apache/poi/ss/usermodel/class-use/Workbook.html#org.apache.poi.ss.prFormula">Workbook</a>
 <div class="block">High level representation of a Excel workbook.</div>
 </td>
 </tr>
 </tbody>
 </table>
 </li>
-<li class="blockList"><a name="org.apache.poi.ss.formula.eval.forked">
+<li class="blockList"><a name="org.apache.poi.ss.prFormula.eval.forked">
 <!--   -->
 </a>
 <table class="useSummary" border="0" cellpadding="3" cellspacing="0" summary="Use table, listing classes, and an explanation">
-<caption><span>Classes in <a href="../../../../../org/apache/poi/ss/usermodel/package-summary.html">org.apache.poi.ss.usermodel</a> used by <a href="../../../../../org/apache/poi/ss/formula/eval/forked/package-summary.html">org.apache.poi.ss.formula.eval.forked</a></span><span class="tabEnd">&nbsp;</span></caption>
+<caption><span>Classes in <a href="../../../../../org/apache/poi/ss/usermodel/package-summary.html">org.apache.poi.ss.usermodel</a> used by <a href="../../../../../org/apache/poi/ss/prFormula/eval/forked/package-summary.html">org.apache.poi.ss.prFormula.eval.forked</a></span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
 <th class="colOne" scope="col">Class and Description</th>
 </tr>
 <tbody>
 <tr class="altColor">
-<td class="colOne"><a href="../../../../../org/apache/poi/ss/usermodel/class-use/Workbook.html#org.apache.poi.ss.formula.eval.forked">Workbook</a>
+<td class="colOne"><a href="../../../../../org/apache/poi/ss/usermodel/class-use/Workbook.html#org.apache.poi.ss.prFormula.eval.forked">Workbook</a>
 <div class="block">High level representation of a Excel workbook.</div>
 </td>
 </tr>
 </tbody>
 </table>
 </li>
-<li class="blockList"><a name="org.apache.poi.ss.formula.functions">
+<li class="blockList"><a name="org.apache.poi.ss.prFormula.functions">
 <!--   -->
 </a>
 <table class="useSummary" border="0" cellpadding="3" cellspacing="0" summary="Use table, listing classes, and an explanation">
-<caption><span>Classes in <a href="../../../../../org/apache/poi/ss/usermodel/package-summary.html">org.apache.poi.ss.usermodel</a> used by <a href="../../../../../org/apache/poi/ss/formula/functions/package-summary.html">org.apache.poi.ss.formula.functions</a></span><span class="tabEnd">&nbsp;</span></caption>
+<caption><span>Classes in <a href="../../../../../org/apache/poi/ss/usermodel/package-summary.html">org.apache.poi.ss.usermodel</a> used by <a href="../../../../../org/apache/poi/ss/prFormula/functions/package-summary.html">org.apache.poi.ss.prFormula.functions</a></span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
 <th class="colOne" scope="col">Class and Description</th>
 </tr>
 <tbody>
 <tr class="altColor">
-<td class="colOne"><a href="../../../../../org/apache/poi/ss/usermodel/class-use/DataFormatter.html#org.apache.poi.ss.formula.functions">DataFormatter</a>
+<td class="colOne"><a href="../../../../../org/apache/poi/ss/usermodel/class-use/DataFormatter.html#org.apache.poi.ss.prFormula.functions">DataFormatter</a>
 <div class="block">DataFormatter contains methods for formatting the value stored in an
  Cell.</div>
 </td>
@@ -1086,12 +1086,12 @@ for streaming/read-only processing of xlsb files.</div>
 </tr>
 <tr class="rowColor">
 <td class="colOne"><a href="../../../../../org/apache/poi/ss/usermodel/class-use/FormulaError.html#org.apache.poi.ss.usermodel">FormulaError</a>
-<div class="block">Enumerates error values in SpreadsheetML formula calculations.</div>
+<div class="block">Enumerates error values in SpreadsheetML prFormula calculations.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colOne"><a href="../../../../../org/apache/poi/ss/usermodel/class-use/FormulaEvaluator.html#org.apache.poi.ss.usermodel">FormulaEvaluator</a>
-<div class="block">Evaluates formula cells.</div>
+<div class="block">Evaluates prFormula cells.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -1583,7 +1583,7 @@ for streaming/read-only processing of xlsb files.</div>
 </tr>
 <tr class="altColor">
 <td class="colOne"><a href="../../../../../org/apache/poi/ss/usermodel/class-use/FormulaEvaluator.html#org.apache.poi.xssf.streaming">FormulaEvaluator</a>
-<div class="block">Evaluates formula cells.</div>
+<div class="block">Evaluates prFormula cells.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -1885,12 +1885,12 @@ for streaming/read-only processing of xlsb files.</div>
 </tr>
 <tr class="altColor">
 <td class="colOne"><a href="../../../../../org/apache/poi/ss/usermodel/class-use/FormulaError.html#org.apache.poi.xssf.usermodel">FormulaError</a>
-<div class="block">Enumerates error values in SpreadsheetML formula calculations.</div>
+<div class="block">Enumerates error values in SpreadsheetML prFormula calculations.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colOne"><a href="../../../../../org/apache/poi/ss/usermodel/class-use/FormulaEvaluator.html#org.apache.poi.xssf.usermodel">FormulaEvaluator</a>
-<div class="block">Evaluates formula cells.</div>
+<div class="block">Evaluates prFormula cells.</div>
 </td>
 </tr>
 <tr class="altColor">
