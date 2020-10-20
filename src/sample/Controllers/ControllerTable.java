@@ -1030,7 +1030,9 @@ public class ControllerTable implements Initializable {
         AddProject controller = loader.getController();
         controller.setControllerTable(this);
         controller.setOwnerStage(mainStage);
-        controller.setPrHisobTuri(ddpSwitch.isSelected(), TovarZakaz.tovarZakazList);
+        int typeCol = 0;
+        typeCol = ddpSwitch.isSelected()?1:0;
+        controller.setPrHisobTuri(typeCol, TovarZakaz.tovarZakazList);
 
     }
 

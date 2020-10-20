@@ -1,6 +1,7 @@
 package sample.Moodles;
 
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.time.LocalDateTime;
@@ -24,17 +25,16 @@ public class Project {
     private String prKritgan;
     private String prMasul;
     private String prFormula;
+    private int prFormulaNum;
     private String prKomment;
-
-    private ObservableList<TovarZakaz> projectZakazList;
+    private ObservableList<TovarZakaz> projectZakazList = FXCollections.observableArrayList();
 
 
     public Project(int numPr, LocalDateTime boshlanganVaqt, boolean prIsImportant,
                    boolean prIsShoshilinch,
                    String prNomi, String prKlient, String prKMP_komp, String prRaxbar,
                    String prMasul, LocalDateTime tugashVaqti,
-                   String prFormula, String prKomment, String prKritgan,
-                   ObservableList<TovarZakaz> projectZakazList ) {
+                   int typeCol, String prKomment, String prKritgan) {
 
         this.numPr = numPr;
         this.boshlanganVaqt = boshlanganVaqt;
@@ -46,9 +46,7 @@ public class Project {
         this.prRaxbar = prRaxbar;
         this.prMasul = prMasul;
         this.tugashVaqti = tugashVaqti;
-        this.prFormula = prFormula;
         this.prKomment = prKomment;
-        this.projectZakazList = projectZakazList;
         this.prKritgan = prKritgan;
         this.proritet = "";
 
@@ -61,6 +59,38 @@ public class Project {
         if (prIsImportant && prIsShoshilinch) {
             this.proritet = "Важны и Срочный";
         }
+
+        switch (typeCol) {
+            case 0: {
+                this.prFormula = "DDP без НДС ВЭД";
+                break;
+            }
+            case 1: {
+                this.prFormula = "DDP c НДС ВЭД";
+                break;
+            }
+            default: {
+                this.prFormula = "--";
+                break;
+            }
+        }
+    }
+
+    public Project(int numPr, LocalDateTime boshlanganVaqt, boolean prIsImportant,
+                   boolean prIsShoshilinch,
+                   String prNomi, String prKlient, String prKMP_komp, String prRaxbar,
+                   String prMasul, LocalDateTime tugashVaqti,
+                   int typeCol, String prKomment, String prKritgan,
+                   ObservableList<TovarZakaz> projectZakazList) {
+
+
+        this(numPr, boshlanganVaqt, prIsImportant,
+                prIsShoshilinch,
+                prNomi, prKlient, prKMP_komp, prRaxbar,
+                prMasul, tugashVaqti,
+                typeCol, prKomment, prKritgan
+        );
+        this.projectZakazList.addAll(projectZakazList);
     }
 
     public int getTr_pr() {
@@ -179,14 +209,26 @@ public class Project {
         return projectZakazList;
     }
 
-    public void setProjectZakazList(ObservableList<TovarZakaz> projectZakazList) {
-        this.projectZakazList = projectZakazList;
+    public void addProjectZakazList(ObservableList<TovarZakaz> projectZakazList) {
+        this.projectZakazList.addAll(projectZakazList);
+    }
+    public void addProjectZakazList(TovarZakaz projectZakazList) {
+        this.projectZakazList.addAll(projectZakazList);
+    }
+
+    public int getNumPr() {
+        return numPr;
+    }
+
+    public void setNumPr(int numPr) {
+        this.numPr = numPr;
     }
 
     @Override
     public String toString() {
         return "Project{" +
-                "tr_pr=" + tr_pr +
+                "numPr=" + numPr +
+                ", tr_pr=" + tr_pr +
                 ", boshlanganVaqt=" + boshlanganVaqt +
                 ", tugashVaqti=" + tugashVaqti +
                 ", proritet='" + proritet + '\'' +

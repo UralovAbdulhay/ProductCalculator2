@@ -50,8 +50,9 @@ public class Tovar {
 
     public Tovar(int tovarId, String tovarKod, String tovarNomi,
                  String tovarModel, String tovarIshlabChiqaruvchi,
-                 double tovarNarxi, double tovarDDP, String tovarNarxTuri, double tovarTransportNarxi,
-                 double tovarAksiz, double tovarPoshlina, LocalDate tovarSana,
+                 double tovarNarxi, double tovarDDP, String tovarNarxTuri,
+                 double tovarTransportNarxi, double tovarAksiz,
+                 double tovarPoshlina, LocalDate tovarSana,
                  String tovarUlchovBirligi, String tovarKomment) {
 
         this.tovarId = tovarId;

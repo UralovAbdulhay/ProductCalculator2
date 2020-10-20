@@ -7,12 +7,9 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import sample.Controllers.ControllerOyna;
-import sample.Moodles.PriseList;
 
 import java.sql.*;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 
 public class Main extends Application {
@@ -89,27 +86,25 @@ public class Main extends Application {
         primaryStage.setMaximized(true);
         primaryStage.setMinWidth(850);
         primaryStage.setMinHeight(650);
-        primaryStage.show();
+//        primaryStage.show();
 
         ControllerOyna controller = loader.getController();
         controller.setMainStage(primaryStage);
 
+        ulanish();
     }
 
-    static void ulanish() {
+    private void ulanish() {
 
         try {
             Class.forName("org.sqlite.JDBC");
 
-            Connection con = DriverManager.getConnection("jdbc:sqlite:baza/colcul.db");
+            ResultSet resultSet = selectAllFromSql("client", "id");
 
-            Statement statement = con.createStatement();
-            ResultSet resultSet = statement.executeQuery(
-                    "SELECT * FROM client "
-            );
 
             while (resultSet.next()) {
                 int id = resultSet.getInt(1);
+
                 String name = resultSet.getString(2);
                 String date = (
                         resultSet.getString(3)
@@ -121,27 +116,66 @@ public class Main extends Application {
                 System.out.println(" name : " + name);
                 System.out.println(" date : " + date);
 
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-                LocalDateTime dateTime = LocalDateTime.parse(date, formatter);
+//                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+//                LocalDate dateTime = LocalDate.parse(date, formatter);
 
-                System.out.println("dateTime = " + dateTime);
 
+//                System.out.println("dateTime = " + dateTime);
+
+                ResultSet resultSet1 = selectAllFromSql("project", "nomer_zakaz");
+
+                while (resultSet1.next()) {
+                    System.out.println(resultSet1.getString("name"));
+                }
             }
             con.close();
-
 
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        throw new RuntimeException();
+    }
 
+
+    private Connection con = null;
+    private Statement statement = null;
+    private ResultSet resultSet = null;
+    private String dataBase = "baza/colcul.db";
+
+    ResultSet selectAllFromSql(String tableName, String id) {
+
+        try {
+            Class.forName("org.sqlite.JDBC");
+            con = DriverManager.getConnection("jdbc:sqlite:" + dataBase);
+            statement = con.createStatement();
+            resultSet = statement.executeQuery(
+                    "SELECT * FROM " + tableName + " WHERE " + id + " <= 32; "
+            );
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return resultSet;
+    }
+
+    Statement getStatement(){
+        Statement statement = null;
+        try(Connection connection = DriverManager.getConnection("jdbc:sqlite:" + dataBase)) {
+
+             statement = connection.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+            return statement;
     }
 
 
     public static void main(String[] args) {
-        Connections connections = new Connections();
-        PriseList.addAllPriseLists(connections.getTovarFromSql());
+//        Connections connections = new Connections();
+//        PriseList.addAllPriseLists(connections.getTovarFromSql());
         launch(args);
     }
 }

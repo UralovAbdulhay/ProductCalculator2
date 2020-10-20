@@ -105,7 +105,7 @@ public class Connections {
                         resultSet.getDouble("qiymat"),
                         resultSet.getString("komment"),
                         resultSet.getString("kod")
-                        ));
+                ));
             }
             con.close();
         } catch (SQLException e) {
@@ -120,13 +120,94 @@ public class Connections {
 
         try {
             while (resultSet.next()) {
-                list.add(new Project(
-                        resultSet.getInt("id"),
-                        resultSet.getString("nomer_zakaz"),
-                        resultSet.getDouble("qiymat"),
-                        resultSet.getString("komment"),
-                        resultSet.getString("kod")
-                ));
+
+                int numPr = resultSet.getInt("nomer_zakaz");
+                LocalDateTime boshlanganVaqt = LocalDateTime.parse(resultSet.getString("start_date"));
+                LocalDateTime tugashVaqti = LocalDateTime.parse(resultSet.getString("end_date"));
+                boolean prIsImportant = resultSet.getBoolean("muhum");
+                boolean prIsShoshilinch = resultSet.getBoolean("shoshilinch");
+                String prNomi = resultSet.getString("name");
+                String prKlient = getStatement().executeQuery("SELECT name FROM client WHERE id = "
+                        + resultSet.getInt("client_id ") + ";").getString("name");
+
+                String prKMP_komp = getStatement().executeQuery("SELECT name FROM kmpFromCom WHERE id = "
+                        + resultSet.getInt("from_com_id ") + ";").getString("name");
+
+                String prRaxbar = getStatement().executeQuery("SELECT first_name FROM xodimlar WHERE id = "
+                        + resultSet.getInt("raxbar_xodim_id ") + ";").getString(1) + " " +
+                        getStatement().executeQuery("SELECT sure_name FROM xodimlar WHERE id = "
+                                + resultSet.getInt("raxbar_xodim_id ") + ";").getString(1);
+
+                String prKritgan = getStatement().executeQuery("SELECT first_name FROM xodimlar WHERE id = "
+                        + resultSet.getInt("raxbar_xodim_id ") + ";").getString(1) + " " +
+                        getStatement().executeQuery("SELECT sure_name FROM xodimlar WHERE id = "
+                                + resultSet.getInt("kiritgan_xodim_id ") + ";").getString(1);
+
+                String prMasul = getStatement().executeQuery("SELECT first_name FROM xodimlar WHERE id = "
+                        + resultSet.getInt("raxbar_xodim_id ") + ";").getString(1) + " " +
+                        getStatement().executeQuery("SELECT sure_name FROM xodimlar WHERE id = "
+                                + resultSet.getInt("masul_xodim_id ") + ";").getString(1);
+
+                int prFormula = resultSet.getInt("formula");
+                String prKomment = resultSet.getString("komment");
+
+                Project project = new Project(
+                        numPr, boshlanganVaqt, prIsImportant, prIsShoshilinch, prNomi, prKlient,
+                        prKMP_komp, prRaxbar, prMasul, tugashVaqti,
+                        prFormula, prKomment, prKritgan
+                );
+
+                ResultSet set = getStatement().executeQuery(
+                        "SELECT zakazList.id,\n" +
+                                "       zakazList.tovar_id, \n" +
+                                "       zakazList.project_id, \n" +
+                                "       tovar.name                   AS tovarName, \n" +
+                                "       tovar.kod                    AS tovarKod, \n" +
+                                "       maker.name                   AS tovarMaker, \n" +
+                                "       tovar.model                  AS tovarModel, \n" +
+                                "       zakazList.tovar_cost         AS tovarNarx, \n" +
+                                "       zakazList.tovar_ddp          AS tvarDDP, \n" +
+                                "       zakazList.cost_type          AS tovarCostType, \n" +
+                                "       zakazList.tovar_trans_cost   AS tovarTrans, \n" +
+                                "       zakazList.tovar_aksiz_cost   AS tovarAksiz, \n" +
+                                "       zakazList.tovar_poshlin_cost AS tovarPoshlina, \n" +
+                                "       tovar.date                   AS tovarSana, \n" +
+                                "       zakazList.ulchov_type        AS ulchovType, \n" +
+                                "       tovar.komment                AS tovarKomment,\n" +
+                                "       zakazList.count                AS soni \n" +
+                                "\n" +
+                                "FROM zakazList\n" +
+                                "         INNER JOIN tovar\n" +
+                                "                    ON zakazList.tovar_id = tovar.id\n" +
+                                "         INNER JOIN maker\n" +
+                                "                    ON zakazList.maker_id = maker.id\n" +
+                                "WHERE zakazList.project_id = " + numPr + "; "
+                );
+
+                while (set.next()) {
+
+                    PriseList priseList = new PriseList(
+                            new Tovar(
+                                    set.getInt("tovar_id"),
+                                    set.getString("tovarKod"),
+                                    set.getString("tovarName"),
+                                    set.getString("tovarModel"),
+                                    set.getString("tovarMaker"),
+                                    set.getDouble("tovarNarx"),
+                                    set.getDouble("tvarDDP"),
+                                    set.getString("tovarCostType"),
+                                    set.getDouble("tovarTrans"),
+                                    set.getDouble("tovarAksiz"),
+                                    set.getDouble("tovarPoshlina"),
+                                    LocalDate.parse(set.getString("tovarSana"), dateFormatter),
+                                    set.getString("ulchovType"),
+                                    set.getString("tovarKomment")
+                            )
+                    );
+                    priseList.setAddCount(set.getInt("soni"));
+                    project.addProjectZakazList(new TovarZakaz(priseList));
+                }
+                list.add(project);
             }
             con.close();
         } catch (SQLException e) {
@@ -134,6 +215,7 @@ public class Connections {
         }
         return list;
     }
+
 
     public void getZakazListFromSQL() {
 
@@ -159,8 +241,26 @@ public class Connections {
         return list;
     }
 
-    public void getCourseFromSql() {
+    public ObservableList<Valyuta> getCourseFromSql() {
+        ObservableList<Valyuta> list = FXCollections.observableArrayList();
+        ResultSet resultSet = selectAllFromSql("course");
 
+        try {
+            while (resultSet.next()) {
+                list.add(new Valyuta(
+                     resultSet.getString("title"),
+                     resultSet.getString("code"),
+                     resultSet.getString("cd_price"),
+                     resultSet.getString("nbu_buy_price"),
+                     resultSet.getString("nbu_cell_price"),
+                     resultSet.getString("refresh_date")
+                        ));
+            }
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 
 
@@ -178,8 +278,18 @@ public class Connections {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         return resultSet;
+    }
+
+    public Statement getStatement() {
+        Statement statement = null;
+        try (Connection connection = DriverManager.getConnection("jdbc:sqlite:" + dataBase)) {
+
+            statement = connection.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return statement;
     }
 
 }

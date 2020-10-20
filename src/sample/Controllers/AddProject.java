@@ -139,12 +139,27 @@ public class AddProject implements Initializable {
     }
 
     private void initProject() {
+        int typeCol;
+        switch (prTypeCol.getValue().trim()) {
+            case "DDP без НДС ВЭД": {
+                typeCol = 0;
+                break;
+            }
+            case "DDP c НДС ВЭД": {
+                typeCol = 1;
+                break;
+            }
+            default: {
+                typeCol = -1;
+                break;
+            }
+        }
 
         project = new Project(
-                0, LocalDateTime.now(), prIsImportant.isSelected(), prIsShoshilinch.isSelected(),
+                -1, LocalDateTime.now(), prIsImportant.isSelected(), prIsShoshilinch.isSelected(),
                 prName.getText().trim(), prClient.getValue().trim(), prFromCom.getValue().trim(),
                 prRahbar.getValue().trim(), prMasul.getValue().trim(), LocalDateTime.of(prDate.getValue(), prTime.getValue()),
-                prTypeCol.getValue().trim(), prComment.getText().trim(), prKiritgan.getValue().trim(),
+                typeCol, prComment.getText().trim(), prKiritgan.getValue().trim(),
                 tovarZakazList
         );
 
@@ -174,16 +189,16 @@ public class AddProject implements Initializable {
         initProject();
     }
 
-    public void setPrHisobTuri(boolean prHisobTuri, ObservableList<TovarZakaz> tovarZakazList) {
-        this.prHisobTuri = prHisobTuri;
+    public void setPrHisobTuri(int typeCol, ObservableList<TovarZakaz> tovarZakazList) {
+
         this.tovarZakazList = tovarZakazList;
 
-        if (prHisobTuri) {
-            prTypeCol.setValue("DDP c НДС ВЭД");
-        } else {
-            prTypeCol.setValue("DDP без НДС ВЭД");
+        if (typeCol == 1) {
+            prTypeCol.setValue("DDP c НДС ВЭД");  //1
+        } else if (typeCol == 0) {
+            prTypeCol.setValue("DDP без НДС ВЭД");  // 0
         }
-
+        //2 CIP
     }
 
 
@@ -383,13 +398,13 @@ public class AddProject implements Initializable {
         worksheet.getCell(row, 20).setValue("Cумма пошлин");
         worksheet.getCell(row, 21).setValue("Акциз");
         worksheet.getCell(row, 22).setValue("Cумма Акциз");
-        worksheet.getCell(row, 23).setValue("НДС 1 \n" + (Stavkalar.stNDS1S * 100) + " %" );
+        worksheet.getCell(row, 23).setValue("НДС 1 \n" + (Stavkalar.stNDS1S * 100) + " %");
         worksheet.getCell(row, 24).setValue("Приход цена");
         worksheet.getCell(row, 25).setValue("Приход Сумма");
         worksheet.getCell(row, 26).setValue("Cтавка DDP");
         worksheet.getCell(row, 27).setValue("Цена  DDP ");
         worksheet.getCell(row, 28).setValue("Сумма  DDP ");
-        worksheet.getCell(row, 29).setValue("Цена c НДС 2 \n" + (Stavkalar.stNDS2 * 100)+" %");
+        worksheet.getCell(row, 29).setValue("Цена c НДС 2 \n" + (Stavkalar.stNDS2 * 100) + " %");
         worksheet.getCell(row, 30).setValue("Сумма с НДС");
 
         for (TovarZakaz zakaz : TovarZakaz.tovarZakazList) {
@@ -476,6 +491,7 @@ public class AddProject implements Initializable {
         TovarZakaz.tovarZakazList.clear();
         ControllerTable controllerTable = new ControllerTable();
         controllerTable.summaHisobla();
+
     }
 
 
