@@ -25,12 +25,12 @@ public class Valyuta {
         this.nbu_cell_price = nbu_cell_price;
         this.date = date;
         this.title_1 = 1 + " " + title + ", " + code;
-
+        
         try {
             this.cb_priceD = Double.parseDouble(cb_price);
             this.nbu_buy_priceD = Double.parseDouble(nbu_buy_price);
             this.nbu_cell_priceD = Double.parseDouble(nbu_cell_price);
-        } catch (NumberFormatException e) {
+        } catch (Exception e) {
             this.cb_priceD = 0.0;
             this.nbu_buy_priceD = 0.0;
             this.nbu_cell_priceD = 0.0;

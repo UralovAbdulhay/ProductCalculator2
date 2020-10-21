@@ -24,7 +24,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
 import org.controlsfx.control.textfield.TextFields;
-import sample.Classes.Api_kurs;
+import sample.Classes.Connections;
 import sample.Moodles.*;
 
 import java.io.IOException;
@@ -74,6 +74,7 @@ public class EditTovar implements Initializable {
 
     private Stage mainStage;
     private AddProductController addProductController = new AddProductController();
+    private ObservableList<Valyuta> valyutas = FXCollections.observableArrayList();
 
 
     public void tozalaQidir(ActionEvent actionEvent) {
@@ -104,8 +105,8 @@ public class EditTovar implements Initializable {
             editBtControl();
         });
 
-        if (Api_kurs.apiKurs.size() == 0) {
-            new Api_kurs().getCourses();
+        if (valyutas.isEmpty()) {
+            valyutas.addAll(new Connections().getCourseFromSql());
         }
         initKursTable();
 
@@ -167,8 +168,6 @@ public class EditTovar implements Initializable {
     private void ruyxatUrnat() {
 
         if (!ochilgan) {
-
-
             ochilgan = true;
         }
         TableColumn tovarTR = creatTabCol("№", 35);
@@ -305,29 +304,36 @@ public class EditTovar implements Initializable {
 
         kursTable.setStyle("-fx-font-size: 16");
 
-        if (Api_kurs.apiKurs.size() == 0) {
-            new Api_kurs().getCourses();
-        }
+//        if (valyutas.isEmpty()) {
+//            valyutas.
+//        }
 
-        if (!Api_kurs.apiKurs.isEmpty()) {
-            kusrSanaLable.setText(Api_kurs.apiKurs.get(0).getDate());
+        if (!valyutas.isEmpty()) {
+            kusrSanaLable.setText(valyutas.get(0).getDate());
         }
 
         kursTable.getColumns().addAll(kursTitle_1, kursCb_price, kursBuy_price, kursSell_price);
-        kursTable.setItems(Api_kurs.apiKurs);
+        kursTable.setItems(valyutas);
         showNotEmptyKurs();
     }
 
     @FXML
     private void refreshKurs(ActionEvent event) {
 
-        new Api_kurs().getCourses();
+        //  baza va internet sinxronizatsiyasi bo'ladi
 
-        if (!Api_kurs.apiKurs.isEmpty()) {
-            kusrSanaLable.setText(Api_kurs.apiKurs.get(0).getDate());
+
+
+        if (new Connections().tableIsEmpty("course")) {
+            valyutas.clear();
+            valyutas.addAll(new Connections().getCourseFromSql());
+        }
+
+        if (!valyutas.isEmpty()) {
+            kusrSanaLable.setText(valyutas.get(0).getDate());
         }
         showNotEmptyKurs();
-        kursTable.setItems(Api_kurs.apiKurs);
+        kursTable.setItems(valyutas);
         showNotEmptyKurs();
     }
 
@@ -335,10 +341,10 @@ public class EditTovar implements Initializable {
     private void showNotEmptyKurs() {
         ObservableList<Valyuta> list = FXCollections.observableArrayList();
         if (kursEmptyShow.isSelected()) {
-            Api_kurs.apiKurs.stream().filter(p -> p.getNbu_buy_priceD() != 0).forEach(list::add);
+            valyutas.stream().filter(p -> p.getNbu_buy_priceD() != 0).forEach(list::add);
             kursTable.setItems(list);
         } else {
-            kursTable.setItems(Api_kurs.apiKurs);
+            kursTable.setItems(valyutas);
         }
         kursTable.refresh();
     }

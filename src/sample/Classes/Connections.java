@@ -5,9 +5,12 @@ import javafx.collections.ObservableList;
 import sample.Moodles.*;
 
 import java.sql.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 public class Connections {
 
@@ -38,9 +41,7 @@ public class Connections {
                                         resultSet.getDouble("trans_cost"),
                                         resultSet.getDouble("aksiz_cost"),
                                         resultSet.getDouble("poshlina_cost"),
-                                        LocalDate.parse(
-                                                resultSet.getString("date")
-                                                , dateTimeFormatter),
+                                        parseToLocalDate(resultSet.getString("date")),
                                         resultSet.getString("ulchov_type"),
                                         resultSet.getString("komment")
                                 )
@@ -53,6 +54,35 @@ public class Connections {
         }
         return list;
     }
+
+    private LocalDate parseToLocalDate(String value) {
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        System.out.println(value);
+        try {
+            long l = Long.parseLong(value);
+            Date date = new Date();
+            date.setTime(l);
+            return LocalDate.parse(format.format(date), dateFormatter);
+        } catch (NumberFormatException e) {
+            return LocalDate.parse(value, dateFormatter);
+        }
+    }
+
+    private LocalDateTime parseToLocalDateTime(String value) {
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm");
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm");
+        System.out.println(value);
+        try {
+            long l = Long.parseLong(value);
+            Date date = new Date();
+            date.setTime(l);
+            return LocalDateTime.parse(format.format(date), dateFormatter);
+        } catch (NumberFormatException e) {
+            return LocalDateTime.parse(value, dateFormatter);
+        }
+    }
+
 
     public ObservableList<Maker> getMakerFromSql() {
         ObservableList<Maker> list = FXCollections.observableArrayList();
@@ -248,14 +278,15 @@ public class Connections {
         try {
             while (resultSet.next()) {
                 list.add(new Valyuta(
-                     resultSet.getString("title"),
-                     resultSet.getString("code"),
-                     resultSet.getString("cd_price"),
-                     resultSet.getString("nbu_buy_price"),
-                     resultSet.getString("nbu_cell_price"),
-                     resultSet.getString("refresh_date")
-                        ));
+                        resultSet.getString("title"),
+                        resultSet.getString("code"),
+                        resultSet.getString("cb_price"),
+                        resultSet.getString("nbu_buy_price"),
+                        resultSet.getString("nbu_cell_price"),
+                        resultSet.getString("refresh_date")
+                ));
             }
+
             con.close();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -290,6 +321,21 @@ public class Connections {
             e.printStackTrace();
         }
         return statement;
+    }
+
+    public boolean tableIsEmpty(String tableName) {
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:sqlite:" + dataBase);
+            Statement statement = connection.createStatement();
+            if (0 == statement.executeQuery("SELECT Count(*) FROM " + tableName + " ;").getInt(1)) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return true;
     }
 
 }

@@ -7,6 +7,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import sample.Controllers.ControllerOyna;
+import sample.Moodles.PriseList;
 
 import java.sql.*;
 import java.text.SimpleDateFormat;
@@ -86,12 +87,12 @@ public class Main extends Application {
         primaryStage.setMaximized(true);
         primaryStage.setMinWidth(850);
         primaryStage.setMinHeight(650);
-//        primaryStage.show();
+        primaryStage.show();
 
         ControllerOyna controller = loader.getController();
         controller.setMainStage(primaryStage);
 
-        ulanish();
+//        ulanish();
     }
 
     private void ulanish() {
@@ -174,8 +175,8 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-//        Connections connections = new Connections();
-//        PriseList.addAllPriseLists(connections.getTovarFromSql());
+        Connections connections = new Connections();
+        PriseList.addAllPriseLists(connections.getTovarFromSql());
         launch(args);
     }
 }

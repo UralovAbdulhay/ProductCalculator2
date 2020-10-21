@@ -356,8 +356,8 @@ public class ControllerTable implements Initializable {
 
         TableColumn<PriseList, LocalDate> tovarSana = new TableColumn<>("Sana");
         tovarSana.setResizable(false);
-        tovarSana.setMinWidth(60);
-        tovarSana.setPrefWidth(60);
+        tovarSana.setMinWidth(100);
+        tovarSana.setPrefWidth(100);
         tovarSana.setStyle("-fx-alignment: CENTER");
         tovarSana.setCellValueFactory(e -> new SimpleObjectProperty<>(
                 e.getValue().getTovarSana()
@@ -366,8 +366,8 @@ public class ControllerTable implements Initializable {
         TableColumn<PriseList, String> tovarUlchov = new TableColumn<>("o'lchov");
         tovarUlchov.setResizable(false);
         tovarUlchov.setSortable(false);
-        tovarUlchov.setMinWidth(50);
-        tovarUlchov.setPrefWidth(50);
+        tovarUlchov.setMinWidth(70);
+        tovarUlchov.setPrefWidth(70);
         tovarUlchov.setStyle("-fx-alignment: CENTER");
         tovarUlchov.setCellValueFactory(e -> new SimpleStringProperty(
                 e.getValue().getTovarUlchovBirligi()
@@ -376,8 +376,8 @@ public class ControllerTable implements Initializable {
 
         TableColumn<PriseList, String> tovarKomment = creatTabCol("Komment", 150);
         tovarKomment.setSortable(false);
-        tovarKomment.setMinWidth(150);
-        tovarKomment.setPrefWidth(150);
+        tovarKomment.setMinWidth(200);
+        tovarKomment.setPrefWidth(200);
         tovarKomment.setStyle("-fx-alignment: CENTER");
         tovarKomment.setCellValueFactory(e -> new SimpleStringProperty(
                 e.getValue().getTovarKomment()
