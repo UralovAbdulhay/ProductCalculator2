@@ -4,6 +4,7 @@ package sample.Moodles;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -13,36 +14,46 @@ public class Project {
 
     private int numPr;
     private int tr_pr;
-    private LocalDateTime boshlanganVaqt;
+    private LocalDate boshlanganVaqt;
     private LocalDateTime tugashVaqti;
     private String proritet;
     private boolean prIsImportant;
     private boolean prIsShoshilinch;
     private String prNomi;
-    private String prKlient;
-    private String prKMP_komp;
-    private String prRaxbar;
-    private String prKritgan;
-    private String prMasul;
     private String prFormula;
     private int prFormulaNum;
     private String prKomment;
+
+
+//    private String prClient;
+//    private String prKmpCompany;
+//    private String prRaxbar;
+//    private String prKritgan;
+//    private String prMasul;
+
+    Client prClient;
+    Company prKmpCompany;
+    Xodimlar prRaxbar;
+    Xodimlar prKritgan;
+    Xodimlar prMasul;
+
+
     private ObservableList<TovarZakaz> projectZakazList = FXCollections.observableArrayList();
 
 
-    public Project(int numPr, LocalDateTime boshlanganVaqt, boolean prIsImportant,
+    public Project(int numPr, LocalDate boshlanganVaqt, boolean prIsImportant,
                    boolean prIsShoshilinch,
-                   String prNomi, String prKlient, String prKMP_komp, String prRaxbar,
-                   String prMasul, LocalDateTime tugashVaqti,
-                   int typeCol, String prKomment, String prKritgan) {
+                   String prNomi, Client prClient, Company prKmpCompany, Xodimlar prRaxbar,
+                   Xodimlar prMasul, LocalDateTime tugashVaqti,
+                   int typeCol, String prKomment, Xodimlar prKritgan) {
 
         this.numPr = numPr;
         this.boshlanganVaqt = boshlanganVaqt;
         this.prIsImportant = prIsImportant;
         this.prIsShoshilinch = prIsShoshilinch;
         this.prNomi = prNomi;
-        this.prKlient = prKlient;
-        this.prKMP_komp = prKMP_komp;
+        this.prClient = prClient;
+        this.prKmpCompany = prKmpCompany;
         this.prRaxbar = prRaxbar;
         this.prMasul = prMasul;
         this.tugashVaqti = tugashVaqti;
@@ -76,17 +87,17 @@ public class Project {
         }
     }
 
-    public Project(int numPr, LocalDateTime boshlanganVaqt, boolean prIsImportant,
+    public Project(int numPr, LocalDate boshlanganVaqt, boolean prIsImportant,
                    boolean prIsShoshilinch,
-                   String prNomi, String prKlient, String prKMP_komp, String prRaxbar,
-                   String prMasul, LocalDateTime tugashVaqti,
-                   int typeCol, String prKomment, String prKritgan,
+                   String prNomi, Client prClient, Company prKmpCompany, Xodimlar prRaxbar,
+                   Xodimlar prMasul, LocalDateTime tugashVaqti,
+                   int typeCol, String prKomment, Xodimlar prKritgan,
                    ObservableList<TovarZakaz> projectZakazList) {
 
 
         this(numPr, boshlanganVaqt, prIsImportant,
                 prIsShoshilinch,
-                prNomi, prKlient, prKMP_komp, prRaxbar,
+                prNomi, prClient, prKmpCompany, prRaxbar,
                 prMasul, tugashVaqti,
                 typeCol, prKomment, prKritgan
         );
@@ -101,11 +112,11 @@ public class Project {
         this.tr_pr = tr_pr;
     }
 
-    public LocalDateTime getBoshlanganVaqt() {
+    public LocalDate getBoshlanganVaqt() {
         return boshlanganVaqt;
     }
 
-    public void setBoshlanganVaqt(LocalDateTime boshlanganVaqt) {
+    public void setBoshlanganVaqt(LocalDate boshlanganVaqt) {
         this.boshlanganVaqt = boshlanganVaqt;
     }
 
@@ -149,43 +160,43 @@ public class Project {
         this.prNomi = prNomi;
     }
 
-    public String getPrKlient() {
-        return prKlient;
+    public Client getPrClient() {
+        return prClient;
     }
 
-    public void setPrKlient(String prKlient) {
-        this.prKlient = prKlient;
+    public void setPrClient(Client prClient) {
+        this.prClient = prClient;
     }
 
-    public String getPrKMP_komp() {
-        return prKMP_komp;
+    public Company getPrKmpCompany() {
+        return prKmpCompany;
     }
 
-    public void setPrKMP_komp(String prKMP_komp) {
-        this.prKMP_komp = prKMP_komp;
+    public void setPrKmpCompany(Company prKmpCompany) {
+        this.prKmpCompany = prKmpCompany;
     }
 
-    public String getPrRaxbar() {
+    public Xodimlar getPrRaxbar() {
         return prRaxbar;
     }
 
-    public void setPrRaxbar(String prRaxbar) {
+    public void setPrRaxbar(Xodimlar prRaxbar) {
         this.prRaxbar = prRaxbar;
     }
 
-    public String getPrKritgan() {
+    public Xodimlar getPrKritgan() {
         return prKritgan;
     }
 
-    public void setPrKritgan(String prKritgan) {
+    public void setPrKritgan(Xodimlar prKritgan) {
         this.prKritgan = prKritgan;
     }
 
-    public String getPrMasul() {
+    public Xodimlar getPrMasul() {
         return prMasul;
     }
 
-    public void setPrMasul(String prMasul) {
+    public void setPrMasul(Xodimlar prMasul) {
         this.prMasul = prMasul;
     }
 
@@ -235,8 +246,8 @@ public class Project {
                 ", prIsImportant=" + prIsImportant +
                 ", prIsShoshilinch=" + prIsShoshilinch +
                 ", prNomi='" + prNomi + '\'' +
-                ", prKlient='" + prKlient + '\'' +
-                ", prKMP_komp='" + prKMP_komp + '\'' +
+                ", prClient='" + prClient + '\'' +
+                ", prKmpCompany='" + prKmpCompany + '\'' +
                 ", prRaxbar='" + prRaxbar + '\'' +
                 ", prKritgan='" + prKritgan + '\'' +
                 ", prMasul='" + prMasul + '\'' +

@@ -3,7 +3,6 @@ package sample.Moodles;
 import sample.Classes.Connections;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 public class Valyuta {
     private String title;
@@ -19,7 +18,7 @@ public class Valyuta {
     private String nbu_cell_price;
 
     private String dateString;
-    private LocalDateTime dateTime;
+    private LocalDate dateTime;
 
 
     public Valyuta(String title, String code, String cb_price,
@@ -29,7 +28,7 @@ public class Valyuta {
         this.cb_price = cb_price;
         this.nbu_buy_price = nbu_buy_price;
         this.nbu_cell_price = nbu_cell_price;
-        this.dateTime = new Connections().parseToLocalDateTime(date);
+        this.dateTime = new Connections().parseToLocalDate(date);
         this.dateString = date;
         this.title_1 = 1 + " " + title + ", " + code;
 
@@ -110,11 +109,11 @@ public class Valyuta {
         this.dateString = dateString;
     }
 
-    public LocalDateTime getDateTime() {
+    public LocalDate getDateTime() {
         return dateTime;
     }
 
-    public void setDateTime(LocalDateTime dateTime) {
+    public void setDateTime(LocalDate dateTime) {
         this.dateTime = dateTime;
     }
 

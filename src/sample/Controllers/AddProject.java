@@ -11,9 +11,7 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import sample.Moodles.Project;
-import sample.Moodles.Stavkalar;
-import sample.Moodles.TovarZakaz;
+import sample.Moodles.*;
 
 import java.awt.*;
 import java.io.File;
@@ -156,10 +154,18 @@ public class AddProject implements Initializable {
         }
 
         project = new Project(
-                -1, LocalDateTime.now(), prIsImportant.isSelected(), prIsShoshilinch.isSelected(),
-                prName.getText().trim(), prClient.getValue().trim(), prFromCom.getValue().trim(),
-                prRahbar.getValue().trim(), prMasul.getValue().trim(), LocalDateTime.of(prDate.getValue(), prTime.getValue()),
-                typeCol, prComment.getText().trim(), prKiritgan.getValue().trim(),
+                -1, LocalDate.now(), prIsImportant.isSelected(), prIsShoshilinch.isSelected(),
+                prName.getText().trim(),
+                new Client(-1, prClient.getValue().trim(), LocalDate.now()),
+                new Company(-1, prFromCom.getValue().trim(), LocalDate.now()),
+                new Xodimlar(-1,  prRahbar.getValue().trim(), "adaf",
+                        "asfas", LocalDate.now(), LocalDate.now(),"Progrommer"),
+                new Xodimlar(-1,  prMasul.getValue().trim(), "adaf",
+                        "asfas", LocalDate.now(), LocalDate.now(),"Progrommer"),
+                LocalDateTime.of(prDate.getValue(), prTime.getValue()),
+                typeCol, prComment.getText().trim(),
+                new Xodimlar(-1,  prKiritgan.getValue().trim(), "adaf",
+                        "asfas", LocalDate.now(), LocalDate.now(),"Progrommer"),
                 tovarZakazList
         );
 

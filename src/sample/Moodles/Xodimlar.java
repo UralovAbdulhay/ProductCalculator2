@@ -4,13 +4,13 @@ import java.time.LocalDate;
 
 public class Xodimlar {
 
-    int id;
-    String ism;
-    String familiya;
-    String ochestva;
-    LocalDate tugilganVaqt;
-    LocalDate comeDay;
-    String lavozim;
+   private int id;
+   private String ism;
+   private String familiya;
+   private String ochestva;
+   private LocalDate tugilganVaqt;
+   private LocalDate comeDay;
+   private String lavozim;
 
     public Xodimlar(int id, String ism, String familiya,
                     String ochestva, LocalDate tugilganVaqt,
@@ -83,14 +83,14 @@ public class Xodimlar {
 
     @Override
     public String toString() {
-        return "Xodimlar{" +
-                "id=" + id +
-                ", ism='" + ism + '\'' +
-                ", familiya='" + familiya + '\'' +
-                ", ochestva='" + ochestva + '\'' +
-                ", tugilganVaqt=" + tugilganVaqt +
-                ", comeDay=" + comeDay +
-                ", lavozim='" + lavozim + '\'' +
-                '}';
+        return  "\nXodimlar{" +
+                "\nid=" + id +
+                ",\n ism='" + ism + '\'' +
+                ",\n familiya='" + familiya + '\'' +
+                ",\n ochestva='" + ochestva + '\'' +
+                ",\n tugilganVaqt=" + tugilganVaqt +
+                ",\n comeDay=" + comeDay +
+                ",\n lavozim='" + lavozim + '\'' +
+                "\n}";
     }
 }

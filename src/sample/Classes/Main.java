@@ -7,12 +7,10 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import sample.Controllers.ControllerOyna;
-import sample.Moodles.Client;
 import sample.Moodles.PriseList;
 
 import java.sql.*;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 
 
 public class Main extends Application {
@@ -180,8 +178,20 @@ public class Main extends Application {
         Connections connections = new Connections();
         PriseList.addAllPriseLists(connections.getTovarFromSql());
 //        launch(args);
-        new Connections().insertToClient(
-                new Client(2, "Doniyor_4", LocalDate.now())
-        );
+//        new Connections().insertToProject(
+//                new Project(
+//                        31651, LocalDate.now(), true, false, "pr_1",
+//                        new Client(5, "client_1", LocalDate.now()),
+//                        new Company(5, "Company_1", LocalDate.now()),
+//                        new Xodimlar(3, "Abdulhay", "adaf",
+//                                "asfas", LocalDate.now(), LocalDate.now(),"Progrommer"),
+//                        new Xodimlar(9, "Abdulhay", "adaf",
+//                                "asfas", LocalDate.now(), LocalDate.now(),"Progrommer"),
+//                        LocalDateTime.now(), 1, "salom dunyo",
+//                        new Xodimlar(3, "Abdulhay", "adaf",
+//                                "asfas", LocalDate.now(), LocalDate.now(),"Progrommer")
+//                )
+//        );
+        new Connections().getProjectFromSql();
     }
 }

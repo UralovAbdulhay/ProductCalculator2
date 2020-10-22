@@ -105,15 +105,15 @@ public class Stavkalar {
 
     @Override
     public String toString() {
-        return "Stavkalar{" +
-                "stTrans=" + stTrans +
-                ", stCIP=" + stCIP +
-                ", stUSZ_USD=" + stUSZ_USD +
-                ", stUSZ_RUB=" + stUSZ_RUB +
-                ", stUSZ_EUR=" + stUSZ_EUR +
-                ", stBojxona=" + stBojxona +
-                ", stNDS1S=" + stNDS1S +
-                ", stNDS2=" + stNDS2 +
-                '}';
+        return  "\nStavkalar{" +
+                "\nstTrans=" + stTrans +
+                ",\n stCIP=" + stCIP +
+                ",\n stUSZ_USD=" + stUSZ_USD +
+                ",\n stUSZ_RUB=" + stUSZ_RUB +
+                ",\n stUSZ_EUR=" + stUSZ_EUR +
+                ",\n stBojxona=" + stBojxona +
+                ",\n stNDS1S=" + stNDS1S +
+                ",\n stNDS2=" + stNDS2 +
+                "\n}";
     }
 }
