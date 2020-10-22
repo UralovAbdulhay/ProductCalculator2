@@ -309,7 +309,7 @@ public class EditTovar implements Initializable {
 //        }
 
         if (!valyutas.isEmpty()) {
-            kusrSanaLable.setText(valyutas.get(0).getDate());
+            kusrSanaLable.setText(valyutas.get(0).getDate() + "");
         }
 
         kursTable.getColumns().addAll(kursTitle_1, kursCb_price, kursBuy_price, kursSell_price);
@@ -330,7 +330,7 @@ public class EditTovar implements Initializable {
         }
 
         if (!valyutas.isEmpty()) {
-            kusrSanaLable.setText(valyutas.get(0).getDate());
+            kusrSanaLable.setText(valyutas.get(0).getDate() + "");
         }
         showNotEmptyKurs();
         kursTable.setItems(valyutas);

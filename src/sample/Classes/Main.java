@@ -7,10 +7,12 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import sample.Controllers.ControllerOyna;
+import sample.Moodles.Client;
 import sample.Moodles.PriseList;
 
 import java.sql.*;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 
 
 public class Main extends Application {
@@ -177,6 +179,9 @@ public class Main extends Application {
     public static void main(String[] args) {
         Connections connections = new Connections();
         PriseList.addAllPriseLists(connections.getTovarFromSql());
-        launch(args);
+//        launch(args);
+        new Connections().insertToClient(
+                new Client(2, "Doniyor_4", LocalDate.now())
+        );
     }
 }

@@ -55,9 +55,11 @@ public class Connections {
         return list;
     }
 
-    private LocalDate parseToLocalDate(String value) {
+    public LocalDate parseToLocalDate(String value) {
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+//        DateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+//        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         System.out.println(value);
         try {
             long l = Long.parseLong(value);
@@ -69,9 +71,11 @@ public class Connections {
         }
     }
 
-    private LocalDateTime parseToLocalDateTime(String value) {
-        DateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm");
-        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm");
+   public   LocalDateTime parseToLocalDateTime(String value) {
+//        DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        DateFormat format = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+//        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         System.out.println(value);
         try {
             long l = Long.parseLong(value);
@@ -113,8 +117,8 @@ public class Connections {
                         resultSet.getString("first_name"),
                         resultSet.getString("sure_name"),
                         resultSet.getString("last_name"),
-                        LocalDate.parse(resultSet.getString("birth_day"), dateFormatter),
-                        LocalDate.parse(resultSet.getString("come_day"), dateFormatter),
+                        parseToLocalDate(resultSet.getString("birth_day")),
+                        parseToLocalDate(resultSet.getString("come_day")),
                         resultSet.getString("lavozim")
                 ));
             }
@@ -152,8 +156,8 @@ public class Connections {
             while (resultSet.next()) {
 
                 int numPr = resultSet.getInt("nomer_zakaz");
-                LocalDateTime boshlanganVaqt = LocalDateTime.parse(resultSet.getString("start_date"));
-                LocalDateTime tugashVaqti = LocalDateTime.parse(resultSet.getString("end_date"));
+                LocalDateTime boshlanganVaqt = parseToLocalDateTime(resultSet.getString("start_date"));
+                LocalDateTime tugashVaqti = parseToLocalDateTime(resultSet.getString("end_date"));
                 boolean prIsImportant = resultSet.getBoolean("muhum");
                 boolean prIsShoshilinch = resultSet.getBoolean("shoshilinch");
                 String prNomi = resultSet.getString("name");
@@ -229,7 +233,7 @@ public class Connections {
                                     set.getDouble("tovarTrans"),
                                     set.getDouble("tovarAksiz"),
                                     set.getDouble("tovarPoshlina"),
-                                    LocalDate.parse(set.getString("tovarSana"), dateFormatter),
+                                    parseToLocalDate(set.getString("tovarSana")),
                                     set.getString("ulchovType"),
                                     set.getString("tovarKomment")
                             )
@@ -260,7 +264,7 @@ public class Connections {
                 list.add(new Client(
                         resultSet.getInt(1),
                         resultSet.getString(2),
-                        LocalDateTime.parse(resultSet.getString(3), dateTimeFormatter)
+                        parseToLocalDate(resultSet.getString(3))
                 ));
             }
             con.close();
@@ -324,8 +328,7 @@ public class Connections {
     }
 
     public boolean tableIsEmpty(String tableName) {
-        try {
-            Connection connection = DriverManager.getConnection("jdbc:sqlite:" + dataBase);
+        try(Connection connection = DriverManager.getConnection("jdbc:sqlite:" + dataBase)) {
             Statement statement = connection.createStatement();
             if (0 == statement.executeQuery("SELECT Count(*) FROM " + tableName + " ;").getInt(1)) {
                 return true;
@@ -336,6 +339,36 @@ public class Connections {
             e.printStackTrace();
         }
         return true;
+    }
+
+    private Connection connect() {
+        // SQLite connection string
+        String url = "jdbc:sqlite:C://sqlite/db/test.db";
+        Connection conn = null;
+        try {
+            conn = DriverManager.getConnection("jdbc:sqlite:" + dataBase);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return conn;
+    }
+
+
+    public void insertToClient(Client client) {
+        String sql1 = "INSERT INTO client ( name ) \n" +
+                " SELECT ('"  +client.getName() + "')  \n" +
+                " WHERE NOT EXISTS( " +
+                " SELECT 1 FROM client WHERE name = '" +
+                client.getName() + "' );";
+
+        String sql = " INSERT OR IGNORE INTO client(name) VALUES('" + client.getName() + "');";
+
+        try(Connection connection = connect()) {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 }

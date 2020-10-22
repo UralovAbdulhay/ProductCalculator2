@@ -1,13 +1,13 @@
 package sample.Moodles;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class Client {
     private int id;
     private String name;
-    private LocalDateTime date;
+    private LocalDate date;
 
-    public Client(int id, String name, LocalDateTime date) {
+    public Client(int id, String name, LocalDate date) {
         this.id = id;
         this.name = name;
         this.date = date;
@@ -29,13 +29,15 @@ public class Client {
         this.name = name;
     }
 
-    public LocalDateTime getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(LocalDateTime date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
+
+
 //        99 004 26 77 Mahalla raisi
     // 90 910 71 22,   71 237 32 06   Dildora opa fond
 
