@@ -4,6 +4,8 @@ package sample.Moodles;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.io.File;
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -23,6 +25,8 @@ public class Project {
     private String prFormula;
     private int prFormulaNum;
     private String prKomment;
+    private LocalDateTime prTugallanganVaqti;
+    private File prFile;
 
 
 //    private String prClient;
@@ -235,25 +239,62 @@ public class Project {
         this.numPr = numPr;
     }
 
+    public LocalDateTime getPrTugallanganVaqti() {
+        return prTugallanganVaqti;
+    }
+
+    public void setPrTugallanganVaqti(LocalDateTime prTugallanganVaqti) {
+        this.prTugallanganVaqti = prTugallanganVaqti;
+    }
+
+    public File getPrFile() {
+        return prFile;
+    }
+
+    public void setPrFile(File prFile) {
+        this.prFile = prFile;
+    }
+
+    public String getPrFilePath() {
+        return prFile.getAbsolutePath();
+    }
+
+    public String getPrFileName() {
+        return "new File";
+    }
+
+    public String getQolganVaqt() {
+
+        Duration duration = Duration.between(this.tugashVaqti, LocalDateTime.now());
+        System.out.println(Math.abs(duration.toMinutes()));
+        long minutes = Math.abs(duration.toMinutes())%60;
+        long hours = (Math.abs(duration.toHours())%24) ;
+        long days = (Math.abs(duration.toDays()));
+
+        System.out.println("" + days + " / " + hours + ":" + minutes);
+
+    return  days + " / " + hours + ":" + minutes;
+    }
+
     @Override
     public String toString() {
-        return "Project{" +
-                "numPr=" + numPr +
-                ", tr_pr=" + tr_pr +
-                ", boshlanganVaqt=" + boshlanganVaqt +
-                ", tugashVaqti=" + tugashVaqti +
-                ", proritet='" + proritet + '\'' +
-                ", prIsImportant=" + prIsImportant +
-                ", prIsShoshilinch=" + prIsShoshilinch +
-                ", prNomi='" + prNomi + '\'' +
-                ", prClient='" + prClient + '\'' +
-                ", prKmpCompany='" + prKmpCompany + '\'' +
-                ", prRaxbar='" + prRaxbar + '\'' +
-                ", prKritgan='" + prKritgan + '\'' +
-                ", prMasul='" + prMasul + '\'' +
-                ", prFormula='" + prFormula + '\'' +
-                ", prKomment='" + prKomment + '\'' +
-                ", projectZakazList=" + projectZakazList +
-                '}';
+        return  "\nProject{" +
+                "\nnumPr=" + numPr +
+                ",\n tr_pr=" + tr_pr +
+                ",\n boshlanganVaqt=" + boshlanganVaqt +
+                ",\n tugashVaqti=" + tugashVaqti +
+                ",\n proritet='" + proritet + '\'' +
+                ",\n prIsImportant=" + prIsImportant +
+                ",\n prIsShoshilinch=" + prIsShoshilinch +
+                ",\n prNomi='" + prNomi + '\'' +
+                ",\n prClient='" + prClient + '\'' +
+                ",\n prKmpCompany='" + prKmpCompany + '\'' +
+                ",\n prRaxbar='" + prRaxbar + '\'' +
+                ",\n prKritgan='" + prKritgan + '\'' +
+                ",\n prMasul='" + prMasul + '\'' +
+                ",\n prFormula='" + prFormula + '\'' +
+                ",\n prKomment='" + prKomment + '\'' +
+                ",\n projectZakazList=" + projectZakazList +
+                "\n}";
     }
 }

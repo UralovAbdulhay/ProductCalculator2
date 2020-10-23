@@ -182,7 +182,6 @@ public class TovarZakaz extends Tovar {
                         (1, 1_000_000, this.zakazSoni, 1)
         );
 
-        new ControllerTable().summaHisobla();
 
     }
 

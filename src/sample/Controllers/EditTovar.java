@@ -2,6 +2,7 @@ package sample.Controllers;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
+import com.jfoenix.controls.JFXTabPane;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.beans.binding.Bindings;
@@ -10,6 +11,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -29,6 +31,8 @@ import sample.Moodles.*;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -36,7 +40,28 @@ import java.util.ResourceBundle;
 public class EditTovar implements Initializable {
 
     @FXML
+    private Tab coursesTab;
+    @FXML
+    private Tab staffsTab;
+
+    @FXML
+    private Tab priseTab;
+
+    @FXML
+    private Tab projectsTab;
+
+    @FXML
+    private Tab doneProjectsTab;
+
+    @FXML
+    private JFXTabPane parentTabPane;
+
+    @FXML
+    private TableView<Project> doneProjectTable;
+
+    @FXML
     private JFXRadioButton kursEmptyShow;
+
     @FXML
     private JFXButton delPrBt;
 
@@ -91,6 +116,8 @@ public class EditTovar implements Initializable {
 
         listTable.setStyle("-fx-font-size: 14");
         stavkaTable.setStyle("-fx-font-size: 16");
+        projectTable.setStyle("-fx-font-size: 14");
+        doneProjectTable.setStyle("-fx-font-size: 14");
 
 
         plQidir.textProperty().addListener(new InvalidationListener() {
@@ -260,7 +287,7 @@ public class EditTovar implements Initializable {
 
         tovarQushimcha.getColumns().addAll(tovarTrans, tovarAksiz, tovarPoshlina, tovarDDP);
 
-
+        listTable.getColumns().clear();
         listTable.getColumns().addAll(tovarDeleteCol, tovarTR, tovarKod, tovarNomi,
                 tovarModel, tovarIshCh, tovarNarxi, tovarNarxiTuri, tovarQushimcha,
                 tovarSana, tovarUlchov, tovarKomment);
@@ -311,7 +338,7 @@ public class EditTovar implements Initializable {
         if (!valyutas.isEmpty()) {
             kusrSanaLable.setText(valyutas.get(0).getDate() + "");
         }
-
+        kursTable.getColumns().clear();
         kursTable.getColumns().addAll(kursTitle_1, kursCb_price, kursBuy_price, kursSell_price);
         kursTable.setItems(valyutas);
         showNotEmptyKurs();
@@ -323,7 +350,6 @@ public class EditTovar implements Initializable {
         //  baza va internet sinxronizatsiyasi bo'ladi
 
 
-
         if (new Connections().tableIsEmpty("course")) {
             valyutas.clear();
             valyutas.addAll(new Connections().getCourseFromSql());
@@ -332,7 +358,6 @@ public class EditTovar implements Initializable {
         if (!valyutas.isEmpty()) {
             kusrSanaLable.setText(valyutas.get(0).getDate() + "");
         }
-        showNotEmptyKurs();
         kursTable.setItems(valyutas);
         showNotEmptyKurs();
     }
@@ -349,38 +374,38 @@ public class EditTovar implements Initializable {
         kursTable.refresh();
     }
 
-    TableColumn creatTabCol(String title, double prefWidth) {
+    <S, T> TableColumn<S, T> creatTabCol(String title, double prefWidth) {
 
-        TableColumn newColumn_ = new TableColumn(title);
+        TableColumn<S, T> newColumn_ = new TableColumn<S, T>(title);
         newColumn_.setPrefWidth(prefWidth);
         return newColumn_;
     }
 
 
-    TableColumn creatTabCol(String title, double prefWidth, boolean isSortable) {
+     <S, T> TableColumn<S, T> creatTabCol(String title, double prefWidth, boolean isSortable) {
 
-        TableColumn newColumn_ = new TableColumn(title);
+        TableColumn<S, T> newColumn_ = new TableColumn<S, T>(title);
         newColumn_.setPrefWidth(prefWidth);
         newColumn_.setSortable(isSortable);
         return newColumn_;
     }
 
-    TableColumn creatTabCol(String title) {
+    <S, T> TableColumn<S, T> creatTabCol(String title) {
 
-        TableColumn newColumn_ = new TableColumn(title);
+        TableColumn<S, T> newColumn_ = new TableColumn<S, T>(title);
 
-        newColumn_.setMinWidth(100);
-        newColumn_.setPrefWidth(120);
-        newColumn_.setMaxWidth(150);
+        newColumn_.setMinWidth(120);
+        newColumn_.setPrefWidth(150);
+        newColumn_.setMaxWidth(200);
 
         return newColumn_;
     }
 
 
-    TableColumn creatTabCol(String title, double minWidth, double prefWidth,
+    <S, T> TableColumn<S, T> creatTabCol(String title, double minWidth, double prefWidth,
                             double maxWidth) {
 
-        TableColumn newColumn = new TableColumn(title);
+        TableColumn<S, T> newColumn = new TableColumn<S, T>(title);
 
         newColumn.setMinWidth(minWidth);
         newColumn.setPrefWidth(prefWidth);
@@ -560,10 +585,12 @@ public class EditTovar implements Initializable {
         komment.setCellValueFactory(e -> new SimpleStringProperty(
                 e.getValue().getKomment()
         ));
-
+        stavkaTable.getColumns().clear();
+//        stavkaTable.getItems().clear();
         stavkaTable.getColumns().addAll(nomi, qiymat, komment);
 
         stavkaTable.setItems(Stavkalar.stavkaShablons);
+        System.out.println(Stavkalar.stavkaShablons);
     }
 
     private void stavkaEdit() {
@@ -599,8 +626,225 @@ public class EditTovar implements Initializable {
         stavkaTable.refresh();
     }
 
+
     private void initProjectTable() {
 
+        TableColumn<Project, Integer> numZakaz = new TableColumn<>("Номер Заказа");
+        numZakaz.setStyle("-fx-alignment: CENTER");
+        numZakaz.setCellValueFactory(e -> new SimpleObjectProperty<>(
+                e.getValue().getNumPr()
+        ));
+
+
+        TableColumn<Project, LocalDate> creteDate = new TableColumn<>("Дата и время");
+        creteDate.setStyle("-fx-alignment: CENTER");
+        creteDate.setCellValueFactory(e -> new SimpleObjectProperty<>(
+                e.getValue().getBoshlanganVaqt()
+        ));
+
+
+        TableColumn<Project, String> priority = new TableColumn<>("Приоритет");
+        priority.setStyle("-fx-alignment: CENTER");
+        priority.setCellValueFactory(e -> new SimpleStringProperty(
+                e.getValue().getProritet()
+        ));
+
+        TableColumn<Project, String> prName = new TableColumn<>("Название проекта");
+        prName.setStyle("-fx-alignment: CENTER");
+        prName.setCellValueFactory(e -> new SimpleStringProperty(
+                e.getValue().getPrNomi()
+        ));
+
+        TableColumn<Project, String> prClient = new TableColumn<>("Клиент");
+        prClient.setStyle("-fx-alignment: CENTER");
+        prClient.setCellValueFactory(e -> new SimpleStringProperty(
+                e.getValue().getPrClient().getName()
+        ));
+
+        TableColumn<Project, String> prFromCom = new TableColumn<>("КМП от");
+        prFromCom.setStyle("-fx-alignment: CENTER");
+        prFromCom.setCellValueFactory(e -> new SimpleStringProperty(
+                e.getValue().getPrKmpCompany().getName()
+        ));
+
+        TableColumn<Project, String> prRaxbar = new TableColumn<>("Руководитель проекта 1/2");
+        prRaxbar.setStyle("-fx-alignment: CENTER");
+        prRaxbar.setCellValueFactory(e -> new SimpleStringProperty(
+                e.getValue().getPrRaxbar().getIsm()
+        ));
+
+        TableColumn<Project, String> prMasul = new TableColumn<>("Ответственное лицо 1/2");
+        prMasul.setStyle("-fx-alignment: CENTER");
+        prMasul.setCellValueFactory(e -> new SimpleStringProperty(
+                e.getValue().getPrMasul().getIsm()
+        ));
+
+        TableColumn<Project, LocalDateTime> prEndDate = new TableColumn<>("Срок выполнения работ до");
+        prEndDate.setStyle("-fx-alignment: CENTER");
+        prEndDate.setCellValueFactory(e -> new SimpleObjectProperty<>(
+                e.getValue().getTugashVaqti()
+        ));
+
+        TableColumn<Project, String> prQolganDate = new TableColumn<>("Срок(дней/час)");
+        prQolganDate.setStyle("-fx-alignment: CENTER");
+        prQolganDate.setCellValueFactory(e -> new SimpleStringProperty(
+                e.getValue().getQolganVaqt()
+        ));
+
+        TableColumn<Project, String> prColType = new TableColumn<>("Условия расчета");
+        prColType.setStyle("-fx-alignment: CENTER");
+        prColType.setCellValueFactory(e -> new SimpleStringProperty(
+                e.getValue().getPrFormula()
+        ));
+
+        TableColumn<Project, String> prFile = new TableColumn<>("Файл");
+        prFile.setStyle("-fx-alignment: CENTER");
+        prFile.setCellValueFactory(e -> new SimpleStringProperty(
+                e.getValue().getPrFileName()
+
+        ));
+
+        TableColumn<Project, String> prkomment = new TableColumn<>("Комментарии");
+        prkomment.setStyle("-fx-alignment: CENTER");
+        prkomment.setCellValueFactory(e -> new SimpleStringProperty(
+                e.getValue().getPrKomment()
+        ));
+
+        projectTable.getColumns().clear();
+        projectTable.getItems().clear();
+        projectTable.getColumns().addAll(numZakaz, creteDate, priority,
+                prName, prClient, prFromCom, prRaxbar, prMasul, prEndDate,
+                prQolganDate, prColType, prFile,  prkomment );
+        projectTable.setItems(new Connections().getProjectFromSql());
+
     }
+
+    private void initDoneProjectsTable() {
+
+        TableColumn<Project, Integer> numZakaz = creatTabCol("Номер Заказа", 60);
+        numZakaz.setStyle("-fx-alignment: CENTER");
+        numZakaz.setCellValueFactory(e -> new SimpleObjectProperty<>(
+                e.getValue().getNumPr()
+        ));
+
+
+        TableColumn<Project, LocalDate> creteDate = creatTabCol("Дата и время");
+        creteDate.setStyle("-fx-alignment: CENTER");
+        creteDate.setCellValueFactory(e -> new SimpleObjectProperty<>(
+                e.getValue().getBoshlanganVaqt()
+        ));
+
+
+        TableColumn<Project, String> priority = creatTabCol("Приоритет");
+        priority.setStyle("-fx-alignment: CENTER");
+        priority.setCellValueFactory(e -> new SimpleStringProperty(
+                e.getValue().getProritet()
+        ));
+
+        TableColumn<Project, String> prName = creatTabCol("Название проекта");
+        prName.setStyle("-fx-alignment: CENTER");
+        prName.setCellValueFactory(e -> new SimpleStringProperty(
+                e.getValue().getPrNomi()
+        ));
+
+        TableColumn<Project, String> prClient = creatTabCol("Клиент");
+        prClient.setStyle("-fx-alignment: CENTER");
+        prClient.setCellValueFactory(e -> new SimpleStringProperty(
+                e.getValue().getPrClient().getName()
+        ));
+
+        TableColumn<Project, String> prFromCom = creatTabCol("КМП от");
+        prFromCom.setStyle("-fx-alignment: CENTER");
+        prFromCom.setCellValueFactory(e -> new SimpleStringProperty(
+                e.getValue().getPrKmpCompany().getName()
+        ));
+
+        TableColumn<Project, String> prRaxbar = creatTabCol("Руководитель проекта 1/2");
+        prRaxbar.setStyle("-fx-alignment: CENTER");
+        prRaxbar.setCellValueFactory(e -> new SimpleStringProperty(
+                e.getValue().getPrRaxbar().getIsm()
+        ));
+
+        TableColumn<Project, String> prMasul = creatTabCol("Ответственное лицо 1/2");
+        prMasul.setStyle("-fx-alignment: CENTER");
+        prMasul.setCellValueFactory(e -> new SimpleStringProperty(
+                e.getValue().getPrMasul().getIsm()
+        ));
+
+        TableColumn<Project, LocalDateTime> prEndDate = creatTabCol("Дата завершения");
+        prEndDate.setStyle("-fx-alignment: CENTER");
+        prEndDate.setCellValueFactory(e -> new SimpleObjectProperty<>(
+                e.getValue().getTugashVaqti()
+        ));
+
+
+        TableColumn<Project, String> prColType = creatTabCol("Условия расчета");
+        prColType.setStyle("-fx-alignment: CENTER");
+        prColType.setCellValueFactory(e -> new SimpleStringProperty(
+                e.getValue().getPrFormula()
+        ));
+
+
+        TableColumn<Project, String> prFile = creatTabCol("Файл");
+        prFile.setStyle("-fx-alignment: CENTER");
+        prFile.setCellValueFactory(e -> new SimpleStringProperty(
+                e.getValue().getPrFileName()
+        ));
+
+        TableColumn<Project, String> prkomment = creatTabCol("Комментарии");
+        prkomment.setStyle("-fx-alignment: CENTER");
+        prkomment.setCellValueFactory(e -> new SimpleStringProperty(
+                e.getValue().getPrKomment()
+        ));
+
+        TableColumn<Project, LocalDateTime> prDoneDate =creatTabCol("Дата/время Выполнение");
+        prDoneDate.setStyle("-fx-alignment: CENTER");
+        prDoneDate.setCellValueFactory(e -> new SimpleObjectProperty<>(
+                e.getValue().getPrTugallanganVaqti()
+        ));
+
+
+        doneProjectTable.getColumns().clear();
+        doneProjectTable.getColumns().addAll(numZakaz, creteDate, priority,
+                prName, prClient, prFromCom, prRaxbar, prMasul, prEndDate,
+                 prColType, prFile,  prkomment, prDoneDate);
+        doneProjectTable.setItems(new Connections().getProjectFromSql());
+    }
+
+    public void SelectionChanged(Event event) {
+
+        switch (parentTabPane.getSelectionModel().getSelectedItem().getId()) {
+            case "priseTab": {
+                System.out.println("priseTab ishladi");
+                ruyxatUrnat();
+                break;
+            }
+            case "staffsTab": {
+                System.out.println("staffsTab ishladi");
+                initStavkaTable();
+                break;
+            }
+            case "coursesTab": {
+                System.out.println("coursesTab ishladi");
+                initKursTable();
+                break;
+            }
+            case "projectsTab": {
+                System.out.println("projectsTab ishladi");
+                initProjectTable();
+                break;
+            }
+            case "doneProjectsTab": {
+                System.out.println("doneProjectsTab ishladi");
+                initDoneProjectsTable();
+                break;
+            }
+            default: {
+                System.out.println("default ishladi");
+                break;
+            }
+        }
+    }
+
 
 }
