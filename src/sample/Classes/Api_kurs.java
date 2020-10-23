@@ -11,7 +11,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 
@@ -19,19 +18,15 @@ public class Api_kurs {
 
 
     public List<Valyuta> getCourses() {
-      ObservableList<Valyuta> courseList = FXCollections.observableArrayList();
+        ObservableList<Valyuta> courseList = FXCollections.observableArrayList();
         URL url = null;
-        try {
-            url = new URL("https://nbu.uz/en/exchange-rates/json/");
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
         HttpURLConnection con = null;
         try {
-            assert url != null;
+            url = new URL("https://nbu.uz/en/exchange-rates/json/");
             con = (HttpURLConnection) url.openConnection();
         } catch (IOException e) {
             e.printStackTrace();
+            return courseList;
         }
 
         String json = "";

@@ -508,7 +508,7 @@ public class ControllerTable implements Initializable {
                 if (!bormi) {
                     TovarZakaz.tovarZakazList.add(new TovarZakaz(mainTable.getItems().get(i)));
                     TovarZakaz.tovarZakazList.forEach(
-                            e-> {
+                            e -> {
                                 e.getZakazUzgartir().setOnMouseClicked(
                                         event1 -> orderUzgartir()
                                 );
@@ -584,16 +584,14 @@ public class ControllerTable implements Initializable {
             summLable.get(1).setText(format.format(zakazSumma
                     / TovarZakaz.zakUsdUsz));
             summLable.get(2).setText(format.format(zakazSumma
-                    /TovarZakaz.zakRubUsz));
+                    / TovarZakaz.zakRubUsz));
             summLable.get(3).setText(format.format(zakazSumma
                     / TovarZakaz.zakEurUsz));
 
         } else {
 
-            summLable.get(0).setText(String.valueOf(format.format(0)));
-            summLable.get(1).setText(String.valueOf(format.format(0)));
-            summLable.get(2).setText(String.valueOf(format.format(0)));
-            summLable.get(3).setText(String.valueOf(format.format(0)));
+            summLable.forEach(e -> e.setText((format.format(0))));
+
         }
     }
 
@@ -787,7 +785,6 @@ public class ControllerTable implements Initializable {
         zBojSt.setStyle("-fx-alignment: CENTER");
 
 
-
         TableColumn<TovarZakaz, Double> zBoj = creatTabCol((Stavkalar.stBojxona * 100) + " %");
         zBoj.setVisible(false);
         zBoj.setPrefWidth(150);
@@ -899,7 +896,7 @@ public class ControllerTable implements Initializable {
         nds2Stavka.setResizable(false);
 
 
-        zNDS2Nar = new TableColumn<>((Stavkalar.stNDS2 * 100)+" %");
+        zNDS2Nar = new TableColumn<>((Stavkalar.stNDS2 * 100) + " %");
         zNDS2Nar.setPrefWidth(150);
         zNDS2Nar.setResizable(false);
         zNDS2Nar.setStyle("-fx-alignment: CENTER");
@@ -921,8 +918,8 @@ public class ControllerTable implements Initializable {
                 zTr, zKamBt, zUchBt, zNomi, zIshCh, zModel, zTavId, zNarxiTuri,
                 ztavEXWNarxi, ztavEXWSumm, zTavTransSt, ztavTransSumm,
                 ztavTransLiSumm, zCIPst, zCIPnarxi, zCIPsumm, zCIPuzsLab, zBojSt,
-                 ztovarPoshlinaOr, zSumPosh, ztovarAksizOr, zSumAk,
-                zNDS1,  zKelNar, zKelSum, zDDPst, zDDPNar, zDDPSum,
+                ztovarPoshlinaOr, zSumPosh, ztovarAksizOr, zSumAk,
+                zNDS1, zKelNar, zKelSum, zDDPst, zDDPNar, zDDPSum,
                 nds2Stavka, nds2Summa
         );
 
@@ -1004,7 +1001,6 @@ public class ControllerTable implements Initializable {
     }
 
 
-
     @FXML
     private void showProjectView(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader();
@@ -1031,7 +1027,7 @@ public class ControllerTable implements Initializable {
         controller.setControllerTable(this);
         controller.setOwnerStage(mainStage);
         int typeCol = 0;
-        typeCol = ddpSwitch.isSelected()?1:0;
+        typeCol = ddpSwitch.isSelected() ? 1 : 0;
         controller.setPrHisobTuri(typeCol, TovarZakaz.tovarZakazList);
 
     }
@@ -1141,7 +1137,7 @@ public class ControllerTable implements Initializable {
             TovarZakaz.zakUsdUsz = 0;
         }
 
-         TovarZakaz.tovarZakazList.forEach(TovarZakaz::zakazHisobla);
+        TovarZakaz.tovarZakazList.forEach(TovarZakaz::zakazHisobla);
         zCIPnarxUzs.setText((TovarZakaz.zakUsdUsz) + " so'm");
         helperTable.refresh();
 
@@ -1165,7 +1161,7 @@ public class ControllerTable implements Initializable {
             nds2Stavka.setVisible(true);
             zNDS2Nar.setVisible(true);
             nds2Summa.setVisible(true);
-            Stavkalar.stNDS1S = Stavkalar.stavkaShablons.stream().filter(e-> e.getKod().equals("nds1s")).findFirst().get().getQiymat();
+            Stavkalar.stNDS1S = Stavkalar.stavkaShablons.stream().filter(e -> e.getKod().equals("nds1s")).findFirst().get().getQiymat();
             zNDS1Narxi.setText((Stavkalar.stNDS1S * 100) + " %");
 
 
@@ -1175,7 +1171,7 @@ public class ControllerTable implements Initializable {
             nds2Stavka.setVisible(false);
             zNDS2Nar.setVisible(false);
             nds2Summa.setVisible(false);
-            Stavkalar.stNDS1S = Stavkalar.stavkaShablons.stream().filter(e-> e.getKod().equals("nds1bez")).findFirst().get().getQiymat();
+            Stavkalar.stNDS1S = Stavkalar.stavkaShablons.stream().filter(e -> e.getKod().equals("nds1bez")).findFirst().get().getQiymat();
             zNDS1Narxi.setText((Stavkalar.stNDS1S * 100) + " %");
 
         }

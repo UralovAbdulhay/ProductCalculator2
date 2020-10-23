@@ -117,7 +117,6 @@ public class TovarZakaz extends Tovar {
         this.zakazUzgartir.setEditable(false);
 
 
-
         this.zakazUchirishBt = new JFXButton();
         this.zakazUchirishBt.setOnAction(event -> {
             new ControllerTable().orderBekor();
@@ -181,7 +180,7 @@ public class TovarZakaz extends Tovar {
                 new SpinnerValueFactory.IntegerSpinnerValueFactory
                         (1, 1_000_000, this.zakazSoni, 1)
         );
-
+        new ControllerTable().summaHisobla();
 
     }
 
@@ -494,7 +493,6 @@ public class TovarZakaz extends Tovar {
     }
 
 
-
     public int getTovarId() {
         return super.getTovarId();
     }
@@ -657,6 +655,7 @@ public class TovarZakaz extends Tovar {
     public double getStNDS1() {
         return stavkalar.getStNDS1();
     }
+
     public double getStNDS1S() {
         return stavkalar.getStNDS1S();
     }

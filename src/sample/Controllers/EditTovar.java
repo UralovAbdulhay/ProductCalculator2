@@ -26,6 +26,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
 import org.controlsfx.control.textfield.TextFields;
+import sample.Classes.Api_kurs;
 import sample.Classes.Connections;
 import sample.Moodles.*;
 
@@ -349,8 +350,10 @@ public class EditTovar implements Initializable {
 
         //  baza va internet sinxronizatsiyasi bo'ladi
 
+        new Connections() new Api_kurs().getCourses();
 
-        if (new Connections().tableIsEmpty("course")) {
+        if (!(new Connections().tableIsEmpty("course"))) {
+            System.out.println("tableIsEmpty = " + true);
             valyutas.clear();
             valyutas.addAll(new Connections().getCourseFromSql());
         }
@@ -378,6 +381,7 @@ public class EditTovar implements Initializable {
 
         TableColumn<S, T> newColumn_ = new TableColumn<S, T>(title);
         newColumn_.setPrefWidth(prefWidth);
+        newColumn_.setMinWidth(prefWidth);
         return newColumn_;
     }
 
@@ -588,9 +592,11 @@ public class EditTovar implements Initializable {
         stavkaTable.getColumns().clear();
 //        stavkaTable.getItems().clear();
         stavkaTable.getColumns().addAll(nomi, qiymat, komment);
-
+Stavkalar.stavkaShablons.clear();
+Stavkalar.stavkaShablons.addAll(new Connections().getStavkaFromSql());
         stavkaTable.setItems(Stavkalar.stavkaShablons);
-        System.out.println(Stavkalar.stavkaShablons);
+
+
     }
 
     private void stavkaEdit() {
@@ -629,99 +635,7 @@ public class EditTovar implements Initializable {
 
     private void initProjectTable() {
 
-        TableColumn<Project, Integer> numZakaz = new TableColumn<>("Номер Заказа");
-        numZakaz.setStyle("-fx-alignment: CENTER");
-        numZakaz.setCellValueFactory(e -> new SimpleObjectProperty<>(
-                e.getValue().getNumPr()
-        ));
-
-
-        TableColumn<Project, LocalDate> creteDate = new TableColumn<>("Дата и время");
-        creteDate.setStyle("-fx-alignment: CENTER");
-        creteDate.setCellValueFactory(e -> new SimpleObjectProperty<>(
-                e.getValue().getBoshlanganVaqt()
-        ));
-
-
-        TableColumn<Project, String> priority = new TableColumn<>("Приоритет");
-        priority.setStyle("-fx-alignment: CENTER");
-        priority.setCellValueFactory(e -> new SimpleStringProperty(
-                e.getValue().getProritet()
-        ));
-
-        TableColumn<Project, String> prName = new TableColumn<>("Название проекта");
-        prName.setStyle("-fx-alignment: CENTER");
-        prName.setCellValueFactory(e -> new SimpleStringProperty(
-                e.getValue().getPrNomi()
-        ));
-
-        TableColumn<Project, String> prClient = new TableColumn<>("Клиент");
-        prClient.setStyle("-fx-alignment: CENTER");
-        prClient.setCellValueFactory(e -> new SimpleStringProperty(
-                e.getValue().getPrClient().getName()
-        ));
-
-        TableColumn<Project, String> prFromCom = new TableColumn<>("КМП от");
-        prFromCom.setStyle("-fx-alignment: CENTER");
-        prFromCom.setCellValueFactory(e -> new SimpleStringProperty(
-                e.getValue().getPrKmpCompany().getName()
-        ));
-
-        TableColumn<Project, String> prRaxbar = new TableColumn<>("Руководитель проекта 1/2");
-        prRaxbar.setStyle("-fx-alignment: CENTER");
-        prRaxbar.setCellValueFactory(e -> new SimpleStringProperty(
-                e.getValue().getPrRaxbar().getIsm()
-        ));
-
-        TableColumn<Project, String> prMasul = new TableColumn<>("Ответственное лицо 1/2");
-        prMasul.setStyle("-fx-alignment: CENTER");
-        prMasul.setCellValueFactory(e -> new SimpleStringProperty(
-                e.getValue().getPrMasul().getIsm()
-        ));
-
-        TableColumn<Project, LocalDateTime> prEndDate = new TableColumn<>("Срок выполнения работ до");
-        prEndDate.setStyle("-fx-alignment: CENTER");
-        prEndDate.setCellValueFactory(e -> new SimpleObjectProperty<>(
-                e.getValue().getTugashVaqti()
-        ));
-
-        TableColumn<Project, String> prQolganDate = new TableColumn<>("Срок(дней/час)");
-        prQolganDate.setStyle("-fx-alignment: CENTER");
-        prQolganDate.setCellValueFactory(e -> new SimpleStringProperty(
-                e.getValue().getQolganVaqt()
-        ));
-
-        TableColumn<Project, String> prColType = new TableColumn<>("Условия расчета");
-        prColType.setStyle("-fx-alignment: CENTER");
-        prColType.setCellValueFactory(e -> new SimpleStringProperty(
-                e.getValue().getPrFormula()
-        ));
-
-        TableColumn<Project, String> prFile = new TableColumn<>("Файл");
-        prFile.setStyle("-fx-alignment: CENTER");
-        prFile.setCellValueFactory(e -> new SimpleStringProperty(
-                e.getValue().getPrFileName()
-
-        ));
-
-        TableColumn<Project, String> prkomment = new TableColumn<>("Комментарии");
-        prkomment.setStyle("-fx-alignment: CENTER");
-        prkomment.setCellValueFactory(e -> new SimpleStringProperty(
-                e.getValue().getPrKomment()
-        ));
-
-        projectTable.getColumns().clear();
-        projectTable.getItems().clear();
-        projectTable.getColumns().addAll(numZakaz, creteDate, priority,
-                prName, prClient, prFromCom, prRaxbar, prMasul, prEndDate,
-                prQolganDate, prColType, prFile,  prkomment );
-        projectTable.setItems(new Connections().getProjectFromSql());
-
-    }
-
-    private void initDoneProjectsTable() {
-
-        TableColumn<Project, Integer> numZakaz = creatTabCol("Номер Заказа", 60);
+        TableColumn<Project, Integer> numZakaz = creatTabCol("Номер Заказа");
         numZakaz.setStyle("-fx-alignment: CENTER");
         numZakaz.setCellValueFactory(e -> new SimpleObjectProperty<>(
                 e.getValue().getNumPr()
@@ -759,13 +673,105 @@ public class EditTovar implements Initializable {
                 e.getValue().getPrKmpCompany().getName()
         ));
 
-        TableColumn<Project, String> prRaxbar = creatTabCol("Руководитель проекта 1/2");
+        TableColumn<Project, String> prRaxbar = creatTabCol("Руководитель проекта 1/2", 200);
         prRaxbar.setStyle("-fx-alignment: CENTER");
         prRaxbar.setCellValueFactory(e -> new SimpleStringProperty(
                 e.getValue().getPrRaxbar().getIsm()
         ));
 
-        TableColumn<Project, String> prMasul = creatTabCol("Ответственное лицо 1/2");
+        TableColumn<Project, String> prMasul = creatTabCol("Ответственное лицо 1/2", 200);
+        prMasul.setStyle("-fx-alignment: CENTER");
+        prMasul.setCellValueFactory(e -> new SimpleStringProperty(
+                e.getValue().getPrMasul().getIsm()
+        ));
+
+        TableColumn<Project, LocalDateTime> prEndDate = creatTabCol("Срок выполнения работ до", 200);
+        prEndDate.setStyle("-fx-alignment: CENTER");
+        prEndDate.setCellValueFactory(e -> new SimpleObjectProperty<>(
+                e.getValue().getTugashVaqti()
+        ));
+
+        TableColumn<Project, String> prQolganDate = creatTabCol("Срок(дней/час)");
+        prQolganDate.setStyle("-fx-alignment: CENTER");
+        prQolganDate.setCellValueFactory(e -> new SimpleStringProperty(
+                e.getValue().getQolganVaqt()
+        ));
+
+        TableColumn<Project, String> prColType = creatTabCol("Условия расчета");
+        prColType.setStyle("-fx-alignment: CENTER");
+        prColType.setCellValueFactory(e -> new SimpleStringProperty(
+                e.getValue().getPrFormula()
+        ));
+
+        TableColumn<Project, String> prFile = creatTabCol("Файл");
+        prFile.setStyle("-fx-alignment: CENTER");
+        prFile.setCellValueFactory(e -> new SimpleStringProperty(
+                e.getValue().getPrFileName()
+
+        ));
+
+        TableColumn<Project, String> prkomment = creatTabCol("Комментарии", 200);
+        prkomment.setStyle("-fx-alignment: CENTER");
+        prkomment.setCellValueFactory(e -> new SimpleStringProperty(
+                e.getValue().getPrKomment()
+        ));
+
+        projectTable.getColumns().clear();
+        projectTable.getItems().clear();
+        projectTable.getColumns().addAll(numZakaz, creteDate, priority,
+                prName, prClient, prFromCom, prRaxbar, prMasul, prEndDate,
+                prQolganDate, prColType, prFile,  prkomment );
+        projectTable.setItems(new Connections().getProjectFromSql());
+
+    }
+
+    private void initDoneProjectsTable() {
+
+        TableColumn<Project, Integer> numZakaz = creatTabCol("Номер Заказа");
+        numZakaz.setStyle("-fx-alignment: CENTER");
+        numZakaz.setCellValueFactory(e -> new SimpleObjectProperty<>(
+                e.getValue().getNumPr()
+        ));
+
+
+        TableColumn<Project, LocalDate> creteDate = creatTabCol("Дата и время");
+        creteDate.setStyle("-fx-alignment: CENTER");
+        creteDate.setCellValueFactory(e -> new SimpleObjectProperty<>(
+                e.getValue().getBoshlanganVaqt()
+        ));
+
+
+        TableColumn<Project, String> priority = creatTabCol("Приоритет");
+        priority.setStyle("-fx-alignment: CENTER");
+        priority.setCellValueFactory(e -> new SimpleStringProperty(
+                e.getValue().getProritet()
+        ));
+
+        TableColumn<Project, String> prName = creatTabCol("Название проекта");
+        prName.setStyle("-fx-alignment: CENTER");
+        prName.setCellValueFactory(e -> new SimpleStringProperty(
+                e.getValue().getPrNomi()
+        ));
+
+        TableColumn<Project, String> prClient = creatTabCol("Клиент");
+        prClient.setStyle("-fx-alignment: CENTER");
+        prClient.setCellValueFactory(e -> new SimpleStringProperty(
+                e.getValue().getPrClient().getName()
+        ));
+
+        TableColumn<Project, String> prFromCom = creatTabCol("КМП от");
+        prFromCom.setStyle("-fx-alignment: CENTER");
+        prFromCom.setCellValueFactory(e -> new SimpleStringProperty(
+                e.getValue().getPrKmpCompany().getName()
+        ));
+
+        TableColumn<Project, String> prRaxbar = creatTabCol("Руководитель проекта 1/2", 200);
+        prRaxbar.setStyle("-fx-alignment: CENTER");
+        prRaxbar.setCellValueFactory(e -> new SimpleStringProperty(
+                e.getValue().getPrRaxbar().getIsm()
+        ));
+
+        TableColumn<Project, String> prMasul = creatTabCol("Ответственное лицо 1/2", 200);
         prMasul.setStyle("-fx-alignment: CENTER");
         prMasul.setCellValueFactory(e -> new SimpleStringProperty(
                 e.getValue().getPrMasul().getIsm()
@@ -797,7 +803,7 @@ public class EditTovar implements Initializable {
                 e.getValue().getPrKomment()
         ));
 
-        TableColumn<Project, LocalDateTime> prDoneDate =creatTabCol("Дата/время Выполнение");
+        TableColumn<Project, LocalDateTime> prDoneDate =creatTabCol("Дата/время Выполнение", 200);
         prDoneDate.setStyle("-fx-alignment: CENTER");
         prDoneDate.setCellValueFactory(e -> new SimpleObjectProperty<>(
                 e.getValue().getPrTugallanganVaqti()
