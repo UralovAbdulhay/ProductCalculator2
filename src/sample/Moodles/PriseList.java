@@ -7,6 +7,7 @@ import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import sample.Classes.Connections;
 
 import java.time.LocalDate;
 
@@ -53,25 +54,22 @@ public class PriseList extends Tovar {
     }
 
     public static void addPriseList(PriseList priseList) {
-        priseLists.add(priseList);
-        setTr();
-    }
-
-    public static void addPriseList(Tovar tovar) {
-        priseLists.add(new PriseList(tovar));
-        setTr();
-    }
-
-    private static void addAllPriseListsTovar(ObservableList<Tovar> tovarLists) {
-
-        for (Tovar tovar : tovarLists) {
-            addPriseList(tovar);
-        }
+        new Connections().insertToTovar(priseList);
+        priseLists.clear();
+        priseLists.addAll(new Connections().getTovarFromSql());
         setTr();
     }
 
     public static void addAllPriseLists(ObservableList<PriseList> priseLists) {
-        PriseList.priseLists.addAll(priseLists);
+        priseLists.forEach(e -> new Connections().insertToTovar(e));
+        priseLists.clear();
+        priseLists.addAll(new Connections().getTovarFromSql());
+        setTr();
+    }
+
+    public static void reSetPriseList() {
+        priseLists.clear();
+        priseLists.addAll(new Connections().getTovarFromSql());
         setTr();
     }
 

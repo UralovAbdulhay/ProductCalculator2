@@ -28,6 +28,7 @@ public class Connections {
         try {
             while (resultSet.next()) {
                 Maker tovarMaker = getMakerFromSql(resultSet.getInt("maker"));
+                System.out.println(getClass() + " = " + tovarMaker);
                 list.add(
                         new PriseList(
                                 new Tovar(
@@ -121,8 +122,11 @@ public class Connections {
     }
 
     public String localDateTimeParseToString(LocalDateTime dateTime) {
-        System.out.println(dateTime.format(dateFormatter));
-        return dateTime.format(dateFormatter);
+        return dateTime.format(dateTimeFormatter);
+    }
+
+    public String localDateParseToString(LocalDate date) {
+        return date.format(dateFormatter);
     }
 
 
@@ -146,15 +150,16 @@ public class Connections {
     }
 
     public Maker getMakerFromSql(int id) {
+        System.out.println(getClass().getResource("xato") + " id = " + id);
         try (Connection connection = connect()) {
             ResultSet resultSet = connection.createStatement().executeQuery(
                     "SELECT * FROM maker WHERE id = " + id + ";"
             );
             return new Maker(
-                    resultSet.getInt(1),
-                    resultSet.getString(2),
-                    resultSet.getString(3),
-                    LocalDate.parse(resultSet.getString(4), dateFormatter)
+                    resultSet.getInt("id"),
+                    resultSet.getString("name"),
+                    resultSet.getString("country"),
+                    parseToLocalDate(resultSet.getString(4))
             );
         } catch (SQLException e) {
             e.printStackTrace();
@@ -431,7 +436,7 @@ public class Connections {
     public ObservableList<Company> getCompanyFromSql() {
 
         ObservableList<Company> list = FXCollections.observableArrayList();
-        ResultSet resultSet = selectAllFromSql("client");
+        ResultSet resultSet = selectAllFromSql("kmpFromCom");
         try {
             while (resultSet.next()) {
                 list.add(new Company(
@@ -614,6 +619,20 @@ public class Connections {
         }
     }
 
+    public void updateClient(Client client) {
+        String sql = " UPDATE client SET " +
+                "name = '" + client.getName() + "' " +
+                "WHERE id = " + client.getId() +
+                ";";
+
+        try (Connection connection = connect()) {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            System.out.println("updateClient statement = " + statement.executeUpdate());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public void insertToCourse(Valyuta valyuta) {
 
@@ -651,6 +670,7 @@ public class Connections {
         }
     }
 
+
     public void insertToCompany(Company company) {
         String sql = " INSERT OR IGNORE INTO kmpFromCom(name) VALUES('" + company.getName() + "');";
 
@@ -662,8 +682,23 @@ public class Connections {
         }
     }
 
+
+    public void updateCompany(Company company) {
+        String sql = " UPDATE kmpFromCom SET " +
+                "name = '" + company.getName() + "' " +
+                "WHERE id = " + company.getId() +
+                ";";
+        try (Connection connection = connect()) {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            System.out.println("updateCompany statement = " + statement.executeUpdate());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
     public Maker insertToMaker(Maker maker) {
-        String sql = " INSERT OR IGNORE INTO kmpFromCom(name, country)" +
+        String sql = " INSERT OR IGNORE INTO maker(name, country)" +
                 " VALUES('" + maker.getName() + "', " +
                 "'" + maker.getCountry() + "' );";
 
@@ -675,10 +710,10 @@ public class Connections {
                     "SELECT * FROM maker WHERE name = '" + maker.getName() + "';"
             );
             return new Maker(
-                    resultSet.getInt(1),
-                    resultSet.getString(2),
-                    resultSet.getString(3),
-                    LocalDate.parse(resultSet.getString(4), dateFormatter)
+                    resultSet.getInt("id"),
+                    resultSet.getString("name"),
+                    resultSet.getString("country"),
+                    parseToLocalDate(resultSet.getString("sana"))
             );
         } catch (SQLException e) {
             e.printStackTrace();
@@ -686,6 +721,22 @@ public class Connections {
             return null;
         }
     }
+
+
+    public void updateMaker(Maker maker) {
+        String sql = "UPDATE maker SET " +
+                "name = '" + maker.getName() + "', " +
+                "country = '" + maker.getCountry() + "' " +
+                "WHERE id = " + maker.getId() +
+                ";";
+        try (Connection connection = connect()) {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            System.out.println("updateMaker statement = " + statement.executeUpdate());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public void insertToProject(Project project) {
         String sql = " INSERT OR IGNORE INTO project(" +
@@ -703,7 +754,7 @@ public class Connections {
                 project.getPrKritgan().getId() + ", " +
                 project.getPrMasul().getId() + ", " +
                 "'" + localDateTimeParseToString(project.getTugashVaqti()) + "', " +
-                "'" + project.getPrFormula() + "', " +
+                "" + project.getPrFormulaNum() + ", " +
                 "'" + project.getPrKomment() + "' " +
                 ");";
 
@@ -718,6 +769,32 @@ public class Connections {
             e.printStackTrace();
         }
     }
+
+
+    public void updateProject(Project project) {
+        String sql = "UPDATE project SET " +
+                "name = '" + project.getPrNomi() + "', " +
+                "shoshilinch = '" + project.isPrIsShoshilinch() + "', " +
+                "muhum = '" + project.isPrIsImportant() + "', " +
+                "client_id = " + project.getPrClient().getId() + ", " +
+                "from_com_id = " + project.getPrKmpCompany().getId() + ", " +
+                "raxbar_xodim_id = " + project.getPrRaxbar().getId() + ", " +
+                "kiritgan_xodim_id = " + project.getPrKritgan().getId() + ", " +
+                "masul_xodim_id = " + project.getPrMasul().getId() + ", " +
+                "end_date = '" + localDateTimeParseToString(project.getPrTugallanganVaqti()) + "', " +
+                "formula = " + project.getPrFormulaNum() + ", " +
+                "komment = '" + project.getPrKomment() + "', " +
+                "done = '" + project.isDone() + "' " +
+                "WHERE nomer_zakaz = " + project.getNumPr() +
+                ";";
+        try (Connection connection = connect()) {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            System.out.println("updateProject statement = " + statement.executeUpdate());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public int insertToStavka(StavkaShablon shablon) {
 
@@ -740,9 +817,26 @@ public class Connections {
         }
     }
 
+
+    public void updateStavka(StavkaShablon shablon) {
+        String sql = "UPDATE stavka SET " +
+                "name = '" + shablon.getNomi() + "', " +
+                "qiymat = " + shablon.getQiymat() + ", " +
+                "komment = '" + shablon.getKomment() + "' " +
+                "WHERE kod = '" + shablon.getKod() + "' " +
+                ";";
+        try (Connection connection = connect()) {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            System.out.println("updateStavka statement = " + statement.executeUpdate());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
     public int insertToTovar(PriseList priseList) {
         Tovar tovar = priseList.getTovar();
-
+        System.out.println(getClass() + " = " + tovar);
         String sql = " INSERT OR IGNORE INTO tovar (" +
                 "name, model, kod, maker, cost, cost_type, trans_cost, aksiz_cost, " +
                 "poshlina_cost, ddp_cost, ulchov_type, komment) " +
@@ -750,7 +844,7 @@ public class Connections {
                 tovar.getTovarNomi() + "', " +
                 "'" + tovar.getTovarModel() + "', " +
                 "'" + tovar.getTovarKod() + "', " +
-                "'" + tovar.getTovarIshlabChiqaruvchi() + "', " +
+                "" + tovar.getTovarIshlabChiqaruvchi().getId() + ", " +
                 "" + tovar.getTovarNarxi() + ", " +
                 "'" + tovar.getTovarNarxTuri() + "', " +
                 "" + tovar.getTovarTransportNarxi() + ", " +
@@ -772,6 +866,31 @@ public class Connections {
         }
     }
 
+
+    public void updateTovar(PriseList priseList) {
+        String sql = "UPDATE tovar SET " +
+                "name = '" + priseList.getTovarNomi() + "', " +
+                "model = '" + priseList.getTovarModel() + "', " +
+                "maker  = " + priseList.getTovarIshlabChiqaruvchi().getId() + ", " +
+                "cost = " + priseList.getTovarNarxi() + ", " +
+                "cost_type = '" + priseList.getTovarNarxTuri() + "', " +
+                "trans_cost = " + priseList.getTovarTransportNarxi() + ", " +
+                "aksiz_cost = " + priseList.getTovarAksiz() + ", " +
+                "poshlina_cost = " + priseList.getTovarPoshlina() + ", " +
+                "ddp_cost = " + priseList.getTovarDDP() + ", " +
+                "ulchov_type = '" + priseList.getTovarUlchovBirligi() + "', " +
+                "komment = '" + priseList.getTovarKomment() + "' " +
+                "WHERE id = '" + priseList.getTovarId() + "' " +
+                ";";
+        try (Connection connection = connect()) {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            System.out.println("updateTovar statement = " + statement.executeUpdate());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
     public int insertToXodimlar(Xodimlar xodimlar) {
 
         String sql = " INSERT OR IGNORE INTO xodimlar (" +
@@ -792,6 +911,24 @@ public class Connections {
         } catch (SQLException e) {
             e.printStackTrace();
             return 0;
+        }
+    }
+
+
+    public void updateXodimlar(Xodimlar xodimlar) {
+        String sql = "UPDATE xodimlar SET " +
+                "first_name = '" + xodimlar.getIsm() + "', " +
+                "sure_name = '" + xodimlar.getFamiliya() + "', " +
+                "last_name = '" + xodimlar.getOchestva() + "', " +
+                "birth_day = '" + localDateParseToString(xodimlar.getTugilganVaqt()) + "', " +
+                "lavozim = '" + xodimlar.getLavozim() + "' " +
+                "WHERE id = '" + xodimlar.getId() + "' " +
+                ";";
+        try (Connection connection = connect()) {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            System.out.println("updateTovar statement = " + statement.executeUpdate());
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
@@ -830,6 +967,34 @@ public class Connections {
             }
         }
 
+    }
+
+
+    public void updateZakazList(Project project) {
+
+        for (TovarZakaz tovarZakaz : project.getProjectZakazList()) {
+
+            String sql = "UPDATE zakazList SET " +
+                    "count = " + tovarZakaz.getZakazSoni() + ", " +
+                    "tovar_cost = " + tovarZakaz.getTovarNarxi() + ", " +
+                    "tovar_ddp = " + tovarZakaz.getTovarDDP()+ ", " +
+                    "tovar_trans_cost = " + tovarZakaz.getTovarTransportNarxi() + ", " +
+                    "tovar_aksiz_cost = " + tovarZakaz.getTovarAksiz() + ", " +
+                    "tovar_poshlin_cost = " + tovarZakaz.getTovarPoshlina() + ", " +
+                    "cost_type = '" + tovarZakaz.getTovarNarxTuri() + "', " +
+                    "ulchov_type = '" + tovarZakaz.getTovarUlchovBirligi() + "' " +
+
+                    "WHERE tovar_id = " + tovarZakaz.getTovarId() + " AND " +
+                    "project_id = " + project.getNumPr() +
+                    ";";
+
+            try (Connection connection = connect()) {
+                PreparedStatement statement = connection.prepareStatement(sql);
+                System.out.println("updateZakazList statement = " + statement.executeUpdate());
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 

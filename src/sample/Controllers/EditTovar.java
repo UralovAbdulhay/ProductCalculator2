@@ -1,8 +1,6 @@
 package sample.Controllers;
 
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXRadioButton;
-import com.jfoenix.controls.JFXTabPane;
+import com.jfoenix.controls.*;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.beans.binding.Bindings;
@@ -26,14 +24,13 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
 import org.controlsfx.control.textfield.TextFields;
-import sample.Classes.Api_kurs;
 import sample.Classes.Connections;
 import sample.Moodles.*;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -94,13 +91,16 @@ public class EditTovar implements Initializable {
     private JFXButton editPriseBt;
 
 
-    private TableColumn tovarDeleteCol = creatTabCol("O'chirish", 60);
+    private TableColumn<PriseList, JFXCheckBox> tovarDeleteCol = creatTabCol("O'chirish", 60);
     static boolean ochilgan = false;
-    private TableColumn tovarSana;
+
 
     private Stage mainStage;
     private AddProductController addProductController = new AddProductController();
     private ObservableList<Valyuta> valyutas = FXCollections.observableArrayList();
+
+    private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
+    private DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
 
     public void tozalaQidir(ActionEvent actionEvent) {
@@ -198,39 +198,55 @@ public class EditTovar implements Initializable {
         if (!ochilgan) {
             ochilgan = true;
         }
-        TableColumn tovarTR = creatTabCol("№", 35);
-        setValueFactory_(tovarTR, "tr");
+        TableColumn<PriseList, Integer> tovarTR = creatTabCol("№", 35);
+        tovarTR.setCellValueFactory(e-> new SimpleObjectProperty<>(
+                e.getValue().getTr()
+        ));
         tovarTR.setResizable(false);
         tovarTR.impl_setReorderable(false);
 
 
-        setValueFactory_(tovarDeleteCol, "delCheck");
+        tovarDeleteCol.setCellValueFactory(e-> new SimpleObjectProperty<>(
+                e.getValue().getDelCheck()
+        ));
         tovarDeleteCol.setSortable(false);
         tovarDeleteCol.setVisible(false);
 
 
-        TableColumn tovarKod = creatTabCol("ID");
-        setValueFactory_(tovarKod, "tovarKod");
+        TableColumn<PriseList, String> tovarKod = creatTabCol("ID");
+        tovarKod.setCellValueFactory(e-> new SimpleStringProperty(
+                e.getValue().getTovarKod()
+        ));
 
 
-        TableColumn tovarNomi = creatTabCol("Nomi", 200, 200, 500);
-        setValueFactory_(tovarNomi, "tovarNomi");
+        TableColumn<PriseList, String> tovarNomi = creatTabCol("Nomi", 200, 200, 500);
+        tovarNomi.setCellValueFactory(e-> new SimpleStringProperty(
+                e.getValue().getTovarNomi()
+        ));
 
 
-        TableColumn tovarModel = creatTabCol("Model");
-        setValueFactory_(tovarModel, "tovarModel");
+        TableColumn<PriseList, String> tovarModel = creatTabCol("Model", 200, 200, 500);
+        tovarModel.setCellValueFactory(e-> new SimpleStringProperty(
+                e.getValue().getTovarModel()
+        ));
 
 
-        TableColumn tovarIshCh = creatTabCol("Maker");
-        setValueFactory_(tovarIshCh, "tovarIshlabChiqaruvchi");
+        TableColumn<PriseList, String> tovarIshCh = creatTabCol("Maker", 200, 200, 500);
+        tovarIshCh.setCellValueFactory(e-> new SimpleStringProperty(
+                 e.getValue().getTovarIshlabChiqaruvchi().getName()
+        ));
 
 
-        TableColumn tovarNarxi = creatTabCol("Narxi");
-        setValueFactory_(tovarNarxi, "tovarNarxi");
+        TableColumn<PriseList, Double> tovarNarxi = creatTabCol("Narxi");
+        tovarNarxi.setCellValueFactory(e-> new SimpleObjectProperty<>(
+                e.getValue().getTovarNarxi()
+        ));
 
 
-        TableColumn tovarNarxiTuri = creatTabCol("Valyuta", 80);
-        setValueFactory_(tovarNarxiTuri, "tovarNarxTuri");
+        TableColumn<PriseList,String> tovarNarxiTuri = creatTabCol("Valyuta", 80);
+        tovarNarxiTuri.setCellValueFactory(e-> new SimpleStringProperty(
+                e.getValue().getTovarNarxTuri()
+        ));
         tovarNarxiTuri.setResizable(false);
         tovarNarxiTuri.setSortable(false);
 
@@ -242,47 +258,56 @@ public class EditTovar implements Initializable {
         );
 
 
-        TableColumn tovarQushimcha = creatTabCol("Qushimcha", 60);
+        TableColumn tovarQushimcha = creatTabCol("Qushimcha");
         tovarQushimcha.setResizable(false);
 
 
-        TableColumn tovarTrans = creatTabCol("Transport", 60);
-        setValueFactory_(tovarTrans, "tovarTransportNarxi");
-        tovarTrans.setResizable(false);
+        TableColumn<PriseList, String> tovarTrans = creatTabCol("Transport", 80);
+        tovarTrans.setCellValueFactory(e-> new SimpleStringProperty(
+                e.getValue().getTovarTransportNarxiString()
+        ));
         tovarTrans.setSortable(false);
 
 
-        TableColumn tovarAksiz = creatTabCol("Aksiz", 50);
-        setValueFactory_(tovarAksiz, "tovarAksiz");
-        tovarAksiz.setResizable(false);
+        TableColumn<PriseList, String> tovarAksiz = creatTabCol("Aksiz", 80);
+        tovarAksiz.setCellValueFactory(e-> new SimpleStringProperty(
+                e.getValue().getTovarAksizString()
+        ));
         tovarAksiz.setSortable(false);
 
 
-        TableColumn tovarPoshlina = creatTabCol("Poshlina", 60);
-        setValueFactory_(tovarPoshlina, "tovarPoshlina");
-        tovarPoshlina.setResizable(false);
+        TableColumn<PriseList, String> tovarPoshlina = creatTabCol("Poshlina", 80);
+        tovarPoshlina.setCellValueFactory(e-> new SimpleStringProperty(
+                e.getValue().getTovarPoshlinaString()
+        ));
         tovarPoshlina.setSortable(false);
 
-        TableColumn<PriseList, Double> tovarDDP = creatTabCol("DDP", 60);
-        setValueFactory_(tovarDDP, "tovarDDP");
-        tovarDDP.setResizable(false);
+        TableColumn<PriseList, Double> tovarDDP = creatTabCol("DDP", 80);
+        tovarDDP.setCellValueFactory(e-> new SimpleObjectProperty<>(
+                e.getValue().getTovarDDP()
+        ));
         tovarDDP.setSortable(false);
 
 
-        tovarSana = creatTabCol("Sana", 100);
-        setValueFactory_(tovarSana, "tovarSana");
-        tovarSana.setResizable(false);
+        TableColumn<PriseList, String> tovarSana = creatTabCol("Sana", 100);
+        tovarSana.setCellValueFactory(e-> new SimpleStringProperty(
+                e.getValue().getTovarSana().format(dateFormatter)
+        ));
         tovarSana.setSortable(false);
 
 
-        TableColumn tovarUlchov = creatTabCol("o'lchov", 70);
-        setValueFactory_(tovarUlchov, "tovarUlchovBirligi");
+        TableColumn<PriseList, String> tovarUlchov = creatTabCol("o'lchov", 70);
+        tovarUlchov.setCellValueFactory(e-> new SimpleStringProperty(
+                e.getValue().getTovarUlchovBirligi()
+        ));
         tovarUlchov.setResizable(false);
         tovarUlchov.setSortable(false);
 
 
-        TableColumn tovarKomment = creatTabCol("Komment", 150);
-        setValueFactory_(tovarKomment, "tovarKomment");
+        TableColumn<PriseList, String> tovarKomment = creatTabCol("Komment", 150);
+        tovarKomment.setCellValueFactory(e-> new SimpleStringProperty(
+                e.getValue().getTovarKomment()
+        ));
         tovarKomment.setSortable(false);
 
 
@@ -379,30 +404,33 @@ public class EditTovar implements Initializable {
 
     <S, T> TableColumn<S, T> creatTabCol(String title, double prefWidth) {
 
-        TableColumn<S, T> newColumn_ = new TableColumn<S, T>(title);
-        newColumn_.setPrefWidth(prefWidth);
-        newColumn_.setMinWidth(prefWidth);
-        return newColumn_;
+        TableColumn<S, T> newColumn = new TableColumn<S, T>(title);
+        newColumn.setPrefWidth(prefWidth);
+        newColumn.setMinWidth(prefWidth);
+        newColumn.setStyle("-fx-alignment: CENTER");
+        return newColumn;
     }
 
 
      <S, T> TableColumn<S, T> creatTabCol(String title, double prefWidth, boolean isSortable) {
 
-        TableColumn<S, T> newColumn_ = new TableColumn<S, T>(title);
-        newColumn_.setPrefWidth(prefWidth);
-        newColumn_.setSortable(isSortable);
-        return newColumn_;
+        TableColumn<S, T> newColumn = new TableColumn<S, T>(title);
+        newColumn.setPrefWidth(prefWidth);
+        newColumn.setSortable(isSortable);
+        newColumn.setStyle("-fx-alignment: CENTER");
+        return newColumn;
     }
 
     <S, T> TableColumn<S, T> creatTabCol(String title) {
 
-        TableColumn<S, T> newColumn_ = new TableColumn<S, T>(title);
+        TableColumn<S, T> newColumn = new TableColumn<S, T>(title);
 
-        newColumn_.setMinWidth(120);
-        newColumn_.setPrefWidth(150);
-        newColumn_.setMaxWidth(200);
+        newColumn.setMinWidth(120);
+        newColumn.setPrefWidth(150);
+        newColumn.setMaxWidth(200);
+        newColumn.setStyle("-fx-alignment: CENTER");
 
-        return newColumn_;
+        return newColumn;
     }
 
 
@@ -414,6 +442,7 @@ public class EditTovar implements Initializable {
         newColumn.setMinWidth(minWidth);
         newColumn.setPrefWidth(prefWidth);
         newColumn.setMaxWidth(maxWidth);
+        newColumn.setStyle("-fx-alignment: CENTER");
 
 
         return newColumn;
@@ -463,7 +492,7 @@ public class EditTovar implements Initializable {
             for (int i = 0; i < priceListTableItems.size(); i++) {
 
                 if (PriseList.priseLists.get(i).getTovarNomi().trim().toLowerCase().contains(natija.trim().toLowerCase())
-                        || PriseList.priseLists.get(i).getTovarIshlabChiqaruvchi().toLowerCase().trim().contains(natija.trim().toLowerCase())
+                        || PriseList.priseLists.get(i).getTovarIshlabChiqaruvchi().getName().toLowerCase().trim().contains(natija.trim().toLowerCase())
                 ) {
                     natijaTovar.add(priceListTableItems.get(i));
                 }
@@ -642,10 +671,10 @@ Stavkalar.stavkaShablons.addAll(new Connections().getStavkaFromSql());
         ));
 
 
-        TableColumn<Project, LocalDate> creteDate = creatTabCol("Дата и время");
+        TableColumn<Project, String> creteDate = creatTabCol("Дата и время");
         creteDate.setStyle("-fx-alignment: CENTER");
-        creteDate.setCellValueFactory(e -> new SimpleObjectProperty<>(
-                e.getValue().getBoshlanganVaqt()
+        creteDate.setCellValueFactory(e -> new SimpleStringProperty(
+                e.getValue().getBoshlanganVaqt().format(dateFormatter)
         ));
 
 
@@ -685,10 +714,10 @@ Stavkalar.stavkaShablons.addAll(new Connections().getStavkaFromSql());
                 e.getValue().getPrMasul().getIsm()
         ));
 
-        TableColumn<Project, LocalDateTime> prEndDate = creatTabCol("Срок выполнения работ до", 200);
+        TableColumn<Project, String> prEndDate = creatTabCol("Срок выполнения работ до", 200);
         prEndDate.setStyle("-fx-alignment: CENTER");
-        prEndDate.setCellValueFactory(e -> new SimpleObjectProperty<>(
-                e.getValue().getTugashVaqti()
+        prEndDate.setCellValueFactory(e -> new SimpleStringProperty(
+                e.getValue().getTugashVaqti().format(dateTimeFormatter)
         ));
 
         TableColumn<Project, String> prQolganDate = creatTabCol("Срок(дней/час)");
@@ -734,10 +763,10 @@ Stavkalar.stavkaShablons.addAll(new Connections().getStavkaFromSql());
         ));
 
 
-        TableColumn<Project, LocalDate> creteDate = creatTabCol("Дата и время");
+        TableColumn<Project, String> creteDate = creatTabCol("Дата и время");
         creteDate.setStyle("-fx-alignment: CENTER");
-        creteDate.setCellValueFactory(e -> new SimpleObjectProperty<>(
-                e.getValue().getBoshlanganVaqt()
+        creteDate.setCellValueFactory(e -> new SimpleStringProperty(
+                e.getValue().getBoshlanganVaqt().format(dateFormatter)
         ));
 
 
@@ -777,10 +806,10 @@ Stavkalar.stavkaShablons.addAll(new Connections().getStavkaFromSql());
                 e.getValue().getPrMasul().getIsm()
         ));
 
-        TableColumn<Project, LocalDateTime> prEndDate = creatTabCol("Дата завершения");
+        TableColumn<Project, String> prEndDate = creatTabCol("Дата завершения");
         prEndDate.setStyle("-fx-alignment: CENTER");
-        prEndDate.setCellValueFactory(e -> new SimpleObjectProperty<>(
-                e.getValue().getTugashVaqti()
+        prEndDate.setCellValueFactory(e -> new SimpleStringProperty(
+                e.getValue().getTugashVaqti().format(dateTimeFormatter)
         ));
 
 

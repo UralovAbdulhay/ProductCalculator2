@@ -139,6 +139,10 @@ public class Tovar {
         return tovarTransportNarxi;
     }
 
+    public String getTovarTransportNarxiString() {
+        return ((double)(((int) (tovarTransportNarxi * 1000))/10))+ " %";
+    }
+
     public void setTovarTransportNarxi(double tovarTransportNarxi) {
         this.tovarTransportNarxi = tovarTransportNarxi;
     }
@@ -147,12 +151,20 @@ public class Tovar {
         return tovarAksiz;
     }
 
+    public String getTovarAksizString() {
+        return ((double)(((int) (tovarAksiz * 1000))/10))+ " %";
+    }
+
     public void setTovarAksiz(double tovarAksiz) {
         this.tovarAksiz = tovarAksiz;
     }
 
     public double getTovarPoshlina() {
         return tovarPoshlina;
+    }
+
+    public String getTovarPoshlinaString() {
+        return ((double)(((int) (tovarPoshlina * 1000))/10))+ " %";
     }
 
     public void setTovarPoshlina(double tovarPoshlina) {

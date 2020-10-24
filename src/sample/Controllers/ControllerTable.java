@@ -272,7 +272,7 @@ public class ControllerTable implements Initializable {
         tovarModel.setCellValueFactory(e -> new SimpleStringProperty(
                 e.getValue().getTovarModel()
         ));
-        tovarId.setStyle("-fx-alignment: CENTER");
+        tovarModel.setStyle("-fx-alignment: CENTER");
 
 
         TableColumn<PriseList, String> tovarIshCh = new TableColumn<>("Maker");
@@ -311,36 +311,33 @@ public class ControllerTable implements Initializable {
         tovarQushimcha.setResizable(false);
 
 
-        TableColumn<PriseList, Double> tovarTrans = new TableColumn<>("Transport");
-        tovarTrans.setResizable(false);
+        TableColumn<PriseList, String> tovarTrans = new TableColumn<>("Transport");
         tovarTrans.setSortable(false);
         tovarTrans.setMinWidth(60);
         tovarTrans.setPrefWidth(60);
         tovarTrans.setStyle("-fx-alignment: CENTER");
-        tovarTrans.setCellValueFactory(e -> new SimpleObjectProperty<>(
-                e.getValue().getTovarTransportNarxi()
+        tovarTrans.setCellValueFactory(e -> new SimpleStringProperty(
+                e.getValue().getTovarTransportNarxiString()
         ));
 
 
-        TableColumn<PriseList, Double> tovarAksiz = new TableColumn<>("Aksiz");
-        tovarAksiz.setResizable(false);
+        TableColumn<PriseList, String> tovarAksiz = new TableColumn<>("Aksiz");
         tovarAksiz.setSortable(false);
         tovarAksiz.setMinWidth(60);
         tovarAksiz.setPrefWidth(60);
         tovarAksiz.setStyle("-fx-alignment: CENTER");
-        tovarAksiz.setCellValueFactory(e -> new SimpleObjectProperty<>(
-                e.getValue().getTovarAksiz()
+        tovarAksiz.setCellValueFactory(e -> new SimpleStringProperty(
+                e.getValue().getTovarAksizString()
         ));
 
 
-        TableColumn<PriseList, Double> tovarPoshlina = new TableColumn<>("Poshlina");
-        tovarPoshlina.setResizable(false);
+        TableColumn<PriseList, String> tovarPoshlina = new TableColumn<>("Poshlina");
         tovarPoshlina.setSortable(false);
         tovarPoshlina.setMinWidth(60);
         tovarPoshlina.setPrefWidth(60);
         tovarPoshlina.setStyle("-fx-alignment: CENTER");
-        tovarPoshlina.setCellValueFactory(e -> new SimpleObjectProperty<>(
-                e.getValue().getTovarPoshlina()
+        tovarPoshlina.setCellValueFactory(e -> new SimpleStringProperty(
+                e.getValue().getTovarPoshlinaString()
         ));
 
         TableColumn<PriseList, Double> tovarDDP = new TableColumn<>("DDP");

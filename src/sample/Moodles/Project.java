@@ -27,6 +27,7 @@ public class Project {
     private String prKomment;
     private LocalDateTime prTugallanganVaqti;
     private File prFile;
+    private boolean done;
 
 
 //    private String prClient;
@@ -255,6 +256,14 @@ public class Project {
         this.prFile = prFile;
     }
 
+    public int getPrFormulaNum() {
+        return prFormulaNum;
+    }
+
+    public void setPrFormulaNum(int prFormulaNum) {
+        this.prFormulaNum = prFormulaNum;
+    }
+
     public String getPrFilePath() {
         return prFile.getAbsolutePath();
     }
@@ -263,9 +272,17 @@ public class Project {
         return "new File";
     }
 
+    public boolean isDone() {
+        return done;
+    }
+
+    public void setDone(boolean done) {
+        this.done = done;
+    }
+
     public String getQolganVaqt() {
 
-        Duration duration = Duration.between(this.tugashVaqti, LocalDateTime.now());
+        Duration duration = Duration.between(LocalDateTime.now(), this.tugashVaqti);
         System.out.println(Math.abs(duration.toMinutes()));
         long minutes = Math.abs(duration.toMinutes())%60;
         long hours = (Math.abs(duration.toHours())%24) ;

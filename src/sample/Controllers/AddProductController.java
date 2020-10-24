@@ -146,7 +146,9 @@ public class AddProductController implements Initializable {
             PriseList.setPriseList(priseList);
         } else {
 
-            Maker maker = new Connections().insertToMaker(new Maker(-1, tovarMaker.getText().trim(), "-", LocalDate.now()));
+            Maker maker = new Connections().insertToMaker(
+                    new Maker(-1, tovarMaker.getText().trim(), "-", LocalDate.now())
+            );
 
             priseList = new PriseList(
                     new Tovar(
@@ -180,7 +182,7 @@ public class AddProductController implements Initializable {
                     priseList.getTovarIshlabChiqaruvchi().getName());
             tovarModel.setText(priseList.getTovarModel());
             tovarEXW.setText(priseList.getTovarNarxi() + "");
-            tovarDDP.setText(priseList.getTovarDDP()+"");
+            tovarDDP.setText(priseList.getTovarDDP() + "");
             tovarPoshlina.setText(priseList.getTovarPoshlina() + "");
             tovarAksiz.setText(priseList.getTovarAksiz() + "");
             tovarTransport.setText(priseList.getTovarTransportNarxi() + "");
