@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TextFormatter;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import sample.Classes.Connections;
 import sample.Moodles.PriseList;
 import sample.Moodles.Tovar;
 
@@ -143,6 +144,7 @@ public class AddProductController implements Initializable {
             PriseList.setPriseList(priseList);
         } else {
 
+            new Connections().insertToMaker();
             priseList = new PriseList(
                     new Tovar(
                             tovarKod.getText().trim(),

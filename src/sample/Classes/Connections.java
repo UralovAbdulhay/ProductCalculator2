@@ -27,6 +27,7 @@ public class Connections {
         ResultSet resultSet = selectAllFromSql("tovar");
         try {
             while (resultSet.next()) {
+                Maker tovarMaker = getMakerFromSql(resultSet.getInt("maker"));
                 list.add(
                         new PriseList(
                                 new Tovar(
@@ -34,7 +35,7 @@ public class Connections {
                                         resultSet.getString("kod"),
                                         resultSet.getString("name"),
                                         resultSet.getString("model"),
-                                        resultSet.getString("maker"),
+                                        tovarMaker,
                                         resultSet.getDouble("cost"),
                                         resultSet.getDouble("ddp_cost"),
                                         resultSet.getString("cost_type"),
@@ -61,13 +62,14 @@ public class Connections {
             ResultSet resultSet = connection.createStatement().executeQuery(
                     "SELECT * FROM tovar WHERE id = " + id + ";"
             );
+            Maker tovarMaker = getMakerFromSql(resultSet.getInt("maker"));
             return new PriseList(
                     new Tovar(
                             resultSet.getInt("id"),
                             resultSet.getString("kod"),
                             resultSet.getString("name"),
                             resultSet.getString("model"),
-                            resultSet.getString("maker"),
+                            tovarMaker,
                             resultSet.getDouble("cost"),
                             resultSet.getDouble("ddp_cost"),
                             resultSet.getString("cost_type"),
@@ -305,7 +307,7 @@ public class Connections {
                                 "       zakazList.project_id, \n" +
                                 "       tovar.name                   AS tovarName, \n" +
                                 "       tovar.kod                    AS tovarKod, \n" +
-                                "       maker.name                   AS tovarMaker, \n" +
+                                "       zakazList.maker_id           AS tovarMakerId, \n" +
                                 "       tovar.model                  AS tovarModel, \n" +
                                 "       zakazList.tovar_cost         AS tovarNarx, \n" +
                                 "       zakazList.tovar_ddp          AS tvarDDP, \n" +
@@ -327,14 +329,14 @@ public class Connections {
                 );
 
                 while (set.next()) {
-
+                    Maker tovarMaker = getMakerFromSql(set.getInt("tovarMakerId"));
                     PriseList priseList = new PriseList(
                             new Tovar(
                                     set.getInt("tovar_id"),
                                     set.getString("tovarKod"),
                                     set.getString("tovarName"),
                                     set.getString("tovarModel"),
-                                    set.getString("tovarMaker"),
+                                    tovarMaker,
                                     set.getDouble("tovarNarx"),
                                     set.getDouble("tvarDDP"),
                                     set.getString("tovarCostType"),
@@ -803,12 +805,6 @@ public class Connections {
         }
 
     }
-
-
-
-
-
-
 
 
 }

@@ -132,11 +132,11 @@ public class PriseList extends Tovar {
         super.setTovarModel(tovarModel);
     }
 
-    public String getTovarIshlabChiqaruvchi() {
+    public Maker getTovarIshlabChiqaruvchi() {
         return super.getTovarIshlabChiqaruvchi();
     }
 
-    public void setTovarIshlabChiqaruvchi(String tovarIshlabChiqaruvchi) {
+    public void setTovarIshlabChiqaruvchi(Maker tovarIshlabChiqaruvchi) {
         super.setTovarIshlabChiqaruvchi(tovarIshlabChiqaruvchi);
     }
 
