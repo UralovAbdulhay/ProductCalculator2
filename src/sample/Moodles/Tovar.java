@@ -9,7 +9,6 @@ public class Tovar {
     private String tovarKod;
     private String tovarNomi;
     private String tovarModel;
-    private String tovarIshlabChiqaruvchi;
     private double tovarNarxi;
     private String tovarNarxTuri;
 
@@ -22,6 +21,8 @@ public class Tovar {
     private LocalDate tovarSana;
     private String tovarUlchovBirligi;
     private String tovarKomment;
+
+    private String tovarIshlabChiqaruvchi;
 
 //    private Button tovarAdd;
 //    private int addCount = 1;

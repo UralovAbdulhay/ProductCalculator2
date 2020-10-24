@@ -625,7 +625,9 @@ public class Connections {
 
             if (0 == statement.executeUpdate()) {
                 PreparedStatement statement1 = connection.prepareStatement(sql1);
-                statement1.executeUpdate();
+                System.out.println("updateToCourse = " + statement1.executeUpdate());
+            } else {
+                System.out.println("insertToCourse = " + 1);
             }
 
         } catch (SQLException e) {
@@ -682,11 +684,120 @@ public class Connections {
 
             PreparedStatement statement = connection.prepareStatement(sql);
 
-            System.out.println("insertToMaker statement = " + statement.executeUpdate());
+            System.out.println("insertToProject statement = " + statement.executeUpdate());
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public int insertToStavka(StavkaShablon shablon) {
+
+        String sql = " INSERT OR IGNORE INTO stavka (name, qiymat, komment, kod)" +
+                " VALUES('" +
+                shablon.getNomi() + "', " +
+                shablon.getQiymat() + ", " +
+                "'" + shablon.getKomment() + "', " +
+                "'" + shablon.getKod() + "' " +
+                ");";
+
+        try (Connection connection = connect()) {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            int result = statement.executeUpdate();
+            System.out.println("insertToStavka statement = " + result);
+            return result;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+
+    public int insertToTovar(PriseList priseList) {
+        Tovar tovar = priseList.getTovar();
+
+        String sql = " INSERT OR IGNORE INTO tovar (" +
+                "name, model, kod, maker, cost, cost_type, trans_cost, aksiz_cost, " +
+                "poshlina_cost, ddp_cost, ulchov_type, komment) " +
+                "VALUES('" +
+                tovar.getTovarNomi() + "', " +
+                "'" + tovar.getTovarModel() + "', " +
+                "'" + tovar.getTovarKod() + "', " +
+                "'" + tovar.getTovarIshlabChiqaruvchi() + "', " +
+                "" + tovar.getTovarNarxi() + ", " +
+                "'" + tovar.getTovarNarxTuri() + "', " +
+                "" + tovar.getTovarTransportNarxi() + ", " +
+                "" + tovar.getTovarAksiz() + ", " +
+                "" + tovar.getTovarPoshlina() + ", " +
+                "" + tovar.getTovarDDP() + ", " +
+                "'" + tovar.getTovarUlchovBirligi() + "', " +
+                "'" + tovar.getTovarKomment() + "' " +
+                ");";
+
+        try (Connection connection = connect()) {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            int result = statement.executeUpdate();
+            System.out.println("insertToTovar statement = " + result);
+            return result;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+
+    public int insertToXodimlar(Xodimlar xodimlar) {
+
+        String sql = " INSERT OR IGNORE INTO xodimlar (" +
+                "first_name, sure_name, last_name, birth_day, lavozim ) " +
+                "VALUES('" +
+                xodimlar.getIsm() + "', " +
+                "'" + xodimlar.getFamiliya() + "', " +
+                "'" + xodimlar.getOchestva() + "', " +
+                "'" + xodimlar.getTugilganVaqt() + "', " +
+                "'" + xodimlar.getLavozim() + "' " +
+                ");";
+
+        try (Connection connection = connect()) {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            int result = statement.executeUpdate();
+            System.out.println("insertToXodimlar statement = " + result);
+            return result;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+
+
+    public int insertToZakazList(Project project) {
+
+        int projectId = project.getNumPr();
+
+        for (TovarZakaz tovarZakaz : project.getProjectZakazList()) {
+
+            String sql = "INSERT OR IGNORE INTO zakazList (" +
+                    "tovar_id, project_id, maker_id, count, " +
+                    "tovar_cost, tovar_ddp, tovar_trans_cost, " +
+                    "tovar_aksiz_cost, " +
+                    "tovar_poshlin_cost, cost_type, ulchov_type) " +
+                    "VALUES (" +
+                    tovarZakaz.getTovarId() + ", " +
+                    "" + projectId + ", " +
+                    "" + tovarZakaz.ge + ", " +
+                    "'" + xodimlar.getTugilganVaqt() + "', " +
+                    "'" + xodimlar.getLavozim() + "' " +
+                    " );";
+
+            try (Connection connection = connect()) {
+                PreparedStatement statement = connection.prepareStatement(sql);
+                int result = statement.executeUpdate();
+                System.out.println("insertToXodimlar statement = " + result);
+                return result;
+            } catch (SQLException e) {
+                e.printStackTrace();
+                return 0;
+            }
+        }
+
     }
 
 

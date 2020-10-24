@@ -350,7 +350,7 @@ public class EditTovar implements Initializable {
 
         //  baza va internet sinxronizatsiyasi bo'ladi
 
-        new Connections() new Api_kurs().getCourses();
+//        new Connections() new Api_kurs().getCourses();
 
         if (!(new Connections().tableIsEmpty("course"))) {
             System.out.println("tableIsEmpty = " + true);

@@ -8,9 +8,11 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import sample.Controllers.ControllerOyna;
 import sample.Moodles.PriseList;
+import sample.Moodles.Xodimlar;
 
 import java.sql.*;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 
 
 public class Main extends Application {
@@ -162,25 +164,29 @@ public class Main extends Application {
         return resultSet;
     }
 
-    Statement getStatement(){
+    Statement getStatement() {
         Statement statement = null;
-        try(Connection connection = DriverManager.getConnection("jdbc:sqlite:" + dataBase)) {
+        try (Connection connection = DriverManager.getConnection("jdbc:sqlite:" + dataBase)) {
 
-             statement = connection.createStatement();
+            statement = connection.createStatement();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-            return statement;
+        return statement;
     }
 
 
     public static void main(String[] args) {
         Connections connections = new Connections();
         PriseList.addAllPriseLists(connections.getTovarFromSql());
-        launch(args);
-//        new TimeHisobla(LocalDateTime.now(),LocalDateTime.now()).ayir();
-//        new TimeHisobla(LocalDateTime.now(),LocalDateTime.now())
-//                .givenTwoDateTimesInJava8_whenDifferentiating_thenWeGetSix();
+//        launch(args);
+
+        new Connections().insertToXodimlar(
+                new Xodimlar(
+                        2,"abdulhay", "Uralov", "adsfas",
+                        LocalDate.now(), LocalDate.now(), "ishchi"
+                        )
+        );
 
     }
 }
