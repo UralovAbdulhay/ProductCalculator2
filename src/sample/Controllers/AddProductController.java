@@ -13,10 +13,12 @@ import javafx.scene.control.TextFormatter;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import sample.Classes.Connections;
+import sample.Moodles.Maker;
 import sample.Moodles.PriseList;
 import sample.Moodles.Tovar;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.function.UnaryOperator;
 import java.util.regex.Pattern;
@@ -144,13 +146,14 @@ public class AddProductController implements Initializable {
             PriseList.setPriseList(priseList);
         } else {
 
-            new Connections().insertToMaker();
+            Maker maker = new Connections().insertToMaker(new Maker(-1, tovarMaker.getText().trim(), "-", LocalDate.now()));
+
             priseList = new PriseList(
                     new Tovar(
                             tovarKod.getText().trim(),
                             tovarName.getText().trim(),
                             tovarModel.getText().trim(),
-                            tovarMaker.getText().trim(),
+                            maker,
                             Double.parseDouble(tovarEXW.getText().trim()),
                             Double.parseDouble(tovarDDP.getText().trim()),
                             tovarCostType.getValue() + "".trim(),
@@ -174,7 +177,7 @@ public class AddProductController implements Initializable {
             tovarName.setText(
                     priseList.getTovarNomi());
             tovarMaker.setText(
-                    priseList.getTovarIshlabChiqaruvchi());
+                    priseList.getTovarIshlabChiqaruvchi().getName());
             tovarModel.setText(priseList.getTovarModel());
             tovarEXW.setText(priseList.getTovarNarxi() + "");
             tovarDDP.setText(priseList.getTovarDDP()+"");

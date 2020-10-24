@@ -162,6 +162,24 @@ public class Connections {
         }
     }
 
+    public Maker getMakerFromSql(String name) {
+        try (Connection connection = connect()) {
+            ResultSet resultSet = connection.createStatement().executeQuery(
+                    "SELECT * FROM maker WHERE name = " + name + ";"
+            );
+            return new Maker(
+                    resultSet.getInt(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    LocalDate.parse(resultSet.getString(4), dateFormatter)
+            );
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+
     public ObservableList<Xodimlar> getXodimlarFromSql() {
         ObservableList<Xodimlar> list = FXCollections.observableArrayList();
         ResultSet resultSet = selectAllFromSql("xodimlar");
@@ -510,18 +528,14 @@ public class Connections {
     }
 
     public ResultSet selectOneFromSql(String tableName, String keyColumn, String key) {
-
-        try {
+        ResultSet resultSet = null;
+        try (Connection con = DriverManager.getConnection("jdbc:sqlite:" + dataBase)) {
             Class.forName("org.sqlite.JDBC");
-            con = DriverManager.getConnection("jdbc:sqlite:" + dataBase);
-            statement = con.createStatement();
-            resultSet = statement.executeQuery(
+            resultSet = con.createStatement().executeQuery(
                     "SELECT * FROM " + tableName +
-                            " WHERE " + keyColumn + " = " + key + ";"
+                            " WHERE " + keyColumn + " = '" + key + "';"
             );
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
+        } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
         return resultSet;
@@ -648,7 +662,7 @@ public class Connections {
         }
     }
 
-    public void insertToMaker(Maker maker) {
+    public Maker insertToMaker(Maker maker) {
         String sql = " INSERT OR IGNORE INTO kmpFromCom(name, country)" +
                 " VALUES('" + maker.getName() + "', " +
                 "'" + maker.getCountry() + "' );";
@@ -656,8 +670,20 @@ public class Connections {
         try (Connection connection = connect()) {
             PreparedStatement statement = connection.prepareStatement(sql);
             System.out.println("insertToMaker statement = " + statement.executeUpdate());
+
+            ResultSet resultSet = connection.createStatement().executeQuery(
+                    "SELECT * FROM maker WHERE name = '" + maker.getName() + "';"
+            );
+            return new Maker(
+                    resultSet.getInt(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    LocalDate.parse(resultSet.getString(4), dateFormatter)
+            );
         } catch (SQLException e) {
             e.printStackTrace();
+//            return maker;
+            return null;
         }
     }
 

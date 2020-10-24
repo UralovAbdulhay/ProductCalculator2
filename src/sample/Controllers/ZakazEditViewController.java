@@ -177,7 +177,7 @@ public class ZakazEditViewController implements Initializable {
             tovarName.setText(
                     tovarZakaz.getTovarNomi());
             tovarMaker.setText(
-                    tovarZakaz.getTovarIshlabChiqaruvchi());
+                    tovarZakaz.getTovarIshlabChiqaruvchi().getName());
             tovarModel.setText(tovarZakaz.getTovarModel());
             tovarEXW.setText(tovarZakaz.getTovarNarxi() + "");
             tovarDDP.setText(tovarZakaz.getTovarDDP()+"");

@@ -280,7 +280,7 @@ public class ControllerTable implements Initializable {
         tovarIshCh.setPrefWidth(120);
         tovarIshCh.setMaxWidth(150);
         tovarIshCh.setCellValueFactory(e -> new SimpleStringProperty(
-                e.getValue().getTovarIshlabChiqaruvchi()
+                e.getValue().getTovarIshlabChiqaruvchi().getName()
         ));
         tovarIshCh.setStyle("-fx-alignment: CENTER");
 
@@ -478,7 +478,7 @@ public class ControllerTable implements Initializable {
             for (int i = 0; i < tovarTableItems.size(); i++) {
 
                 if (PriseList.priseLists.get(i).getTovarNomi().trim().toLowerCase().contains(tovarQidir.getText().trim().toLowerCase())
-                        || PriseList.priseLists.get(i).getTovarIshlabChiqaruvchi().toLowerCase().trim().contains(tovarQidir.getText().trim().toLowerCase())
+                        || PriseList.priseLists.get(i).getTovarIshlabChiqaruvchi().getName().toLowerCase().trim().contains(tovarQidir.getText().trim().toLowerCase())
                 ) {
                     natijaTovar.add(tovarTableItems.get(i));
                 }
@@ -665,7 +665,7 @@ public class ControllerTable implements Initializable {
         TableColumn<TovarZakaz, String> zIshCh = creatTabCol("Maker");
         zIshCh.setStyle("-fx-alignment: CENTER");
         zIshCh.setCellValueFactory(e -> new SimpleStringProperty(
-                e.getValue().getTovarIshlabChiqaruvchi()
+                e.getValue().getTovarIshlabChiqaruvchi().getName()
         ));
 
 
