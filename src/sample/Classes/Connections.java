@@ -768,7 +768,7 @@ public class Connections {
     }
 
 
-    public int insertToZakazList(Project project) {
+    public void insertToZakazList(Project project) {
 
         int projectId = project.getNumPr();
 
@@ -782,23 +782,33 @@ public class Connections {
                     "VALUES (" +
                     tovarZakaz.getTovarId() + ", " +
                     "" + projectId + ", " +
-                    "" + tovarZakaz.ge + ", " +
-                    "'" + xodimlar.getTugilganVaqt() + "', " +
-                    "'" + xodimlar.getLavozim() + "' " +
+                    "" + tovarZakaz.getTovarIshlabChiqaruvchi().getId() + ", " +
+                    "" + tovarZakaz.getZakazSoni() + ", " +
+                    "" + tovarZakaz.getTovarNarxi() + ", " +
+                    "" + tovarZakaz.getTovarDDP() + ", " +
+                    "" + tovarZakaz.getTovarTransportNarxi() + ", " +
+                    "" + tovarZakaz.getTovarAksiz() + ", " +
+                    "" + tovarZakaz.getTovarPoshlina() + ", " +
+                    "'" + tovarZakaz.getTovarNarxTuri() + "', " +
+                    "'" + tovarZakaz.getTovarUlchovBirligi() + "' " +
                     " );";
 
             try (Connection connection = connect()) {
                 PreparedStatement statement = connection.prepareStatement(sql);
                 int result = statement.executeUpdate();
                 System.out.println("insertToXodimlar statement = " + result);
-                return result;
             } catch (SQLException e) {
                 e.printStackTrace();
-                return 0;
             }
         }
 
     }
+
+
+
+
+
+
 
 
 }

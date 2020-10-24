@@ -22,14 +22,16 @@ public class Tovar {
     private String tovarUlchovBirligi;
     private String tovarKomment;
 
-    private String tovarIshlabChiqaruvchi;
+//    private String tovarIshlabChiqaruvchi;
+
+    private Maker tovarIshlabChiqaruvchi;
 
 //    private Button tovarAdd;
 //    private int addCount = 1;
 
 
     public Tovar(String tovarKod, String tovarNomi,
-                 String tovarModel, String tovarIshlabChiqaruvchi,
+                 String tovarModel, Maker tovarIshlabChiqaruvchi,
                  double tovarNarxi, double tovarDDP, String tovarNarxTuri, double tovarTransportNarxi,
                  double tovarAksiz, double tovarPoshlina, LocalDate tovarSana,
                  String tovarUlchovBirligi, String tovarKomment) {
@@ -50,7 +52,7 @@ public class Tovar {
 
 
     public Tovar(int tovarId, String tovarKod, String tovarNomi,
-                 String tovarModel, String tovarIshlabChiqaruvchi,
+                 String tovarModel, Maker tovarIshlabChiqaruvchi,
                  double tovarNarxi, double tovarDDP, String tovarNarxTuri,
                  double tovarTransportNarxi, double tovarAksiz,
                  double tovarPoshlina, LocalDate tovarSana,
@@ -70,9 +72,8 @@ public class Tovar {
         this.tovarSana = tovarSana;
         this.tovarUlchovBirligi = tovarUlchovBirligi;
         this.tovarKomment = tovarKomment;
-
-
     }
+
 
     public Tovar getTovar() {
         return this;
@@ -110,11 +111,11 @@ public class Tovar {
         this.tovarModel = tovarModel;
     }
 
-    public String getTovarIshlabChiqaruvchi() {
+    public Maker getTovarIshlabChiqaruvchi() {
         return tovarIshlabChiqaruvchi;
     }
 
-    public void setTovarIshlabChiqaruvchi(String tovarIshlabChiqaruvchi) {
+    public void setTovarIshlabChiqaruvchi(Maker tovarIshlabChiqaruvchi) {
         this.tovarIshlabChiqaruvchi = tovarIshlabChiqaruvchi;
     }
 
