@@ -149,6 +149,8 @@ public class Connections {
         return list;
     }
 
+
+
     public Maker getMakerFromSql(int id) {
         System.out.println(getClass().getResource("xato") + " id = " + id);
         try (Connection connection = connect()) {
@@ -166,6 +168,7 @@ public class Connections {
             return null;
         }
     }
+
 
     public Maker getMakerFromSql(String name) {
         try (Connection connection = connect()) {
@@ -207,6 +210,7 @@ public class Connections {
         return list;
     }
 
+
     public Xodimlar getXodimlarFromSql(int id) {
         System.out.println("getXodimlarFromSql id = " + id);
         try (Connection connection = connect()) {
@@ -230,6 +234,7 @@ public class Connections {
         }
     }
 
+
     public ObservableList<StavkaShablon> getStavkaFromSql() {
         ObservableList<StavkaShablon> list = FXCollections.observableArrayList();
         ResultSet resultSet = selectAllFromSql("stavka");
@@ -248,6 +253,8 @@ public class Connections {
         }
         return list;
     }
+
+
 
     public StavkaShablon getStavkaFromSql(String code) {
 
@@ -325,9 +332,9 @@ public class Connections {
 
                 Connection connection = DriverManager.getConnection("jdbc:sqlite:" + dataBase);
                 ResultSet set = connection.createStatement().executeQuery(
-                        "SELECT zakazList.id,\n" +
-                                "       zakazList.tovar_id, \n" +
-                                "       zakazList.project_id, \n" +
+                        "SELECT  " +
+                                "       zakazList.tovar_id, " +
+                                "       zakazList.project_id, " +
                                 "       tovar.name                   AS tovarName, \n" +
                                 "       tovar.kod                    AS tovarKod, \n" +
                                 "       zakazList.maker_id           AS tovarMakerId, \n" +
@@ -384,9 +391,6 @@ public class Connections {
     }
 
 
-    public void getZakazListFromSQL() {
-
-    }
 
     public ObservableList<Client> getClientFromSql() {
 
@@ -407,6 +411,8 @@ public class Connections {
 
         return list;
     }
+
+
 
     public Client getClientFromSql(int id) {
         System.out.println("getClientFromSql = " + id);
@@ -567,7 +573,7 @@ public class Connections {
 
     public Statement getStatement() {
         Statement statement = null;
-        try (Connection connection = DriverManager.getConnection("jdbc:sqlite:" + dataBase)) {
+        try (Connection connection = connect()) {
 
             statement = connection.createStatement();
         } catch (SQLException e) {
@@ -577,7 +583,7 @@ public class Connections {
     }
 
     public boolean tableIsEmpty(String tableName) {
-        try (Connection connection = DriverManager.getConnection("jdbc:sqlite:" + dataBase)) {
+        try (Connection connection = connect()) {
             Statement statement = connection.createStatement();
             if (0 == statement.executeQuery("SELECT Count(*) FROM " + tableName + " ;").getInt(1)) {
                 return true;
@@ -600,6 +606,7 @@ public class Connections {
         }
         return conn;
     }
+
 
 
     public void insertToClient(Client client) {
@@ -628,6 +635,17 @@ public class Connections {
         try (Connection connection = connect()) {
             PreparedStatement statement = connection.prepareStatement(sql);
             System.out.println("updateClient statement = " + statement.executeUpdate());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteClient (Client client) {
+        String sql = "DELETE FROM client WHERE id = " + client.getId() + ";";
+
+        try (Connection connection = connect()) {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            System.out.println("deleteClient statement = " + statement.executeUpdate());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -670,6 +688,18 @@ public class Connections {
         }
     }
 
+    public void deleteCourse (Valyuta valyuta) {
+        String sql = "DELETE FROM course WHERE code = '" + valyuta.getCode() + "';";
+
+        try (Connection connection = connect()) {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            System.out.println("deleteValyuta statement = " + statement.executeUpdate());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
     public void insertToCompany(Company company) {
         String sql = " INSERT OR IGNORE INTO kmpFromCom(name) VALUES('" + company.getName() + "');";
@@ -681,7 +711,6 @@ public class Connections {
             e.printStackTrace();
         }
     }
-
 
     public void updateCompany(Company company) {
         String sql = " UPDATE kmpFromCom SET " +
@@ -695,6 +724,18 @@ public class Connections {
             e.printStackTrace();
         }
     }
+
+    public void deleteCompany (Company company) {
+        String sql = "DELETE FROM kmpFromCom WHERE id = " + company.getId() + ";";
+
+        try (Connection connection = connect()) {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            System.out.println("deleteCompany statement = " + statement.executeUpdate());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 
     public Maker insertToMaker(Maker maker) {
@@ -722,7 +763,6 @@ public class Connections {
         }
     }
 
-
     public void updateMaker(Maker maker) {
         String sql = "UPDATE maker SET " +
                 "name = '" + maker.getName() + "', " +
@@ -736,6 +776,19 @@ public class Connections {
             e.printStackTrace();
         }
     }
+
+    public void deleteMaker (Maker maker) {
+        String sql = "DELETE FROM maker WHERE id = " + maker.getId() + ";";
+
+        try (Connection connection = connect()) {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            System.out.println("deleteMaker statement = " + statement.executeUpdate());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 
 
     public void insertToProject(Project project) {
@@ -770,7 +823,6 @@ public class Connections {
         }
     }
 
-
     public void updateProject(Project project) {
         String sql = "UPDATE project SET " +
                 "name = '" + project.getPrNomi() + "', " +
@@ -795,6 +847,22 @@ public class Connections {
         }
     }
 
+    public void deleteProject (Project project) {
+        String sql = "DELETE FROM project WHERE nomer_zakaz = " + project.getNumPr() + ";";
+
+        try (Connection connection = connect()) {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            System.out.println("deleteProject statement = " + statement.executeUpdate());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        for (TovarZakaz tovarZakaz : project.getProjectZakazList()) {
+            deleteFromZakazList(project.getNumPr(), tovarZakaz.getTovarId());
+        }
+    }
+
+
 
     public int insertToStavka(StavkaShablon shablon) {
 
@@ -817,7 +885,6 @@ public class Connections {
         }
     }
 
-
     public void updateStavka(StavkaShablon shablon) {
         String sql = "UPDATE stavka SET " +
                 "name = '" + shablon.getNomi() + "', " +
@@ -832,6 +899,8 @@ public class Connections {
             e.printStackTrace();
         }
     }
+
+
 
 
     public int insertToTovar(PriseList priseList) {
@@ -866,7 +935,6 @@ public class Connections {
         }
     }
 
-
     public void updateTovar(PriseList priseList) {
         String sql = "UPDATE tovar SET " +
                 "name = '" + priseList.getTovarNomi() + "', " +
@@ -889,6 +957,18 @@ public class Connections {
             e.printStackTrace();
         }
     }
+
+    public void deleteTovar(int id) {
+        String sql = "DELETE FROM tovar WHERE id = " + id + ";";
+
+        try (Connection connection = connect()) {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            System.out.println("deleteTovar statement = " + statement.executeUpdate());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 
     public int insertToXodimlar(Xodimlar xodimlar) {
@@ -914,7 +994,6 @@ public class Connections {
         }
     }
 
-
     public void updateXodimlar(Xodimlar xodimlar) {
         String sql = "UPDATE xodimlar SET " +
                 "first_name = '" + xodimlar.getIsm() + "', " +
@@ -931,6 +1010,18 @@ public class Connections {
             e.printStackTrace();
         }
     }
+
+    public void deleteXodimlar(int id) {
+        String sql = "DELETE FROM xodimlar WHERE id = " + id + ";";
+
+        try (Connection connection = connect()) {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            System.out.println("deleteXodimlar statement = " + statement.executeUpdate());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 
     public void insertToZakazList(Project project) {
@@ -969,7 +1060,6 @@ public class Connections {
 
     }
 
-
     public void updateZakazList(Project project) {
 
         for (TovarZakaz tovarZakaz : project.getProjectZakazList()) {
@@ -977,7 +1067,7 @@ public class Connections {
             String sql = "UPDATE zakazList SET " +
                     "count = " + tovarZakaz.getZakazSoni() + ", " +
                     "tovar_cost = " + tovarZakaz.getTovarNarxi() + ", " +
-                    "tovar_ddp = " + tovarZakaz.getTovarDDP()+ ", " +
+                    "tovar_ddp = " + tovarZakaz.getTovarDDP() + ", " +
                     "tovar_trans_cost = " + tovarZakaz.getTovarTransportNarxi() + ", " +
                     "tovar_aksiz_cost = " + tovarZakaz.getTovarAksiz() + ", " +
                     "tovar_poshlin_cost = " + tovarZakaz.getTovarPoshlina() + ", " +
@@ -995,6 +1085,20 @@ public class Connections {
                 e.printStackTrace();
             }
         }
+    }
+
+    public void deleteFromZakazList(int projectId, int tovarID) {
+
+        String sql = "DELETE FROM zakazList WHERE project_id = " + projectId + " AND " +
+                "tovar_id = " + tovarID + ";";
+
+        try (Connection connection = connect()) {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            System.out.println("deleteFromZakazList statement = " + statement.executeUpdate());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
 

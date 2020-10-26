@@ -1,21 +1,34 @@
 package sample.Classes;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import sample.Controllers.ControllerOyna;
-import sample.Moodles.PriseList;
 
-import java.io.File;
-import java.io.IOException;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 
 
 public class Main extends Application {
+
+    //    private Connection con = null;
+//    private Statement statement = null;
+//    private ResultSet resultSet = null;
+    private String dataBase = "baza/colcul.db";
+
+
+    private Connection connect() {
+        // SQLite connection string
+        Connection conn = null;
+        try {
+            conn = DriverManager.getConnection("jdbc:sqlite:" + dataBase);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return conn;
+    }
+
 
 //    static {
 //        PriseList.priseLists.add(new PriseList(new Tovar(1, "8479899709", "Birinchi",
@@ -76,7 +89,10 @@ public class Main extends Application {
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) {
+        createNewDatabase();
+        createTables();
+        /*
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/sample/Views/oyna.fxml"));
         BorderPane root = loader.load();
@@ -94,97 +110,185 @@ public class Main extends Application {
         PriseList.reSetPriseList();
 
         ControllerOyna controller = loader.getController();
-        controller.setMainStage(primaryStage);
+        controller.setMainStage(primaryStage);*/
 
-//        ulanish();
     }
 
-    private void ulanish() {
+    private void createTables() {
 
-        try {
-            Class.forName("org.sqlite.JDBC");
+        String createClientTab = "CREATE TABLE IF NOT EXISTS client \n" +
+                "(\n" +
+                "    id   INTEGER      not null\n" +
+                "        primary key autoincrement,\n" +
+                "    name VARCHAR(500) not null,\n" +
+                "    date DATE default CURRENT_DATE\n" +
+                "); ";
 
-            ResultSet resultSet = selectAllFromSql("client", "id");
+        String createClientTabIndex = "CREATE IF NOT EXISTS UNIQUE index client_name_uindex \n" +
+                " ON client (name);";
+
+        String createCourseTab = "create table course\n" +
+                "(\n" +
+                "    title          VARCHAR(50) not null,\n" +
+                "    code           VARCHAR(50) not null\n" +
+                "        constraint course_pk\n" +
+                "            primary key,\n" +
+                "    cb_price       DOUBLE      not null,\n" +
+                "    nbu_buy_price  DOUBLE default 0,\n" +
+                "    nbu_cell_price DOUBLE default 0,\n" +
+                "    date           DATE   default CURRENT_DATE,\n" +
+                "    refresh_date   DATE        not null\n" +
+                ");";
 
 
-            while (resultSet.next()) {
-                int id = resultSet.getInt(1);
+        String createCompanyTab = "create table kmpFromCom\n" +
+                "(\n" +
+                "    id   INTEGER      not null\n" +
+                "        primary key autoincrement,\n" +
+                "    name VARCHAR(500) not null,\n" +
+                "    date DATE default CURRENT_DATE\n" +
+                ");";
 
-                String name = resultSet.getString(2);
-                String date = (
-                        resultSet.getString(3)
-                );
-                System.out.println();
-
-                System.out.println("connected :) ");
-                System.out.println(" id : " + id);
-                System.out.println(" name : " + name);
-                System.out.println(" date : " + date);
-
-//                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-//                LocalDate dateTime = LocalDate.parse(date, formatter);
+        String createCompanyTabIndex = "create unique index kmpFromCom_name_uindex\n" +
+                "    on kmpFromCom (name);";
 
 
-//                System.out.println("dateTime = " + dateTime);
 
-                ResultSet resultSet1 = selectAllFromSql("project", "nomer_zakaz");
 
-                while (resultSet1.next()) {
-                    System.out.println(resultSet1.getString("name"));
-                }
+        String createMakerTab = "create table maker\n" +
+                "(\n" +
+                "    id      INTEGER      not null\n" +
+                "        primary key autoincrement,\n" +
+                "    name    VARCHAR(200) not null,\n" +
+                "    country VARCHAR(200),\n" +
+                "    sana    DATE default current_date not null\n" +
+                ");";
+
+        String createMakerTabIndex = "create unique index maker_name_uindex\n" +
+                "    on maker (name);";
+
+
+
+        String createProjectTab = "create table project\n" +
+                "(\n" +
+                "    nomer_zakaz       INTEGER      not null\n" +
+                "        constraint project_pk\n" +
+                "            primary key autoincrement,\n" +
+                "    name              VARCHAR(500) not null,\n" +
+                "    start_date        DATETIME default CURRENT_TIMESTAMP,\n" +
+                "    shoshilinch       BOOLEAN  default FALSE not null,\n" +
+                "    muhum             BOOLEAN  default false not null,\n" +
+                "    client_id         INTEGER      not null,\n" +
+                "    from_com_id       INTEGER      not null,\n" +
+                "    raxbar_xodim_id   INTEGER      not null,\n" +
+                "    kiritgan_xodim_id INTEGER      not null,\n" +
+                "    masul_xodim_id    INTEGER      not null,\n" +
+                "    end_date          DATETIME     not null,\n" +
+                "    formula           INTEGER  default 0 not null,\n" +
+                "    komment           VARCHAR(1500),\n" +
+                "    done              BOOLEAN  default FALSE not null\n" +
+                ");\n";
+
+
+
+        String createStavkaTabIn = "create table stavka\n" +
+                "(\n" +
+                "    name    VARCHAR(50) not null,\n" +
+                "    qiymat  DOUBLE      not null,\n" +
+                "    komment VARCHAR(50),\n" +
+                "    kod     VARCHAR(50) not null\n" +
+                "        constraint stavka_pk\n" +
+                "            primary key\n" +
+                ");";
+
+
+        String createTovarTab = "create table tovar\n" +
+                "(\n" +
+                "    id            INTEGER      not null\n" +
+                "        primary key autoincrement,\n" +
+                "    name          VARCHAR(200) not null,\n" +
+                "    model         VARCHAR(200) not null,\n" +
+                "    kod           VARCHAR(50)  not null,\n" +
+                "    maker         INTEGER      not null,\n" +
+                "    cost          DOUBLE       not null,\n" +
+                "    cost_type     VARCHAR(20)  not null,\n" +
+                "    trans_cost    DOUBLE       not null,\n" +
+                "    aksiz_cost    DOUBLE       not null,\n" +
+                "    poshlina_cost DOUBLE       not null,\n" +
+                "    ddp_cost      DOUBLE       not null,\n" +
+                "    date          DATE default CURRENT_DATE not null,\n" +
+                "    ulchov_type   VARCHAR(10)  not null,\n" +
+                "    komment       VARCHAR(1500)\n" +
+                ");";
+
+        String createTovarTabIndex = "create unique index tovar_name_uindex\n" +
+                "    on tovar (name);";
+
+
+
+        String createXodimlarTab  = "create table xodimlar\n" +
+                "(\n" +
+                "    id         INTEGER     not null\n" +
+                "        primary key autoincrement,\n" +
+                "    first_name VARCHAR(50) not null,\n" +
+                "    sure_name  VARCHAR(50),\n" +
+                "    last_name  VARCHAR(50),\n" +
+                "    birth_day  DATE,\n" +
+                "    come_date  date default current_date,\n" +
+                "    lavozim    VARCHAR(50)\n" +
+                ");";
+
+
+        String createXodimlarTabIndex = "create unique index xodimlar_first_name_uindex\n" +
+                "    on xodimlar (first_name, sure_name, last_name);";
+
+        String createXodimlarTabIndex1 = "create unique index xodimlar_sure_name_uindex\n" +
+                "    on xodimlar (first_name, sure_name);";
+
+
+
+        String createZakazListTabIndex = "create table zakazList\n" +
+                "(\n" +
+                "    tovar_id           INTEGER     not null,\n" +
+                "    maker_id           INTEGER     not null,\n" +
+                "    count              INTEGER     not null,\n" +
+                "    tovar_cost         DOUBLE      not null,\n" +
+                "    tovar_ddp          DOUBLE      not null,\n" +
+                "    tovar_trans_cost   DOUBLE      not null,\n" +
+                "    tovar_aksiz_cost   DOUBLE      not null,\n" +
+                "    tovar_poshlin_cost DOUBLE      not null,\n" +
+                "    cost_type          VARCHAR(20) not null,\n" +
+                "    ulchov_type        VARCHAR(20) not null,\n" +
+                "    zakaz_date         DATETIME default CURRENT_TIMESTAMP,\n" +
+                "    project_id         INTEGER     not null,\n" +
+                "    primary key (project_id, tovar_id)\n" +
+                ");\n";
+
+
+        try (Connection connection = connect()) {
+            connection.createStatement().execute(createClientTab);
+            connection.createStatement().execute(createClientTabIndex);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
+    private void createNewDatabase() {
+
+        try (Connection conn = DriverManager.getConnection("jdbc:sqlite:" + dataBase)) {
+            if (conn != null) {
+                DatabaseMetaData meta = conn.getMetaData();
+                System.out.println("The driver name is " + meta.getDriverName());
+                System.out.println("A new database has been created.");
             }
-            con.close();
-
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
-        throw new RuntimeException();
-    }
-
-
-    private Connection con = null;
-    private Statement statement = null;
-    private ResultSet resultSet = null;
-    private String dataBase = "baza/colcul.db";
-
-    ResultSet selectAllFromSql(String tableName, String id) {
-
-        try {
-            Class.forName("org.sqlite.JDBC");
-            con = DriverManager.getConnection("jdbc:sqlite:" + dataBase);
-            statement = con.createStatement();
-            resultSet = statement.executeQuery(
-                    "SELECT * FROM " + tableName + " WHERE " + id + " <= 32; "
-            );
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return resultSet;
-    }
-
-    Statement getStatement() {
-        Statement statement = null;
-        try (Connection connection = DriverManager.getConnection("jdbc:sqlite:" + dataBase)) {
-
-            statement = connection.createStatement();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return statement;
     }
 
 
     public static void main(String[] args) {
-        File file = new File("baza/colcul.db");
-        try {
-            file.createNewFile();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
         launch(args);
     }
