@@ -1,8 +1,15 @@
 package sample.Classes;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import sample.Controllers.ControllerOyna;
+import sample.Moodles.PriseList;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
@@ -90,12 +97,21 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        createNewDatabase();
-        createTables();
-        /*
+        if (createNewDatabase()) {
+            createTables();
+        } else {
+            createNewDatabase();
+            createTables();
+        }
+
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/sample/Views/oyna.fxml"));
-        BorderPane root = loader.load();
+        BorderPane root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
         primaryStage.setTitle("Product Calculator");
@@ -110,7 +126,7 @@ public class Main extends Application {
         PriseList.reSetPriseList();
 
         ControllerOyna controller = loader.getController();
-        controller.setMainStage(primaryStage);*/
+        controller.setMainStage(primaryStage);
 
     }
 
@@ -124,10 +140,10 @@ public class Main extends Application {
                 "    date DATE default CURRENT_DATE\n" +
                 "); ";
 
-        String createClientTabIndex = "CREATE IF NOT EXISTS UNIQUE index client_name_uindex \n" +
+        String createClientTabIndex = "CREATE UNIQUE index IF NOT EXISTS client_name_uindex \n" +
                 " ON client (name);";
 
-        String createCourseTab = "create table course\n" +
+        String createCourseTab = "create table if not exists course\n" +
                 "(\n" +
                 "    title          VARCHAR(50) not null,\n" +
                 "    code           VARCHAR(50) not null\n" +
@@ -141,7 +157,7 @@ public class Main extends Application {
                 ");";
 
 
-        String createCompanyTab = "create table kmpFromCom\n" +
+        String createCompanyTab = "create table if not exists kmpFromCom\n" +
                 "(\n" +
                 "    id   INTEGER      not null\n" +
                 "        primary key autoincrement,\n" +
@@ -149,13 +165,13 @@ public class Main extends Application {
                 "    date DATE default CURRENT_DATE\n" +
                 ");";
 
-        String createCompanyTabIndex = "create unique index kmpFromCom_name_uindex\n" +
+        String createCompanyTabIndex = "create unique index if not exists kmpFromCom_name_uindex\n" +
                 "    on kmpFromCom (name);";
 
 
 
 
-        String createMakerTab = "create table maker\n" +
+        String createMakerTab = "create table if not exists maker\n" +
                 "(\n" +
                 "    id      INTEGER      not null\n" +
                 "        primary key autoincrement,\n" +
@@ -164,12 +180,12 @@ public class Main extends Application {
                 "    sana    DATE default current_date not null\n" +
                 ");";
 
-        String createMakerTabIndex = "create unique index maker_name_uindex\n" +
+        String createMakerTabIndex = "create unique index if not exists maker_name_uindex\n" +
                 "    on maker (name);";
 
 
 
-        String createProjectTab = "create table project\n" +
+        String createProjectTab = "create table if not exists project\n" +
                 "(\n" +
                 "    nomer_zakaz       INTEGER      not null\n" +
                 "        constraint project_pk\n" +
@@ -191,7 +207,7 @@ public class Main extends Application {
 
 
 
-        String createStavkaTabIn = "create table stavka\n" +
+        String createStavkaTabIn = "create table if not exists stavka\n" +
                 "(\n" +
                 "    name    VARCHAR(50) not null,\n" +
                 "    qiymat  DOUBLE      not null,\n" +
@@ -202,7 +218,7 @@ public class Main extends Application {
                 ");";
 
 
-        String createTovarTab = "create table tovar\n" +
+        String createTovarTab = "create table if not exists tovar\n" +
                 "(\n" +
                 "    id            INTEGER      not null\n" +
                 "        primary key autoincrement,\n" +
@@ -221,12 +237,12 @@ public class Main extends Application {
                 "    komment       VARCHAR(1500)\n" +
                 ");";
 
-        String createTovarTabIndex = "create unique index tovar_name_uindex\n" +
+        String createTovarTabIndex = "create unique index if not exists tovar_name_uindex\n" +
                 "    on tovar (name);";
 
 
 
-        String createXodimlarTab  = "create table xodimlar\n" +
+        String createXodimlarTab  = "create table if not exists xodimlar\n" +
                 "(\n" +
                 "    id         INTEGER     not null\n" +
                 "        primary key autoincrement,\n" +
@@ -239,15 +255,14 @@ public class Main extends Application {
                 ");";
 
 
-        String createXodimlarTabIndex = "create unique index xodimlar_first_name_uindex\n" +
+        String createXodimlarTabIndex = "create unique index if not exists xodimlar_first_name_uindex\n" +
                 "    on xodimlar (first_name, sure_name, last_name);";
 
-        String createXodimlarTabIndex1 = "create unique index xodimlar_sure_name_uindex\n" +
+        String createXodimlarTabIndex1 = "create unique index if not exists xodimlar_sure_name_uindex\n" +
                 "    on xodimlar (first_name, sure_name);";
 
 
-
-        String createZakazListTabIndex = "create table zakazList\n" +
+        String createZakazListTabIndex = "create table if not exists zakazList\n" +
                 "(\n" +
                 "    tovar_id           INTEGER     not null,\n" +
                 "    maker_id           INTEGER     not null,\n" +
@@ -262,28 +277,46 @@ public class Main extends Application {
                 "    zakaz_date         DATETIME default CURRENT_TIMESTAMP,\n" +
                 "    project_id         INTEGER     not null,\n" +
                 "    primary key (project_id, tovar_id)\n" +
-                ");\n";
+                ");";
 
 
         try (Connection connection = connect()) {
-            connection.createStatement().execute(createClientTab);
-            connection.createStatement().execute(createClientTabIndex);
+            System.out.println("createClientTab = " + connection.createStatement().execute(createClientTab));
+            System.out.println("createClientTabIndex = " + connection.createStatement().execute(createClientTabIndex));
+            System.out.println("createCourseTab = " + connection.createStatement().execute(createCourseTab));
+            System.out.println("createCompanyTab = " + connection.createStatement().execute(createCompanyTab));
+            System.out.println("createCompanyTabIndex = " + connection.createStatement().execute(createCompanyTabIndex));
+            System.out.println("createMakerTab = " + connection.createStatement().execute(createMakerTab));
+            System.out.println("createMakerTabIndex = " + connection.createStatement().execute(createMakerTabIndex));
+            System.out.println("createProjectTab = " + connection.createStatement().execute(createProjectTab));
+            System.out.println("createStavkaTabIn = " + connection.createStatement().execute(createStavkaTabIn));
+            System.out.println("createTovarTab = " + connection.createStatement().execute(createTovarTab));
+            System.out.println("createTovarTabIndex = " + connection.createStatement().execute(createTovarTabIndex));
+            System.out.println("createXodimlarTab = " + connection.createStatement().execute(createXodimlarTab));
+            System.out.println("createXodimlarTabIndex = " + connection.createStatement().execute(createXodimlarTabIndex));
+            System.out.println("createXodimlarTabIndex1 = " + connection.createStatement().execute(createXodimlarTabIndex1));
+            System.out.println("createZakazListTabIndex = " + connection.createStatement().execute(createZakazListTabIndex));
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 
 
-    private void createNewDatabase() {
+    private boolean createNewDatabase() {
 
         try (Connection conn = DriverManager.getConnection("jdbc:sqlite:" + dataBase)) {
             if (conn != null) {
                 DatabaseMetaData meta = conn.getMetaData();
                 System.out.println("The driver name is " + meta.getDriverName());
                 System.out.println("A new database has been created.");
+                return true;
             }
+            return false;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+            return false;
         }
     }
 

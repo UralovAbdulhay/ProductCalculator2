@@ -133,7 +133,7 @@
                                         <Font size="16.0" />
                                     </font>
                                 </Label>
-                                <JFXButton buttonType="RAISED" contentDisplay="CENTER" layoutX="651.0" layoutY="16.0" mnemonicParsing="false" onAction="#refreshKurs" prefHeight="30.0" prefWidth="49.0" text=" " AnchorPane.rightAnchor="32.0">
+                                <JFXButton fx:id="courseRefreshBt" buttonType="RAISED" contentDisplay="CENTER" layoutX="651.0" layoutY="16.0" mnemonicParsing="false" onAction="#refreshKurs" prefHeight="30.0" prefWidth="49.0" text=" " AnchorPane.rightAnchor="32.0">
                                     <graphic>
                                         <MaterialDesignIconView fill="#2d3b9d" glyphName="REFRESH" nodeOrientation="LEFT_TO_RIGHT" size="28" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" />
                                     </graphic>

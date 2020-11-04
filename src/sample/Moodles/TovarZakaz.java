@@ -68,7 +68,6 @@ public class TovarZakaz extends Tovar {
 
         this.stavkalar = new Stavkalar();
 
-        System.out.println(this.stavkalar.toString());
 
 
         this.zakazSoni = priseList.getAddCount();                         // zakaz qilingan tovar soni

@@ -1021,7 +1021,6 @@ public class ControllerTable implements Initializable {
         stage.show();
 
         AddProject controller = loader.getController();
-        controller.setControllerTable(this);
         controller.setOwnerStage(mainStage);
         int typeCol = 0;
         typeCol = ddpSwitch.isSelected() ? 1 : 0;

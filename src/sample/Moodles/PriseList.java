@@ -55,16 +55,12 @@ public class PriseList extends Tovar {
 
     public static void addPriseList(PriseList priseList) {
         new Connections().insertToTovar(priseList);
-        priseLists.clear();
-        priseLists.addAll(new Connections().getTovarFromSql());
-        setTr();
+        PriseList.reSetPriseList();
     }
 
     public static void addAllPriseLists(ObservableList<PriseList> priseLists) {
         priseLists.forEach(e -> new Connections().insertToTovar(e));
-        priseLists.clear();
-        priseLists.addAll(new Connections().getTovarFromSql());
-        setTr();
+        PriseList.reSetPriseList();
     }
 
     public static void reSetPriseList() {
@@ -74,12 +70,8 @@ public class PriseList extends Tovar {
     }
 
     public static void setPriseList(PriseList priseList) {
-        for (int i = 0; i < priseLists.size(); i++) {
-            if (priseLists.get(i).getTovarId() == priseList.getTovarId()) {
-                priseLists.set(i, priseList);
-            }
-            setTr();
-        }
+        new Connections().updateTovar(priseList);
+        PriseList.reSetPriseList();
     }
 
     public JFXButton getTovarAdd() {

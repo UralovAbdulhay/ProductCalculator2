@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextFormatter;
 import javafx.stage.Stage;
+import sample.Classes.Connections;
 import sample.Moodles.StavkaShablon;
 
 import java.net.URL;
@@ -61,6 +62,7 @@ public class StaffEditController implements Initializable {
 
         try{
             shablon.setQiymat(Double.parseDouble(qiymatTF.getText()));
+            new Connections().updateStavka(shablon);
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }

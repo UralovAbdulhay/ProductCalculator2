@@ -1,6 +1,9 @@
 package sample.Controllers;
 
-import com.jfoenix.controls.*;
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXCheckBox;
+import com.jfoenix.controls.JFXRadioButton;
+import com.jfoenix.controls.JFXTabPane;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.beans.binding.Bindings;
@@ -13,6 +16,7 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -24,6 +28,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
 import org.controlsfx.control.textfield.TextFields;
+import sample.Classes.Api_kurs;
 import sample.Classes.Connections;
 import sample.Moodles.*;
 
@@ -38,7 +43,11 @@ import java.util.ResourceBundle;
 public class EditTovar implements Initializable {
 
     @FXML
+    private JFXButton courseRefreshBt;
+
+    @FXML
     private Tab coursesTab;
+
     @FXML
     private Tab staffsTab;
 
@@ -102,6 +111,9 @@ public class EditTovar implements Initializable {
     private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
     private DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
+    public static ObservableList<Project> notDoneProjects = FXCollections.observableArrayList();
+    public static ObservableList<Project> doneProjects = FXCollections.observableArrayList();
+
 
     public void tozalaQidir(ActionEvent actionEvent) {
         plQidir.clear();
@@ -144,6 +156,8 @@ public class EditTovar implements Initializable {
             });
         }
 
+        refreshProjectList();
+
 
         listTable.setRowFactory(new Callback<TableView<PriseList>, TableRow<PriseList>>() {
             @Override
@@ -181,7 +195,48 @@ public class EditTovar implements Initializable {
             }
         });
 
+        projectTable.setRowFactory(new Callback<TableView<Project>, TableRow<Project>>() {
+            @Override
+            public TableRow<Project> call(TableView<Project> tableView) {
+                final TableRow<Project> row = new TableRow<>();
+                final ContextMenu rowMenu = new ContextMenu();
+                MenuItem editItem = new MenuItem("Edit");
+                MenuItem doneItem = new MenuItem("Add to DONE");
+                editItem.setOnAction(event ->editProject());
+//                doneItem.setOnAction(event ->);
+                rowMenu.getItems().addAll(editItem);
+                row.contextMenuProperty().bind(
+                        Bindings.when(Bindings.isNotNull(row.itemProperty()))
+                                .then(rowMenu)
+                                .otherwise((ContextMenu) null)
+                );
+                return row;
+            }
+        });
+
+        doneProjectTable.setRowFactory(new Callback<TableView<Project>, TableRow<Project>>() {
+            @Override
+            public TableRow<Project> call(TableView<Project> tableView) {
+                final TableRow<Project> row = new TableRow<>();
+                final ContextMenu rowMenu = new ContextMenu();
+                MenuItem editItem = new MenuItem("Edit");
+                MenuItem backItem = new MenuItem("Return back");
+                editItem.setOnAction(event ->editProject());
+//                backItem.setOnAction(event ->);
+                rowMenu.getItems().addAll(editItem);
+                row.contextMenuProperty().bind(
+                        Bindings.when(Bindings.isNotNull(row.itemProperty()))
+                                .then(rowMenu)
+                                .otherwise((ContextMenu) null)
+                );
+                return row;
+            }
+        });
+
+
         initStavkaTable();
+        initDoneProjectsTable();
+        initProjectTable();
     }
 
 
@@ -199,14 +254,14 @@ public class EditTovar implements Initializable {
             ochilgan = true;
         }
         TableColumn<PriseList, Integer> tovarTR = creatTabCol("№", 35);
-        tovarTR.setCellValueFactory(e-> new SimpleObjectProperty<>(
+        tovarTR.setCellValueFactory(e -> new SimpleObjectProperty<>(
                 e.getValue().getTr()
         ));
         tovarTR.setResizable(false);
         tovarTR.impl_setReorderable(false);
 
 
-        tovarDeleteCol.setCellValueFactory(e-> new SimpleObjectProperty<>(
+        tovarDeleteCol.setCellValueFactory(e -> new SimpleObjectProperty<>(
                 e.getValue().getDelCheck()
         ));
         tovarDeleteCol.setSortable(false);
@@ -214,37 +269,37 @@ public class EditTovar implements Initializable {
 
 
         TableColumn<PriseList, String> tovarKod = creatTabCol("ID");
-        tovarKod.setCellValueFactory(e-> new SimpleStringProperty(
+        tovarKod.setCellValueFactory(e -> new SimpleStringProperty(
                 e.getValue().getTovarKod()
         ));
 
 
         TableColumn<PriseList, String> tovarNomi = creatTabCol("Nomi", 200, 200, 500);
-        tovarNomi.setCellValueFactory(e-> new SimpleStringProperty(
+        tovarNomi.setCellValueFactory(e -> new SimpleStringProperty(
                 e.getValue().getTovarNomi()
         ));
 
 
         TableColumn<PriseList, String> tovarModel = creatTabCol("Model", 200, 200, 500);
-        tovarModel.setCellValueFactory(e-> new SimpleStringProperty(
+        tovarModel.setCellValueFactory(e -> new SimpleStringProperty(
                 e.getValue().getTovarModel()
         ));
 
 
         TableColumn<PriseList, String> tovarIshCh = creatTabCol("Maker", 200, 200, 500);
-        tovarIshCh.setCellValueFactory(e-> new SimpleStringProperty(
-                 e.getValue().getTovarIshlabChiqaruvchi().getName()
+        tovarIshCh.setCellValueFactory(e -> new SimpleStringProperty(
+                e.getValue().getTovarIshlabChiqaruvchi().getName()
         ));
 
 
         TableColumn<PriseList, Double> tovarNarxi = creatTabCol("Narxi");
-        tovarNarxi.setCellValueFactory(e-> new SimpleObjectProperty<>(
+        tovarNarxi.setCellValueFactory(e -> new SimpleObjectProperty<>(
                 e.getValue().getTovarNarxi()
         ));
 
 
-        TableColumn<PriseList,String> tovarNarxiTuri = creatTabCol("Valyuta", 80);
-        tovarNarxiTuri.setCellValueFactory(e-> new SimpleStringProperty(
+        TableColumn<PriseList, String> tovarNarxiTuri = creatTabCol("Valyuta", 80);
+        tovarNarxiTuri.setCellValueFactory(e -> new SimpleStringProperty(
                 e.getValue().getTovarNarxTuri()
         ));
         tovarNarxiTuri.setResizable(false);
@@ -263,41 +318,41 @@ public class EditTovar implements Initializable {
 
 
         TableColumn<PriseList, String> tovarTrans = creatTabCol("Transport", 80);
-        tovarTrans.setCellValueFactory(e-> new SimpleStringProperty(
+        tovarTrans.setCellValueFactory(e -> new SimpleStringProperty(
                 e.getValue().getTovarTransportNarxiString()
         ));
         tovarTrans.setSortable(false);
 
 
         TableColumn<PriseList, String> tovarAksiz = creatTabCol("Aksiz", 80);
-        tovarAksiz.setCellValueFactory(e-> new SimpleStringProperty(
+        tovarAksiz.setCellValueFactory(e -> new SimpleStringProperty(
                 e.getValue().getTovarAksizString()
         ));
         tovarAksiz.setSortable(false);
 
 
         TableColumn<PriseList, String> tovarPoshlina = creatTabCol("Poshlina", 80);
-        tovarPoshlina.setCellValueFactory(e-> new SimpleStringProperty(
+        tovarPoshlina.setCellValueFactory(e -> new SimpleStringProperty(
                 e.getValue().getTovarPoshlinaString()
         ));
         tovarPoshlina.setSortable(false);
 
         TableColumn<PriseList, Double> tovarDDP = creatTabCol("DDP", 80);
-        tovarDDP.setCellValueFactory(e-> new SimpleObjectProperty<>(
+        tovarDDP.setCellValueFactory(e -> new SimpleObjectProperty<>(
                 e.getValue().getTovarDDP()
         ));
         tovarDDP.setSortable(false);
 
 
         TableColumn<PriseList, String> tovarSana = creatTabCol("Sana", 100);
-        tovarSana.setCellValueFactory(e-> new SimpleStringProperty(
+        tovarSana.setCellValueFactory(e -> new SimpleStringProperty(
                 e.getValue().getTovarSana().format(dateFormatter)
         ));
         tovarSana.setSortable(false);
 
 
         TableColumn<PriseList, String> tovarUlchov = creatTabCol("o'lchov", 70);
-        tovarUlchov.setCellValueFactory(e-> new SimpleStringProperty(
+        tovarUlchov.setCellValueFactory(e -> new SimpleStringProperty(
                 e.getValue().getTovarUlchovBirligi()
         ));
         tovarUlchov.setResizable(false);
@@ -305,7 +360,7 @@ public class EditTovar implements Initializable {
 
 
         TableColumn<PriseList, String> tovarKomment = creatTabCol("Komment", 150);
-        tovarKomment.setCellValueFactory(e-> new SimpleStringProperty(
+        tovarKomment.setCellValueFactory(e -> new SimpleStringProperty(
                 e.getValue().getTovarKomment()
         ));
         tovarKomment.setSortable(false);
@@ -336,20 +391,20 @@ public class EditTovar implements Initializable {
         kursTitle_1.setSortable(false);
 
 
-        TableColumn<Valyuta, Double> kursCb_price = new TableColumn<>("CENTRAL BANK");
+        TableColumn<Valyuta, Double> kursCb_price = new TableColumn<>("CENTRAL BANK (UZS)");
         kursCb_price.setCellValueFactory(
                 col -> new SimpleObjectProperty<>(col.getValue().getCb_priceD())
         );
         kursCb_price.setStyle("-fx-alignment: CENTER");
 
 
-        TableColumn<Valyuta, Double> kursBuy_price = new TableColumn<>("BUY");
+        TableColumn<Valyuta, Double> kursBuy_price = new TableColumn<>("BUY (UZS)");
         kursBuy_price.setCellValueFactory(
                 col -> new SimpleObjectProperty<>(col.getValue().getNbu_buy_priceD())
         );
         kursBuy_price.setStyle("-fx-alignment: CENTER");
 
-        TableColumn<Valyuta, Double> kursSell_price = new TableColumn<>("SELL");
+        TableColumn<Valyuta, Double> kursSell_price = new TableColumn<>("SELL (UZS)");
         kursSell_price.setCellValueFactory(
                 col -> new SimpleObjectProperty<>(col.getValue().getNbu_cell_priceD())
         );
@@ -374,21 +429,26 @@ public class EditTovar implements Initializable {
     private void refreshKurs(ActionEvent event) {
 
         //  baza va internet sinxronizatsiyasi bo'ladi
+        courseRefreshBt.setDisable(true);
 
-//        new Connections() new Api_kurs().getCourses();
+        for (Valyuta cours : new Api_kurs().getCourses()) {
+            new Connections().insertToCourse(cours);
+        }
 
         if (!(new Connections().tableIsEmpty("course"))) {
-            System.out.println("tableIsEmpty = " + true);
             valyutas.clear();
             valyutas.addAll(new Connections().getCourseFromSql());
         }
 
         if (!valyutas.isEmpty()) {
-            kusrSanaLable.setText(valyutas.get(0).getDate() + "");
+            kusrSanaLable.setText(valyutas.get(1).getDate() + "");
+
         }
         kursTable.setItems(valyutas);
         showNotEmptyKurs();
+        courseRefreshBt.setDisable(false);
     }
+
 
     @FXML
     private void showNotEmptyKurs() {
@@ -412,7 +472,7 @@ public class EditTovar implements Initializable {
     }
 
 
-     <S, T> TableColumn<S, T> creatTabCol(String title, double prefWidth, boolean isSortable) {
+    <S, T> TableColumn<S, T> creatTabCol(String title, double prefWidth, boolean isSortable) {
 
         TableColumn<S, T> newColumn = new TableColumn<S, T>(title);
         newColumn.setPrefWidth(prefWidth);
@@ -435,7 +495,7 @@ public class EditTovar implements Initializable {
 
 
     <S, T> TableColumn<S, T> creatTabCol(String title, double minWidth, double prefWidth,
-                            double maxWidth) {
+                                         double maxWidth) {
 
         TableColumn<S, T> newColumn = new TableColumn<S, T>(title);
 
@@ -588,12 +648,14 @@ public class EditTovar implements Initializable {
     }
 
     private void removePrises(PriseList priseList) {
-        PriseList.priseLists.removeAll(priseList);
+        new Connections().deleteTovar(priseList.getTovarId());
+//        PriseList.priseLists.removeAll(priseList);
         TovarZakaz.tovarZakazList.clear();
     }
 
-    private void removePrises(ObservableList<PriseList> priseList) {
-        PriseList.priseLists.removeAll(priseList);
+    private void removePrises(ObservableList<PriseList> priseLists) {
+        new Connections().deleteTovar(priseLists);
+//        PriseList.priseLists.removeAll(priseList);
         TovarZakaz.tovarZakazList.clear();
     }
 
@@ -619,10 +681,9 @@ public class EditTovar implements Initializable {
                 e.getValue().getKomment()
         ));
         stavkaTable.getColumns().clear();
-//        stavkaTable.getItems().clear();
         stavkaTable.getColumns().addAll(nomi, qiymat, komment);
-Stavkalar.stavkaShablons.clear();
-Stavkalar.stavkaShablons.addAll(new Connections().getStavkaFromSql());
+        Stavkalar.stavkaShablons.clear();
+        Stavkalar.stavkaShablons.addAll(new Connections().getStavkaFromSql());
         stavkaTable.setItems(Stavkalar.stavkaShablons);
 
 
@@ -658,6 +719,7 @@ Stavkalar.stavkaShablons.addAll(new Connections().getStavkaFromSql());
     }
 
     void refreshStaffTable() {
+        Stavkalar.resetStavkaShablons();
         stavkaTable.refresh();
     }
 
@@ -749,8 +811,8 @@ Stavkalar.stavkaShablons.addAll(new Connections().getStavkaFromSql());
         projectTable.getItems().clear();
         projectTable.getColumns().addAll(numZakaz, creteDate, priority,
                 prName, prClient, prFromCom, prRaxbar, prMasul, prEndDate,
-                prQolganDate, prColType, prFile,  prkomment );
-        projectTable.setItems(new Connections().getProjectFromSql());
+                prQolganDate, prColType, prFile, prkomment);
+        projectTable.setItems(new Connections().getProjectsNotDoneFromSql());
 
     }
 
@@ -832,7 +894,7 @@ Stavkalar.stavkaShablons.addAll(new Connections().getStavkaFromSql());
                 e.getValue().getPrKomment()
         ));
 
-        TableColumn<Project, LocalDateTime> prDoneDate =creatTabCol("Дата/время Выполнение", 200);
+        TableColumn<Project, LocalDateTime> prDoneDate = creatTabCol("Дата/время Выполнение", 200);
         prDoneDate.setStyle("-fx-alignment: CENTER");
         prDoneDate.setCellValueFactory(e -> new SimpleObjectProperty<>(
                 e.getValue().getPrTugallanganVaqti()
@@ -842,8 +904,8 @@ Stavkalar.stavkaShablons.addAll(new Connections().getStavkaFromSql());
         doneProjectTable.getColumns().clear();
         doneProjectTable.getColumns().addAll(numZakaz, creteDate, priority,
                 prName, prClient, prFromCom, prRaxbar, prMasul, prEndDate,
-                 prColType, prFile,  prkomment, prDoneDate);
-        doneProjectTable.setItems(new Connections().getProjectFromSql());
+                prColType, prFile, prkomment, prDoneDate);
+        doneProjectTable.setItems(new Connections().getProjectsDoneFromSql());
     }
 
     public void SelectionChanged(Event event) {
@@ -866,12 +928,14 @@ Stavkalar.stavkaShablons.addAll(new Connections().getStavkaFromSql());
             }
             case "projectsTab": {
                 System.out.println("projectsTab ishladi");
-                initProjectTable();
+                projectTable.refresh();
+//                initProjectTable();
                 break;
             }
             case "doneProjectsTab": {
                 System.out.println("doneProjectsTab ishladi");
-                initDoneProjectsTable();
+                doneProjectTable.refresh();
+//                initDoneProjectsTable();
                 break;
             }
             default: {
@@ -881,5 +945,42 @@ Stavkalar.stavkaShablons.addAll(new Connections().getStavkaFromSql());
         }
     }
 
+     void refreshProjectList() {
+        notDoneProjects.clear();
+        doneProjects.clear();
+        doneProjects.addAll(new Connections().getProjectsDoneFromSql());
+        notDoneProjects.addAll(new Connections().getProjectsNotDoneFromSql());
+        projectTable.refresh();
+        doneProjectTable.refresh();
+    }
+
+    private void editProject() {
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/sample/Views/projectView.fxml"));
+
+        Parent parent = null;
+        try {
+            parent = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Scene scene = new Scene(parent);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.setTitle("Edit Project");
+        stage.initModality(Modality.WINDOW_MODAL);
+
+        stage.initOwner(mainStage);
+        stage.show();
+
+        AddProject addProject = loader.getController();
+        addProject.setOwnerStage((Stage) projectTable.getScene().getWindow());
+        addProject.setProject(projectTable.getSelectionModel().getSelectedItem());
+        addProject.setEdit(true);
+        addProject.setEditTovar(this);
+    }
 
 }

@@ -28,7 +28,6 @@ public class Connections {
         try {
             while (resultSet.next()) {
                 Maker tovarMaker = getMakerFromSql(resultSet.getInt("maker"));
-                System.out.println(getClass() + " = " + tovarMaker);
                 list.add(
                         new PriseList(
                                 new Tovar(
@@ -90,27 +89,35 @@ public class Connections {
 
 
     public LocalDate parseToLocalDate(String value) {
+        if (value == null) {
+            value = "0001-01-01";
+        }
+        String s [] = value.split(" ");
+        value = value.trim();
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 //        DateFormat format = new SimpleDateFormat("dd-MM-yyyy");
-//        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        System.out.println(value);
+//        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         try {
-            long l = Long.parseLong(value);
+            long l = Long.parseLong(s[0]);
             Date date = new Date();
             date.setTime(l);
             return LocalDate.parse(format.format(date), dateFormatter);
         } catch (NumberFormatException e) {
-            return LocalDate.parse(value, dateFormatter);
+            return LocalDate.parse(s[0], dateFormatter);
         }
     }
 
+
     public LocalDateTime parseToLocalDateTime(String value) {
-        DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        if (value == null) {
+            value = "0001-01-01 00:00:00";
+        }
+        value = value.trim();
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 //        DateFormat format = new SimpleDateFormat("dd-MM-yyyy HH:mm");
 //        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
-        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-        System.out.println(value);
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         try {
             long l = Long.parseLong(value);
             Date date = new Date();
@@ -122,6 +129,7 @@ public class Connections {
     }
 
     public String localDateTimeParseToString(LocalDateTime dateTime) {
+        System.out.println("connection localDateTimeParseToString dateTime = " + dateTime);
         return dateTime.format(dateTimeFormatter);
     }
 
@@ -150,9 +158,7 @@ public class Connections {
     }
 
 
-
     public Maker getMakerFromSql(int id) {
-        System.out.println(getClass().getResource("xato") + " id = " + id);
         try (Connection connection = connect()) {
             ResultSet resultSet = connection.createStatement().executeQuery(
                     "SELECT * FROM maker WHERE id = " + id + ";"
@@ -199,7 +205,7 @@ public class Connections {
                         resultSet.getString("sure_name"),
                         resultSet.getString("last_name"),
                         parseToLocalDate(resultSet.getString("birth_day")),
-                        parseToLocalDate(resultSet.getString("come_day")),
+                        parseToLocalDate(resultSet.getString("come_date")),
                         resultSet.getString("lavozim")
                 ));
             }
@@ -212,7 +218,7 @@ public class Connections {
 
 
     public Xodimlar getXodimlarFromSql(int id) {
-        System.out.println("getXodimlarFromSql id = " + id);
+
         try (Connection connection = connect()) {
             ResultSet resultSet = connection.createStatement().executeQuery(
                     "SELECT * FROM xodimlar WHERE id = " + id + ";"
@@ -226,7 +232,6 @@ public class Connections {
                     parseToLocalDate(resultSet.getString("come_date")),
                     resultSet.getString("lavozim")
             );
-            System.out.println(xodimlar);
             return xodimlar;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -255,7 +260,6 @@ public class Connections {
     }
 
 
-
     public StavkaShablon getStavkaFromSql(String code) {
 
         try (Connection connection = connect()) {
@@ -276,8 +280,8 @@ public class Connections {
 
     public ObservableList<Project> getProjectFromSql() {
         ObservableList<Project> list = FXCollections.observableArrayList();
-//        ResultSet resultSet = selectAllFromSql("project");
-        ResultSet resultSet = selectOneFromSql("project", "nomer_zakaz", 2);
+        ResultSet resultSet = selectAllFromSql("project");
+//        ResultSet resultSet = selectOneFromSql("project", "nomer_zakaz", 2);
 
 
         try {
@@ -289,27 +293,6 @@ public class Connections {
                 boolean prIsImportant = resultSet.getBoolean("muhum");
                 boolean prIsShoshilinch = resultSet.getBoolean("shoshilinch");
                 String prNomi = resultSet.getString("name");
-//
-//                String prKlient = getStatement().executeQuery("SELECT name FROM client WHERE id = "
-//                        + resultSet.getInt("client_id") + ";").getString("name");
-//
-//                String prKMP_komp = getStatement().executeQuery("SELECT name FROM kmpFromCom WHERE id = "
-//                        + resultSet.getInt("from_com_id ") + ";").getString("name");
-//
-//                String prRaxbar = getStatement().executeQuery("SELECT first_name FROM xodimlar WHERE id = "
-//                        + resultSet.getInt("raxbar_xodim_id ") + ";").getString(1) + " " +
-//                        getStatement().executeQuery("SELECT sure_name FROM xodimlar WHERE id = "
-//                                + resultSet.getInt("raxbar_xodim_id ") + ";").getString(1);
-//
-//                String prKritgan = getStatement().executeQuery("SELECT first_name FROM xodimlar WHERE id = "
-//                        + resultSet.getInt("raxbar_xodim_id ") + ";").getString(1) + " " +
-//                        getStatement().executeQuery("SELECT sure_name FROM xodimlar WHERE id = "
-//                                + resultSet.getInt("kiritgan_xodim_id ") + ";").getString(1);
-//
-//                String prMasul = getStatement().executeQuery("SELECT first_name FROM xodimlar WHERE id = "
-//                        + resultSet.getInt("raxbar_xodim_id ") + ";").getString(1) + " " +
-//                        getStatement().executeQuery("SELECT sure_name FROM xodimlar WHERE id = "
-//                                + resultSet.getInt("masul_xodim_id ") + ";").getString(1);
 
                 int prFormula = resultSet.getInt("formula");
                 String prKomment = resultSet.getString("komment");
@@ -319,6 +302,7 @@ public class Connections {
                 int raxbarId = resultSet.getInt("raxbar_xodim_id");
                 int masulId = resultSet.getInt("masul_xodim_id");
                 int kiritganId = resultSet.getInt("kiritgan_xodim_id");
+                boolean done = resultSet.getBoolean("done");
 
                 Project project = new Project(
                         numPr, boshlanganVaqt, prIsImportant, prIsShoshilinch, prNomi,
@@ -329,6 +313,7 @@ public class Connections {
                         tugashVaqti, prFormula, prKomment,
                         getXodimlarFromSql(kiritganId)
                 );
+                project.setDone(done);
 
                 Connection connection = DriverManager.getConnection("jdbc:sqlite:" + dataBase);
                 ResultSet set = connection.createStatement().executeQuery(
@@ -390,6 +375,73 @@ public class Connections {
         return list;
     }
 
+    public ObservableList<Project> getProjectsDoneFromSql() {
+        ObservableList<Project> list = FXCollections.observableArrayList();
+        getProjectFromSql().stream().filter(Project::isDone).forEach(list::add);
+        return list;
+    }
+
+
+    public ObservableList<Project> getProjectsNotDoneFromSql(){
+        ObservableList<Project> list = FXCollections.observableArrayList();
+        getProjectFromSql().stream().filter(e-> !e.isDone()).forEach(list::add);
+        return list;
+    }
+
+    public Project selectProjectFromDB(long temp) {
+
+        Project project = null;
+
+        try (Connection con = connect()) {
+            Class.forName("org.sqlite.JDBC");
+
+            ResultSet resultSet = con.createStatement().executeQuery(
+                    "SELECT * FROM project " +
+                            " WHERE temp = " + temp + ";"
+            );
+
+            int numPr = resultSet.getInt("nomer_zakaz");
+            LocalDate boshlanganVaqt = parseToLocalDate(resultSet.getString("start_date"));
+            LocalDateTime tugashVaqti = parseToLocalDateTime(resultSet.getString("end_date"));
+            boolean prIsImportant = resultSet.getBoolean("muhum");
+            boolean prIsShoshilinch = resultSet.getBoolean("shoshilinch");
+            String prNomi = resultSet.getString("name");
+
+            int prFormula = resultSet.getInt("formula");
+            String prKomment = resultSet.getString("komment");
+
+            int clientId = resultSet.getInt("client_id");
+            int comId = resultSet.getInt("from_com_id");
+            int raxbarId = resultSet.getInt("raxbar_xodim_id");
+            int masulId = resultSet.getInt("masul_xodim_id");
+            int kiritganId = resultSet.getInt("kiritgan_xodim_id");
+
+            project = new Project(
+                    numPr, boshlanganVaqt, prIsImportant, prIsShoshilinch, prNomi,
+                    getClientFromSql(clientId),
+                    getCompanyFromSql(comId),
+                    getXodimlarFromSql(raxbarId),
+                    getXodimlarFromSql(masulId),
+                    tugashVaqti, prFormula, prKomment,
+                    getXodimlarFromSql(kiritganId)
+            );
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+
+        String sql = " UPDATE project SET " +
+                "temp = " + null + " " +
+                "WHERE temp = '" + temp +"'"+
+                ";";
+        try (Connection connection = connect()) {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            System.out.println("selectProjectFromDB statement = " + statement.executeUpdate());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return project;
+    }
 
 
     public ObservableList<Client> getClientFromSql() {
@@ -399,9 +451,9 @@ public class Connections {
         try {
             while (resultSet.next()) {
                 list.add(new Client(
-                        resultSet.getInt(1),
-                        resultSet.getString(2),
-                        parseToLocalDate(resultSet.getString(3))
+                        resultSet.getInt("id"),
+                        resultSet.getString("name"),
+                        parseToLocalDate(resultSet.getString("date"))
                 ));
             }
             con.close();
@@ -413,9 +465,8 @@ public class Connections {
     }
 
 
-
     public Client getClientFromSql(int id) {
-        System.out.println("getClientFromSql = " + id);
+
 
         try (Connection connection = connect()) {
             Statement statement = connection.createStatement();
@@ -430,7 +481,6 @@ public class Connections {
                         parseToLocalDate(resultSet.getString("date"))
                 );
             }
-            System.out.println(client);
             return client;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -459,7 +509,7 @@ public class Connections {
     }
 
     public Company getCompanyFromSql(int id) {
-        System.out.println("getCompanyFromSql id = " + id);
+
         try (Connection connection = connect()) {
             ResultSet resultSet = connection.createStatement().executeQuery(
                     "SELECT * FROM kmpFromCom WHERE id = " + id + ";"
@@ -469,7 +519,6 @@ public class Connections {
                     resultSet.getString("name"),
                     parseToLocalDate(resultSet.getString("date"))
             );
-            System.out.println(company);
             return company;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -608,7 +657,6 @@ public class Connections {
     }
 
 
-
     public void insertToClient(Client client) {
         String sql1 = "INSERT INTO client ( name ) \n" +
                 " SELECT ('" + client.getName() + "')  \n" +
@@ -640,7 +688,7 @@ public class Connections {
         }
     }
 
-    public void deleteClient (Client client) {
+    public void deleteClient(Client client) {
         String sql = "DELETE FROM client WHERE id = " + client.getId() + ";";
 
         try (Connection connection = connect()) {
@@ -658,7 +706,7 @@ public class Connections {
                 "INSERT OR IGNORE INTO course ( " +
                         " title, code, cb_price, nbu_buy_price, nbu_cell_price, refresh_date) " +
                         "VALUES(" +
-                        "'" + valyuta.getTitle() + "', " +
+                        "'" + valyuta.getTitleForDB() + "', " +
                         "'" + valyuta.getCode() + "', " +
                         "" + valyuta.getCb_priceD() + ", " +
                         "" + valyuta.getNbu_buy_priceD() + ", " +
@@ -688,7 +736,7 @@ public class Connections {
         }
     }
 
-    public void deleteCourse (Valyuta valyuta) {
+    public void deleteCourse(Valyuta valyuta) {
         String sql = "DELETE FROM course WHERE code = '" + valyuta.getCode() + "';";
 
         try (Connection connection = connect()) {
@@ -698,7 +746,6 @@ public class Connections {
             e.printStackTrace();
         }
     }
-
 
 
     public void insertToCompany(Company company) {
@@ -725,7 +772,7 @@ public class Connections {
         }
     }
 
-    public void deleteCompany (Company company) {
+    public void deleteCompany(Company company) {
         String sql = "DELETE FROM kmpFromCom WHERE id = " + company.getId() + ";";
 
         try (Connection connection = connect()) {
@@ -735,7 +782,6 @@ public class Connections {
             e.printStackTrace();
         }
     }
-
 
 
     public Maker insertToMaker(Maker maker) {
@@ -777,7 +823,7 @@ public class Connections {
         }
     }
 
-    public void deleteMaker (Maker maker) {
+    public void deleteMaker(Maker maker) {
         String sql = "DELETE FROM maker WHERE id = " + maker.getId() + ";";
 
         try (Connection connection = connect()) {
@@ -790,15 +836,16 @@ public class Connections {
     }
 
 
-
     public void insertToProject(Project project) {
+
+        long temp = System.currentTimeMillis();
         String sql = " INSERT OR IGNORE INTO project(" +
                 "name, shoshilinch, muhum, client_id, from_com_id, " +
                 "raxbar_xodim_id, kiritgan_xodim_id, masul_xodim_id, " +
-                "end_date, formula, komment" +
+                "end_date, formula, komment, temp " +
                 ") " +
                 "VALUES( " +
-                "'" + project.getPrNomi() + "', " +
+                "'" + project.getPrNomi().replace("'", "`") + "', " +
                 "'" + project.isPrIsShoshilinch() + "', " +
                 "'" + project.isPrIsImportant() + "', " +
                 project.getPrClient().getId() + ", " +
@@ -806,12 +853,12 @@ public class Connections {
                 project.getPrRaxbar().getId() + ", " +
                 project.getPrKritgan().getId() + ", " +
                 project.getPrMasul().getId() + ", " +
-                "'" + localDateTimeParseToString(project.getTugashVaqti()) + "', " +
+                "'" + localDateTimeParseToString(project.getTugashVaqti()).replace("'", "`") + "', " +
                 "" + project.getPrFormulaNum() + ", " +
-                "'" + project.getPrKomment() + "' " +
+                "'" + project.getPrKomment().replace("'", "`") + "', " +
+                "'" + temp + "'" +
                 ");";
 
-        System.out.println("sql = " + sql);
         try (Connection connection = connect()) {
 
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -821,6 +868,10 @@ public class Connections {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        Project project1 = selectProjectFromDB(temp);
+        project1.addProjectZakazList(project.getProjectZakazList());
+        insertToZakazList(project1);
     }
 
     public void updateProject(Project project) {
@@ -833,7 +884,7 @@ public class Connections {
                 "raxbar_xodim_id = " + project.getPrRaxbar().getId() + ", " +
                 "kiritgan_xodim_id = " + project.getPrKritgan().getId() + ", " +
                 "masul_xodim_id = " + project.getPrMasul().getId() + ", " +
-                "end_date = '" + localDateTimeParseToString(project.getPrTugallanganVaqti()) + "', " +
+                "end_date = '" + localDateTimeParseToString(project.getTugashVaqti()) + "', " +
                 "formula = " + project.getPrFormulaNum() + ", " +
                 "komment = '" + project.getPrKomment() + "', " +
                 "done = '" + project.isDone() + "' " +
@@ -847,7 +898,7 @@ public class Connections {
         }
     }
 
-    public void deleteProject (Project project) {
+    public void deleteProject(Project project) {
         String sql = "DELETE FROM project WHERE nomer_zakaz = " + project.getNumPr() + ";";
 
         try (Connection connection = connect()) {
@@ -861,7 +912,6 @@ public class Connections {
             deleteFromZakazList(project.getNumPr(), tovarZakaz.getTovarId());
         }
     }
-
 
 
     public int insertToStavka(StavkaShablon shablon) {
@@ -901,11 +951,8 @@ public class Connections {
     }
 
 
-
-
     public int insertToTovar(PriseList priseList) {
         Tovar tovar = priseList.getTovar();
-        System.out.println(getClass() + " = " + tovar);
         String sql = " INSERT OR IGNORE INTO tovar (" +
                 "name, model, kod, maker, cost, cost_type, trans_cost, aksiz_cost, " +
                 "poshlina_cost, ddp_cost, ulchov_type, komment) " +
@@ -967,8 +1014,22 @@ public class Connections {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        PriseList.reSetPriseList();
     }
 
+    public void deleteTovar(ObservableList<PriseList> priseLists) {
+
+        try (Connection connection = connect()) {
+            for (PriseList priseList : priseLists) {
+                String sql = "DELETE FROM tovar WHERE id = " + priseList.getTovarId() + ";";
+                PreparedStatement statement = connection.prepareStatement(sql);
+                System.out.println("deleteTovar statement = " + statement.executeUpdate());
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        PriseList.reSetPriseList();
+    }
 
 
     public int insertToXodimlar(Xodimlar xodimlar) {
@@ -986,7 +1047,6 @@ public class Connections {
         try (Connection connection = connect()) {
             PreparedStatement statement = connection.prepareStatement(sql);
             int result = statement.executeUpdate();
-            System.out.println("insertToXodimlar statement = " + result);
             return result;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -1023,7 +1083,6 @@ public class Connections {
     }
 
 
-
     public void insertToZakazList(Project project) {
 
         int projectId = project.getNumPr();
@@ -1052,7 +1111,6 @@ public class Connections {
             try (Connection connection = connect()) {
                 PreparedStatement statement = connection.prepareStatement(sql);
                 int result = statement.executeUpdate();
-                System.out.println("insertToXodimlar statement = " + result);
             } catch (SQLException e) {
                 e.printStackTrace();
             }

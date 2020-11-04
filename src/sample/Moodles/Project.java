@@ -36,11 +36,11 @@ public class Project {
 //    private String prKritgan;
 //    private String prMasul;
 
-    Client prClient;
-    Company prKmpCompany;
-    Xodimlar prRaxbar;
-    Xodimlar prKritgan;
-    Xodimlar prMasul;
+    private Client prClient;
+    private Company prKmpCompany;
+    private Xodimlar prRaxbar;
+    private Xodimlar prKritgan;
+    private Xodimlar prMasul;
 
 
     private ObservableList<TovarZakaz> projectZakazList = FXCollections.observableArrayList();
@@ -64,8 +64,9 @@ public class Project {
         this.tugashVaqti = tugashVaqti;
         this.prKomment = prKomment;
         this.prKritgan = prKritgan;
-        this.proritet = "";
+        this.prFormulaNum = typeCol;
 
+        this.proritet = "В срок";
         if (prIsImportant) {
             this.proritet = "Важны";
         }
@@ -75,7 +76,11 @@ public class Project {
         if (prIsImportant && prIsShoshilinch) {
             this.proritet = "Важны и Срочный";
         }
+        setTypeCol(prFormulaNum);
 
+    }
+
+    private void setTypeCol(int typeCol) {
         switch (typeCol) {
             case 0: {
                 this.prFormula = "DDP без НДС ВЭД";
@@ -134,7 +139,7 @@ public class Project {
     }
 
     public String getProritet() {
-        return proritet;
+        return this.proritet;
     }
 
     public void setProritet(String proritet) {
@@ -262,6 +267,7 @@ public class Project {
 
     public void setPrFormulaNum(int prFormulaNum) {
         this.prFormulaNum = prFormulaNum;
+        setTypeCol(this.prFormulaNum);
     }
 
     public String getPrFilePath() {
@@ -283,13 +289,9 @@ public class Project {
     public String getQolganVaqt() {
 
         Duration duration = Duration.between(LocalDateTime.now(), this.tugashVaqti);
-        System.out.println(Math.abs(duration.toMinutes()));
         long minutes = Math.abs(duration.toMinutes())%60;
         long hours = (Math.abs(duration.toHours())%24) ;
         long days = (Math.abs(duration.toDays()));
-
-        System.out.println("" + days + " / " + hours + ":" + minutes);
-
     return  days + " / " + hours + ":" + minutes;
     }
 

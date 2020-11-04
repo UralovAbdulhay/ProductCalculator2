@@ -3,6 +3,7 @@ package sample.Moodles;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import sample.Classes.Connections;
 
 public class Stavkalar {
     public static double stTrans = 1;
@@ -27,6 +28,11 @@ public class Stavkalar {
             stavkaShablons.add(7, new StavkaShablon("Доллар СУМ-РУБЛЬ", stUSZ_RUB, "СУМ", "usd_rub"));
             stavkaShablons.add(8, new StavkaShablon("Доллар СУМ-ЕВРО", stUSZ_EUR, "СУМ", "usd_euro"));
         }
+    }
+
+    public static void resetStavkaShablons() {
+        stavkaShablons.clear();
+        stavkaShablons.addAll(new Connections().getStavkaFromSql());
     }
 
 
@@ -105,6 +111,7 @@ public class Stavkalar {
 
     @Override
     public String toString() {
+
         return  "\nStavkalar{" +
                 "\nstTrans=" + stTrans +
                 ",\n stCIP=" + stCIP +
