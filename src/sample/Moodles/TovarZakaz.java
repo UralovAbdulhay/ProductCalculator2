@@ -678,7 +678,7 @@ public class TovarZakaz extends Tovar {
 
     @Override
     public String toString() {
-        return "TovarZakaz{" +
+        return "\n TovarZakaz{" +
                 ", zakazSoni=" + zakazSoni +
                 ", zakazKamaytirishBt=" + zakazKamaytirishBt +
                 ", zakazUzgartir=" + zakazUzgartir +

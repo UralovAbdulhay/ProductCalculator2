@@ -15,7 +15,6 @@ import sample.Classes.Connections;
 import sample.Moodles.*;
 
 import java.io.File;
-import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -90,6 +89,8 @@ public class AddProject implements Initializable {
     private Project project;
 
     private EditTovar editTovar;
+
+    private ControllerTable controllerTable;
 
 
     @Override
@@ -168,36 +169,56 @@ public class AddProject implements Initializable {
                 break;
             }
         }
+
         Xodimlar kiritgan = xodimlars.stream().
-                filter(
-                        e -> e.getIsm().trim().toLowerCase().equals(prKiritgan.getValue().trim().toLowerCase())
-                ).
-                findFirst().get();
+                filter(e -> e.getIsm().trim().equals(prKiritgan.getValue().trim()))
+                .findAny()
+                .orElse(new Connections().insertToXodimlar(
+                        new Xodimlar(prKiritgan.getValue().trim())
+                        )
+                );
+
+
 
         Xodimlar raxbar = xodimlars.stream().
                 filter(
                         e -> e.getIsm().trim().toLowerCase().equals(prRahbar.getValue().trim().toLowerCase())
-                ).
-                findFirst().get();
+                )
+                .findAny()
+                .orElse(new Connections().insertToXodimlar(
+                        new Xodimlar(prRahbar.getValue().trim())
+                )
+                );
+
 
         Xodimlar masul = xodimlars.stream().
                 filter(
                         e -> e.getIsm().trim().toLowerCase().equals(prMasul.getValue().trim().toLowerCase())
-                ).
-                findFirst().get();
+                )
+                .findAny()
+                .orElse(new Connections().insertToXodimlar(
+                        new Xodimlar(prMasul.getValue().trim())
+                        )
+                );
 
         Client client = clients.stream().
                 filter(
-                        e -> e.getName().trim().toLowerCase().equals(prClient.getValue().trim().toLowerCase())
+                        e -> e.getName().trim().equals(prClient.getValue().trim())
                 ).
-                findFirst().get();
+                findAny()
+                .orElse(new Connections().insertToClient(
+                        new Client(prClient.getValue().trim())
+                ));
 
 
         Company company = companies.stream().
                 filter(
-                        e -> e.getName().trim().toLowerCase().equals(prFromCom.getValue().trim().toLowerCase())
+                        e -> e.getName().trim().equals(prFromCom.getValue().trim())
                 ).
-                findFirst().get();
+                findAny()
+                .orElse(new Connections().insertToCompany(
+                        new Company(prFromCom.getValue().trim())
+                ));
 
 
         if (isEdit) {
@@ -226,9 +247,9 @@ public class AddProject implements Initializable {
                     kiritgan,
                     tovarZakazList
             );
+            System.out.println("init project ");
+            System.out.println(project.toString());
         }
-        System.out.println("init project ");
-        System.out.println(project.toString());
 
     }
 
@@ -247,12 +268,10 @@ public class AddProject implements Initializable {
             new Connections().updateProject(project);
 
             if (exportFile != null) {
-                try {
-                    new SaveFile().aVoid(exportFile.getAbsolutePath());
+
+                    new SaveFile().saveFile(exportFile.getAbsolutePath(), project);
                     okButton.getScene().getWindow().hide();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+
             }
             okButton.getScene().getWindow().hide();
 
@@ -260,26 +279,28 @@ public class AddProject implements Initializable {
             alert.setHeaderText("Success edit!");
             alert.showAndWait();
 
+            editTovar.refreshProjectList();
+
         } else {
             if (exportFile == null) {
                 saveFile();
             } else {
-                try {
-                    new SaveFile().aVoid(exportFile.getAbsolutePath());
+
+                    new SaveFile().saveFile(exportFile.getAbsolutePath(), project);
                     okButton.getScene().getWindow().hide();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+
+                    new Connections().insertToProject(project);
+
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setHeaderText("Success create!");
+                    alert.showAndWait();
+
+                TovarZakaz.tovarZakazList.clear();
+                controllerTable.summaHisobla();
+                controllerTable.setDisableNextExportBt();
             }
-            new Connections().insertToProject(project);
 
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setHeaderText("Success create!");
-            alert.show();
         }
-
-        editTovar.refreshProjectList();
-
     }
 
 
@@ -299,13 +320,19 @@ public class AddProject implements Initializable {
         this.editTovar = editTovar;
     }
 
-
+    public void setControllerTable(ControllerTable controllerTable) {
+        this.controllerTable = controllerTable;
+    }
 
 
     @FXML
     void saveFile() {
 
+        faylTanla.setInitialFileName(prName.getText().trim() + " "+
+                new Connections().localDateParseToString(LocalDate.now()).replace("-", "."));
+
         File file = faylTanla.showSaveDialog(prFile.getScene().getWindow());
+
         if (file != null) {
             exportFile = file;
             filePath = exportFile.getParent();

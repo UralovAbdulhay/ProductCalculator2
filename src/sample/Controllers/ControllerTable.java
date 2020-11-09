@@ -526,7 +526,7 @@ public class ControllerTable implements Initializable {
     }
 
 
-    private void setDisableNextExportBt() {
+     void setDisableNextExportBt() {
         if (TovarZakaz.tovarZakazList.size() != 0) {
             orderCanBt.setDisable(false);
             nextExportBt.setDisable(false);
@@ -1022,6 +1022,7 @@ public class ControllerTable implements Initializable {
 
         AddProject controller = loader.getController();
         controller.setOwnerStage(mainStage);
+        controller.setControllerTable(this);
         int typeCol = 0;
         typeCol = ddpSwitch.isSelected() ? 1 : 0;
         controller.setPrHisobTuri(typeCol, TovarZakaz.tovarZakazList);

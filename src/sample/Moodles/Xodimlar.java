@@ -24,6 +24,17 @@ public class Xodimlar {
         this.lavozim = lavozim;
     }
 
+    public Xodimlar( String ism ) {
+
+        this.id = -1;
+        this.ism = ism;
+        this.familiya = "--";
+        this.ochestva = "--";
+        this.tugilganVaqt = LocalDate.now();
+        this.comeDay = LocalDate.now();
+        this.lavozim = "--";
+    }
+
     public int getId() {
         return id;
     }

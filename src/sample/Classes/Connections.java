@@ -92,7 +92,7 @@ public class Connections {
         if (value == null) {
             value = "0001-01-01";
         }
-        String s [] = value.split(" ");
+        String s[] = value.split(" ");
         value = value.trim();
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -281,8 +281,6 @@ public class Connections {
     public ObservableList<Project> getProjectFromSql() {
         ObservableList<Project> list = FXCollections.observableArrayList();
         ResultSet resultSet = selectAllFromSql("project");
-//        ResultSet resultSet = selectOneFromSql("project", "nomer_zakaz", 2);
-
 
         try {
             while (resultSet.next()) {
@@ -363,6 +361,7 @@ public class Connections {
                                     set.getString("tovarKomment")
                             )
                     );
+
                     priseList.setAddCount(set.getInt("soni"));
                     project.addProjectZakazList(new TovarZakaz(priseList));
                 }
@@ -382,56 +381,57 @@ public class Connections {
     }
 
 
-    public ObservableList<Project> getProjectsNotDoneFromSql(){
+    public ObservableList<Project> getProjectsNotDoneFromSql() {
         ObservableList<Project> list = FXCollections.observableArrayList();
-        getProjectFromSql().stream().filter(e-> !e.isDone()).forEach(list::add);
+        getProjectFromSql().stream().filter(e -> !e.isDone()).forEach(list::add);
         return list;
     }
 
     public Project selectProjectFromDB(long temp) {
-
+        System.out.println("temp = " + temp);
         Project project = null;
 
         try (Connection con = connect()) {
-            Class.forName("org.sqlite.JDBC");
-
             ResultSet resultSet = con.createStatement().executeQuery(
                     "SELECT * FROM project " +
-                            " WHERE temp = " + temp + ";"
+                            " WHERE temp = '" + temp + "' ;"
             );
 
-            int numPr = resultSet.getInt("nomer_zakaz");
-            LocalDate boshlanganVaqt = parseToLocalDate(resultSet.getString("start_date"));
-            LocalDateTime tugashVaqti = parseToLocalDateTime(resultSet.getString("end_date"));
-            boolean prIsImportant = resultSet.getBoolean("muhum");
-            boolean prIsShoshilinch = resultSet.getBoolean("shoshilinch");
-            String prNomi = resultSet.getString("name");
+            if (resultSet.next()) {
 
-            int prFormula = resultSet.getInt("formula");
-            String prKomment = resultSet.getString("komment");
+                int numPr = resultSet.getInt("nomer_zakaz");
+                LocalDate boshlanganVaqt = parseToLocalDate(resultSet.getString("start_date"));
+                LocalDateTime tugashVaqti = parseToLocalDateTime(resultSet.getString("end_date"));
+                boolean prIsImportant = resultSet.getBoolean("muhum");
+                boolean prIsShoshilinch = resultSet.getBoolean("shoshilinch");
+                String prNomi = resultSet.getString("name");
 
-            int clientId = resultSet.getInt("client_id");
-            int comId = resultSet.getInt("from_com_id");
-            int raxbarId = resultSet.getInt("raxbar_xodim_id");
-            int masulId = resultSet.getInt("masul_xodim_id");
-            int kiritganId = resultSet.getInt("kiritgan_xodim_id");
+                int prFormula = resultSet.getInt("formula");
+                String prKomment = resultSet.getString("komment");
 
-            project = new Project(
-                    numPr, boshlanganVaqt, prIsImportant, prIsShoshilinch, prNomi,
-                    getClientFromSql(clientId),
-                    getCompanyFromSql(comId),
-                    getXodimlarFromSql(raxbarId),
-                    getXodimlarFromSql(masulId),
-                    tugashVaqti, prFormula, prKomment,
-                    getXodimlarFromSql(kiritganId)
-            );
-        } catch (ClassNotFoundException | SQLException e) {
+                int clientId = resultSet.getInt("client_id");
+                int comId = resultSet.getInt("from_com_id");
+                int raxbarId = resultSet.getInt("raxbar_xodim_id");
+                int masulId = resultSet.getInt("masul_xodim_id");
+                int kiritganId = resultSet.getInt("kiritgan_xodim_id");
+
+                project = new Project(
+                        numPr, boshlanganVaqt, prIsImportant, prIsShoshilinch, prNomi,
+                        getClientFromSql(clientId),
+                        getCompanyFromSql(comId),
+                        getXodimlarFromSql(raxbarId),
+                        getXodimlarFromSql(masulId),
+                        tugashVaqti, prFormula, prKomment,
+                        getXodimlarFromSql(kiritganId)
+                );
+            }
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 
         String sql = " UPDATE project SET " +
                 "temp = " + null + " " +
-                "WHERE temp = '" + temp +"'"+
+                "WHERE temp = '" + temp + "' " +
                 ";";
         try (Connection connection = connect()) {
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -467,7 +467,6 @@ public class Connections {
 
     public Client getClientFromSql(int id) {
 
-
         try (Connection connection = connect()) {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(
@@ -492,7 +491,7 @@ public class Connections {
     public ObservableList<Company> getCompanyFromSql() {
 
         ObservableList<Company> list = FXCollections.observableArrayList();
-        ResultSet resultSet = selectAllFromSql("kmpFromCom");
+        ResultSet resultSet = selectAllFromSql("company");
         try {
             while (resultSet.next()) {
                 list.add(new Company(
@@ -512,7 +511,7 @@ public class Connections {
 
         try (Connection connection = connect()) {
             ResultSet resultSet = connection.createStatement().executeQuery(
-                    "SELECT * FROM kmpFromCom WHERE id = " + id + ";"
+                    "SELECT * FROM company WHERE id = " + id + ";"
             );
             Company company = new Company(
                     resultSet.getInt("id"),
@@ -657,14 +656,18 @@ public class Connections {
     }
 
 
-    public void insertToClient(Client client) {
+    public Client insertToClient(Client client) {
+        long temp = System.currentTimeMillis();
+
         String sql1 = "INSERT INTO client ( name ) \n" +
                 " SELECT ('" + client.getName() + "')  \n" +
                 " WHERE NOT EXISTS( " +
                 " SELECT 1 FROM client WHERE name = '" +
                 client.getName() + "' );";
 
-        String sql = " INSERT OR IGNORE INTO client(name) VALUES('" + client.getName() + "');";
+        String sql = "INSERT OR IGNORE INTO client (name, temp) VALUES('"
+                + client.getName() + "', " +
+                temp + " );";
 
         try (Connection connection = connect()) {
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -672,6 +675,39 @@ public class Connections {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        String sql2 = "SELECT * FROM client WHERE temp = " + temp + ";";
+
+        Client client1 = null;
+
+        try (Connection connection = connect()) {
+            ResultSet resultSet = connection.createStatement().executeQuery(sql2);
+            if (resultSet.next()) {
+                client1 = new Client(
+                        resultSet.getInt("id"),
+                        resultSet.getString("name"),
+                        parseToLocalDate(resultSet.getString("date"))
+                );
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+        String sql3 = " UPDATE client SET " +
+                "temp = " + null + " " +
+                "WHERE temp = " + temp + " " +
+                ";";
+
+        try (Connection connection = connect()) {
+            PreparedStatement statement = connection.prepareStatement(sql3);
+            System.out.println(" Client setTempNull statement = " + statement.executeUpdate());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return client1;
     }
 
     public void updateClient(Client client) {
@@ -748,8 +784,14 @@ public class Connections {
     }
 
 
-    public void insertToCompany(Company company) {
-        String sql = " INSERT OR IGNORE INTO kmpFromCom(name) VALUES('" + company.getName() + "');";
+    public Company insertToCompany(Company company) {
+
+        Company company1 = null;
+        long temp = System.currentTimeMillis();
+
+        String sql = " INSERT OR IGNORE INTO company (name, temp) VALUES('"
+                + company.getName() + "', " +
+                temp + ");";
 
         try (Connection connection = connect()) {
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -757,10 +799,42 @@ public class Connections {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        String sql1 = "SELECT * FROM company WHERE temp = " + temp + ";";
+
+        try (Connection connection = connect()) {
+            ResultSet resultSet = connection.createStatement().executeQuery(sql1);
+            if (resultSet.next()) {
+                company1 = new Company(
+                        resultSet.getInt("id"),
+                        resultSet.getString("name"),
+                        parseToLocalDate(resultSet.getString("date"))
+                );
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+        String sql3 = " UPDATE company SET " +
+                "temp = " + null + " " +
+                "WHERE temp = " + temp + " " +
+                ";";
+
+        try (Connection connection = connect()) {
+            PreparedStatement statement = connection.prepareStatement(sql3);
+            System.out.println(" Company setTempNull statement = " + statement.executeUpdate());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return company1;
     }
 
+
     public void updateCompany(Company company) {
-        String sql = " UPDATE kmpFromCom SET " +
+        String sql = " UPDATE company SET " +
                 "name = '" + company.getName() + "' " +
                 "WHERE id = " + company.getId() +
                 ";";
@@ -773,7 +847,7 @@ public class Connections {
     }
 
     public void deleteCompany(Company company) {
-        String sql = "DELETE FROM kmpFromCom WHERE id = " + company.getId() + ";";
+        String sql = "DELETE FROM company WHERE id = " + company.getId() + ";";
 
         try (Connection connection = connect()) {
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -785,28 +859,52 @@ public class Connections {
 
 
     public Maker insertToMaker(Maker maker) {
-        String sql = " INSERT OR IGNORE INTO maker(name, country)" +
+        long temp = System.currentTimeMillis();
+        Maker maker1 = null;
+
+        String sql = " INSERT OR IGNORE INTO maker(name, temp)" +
                 " VALUES('" + maker.getName() + "', " +
-                "'" + maker.getCountry() + "' );";
+                temp + " );";
 
         try (Connection connection = connect()) {
             PreparedStatement statement = connection.prepareStatement(sql);
             System.out.println("insertToMaker statement = " + statement.executeUpdate());
-
-            ResultSet resultSet = connection.createStatement().executeQuery(
-                    "SELECT * FROM maker WHERE name = '" + maker.getName() + "';"
-            );
-            return new Maker(
-                    resultSet.getInt("id"),
-                    resultSet.getString("name"),
-                    resultSet.getString("country"),
-                    parseToLocalDate(resultSet.getString("sana"))
-            );
         } catch (SQLException e) {
             e.printStackTrace();
-//            return maker;
-            return null;
         }
+
+
+        String sql1 = "SELECT * FROM maker WHERE temp = " + temp + ";";
+
+        try (Connection connection = connect()) {
+            ResultSet resultSet = connection.createStatement().executeQuery(sql1);
+            if (resultSet.next()) {
+                maker1 = new Maker(
+                        resultSet.getInt("id"),
+                        resultSet.getString("name"),
+                        resultSet.getString("country"),
+                        parseToLocalDate(resultSet.getString("sana"))
+                );
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+        String sql3 = " UPDATE maker SET " +
+                "temp = " + null + " " +
+                "WHERE temp = '" + temp + "'" +
+                ";";
+
+        try (Connection connection = connect()) {
+            PreparedStatement statement = connection.prepareStatement(sql3);
+            System.out.println("Maker setTempNull statement = " + statement.executeUpdate());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return maker1;
     }
 
     public void updateMaker(Maker maker) {
@@ -839,46 +937,54 @@ public class Connections {
     public void insertToProject(Project project) {
 
         long temp = System.currentTimeMillis();
-        String sql = " INSERT OR IGNORE INTO project(" +
+
+        int muhum = project.isPrIsImportant()?1:0;
+        int shoshilinch = project.isPrIsShoshilinch()?1:0;
+
+        String sql = " INSERT " +
+//                "OR IGNORE " +
+                "INTO project(" +
                 "name, shoshilinch, muhum, client_id, from_com_id, " +
                 "raxbar_xodim_id, kiritgan_xodim_id, masul_xodim_id, " +
                 "end_date, formula, komment, temp " +
                 ") " +
                 "VALUES( " +
                 "'" + project.getPrNomi().replace("'", "`") + "', " +
-                "'" + project.isPrIsShoshilinch() + "', " +
-                "'" + project.isPrIsImportant() + "', " +
+                " " + shoshilinch + ", " +
+                " " + muhum + ", " +
                 project.getPrClient().getId() + ", " +
                 project.getPrKmpCompany().getId() + ", " +
                 project.getPrRaxbar().getId() + ", " +
                 project.getPrKritgan().getId() + ", " +
                 project.getPrMasul().getId() + ", " +
-                "'" + localDateTimeParseToString(project.getTugashVaqti()).replace("'", "`") + "', " +
-                "" + project.getPrFormulaNum() + ", " +
+                "'" + localDateTimeParseToString(project.getTugashVaqti()) + "', " +
+                "'" + project.getPrFormulaNum() + "', " +
                 "'" + project.getPrKomment().replace("'", "`") + "', " +
-                "'" + temp + "'" +
+                "" + temp + " " +
                 ");";
 
         try (Connection connection = connect()) {
-
             PreparedStatement statement = connection.prepareStatement(sql);
-
             System.out.println("insertToProject statement = " + statement.executeUpdate());
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
+        System.out.println("temp = " + temp);
         Project project1 = selectProjectFromDB(temp);
+        System.out.println(project1);
         project1.addProjectZakazList(project.getProjectZakazList());
         insertToZakazList(project1);
     }
 
     public void updateProject(Project project) {
+        int muhum = project.isPrIsImportant()?1:0;
+        int shoshilinch = project.isPrIsShoshilinch()?1:0;
+
         String sql = "UPDATE project SET " +
                 "name = '" + project.getPrNomi() + "', " +
-                "shoshilinch = '" + project.isPrIsShoshilinch() + "', " +
-                "muhum = '" + project.isPrIsImportant() + "', " +
+                "shoshilinch = " + shoshilinch + ", " +
+                "muhum = " + muhum + ", " +
                 "client_id = " + project.getPrClient().getId() + ", " +
                 "from_com_id = " + project.getPrKmpCompany().getId() + ", " +
                 "raxbar_xodim_id = " + project.getPrRaxbar().getId() + ", " +
@@ -886,13 +992,28 @@ public class Connections {
                 "masul_xodim_id = " + project.getPrMasul().getId() + ", " +
                 "end_date = '" + localDateTimeParseToString(project.getTugashVaqti()) + "', " +
                 "formula = " + project.getPrFormulaNum() + ", " +
-                "komment = '" + project.getPrKomment() + "', " +
-                "done = '" + project.isDone() + "' " +
+                "komment = '" + project.getPrKomment() + "' " +
                 "WHERE nomer_zakaz = " + project.getNumPr() +
-                ";";
+                " ;";
         try (Connection connection = connect()) {
             PreparedStatement statement = connection.prepareStatement(sql);
             System.out.println("updateProject statement = " + statement.executeUpdate());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void setProjectDone(Project projectDone) {
+        int d = projectDone.isDone()?1:0;
+
+        String sql = "UPDATE project SET " +
+                "done = " + d + " " +
+                "WHERE nomer_zakaz = " + projectDone.getNumPr() +
+                ";";
+        System.out.println(sql);
+        try (Connection connection = connect()) {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            System.out.println("setProjectDone statement = " + statement.executeUpdate());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -1032,26 +1153,61 @@ public class Connections {
     }
 
 
-    public int insertToXodimlar(Xodimlar xodimlar) {
+    public Xodimlar insertToXodimlar(Xodimlar xodimlar) {
+        long temp = System.currentTimeMillis();
+        Xodimlar xodimlar1 = null;
 
         String sql = " INSERT OR IGNORE INTO xodimlar (" +
-                "first_name, sure_name, last_name, birth_day, lavozim ) " +
+                "first_name, sure_name, last_name, birth_day, lavozim, temp ) " +
                 "VALUES('" +
                 xodimlar.getIsm() + "', " +
                 "'" + xodimlar.getFamiliya() + "', " +
                 "'" + xodimlar.getOchestva() + "', " +
                 "'" + xodimlar.getTugilganVaqt() + "', " +
-                "'" + xodimlar.getLavozim() + "' " +
+                "'" + xodimlar.getLavozim() + "', " +
+                "'" + temp + "' " +
                 ");";
 
         try (Connection connection = connect()) {
             PreparedStatement statement = connection.prepareStatement(sql);
-            int result = statement.executeUpdate();
-            return result;
+            statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
-            return 0;
         }
+
+
+        String sql1 = "SELECT * FROM xodimlar WHERE temp = '" + temp + "';";
+
+        try (Connection connection = connect()) {
+            ResultSet resultSet = connection.createStatement().executeQuery(sql1);
+            if (resultSet.next()) {
+                xodimlar1 = new Xodimlar(
+                        resultSet.getInt("id"),
+                        resultSet.getString("first_name"),
+                        resultSet.getString("sure_name"),
+                        resultSet.getString("last_name"),
+                        parseToLocalDate(resultSet.getString("birth_day")),
+                        parseToLocalDate(resultSet.getString("come_date")),
+                        resultSet.getString("lavozim")
+                );
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        String sql3 = " UPDATE xodimlar SET " +
+                "temp = " + null + " " +
+                "WHERE temp = '" + temp + "'" +
+                ";";
+
+        try (Connection connection = connect()) {
+            PreparedStatement statement = connection.prepareStatement(sql3);
+            System.out.println("Xodimlar setTempNull statement = " + statement.executeUpdate());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return xodimlar1;
     }
 
     public void updateXodimlar(Xodimlar xodimlar) {
@@ -1115,7 +1271,6 @@ public class Connections {
                 e.printStackTrace();
             }
         }
-
     }
 
     public void updateZakazList(Project project) {

@@ -286,13 +286,18 @@ public class Project {
         this.done = done;
     }
 
-    public String getQolganVaqt() {
 
+    public String getQolganVaqt() {
         Duration duration = Duration.between(LocalDateTime.now(), this.tugashVaqti);
         long minutes = Math.abs(duration.toMinutes())%60;
         long hours = (Math.abs(duration.toHours())%24) ;
         long days = (Math.abs(duration.toDays()));
-    return  days + " / " + hours + ":" + minutes;
+
+        if (LocalDateTime.now().isBefore(this.tugashVaqti)) {
+            return days + " / " + hours + ":" + minutes;
+        } else {
+            return  "- "+days + " / " + hours + ":" + minutes;
+        }
     }
 
     @Override

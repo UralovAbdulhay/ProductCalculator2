@@ -13,6 +13,13 @@ public class Client {
         this.date = date;
     }
 
+
+    public Client( String name) {
+        this.id = -1;
+        this.name = name;
+        this.date = LocalDate.now();
+    }
+
     public int getId() {
         return id;
     }

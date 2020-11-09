@@ -23,6 +23,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -32,8 +33,10 @@ import sample.Classes.Api_kurs;
 import sample.Classes.Connections;
 import sample.Moodles.*;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
@@ -198,13 +201,16 @@ public class EditTovar implements Initializable {
         projectTable.setRowFactory(new Callback<TableView<Project>, TableRow<Project>>() {
             @Override
             public TableRow<Project> call(TableView<Project> tableView) {
+
                 final TableRow<Project> row = new TableRow<>();
                 final ContextMenu rowMenu = new ContextMenu();
                 MenuItem editItem = new MenuItem("Edit");
                 MenuItem doneItem = new MenuItem("Add to DONE");
+                MenuItem saveToFile = new MenuItem("Save to file");
+                saveToFile.setOnAction(event ->saveToFile(projectTable.getSelectionModel().getSelectedItem()));
                 editItem.setOnAction(event ->editProject());
-//                doneItem.setOnAction(event ->);
-                rowMenu.getItems().addAll(editItem);
+                doneItem.setOnAction(event ->setDone());
+                rowMenu.getItems().addAll(editItem, doneItem, saveToFile);
                 row.contextMenuProperty().bind(
                         Bindings.when(Bindings.isNotNull(row.itemProperty()))
                                 .then(rowMenu)
@@ -217,13 +223,14 @@ public class EditTovar implements Initializable {
         doneProjectTable.setRowFactory(new Callback<TableView<Project>, TableRow<Project>>() {
             @Override
             public TableRow<Project> call(TableView<Project> tableView) {
+
                 final TableRow<Project> row = new TableRow<>();
                 final ContextMenu rowMenu = new ContextMenu();
-                MenuItem editItem = new MenuItem("Edit");
+                MenuItem saveToFile = new MenuItem("Save to file");
                 MenuItem backItem = new MenuItem("Return back");
-                editItem.setOnAction(event ->editProject());
+                saveToFile.setOnAction(event ->saveToFile(doneProjectTable.getSelectionModel().getSelectedItem()));
 //                backItem.setOnAction(event ->);
-                rowMenu.getItems().addAll(editItem);
+                rowMenu.getItems().addAll(saveToFile);
                 row.contextMenuProperty().bind(
                         Bindings.when(Bindings.isNotNull(row.itemProperty()))
                                 .then(rowMenu)
@@ -950,6 +957,8 @@ public class EditTovar implements Initializable {
         doneProjects.clear();
         doneProjects.addAll(new Connections().getProjectsDoneFromSql());
         notDoneProjects.addAll(new Connections().getProjectsNotDoneFromSql());
+        projectTable.setItems(notDoneProjects);
+        doneProjectTable.setItems(doneProjects);
         projectTable.refresh();
         doneProjectTable.refresh();
     }
@@ -981,6 +990,39 @@ public class EditTovar implements Initializable {
         addProject.setProject(projectTable.getSelectionModel().getSelectedItem());
         addProject.setEdit(true);
         addProject.setEditTovar(this);
+    }
+
+    private void setDone() {
+       Project project = projectTable.getSelectionModel().getSelectedItem();
+       project.setDone(true);
+        new Connections().setProjectDone(project);
+        refreshProjectList();
+    }
+
+    private static String filePath;
+
+    private void saveToFile(Project project) {
+
+       FileChooser faylTanla = new FileChooser();
+        faylTanla.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("xlsx files", "*.xlsx"),
+                new FileChooser.ExtensionFilter("xls files", "*.xls")
+        );
+
+        if (filePath != null) {
+            faylTanla.setInitialDirectory(new File(filePath));
+        } else {
+            faylTanla.setInitialDirectory(null);
+        }
+
+        faylTanla.setInitialFileName(project.getPrNomi().trim() + " "+
+                new Connections().localDateParseToString(LocalDate.now()).replace("-", "."));
+
+        File file = faylTanla.showSaveDialog(mainStage);
+        if (file!=null) {
+            filePath = file.getParent();
+            new SaveFile().saveFile(file.getAbsolutePath(), project);
+        }
     }
 
 }

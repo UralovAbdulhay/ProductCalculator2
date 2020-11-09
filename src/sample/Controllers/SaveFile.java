@@ -1,6 +1,7 @@
 package sample.Controllers;
 
 import com.gembox.spreadsheet.*;
+import sample.Moodles.Project;
 import sample.Moodles.Stavkalar;
 import sample.Moodles.TovarZakaz;
 
@@ -11,37 +12,39 @@ import java.time.LocalTime;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SaveFile extends AddProject{
+public class SaveFile {
 
 
 
-    void aVoid(String path) throws IOException {
+    void saveFile(String path, Project project) {
 
         Map<String, String> map = new HashMap<>();
 
+        System.out.println(project);
+
         map.put("B2", "Запрос разместил");
-        map.put("E2", prKiritgan.getValue().trim());
+        map.put("E2", project.getPrKritgan().getIsm());
         map.put("B4", "Название проекта");
         map.put("B6", "КМП от комп.");
         map.put("B8", "Приоритет проекта ");
         map.put("B12", "Комментарии");
         map.put("E8", "важны");
         map.put("E10", "срочный");
-        map.put("E4", prName.getText().trim());
-        map.put("E6", prFromCom.getValue().trim());
-        map.put("E12", prComment.getText().trim());
+        map.put("E4", project.getPrNomi());
+        map.put("E6", project.getPrKmpCompany().getName());
+        map.put("E12", project.getPrKomment());
         map.put("I2", "Руководитель проекта ");
         map.put("I4", "Клиент");
         map.put("I6", "Условия поставки и расчета");
         map.put("I8", "Срок выполнения работ до");
         map.put("K10", "Час");
-        map.put("M2", prRahbar.getValue().trim());
-        map.put("M4", prClient.getValue().trim());
-        map.put("M6", prTypeCol.getValue().trim());
-        map.put("M8", prDate.getValue() + "");
-        map.put("M10", prTime.getValue() + "");
+        map.put("M2", project.getPrRaxbar().getIsm());
+        map.put("M4", project.getPrClient().getName());
+        map.put("M6", project.getPrFormula());
+        map.put("M8", project.getTugashVaqti().toLocalDate() + "");
+        map.put("M10", project.getTugashVaqti().toLocalTime() + "");
         map.put("P2", "Ответственное лицо");
-        map.put("S2", prMasul.getValue().trim());
+        map.put("S2", project.getPrMasul().getIsm());
         map.put("P6", "Дата размещение запроса");
         map.put("Q8", "Время");
         map.put("S6", LocalDate.now() + "");
@@ -51,7 +54,7 @@ public class SaveFile extends AddProject{
         SpreadsheetInfo.setLicense("FREE-LIMITED-KEY");
 
         ExcelFile workbook = new ExcelFile();
-        ExcelWorksheet worksheet = workbook.addWorksheet("Styles and Formatting");
+        ExcelWorksheet worksheet = workbook.addWorksheet(project.getPrNomi());
 
         map.forEach((s, s2) -> {
             worksheet.getCell(s).setValue(s2);
@@ -59,14 +62,14 @@ public class SaveFile extends AddProject{
             worksheet.getCell(s).getStyle().setVerticalAlignment(VerticalAlignmentStyle.CENTER);
         });
 
-        if (prIsImportant.isSelected()) {
+        if (project.isPrIsImportant()) {
             worksheet.getCell("F8").getStyle().getFillPattern().
                     setPattern(FillPatternStyle.GRAY_75,
                             SpreadsheetColor.fromColor(Color.RED),
                             SpreadsheetColor.fromColor(Color.RED)
                     );
         }
-        if (prIsShoshilinch.isSelected()) {
+        if (project.isPrIsShoshilinch()) {
             worksheet.getCell("F10").getStyle().getFillPattern().
                     setPattern(FillPatternStyle.SOLID,
                             SpreadsheetColor.fromColor(Color.RED),
@@ -220,7 +223,8 @@ public class SaveFile extends AddProject{
         worksheet.getCell(row, 29).setValue("Цена c НДС 2 \n" + (Stavkalar.stNDS2 * 100) + " %");
         worksheet.getCell(row, 30).setValue("Сумма с НДС");
 
-        for (TovarZakaz zakaz : TovarZakaz.tovarZakazList) {
+        for (TovarZakaz zakaz : project.getProjectZakazList()) {
+
             row++;
 
             System.out.println(zakaz);
@@ -300,11 +304,11 @@ public class SaveFile extends AddProject{
                 MultipleBorders.all(), SpreadsheetColor.fromColor(Color.BLACK), LineStyle.THIN
         );
 
-        workbook.save(path);
-        TovarZakaz.tovarZakazList.clear();
-        ControllerTable controllerTable = new ControllerTable();
-        controllerTable.summaHisobla();
-
+        try {
+            workbook.save(path);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
