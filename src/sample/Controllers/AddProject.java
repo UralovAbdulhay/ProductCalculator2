@@ -18,6 +18,7 @@ import java.io.File;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 public class AddProject implements Initializable {
@@ -91,6 +92,9 @@ public class AddProject implements Initializable {
     private EditTovar editTovar;
 
     private ControllerTable controllerTable;
+
+    private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
+    private DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
 
     @Override
@@ -329,7 +333,8 @@ public class AddProject implements Initializable {
     void saveFile() {
 
         faylTanla.setInitialFileName(prName.getText().trim() + " "+
-                new Connections().localDateParseToString(LocalDate.now()).replace("-", "."));
+                LocalDate.now().format(dateFormatter)
+        );
 
         File file = faylTanla.showSaveDialog(prFile.getScene().getWindow());
 

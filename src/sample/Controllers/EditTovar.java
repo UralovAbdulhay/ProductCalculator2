@@ -207,10 +207,17 @@ public class EditTovar implements Initializable {
                 MenuItem editItem = new MenuItem("Edit");
                 MenuItem doneItem = new MenuItem("Add to DONE");
                 MenuItem saveToFile = new MenuItem("Save to file");
-                saveToFile.setOnAction(event ->saveToFile(projectTable.getSelectionModel().getSelectedItem()));
-                editItem.setOnAction(event ->editProject());
-                doneItem.setOnAction(event ->setDone());
-                rowMenu.getItems().addAll(editItem, doneItem, saveToFile);
+                MenuItem reviewProject = new MenuItem("Review project");
+
+                saveToFile.setOnAction(event -> saveToFile(projectTable.getSelectionModel().getSelectedItem()));
+                editItem.setOnAction(event -> editProject());
+                doneItem.setOnAction(event -> setDone());
+                reviewProject.setOnAction(event -> reviewProject(projectTable.getSelectionModel().getSelectedItem()));
+
+                SeparatorMenuItem separatorMenuItem = new SeparatorMenuItem();
+
+                rowMenu.getItems().addAll(editItem, doneItem, saveToFile, separatorMenuItem, reviewProject);
+
                 row.contextMenuProperty().bind(
                         Bindings.when(Bindings.isNotNull(row.itemProperty()))
                                 .then(rowMenu)
@@ -227,10 +234,14 @@ public class EditTovar implements Initializable {
                 final TableRow<Project> row = new TableRow<>();
                 final ContextMenu rowMenu = new ContextMenu();
                 MenuItem saveToFile = new MenuItem("Save to file");
-                MenuItem backItem = new MenuItem("Return back");
-                saveToFile.setOnAction(event ->saveToFile(doneProjectTable.getSelectionModel().getSelectedItem()));
-//                backItem.setOnAction(event ->);
-                rowMenu.getItems().addAll(saveToFile);
+                MenuItem reviewProject = new MenuItem("Review project");
+
+                saveToFile.setOnAction(event -> saveToFile(doneProjectTable.getSelectionModel().getSelectedItem()));
+                reviewProject.setOnAction(event -> reviewProject(projectTable.getSelectionModel().getSelectedItem()));
+
+                SeparatorMenuItem separatorMenuItem = new SeparatorMenuItem();
+
+                rowMenu.getItems().addAll(saveToFile, separatorMenuItem, reviewProject);
                 row.contextMenuProperty().bind(
                         Bindings.when(Bindings.isNotNull(row.itemProperty()))
                                 .then(rowMenu)
@@ -952,7 +963,7 @@ public class EditTovar implements Initializable {
         }
     }
 
-     void refreshProjectList() {
+    void refreshProjectList() {
         notDoneProjects.clear();
         doneProjects.clear();
         doneProjects.addAll(new Connections().getProjectsDoneFromSql());
@@ -993,8 +1004,8 @@ public class EditTovar implements Initializable {
     }
 
     private void setDone() {
-       Project project = projectTable.getSelectionModel().getSelectedItem();
-       project.setDone(true);
+        Project project = projectTable.getSelectionModel().getSelectedItem();
+        project.setDone(true);
         new Connections().setProjectDone(project);
         refreshProjectList();
     }
@@ -1003,7 +1014,7 @@ public class EditTovar implements Initializable {
 
     private void saveToFile(Project project) {
 
-       FileChooser faylTanla = new FileChooser();
+        FileChooser faylTanla = new FileChooser();
         faylTanla.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("xlsx files", "*.xlsx"),
                 new FileChooser.ExtensionFilter("xls files", "*.xls")
@@ -1015,14 +1026,38 @@ public class EditTovar implements Initializable {
             faylTanla.setInitialDirectory(null);
         }
 
-        faylTanla.setInitialFileName(project.getPrNomi().trim() + " "+
-                new Connections().localDateParseToString(LocalDate.now()).replace("-", "."));
+        faylTanla.setInitialFileName(project.getPrNomi().trim() + " " +
+                LocalDate.now().format(dateFormatter)
+        );
 
         File file = faylTanla.showSaveDialog(mainStage);
-        if (file!=null) {
+        if (file != null) {
             filePath = file.getParent();
             new SaveFile().saveFile(file.getAbsolutePath(), project);
         }
     }
+
+    private void reviewProject( Project project) {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/sample/Views/reviewProject.fxml"));
+        Parent parent = null;
+        try {
+            parent = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Scene scene = new Scene(parent);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.setTitle("List Products");
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(mainStage);
+        stage.setResizable(false);
+        stage.show();
+
+        ReviewProjectController controller = loader.getController();
+        controller.setProject(project);
+    }
+
 
 }
