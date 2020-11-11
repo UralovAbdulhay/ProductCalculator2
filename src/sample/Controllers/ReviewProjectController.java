@@ -9,8 +9,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import sample.Moodles.PriseList;
 import sample.Moodles.Project;
+import sample.Moodles.TovarZakaz;
 
 import java.net.URL;
 import java.time.format.DateTimeFormatter;
@@ -54,10 +54,9 @@ public class ReviewProjectController implements Initializable {
     public void setProject(Project project) {
         this.project = project;
 
-        ObservableList<PriseList> priseList = observableArrayList();
-        this.project.getProjectZakazList().forEach(e -> priseList.add(new PriseList(e.getTovar())));
+        ObservableList<TovarZakaz> tovarZakazs = observableArrayList(this.project.getProjectZakazList());
         initWindow();
-        projectReviewTable.setItems(priseList);
+        projectReviewTable.setItems(tovarZakazs);
     }
 
     public void initWindow() {
@@ -81,7 +80,8 @@ public class ReviewProjectController implements Initializable {
     private void initTable() {
 
 
-        TableColumn<PriseList, Integer> tovarTR = creatTabCol("№", 35);
+
+        TableColumn<TovarZakaz, Integer> tovarTR = creatTabCol("№", 35);
         tovarTR.setCellValueFactory(e -> new SimpleObjectProperty<>(
                 e.getValue().getTr()
         ));
@@ -89,83 +89,87 @@ public class ReviewProjectController implements Initializable {
         tovarTR.impl_setReorderable(false);
 
 
-        TableColumn<PriseList, String> tovarKod = creatTabCol("ID");
+        TableColumn<TovarZakaz, String> tovarKod = creatTabCol("ID");
         tovarKod.setCellValueFactory(e -> new SimpleStringProperty(
                 e.getValue().getTovarKod()
         ));
 
+        TableColumn<TovarZakaz, Integer> tovarSoni = creatTabCol("Count");
+        tovarSoni.setCellValueFactory(e -> new SimpleObjectProperty<>(
+                e.getValue().getZakazSoni()
+        ));
 
-        TableColumn<PriseList, String> tovarNomi = creatTabCol("Nomi", 200, 200, 500);
+        TableColumn<TovarZakaz, String> tovarNomi = creatTabCol("Name", 200, 200, 500);
         tovarNomi.setCellValueFactory(e -> new SimpleStringProperty(
                 e.getValue().getTovarNomi()
         ));
 
 
-        TableColumn<PriseList, String> tovarModel = creatTabCol("Model", 200, 200, 500);
+        TableColumn<TovarZakaz, String> tovarModel = creatTabCol("Model", 200, 200, 500);
         tovarModel.setCellValueFactory(e -> new SimpleStringProperty(
                 e.getValue().getTovarModel()
         ));
 
 
-        TableColumn<PriseList, String> tovarIshCh = creatTabCol("Maker", 200, 200, 500);
+        TableColumn<TovarZakaz, String> tovarIshCh = creatTabCol("Maker", 200, 200, 500);
         tovarIshCh.setCellValueFactory(e -> new SimpleStringProperty(
                 e.getValue().getTovarIshlabChiqaruvchi().getName()
         ));
 
 
-        TableColumn<PriseList, Double> tovarNarxi = creatTabCol("Narxi");
+        TableColumn<TovarZakaz, Double> tovarNarxi = creatTabCol("Cost (usd)");
         tovarNarxi.setCellValueFactory(e -> new SimpleObjectProperty<>(
                 e.getValue().getTovarNarxi()
         ));
 
 
-        TableColumn<PriseList, String> tovarNarxiTuri = creatTabCol("Valyuta", 80);
-        tovarNarxiTuri.setCellValueFactory(e -> new SimpleStringProperty(
-                e.getValue().getTovarNarxTuri()
-        ));
-        tovarNarxiTuri.setResizable(false);
-        tovarNarxiTuri.setSortable(false);
+//        TableColumn<TovarZakaz, String> tovarNarxiTuri = creatTabCol("Valyuta", 80);
+//        tovarNarxiTuri.setCellValueFactory(e -> new SimpleStringProperty(
+//                e.getValue().getTovarNarxTuri()
+//        ));
+//        tovarNarxiTuri.setResizable(false);
+//        tovarNarxiTuri.setSortable(false);
 
 
         TableColumn tovarQushimcha = creatTabCol("Qushimcha");
         tovarQushimcha.setResizable(false);
 
 
-        TableColumn<PriseList, String> tovarTrans = creatTabCol("Transport", 80);
+        TableColumn<TovarZakaz, String> tovarTrans = creatTabCol("Transport", 80);
         tovarTrans.setCellValueFactory(e -> new SimpleStringProperty(
                 e.getValue().getTovarTransportNarxiString()
         ));
         tovarTrans.setSortable(false);
 
 
-        TableColumn<PriseList, String> tovarAksiz = creatTabCol("Aksiz", 80);
+        TableColumn<TovarZakaz, String> tovarAksiz = creatTabCol("Aksiz", 80);
         tovarAksiz.setCellValueFactory(e -> new SimpleStringProperty(
                 e.getValue().getTovarAksizString()
         ));
         tovarAksiz.setSortable(false);
 
 
-        TableColumn<PriseList, String> tovarPoshlina = creatTabCol("Poshlina", 80);
+        TableColumn<TovarZakaz, String> tovarPoshlina = creatTabCol("Poshlina", 80);
         tovarPoshlina.setCellValueFactory(e -> new SimpleStringProperty(
                 e.getValue().getTovarPoshlinaString()
         ));
         tovarPoshlina.setSortable(false);
 
-        TableColumn<PriseList, Double> tovarDDP = creatTabCol("DDP", 80);
+        TableColumn<TovarZakaz, Double> tovarDDP = creatTabCol("DDP", 80);
         tovarDDP.setCellValueFactory(e -> new SimpleObjectProperty<>(
                 e.getValue().getTovarDDP()
         ));
         tovarDDP.setSortable(false);
 
 
-        TableColumn<PriseList, String> tovarSana = creatTabCol("Sana", 100);
+        TableColumn<TovarZakaz, String> tovarSana = creatTabCol("Sana", 100);
         tovarSana.setCellValueFactory(e -> new SimpleStringProperty(
                 e.getValue().getTovarSana().format(dateFormatter)
         ));
         tovarSana.setSortable(false);
 
 
-        TableColumn<PriseList, String> tovarUlchov = creatTabCol("o'lchov", 70);
+        TableColumn<TovarZakaz, String> tovarUlchov = creatTabCol("o'lchov", 70);
         tovarUlchov.setCellValueFactory(e -> new SimpleStringProperty(
                 e.getValue().getTovarUlchovBirligi()
         ));
@@ -173,7 +177,7 @@ public class ReviewProjectController implements Initializable {
         tovarUlchov.setSortable(false);
 
 
-        TableColumn<PriseList, String> tovarKomment = creatTabCol("Komment", 150);
+        TableColumn<TovarZakaz, String> tovarKomment = creatTabCol("Komment", 150);
         tovarKomment.setCellValueFactory(e -> new SimpleStringProperty(
                 e.getValue().getTovarKomment()
         ));
@@ -182,8 +186,8 @@ public class ReviewProjectController implements Initializable {
         tovarQushimcha.getColumns().addAll(tovarTrans, tovarAksiz, tovarPoshlina, tovarDDP );
 
         projectReviewTable.getColumns().clear();
-        projectReviewTable.getColumns().addAll(tovarTR, tovarKod, tovarNomi,
-                tovarModel, tovarIshCh, tovarNarxi, tovarNarxiTuri, tovarQushimcha,
+        projectReviewTable.getColumns().addAll(tovarTR, tovarKod, tovarSoni, tovarNomi,
+                tovarModel, tovarIshCh, tovarNarxi, tovarQushimcha,
                 tovarSana, tovarUlchov, tovarKomment);
 
     }

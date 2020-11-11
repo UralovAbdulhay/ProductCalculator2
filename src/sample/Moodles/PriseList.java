@@ -37,6 +37,8 @@ public class PriseList extends Tovar {
     }
 
 
+
+
     public JFXCheckBox getDelCheck() {
         return this.delCheck;
     }
@@ -214,6 +216,12 @@ public class PriseList extends Tovar {
     public static void setTr() {
         for (int i = 0; i < priseLists.size(); i++) {
             priseLists.get(i).setTr(i + 1);
+        }
+    }
+
+    public static void setTr(ObservableList<Tovar> tovars) {
+        for (int i = 0; i < tovars.size(); i++) {
+            tovars.get(i).setTr(i+1);
         }
     }
 
