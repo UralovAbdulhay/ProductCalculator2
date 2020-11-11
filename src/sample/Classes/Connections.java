@@ -280,9 +280,14 @@ public class Connections {
 
     public ObservableList<Project> getProjectFromSql() {
         ObservableList<Project> list = FXCollections.observableArrayList();
-        ResultSet resultSet = selectAllFromSql("project");
 
-        try {
+        try (Connection connection = connect()) {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(
+                    "SELECT * FROM project ;"
+            );
+
+
             while (resultSet.next()) {
 
                 int numPr = resultSet.getInt("nomer_zakaz");
@@ -301,6 +306,8 @@ public class Connections {
                 int masulId = resultSet.getInt("masul_xodim_id");
                 int kiritganId = resultSet.getInt("kiritgan_xodim_id");
                 boolean done = resultSet.getBoolean("done");
+                LocalDateTime doneDate = resultSet.getString("doneDate") != null ?
+                        parseToLocalDateTime(resultSet.getString("doneDate")) : null;
 
                 Project project = new Project(
                         numPr, boshlanganVaqt, prIsImportant, prIsShoshilinch, prNomi,
@@ -312,8 +319,9 @@ public class Connections {
                         getXodimlarFromSql(kiritganId)
                 );
                 project.setDone(done);
+                project.setPrTugallanganVaqti(doneDate);
 
-                Connection connection = DriverManager.getConnection("jdbc:sqlite:" + dataBase);
+
                 ResultSet set = connection.createStatement().executeQuery(
                         "SELECT  " +
                                 "       zakazList.tovar_id, " +
@@ -367,7 +375,6 @@ public class Connections {
                 }
                 list.add(project);
             }
-            con.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -414,6 +421,9 @@ public class Connections {
                 int raxbarId = resultSet.getInt("raxbar_xodim_id");
                 int masulId = resultSet.getInt("masul_xodim_id");
                 int kiritganId = resultSet.getInt("kiritgan_xodim_id");
+                boolean done = resultSet.getBoolean("done");
+                LocalDateTime doneDate = resultSet.getString("doneDate") != null ?
+                        parseToLocalDateTime(resultSet.getString("doneDate")) : null;
 
                 project = new Project(
                         numPr, boshlanganVaqt, prIsImportant, prIsShoshilinch, prNomi,
@@ -424,6 +434,8 @@ public class Connections {
                         tugashVaqti, prFormula, prKomment,
                         getXodimlarFromSql(kiritganId)
                 );
+                project.setDone(done);
+                project.setPrTugallanganVaqti(doneDate);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -938,8 +950,8 @@ public class Connections {
 
         long temp = System.currentTimeMillis();
 
-        int muhum = project.isPrIsImportant()?1:0;
-        int shoshilinch = project.isPrIsShoshilinch()?1:0;
+        int muhum = project.isPrIsImportant() ? 1 : 0;
+        int shoshilinch = project.isPrIsShoshilinch() ? 1 : 0;
 
         String sql = " INSERT " +
 //                "OR IGNORE " +
@@ -978,8 +990,8 @@ public class Connections {
     }
 
     public void updateProject(Project project) {
-        int muhum = project.isPrIsImportant()?1:0;
-        int shoshilinch = project.isPrIsShoshilinch()?1:0;
+        int muhum = project.isPrIsImportant() ? 1 : 0;
+        int shoshilinch = project.isPrIsShoshilinch() ? 1 : 0;
 
         String sql = "UPDATE project SET " +
                 "name = '" + project.getPrNomi() + "', " +
@@ -1004,10 +1016,29 @@ public class Connections {
     }
 
     public void setProjectDone(Project projectDone) {
-        int d = projectDone.isDone()?1:0;
+        int d = projectDone.isDone() ? 1 : 0;
+        String doneDate = localDateTimeParseToString(projectDone.getPrTugallanganVaqti());
 
         String sql = "UPDATE project SET " +
-                "done = " + d + " " +
+                "done = " + d + ", " +
+                "doneDate = '" + doneDate + "' " +
+                "WHERE nomer_zakaz = " + projectDone.getNumPr() +
+                ";";
+        System.out.println(sql);
+        try (Connection connection = connect()) {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            System.out.println("setProjectDone statement = " + statement.executeUpdate());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void setProjectNotDone(Project projectDone) {
+        int d = projectDone.isDone() ? 1 : 0;
+
+                String sql = "UPDATE project SET " +
+                "done = " + d + ", " +
+                "doneDate = " + null + " " +
                 "WHERE nomer_zakaz = " + projectDone.getNumPr() +
                 ";";
         System.out.println(sql);

@@ -128,6 +128,10 @@ public class AddProject implements Initializable {
         prTypeCol.getEditor().textProperty().addListener(observable -> disContr());
         prFromCom.getEditor().textProperty().addListener(observable -> disContr());
         prClient.getEditor().textProperty().addListener(observable -> disContr());
+        prComment.textProperty().addListener(observable -> disContr());
+
+        prIsImportant.setOnAction(e -> disContr());
+        prIsShoshilinch.setOnAction(e -> disContr());
 
 
         if (filePath == null) {
@@ -183,7 +187,6 @@ public class AddProject implements Initializable {
                 );
 
 
-
         Xodimlar raxbar = xodimlars.stream().
                 filter(
                         e -> e.getIsm().trim().toLowerCase().equals(prRahbar.getValue().trim().toLowerCase())
@@ -191,7 +194,7 @@ public class AddProject implements Initializable {
                 .findAny()
                 .orElse(new Connections().insertToXodimlar(
                         new Xodimlar(prRahbar.getValue().trim())
-                )
+                        )
                 );
 
 
@@ -273,8 +276,8 @@ public class AddProject implements Initializable {
 
             if (exportFile != null) {
 
-                    new SaveFile().saveFile(exportFile.getAbsolutePath(), project);
-                    okButton.getScene().getWindow().hide();
+                new SaveFile().saveFile(exportFile.getAbsolutePath(), project);
+                okButton.getScene().getWindow().hide();
 
             }
             okButton.getScene().getWindow().hide();
@@ -290,14 +293,15 @@ public class AddProject implements Initializable {
                 saveFile();
             } else {
 
-                    new SaveFile().saveFile(exportFile.getAbsolutePath(), project);
-                    okButton.getScene().getWindow().hide();
+                new Connections().insertToProject(project);
 
-                    new Connections().insertToProject(project);
+                new SaveFile().saveFile(exportFile.getAbsolutePath(), project);
+                okButton.getScene().getWindow().hide();
 
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setHeaderText("Success create!");
-                    alert.showAndWait();
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setHeaderText("Success create!");
+                alert.showAndWait();
 
                 TovarZakaz.tovarZakazList.clear();
                 controllerTable.summaHisobla();
@@ -332,7 +336,7 @@ public class AddProject implements Initializable {
     @FXML
     void saveFile() {
 
-        faylTanla.setInitialFileName(prName.getText().trim() + " "+
+        faylTanla.setInitialFileName(prName.getText().trim() + " " +
                 LocalDate.now().format(dateFormatter)
         );
 
@@ -345,7 +349,7 @@ public class AddProject implements Initializable {
             faylTanla.setInitialDirectory(exportFile.getParentFile());
             faylTanla.setInitialFileName(exportFile.getName());
         }
-
+        disContr();
     }
 
 

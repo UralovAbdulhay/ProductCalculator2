@@ -210,8 +210,8 @@ public class EditTovar implements Initializable {
                 MenuItem reviewProject = new MenuItem("Review project");
 
                 saveToFile.setOnAction(event -> saveToFile(projectTable.getSelectionModel().getSelectedItem()));
-                editItem.setOnAction(event -> editProject());
-                doneItem.setOnAction(event -> setDone());
+                editItem.setOnAction(event -> editProject(projectTable.getSelectionModel().getSelectedItem()));
+                doneItem.setOnAction(event -> setDone(projectTable.getSelectionModel().getSelectedItem()));
                 reviewProject.setOnAction(event -> reviewProject(projectTable.getSelectionModel().getSelectedItem()));
 
                 SeparatorMenuItem separatorMenuItem = new SeparatorMenuItem();
@@ -234,14 +234,18 @@ public class EditTovar implements Initializable {
                 final TableRow<Project> row = new TableRow<>();
                 final ContextMenu rowMenu = new ContextMenu();
                 MenuItem saveToFile = new MenuItem("Save to file");
+                MenuItem backItem = new MenuItem("Return back");
                 MenuItem reviewProject = new MenuItem("Review project");
+                MenuItem deleteItem = new MenuItem("Delete");
 
                 saveToFile.setOnAction(event -> saveToFile(doneProjectTable.getSelectionModel().getSelectedItem()));
-                reviewProject.setOnAction(event -> reviewProject(projectTable.getSelectionModel().getSelectedItem()));
+                reviewProject.setOnAction(event -> reviewProject(doneProjectTable.getSelectionModel().getSelectedItem()));
+                backItem.setOnAction(event -> setNotDone(doneProjectTable.getSelectionModel().getSelectedItem()));
+                deleteItem.setOnAction(event -> doneProjectDelete(doneProjectTable.getSelectionModel().getSelectedItem()));
 
                 SeparatorMenuItem separatorMenuItem = new SeparatorMenuItem();
 
-                rowMenu.getItems().addAll(saveToFile, separatorMenuItem, reviewProject);
+                rowMenu.getItems().addAll(saveToFile, backItem, deleteItem,  separatorMenuItem, reviewProject);
                 row.contextMenuProperty().bind(
                         Bindings.when(Bindings.isNotNull(row.itemProperty()))
                                 .then(rowMenu)
@@ -782,13 +786,19 @@ public class EditTovar implements Initializable {
                 e.getValue().getPrKmpCompany().getName()
         ));
 
-        TableColumn<Project, String> prRaxbar = creatTabCol("Руководитель проекта 1/2", 200);
+        TableColumn<Project, String> prKiritgan = creatTabCol("Запрос разместил", 200);
+        prKiritgan.setStyle("-fx-alignment: CENTER");
+        prKiritgan.setCellValueFactory(e -> new SimpleStringProperty(
+                e.getValue().getPrKritgan().getIsm()
+        ));
+
+        TableColumn<Project, String> prRaxbar = creatTabCol("Руководитель проекта", 200);
         prRaxbar.setStyle("-fx-alignment: CENTER");
         prRaxbar.setCellValueFactory(e -> new SimpleStringProperty(
                 e.getValue().getPrRaxbar().getIsm()
         ));
 
-        TableColumn<Project, String> prMasul = creatTabCol("Ответственное лицо 1/2", 200);
+        TableColumn<Project, String> prMasul = creatTabCol("Ответственное лицо", 200);
         prMasul.setStyle("-fx-alignment: CENTER");
         prMasul.setCellValueFactory(e -> new SimpleStringProperty(
                 e.getValue().getPrMasul().getIsm()
@@ -812,12 +822,12 @@ public class EditTovar implements Initializable {
                 e.getValue().getPrFormula()
         ));
 
-        TableColumn<Project, String> prFile = creatTabCol("Файл");
-        prFile.setStyle("-fx-alignment: CENTER");
-        prFile.setCellValueFactory(e -> new SimpleStringProperty(
-                e.getValue().getPrFileName()
-
-        ));
+//        TableColumn<Project, String> prFile = creatTabCol("Файл");
+//        prFile.setStyle("-fx-alignment: CENTER");
+//        prFile.setCellValueFactory(e -> new SimpleStringProperty(
+//                e.getValue().getPrFileName()
+//
+//        ));
 
         TableColumn<Project, String> prkomment = creatTabCol("Комментарии", 200);
         prkomment.setStyle("-fx-alignment: CENTER");
@@ -828,8 +838,8 @@ public class EditTovar implements Initializable {
         projectTable.getColumns().clear();
         projectTable.getItems().clear();
         projectTable.getColumns().addAll(numZakaz, creteDate, priority,
-                prName, prClient, prFromCom, prRaxbar, prMasul, prEndDate,
-                prQolganDate, prColType, prFile, prkomment);
+                prName, prClient, prFromCom, prKiritgan, prRaxbar, prMasul, prEndDate,
+                prQolganDate, prColType, prkomment);
         projectTable.setItems(new Connections().getProjectsNotDoneFromSql());
 
     }
@@ -874,13 +884,20 @@ public class EditTovar implements Initializable {
                 e.getValue().getPrKmpCompany().getName()
         ));
 
-        TableColumn<Project, String> prRaxbar = creatTabCol("Руководитель проекта 1/2", 200);
+        TableColumn<Project, String> prRaxbar = creatTabCol("Руководитель проекта", 200);
         prRaxbar.setStyle("-fx-alignment: CENTER");
         prRaxbar.setCellValueFactory(e -> new SimpleStringProperty(
                 e.getValue().getPrRaxbar().getIsm()
         ));
 
-        TableColumn<Project, String> prMasul = creatTabCol("Ответственное лицо 1/2", 200);
+
+        TableColumn<Project, String> prKiritgan = creatTabCol("Запрос разместил", 200);
+        prKiritgan.setStyle("-fx-alignment: CENTER");
+        prKiritgan.setCellValueFactory(e -> new SimpleStringProperty(
+                e.getValue().getPrKritgan().getIsm()
+        ));
+
+        TableColumn<Project, String> prMasul = creatTabCol("Ответственное лицо", 200);
         prMasul.setStyle("-fx-alignment: CENTER");
         prMasul.setCellValueFactory(e -> new SimpleStringProperty(
                 e.getValue().getPrMasul().getIsm()
@@ -900,11 +917,11 @@ public class EditTovar implements Initializable {
         ));
 
 
-        TableColumn<Project, String> prFile = creatTabCol("Файл");
-        prFile.setStyle("-fx-alignment: CENTER");
-        prFile.setCellValueFactory(e -> new SimpleStringProperty(
-                e.getValue().getPrFileName()
-        ));
+//        TableColumn<Project, String> prFile = creatTabCol("Файл");
+//        prFile.setStyle("-fx-alignment: CENTER");
+//        prFile.setCellValueFactory(e -> new SimpleStringProperty(
+//                e.getValue().getPrFileName()
+//        ));
 
         TableColumn<Project, String> prkomment = creatTabCol("Комментарии");
         prkomment.setStyle("-fx-alignment: CENTER");
@@ -912,17 +929,18 @@ public class EditTovar implements Initializable {
                 e.getValue().getPrKomment()
         ));
 
-        TableColumn<Project, LocalDateTime> prDoneDate = creatTabCol("Дата/время Выполнение", 200);
+        TableColumn<Project, String> prDoneDate = creatTabCol("Дата/время Выполнение", 200);
         prDoneDate.setStyle("-fx-alignment: CENTER");
-        prDoneDate.setCellValueFactory(e -> new SimpleObjectProperty<>(
-                e.getValue().getPrTugallanganVaqti()
+        prDoneDate.setCellValueFactory(e -> new SimpleStringProperty(
+                e.getValue().getPrTugallanganVaqti() != null ?
+                        e.getValue().getPrTugallanganVaqti().format(dateTimeFormatter) : null
         ));
 
 
         doneProjectTable.getColumns().clear();
         doneProjectTable.getColumns().addAll(numZakaz, creteDate, priority,
-                prName, prClient, prFromCom, prRaxbar, prMasul, prEndDate,
-                prColType, prFile, prkomment, prDoneDate);
+                prName, prClient, prFromCom, prKiritgan, prRaxbar, prMasul, prEndDate,
+                prColType, prkomment, prDoneDate);
         doneProjectTable.setItems(new Connections().getProjectsDoneFromSql());
     }
 
@@ -974,7 +992,7 @@ public class EditTovar implements Initializable {
         doneProjectTable.refresh();
     }
 
-    private void editProject() {
+    private void editProject(Project project) {
 
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/sample/Views/projectView.fxml"));
@@ -998,16 +1016,52 @@ public class EditTovar implements Initializable {
 
         AddProject addProject = loader.getController();
         addProject.setOwnerStage((Stage) projectTable.getScene().getWindow());
-        addProject.setProject(projectTable.getSelectionModel().getSelectedItem());
+        addProject.setProject(project);
         addProject.setEdit(true);
         addProject.setEditTovar(this);
     }
 
-    private void setDone() {
-        Project project = projectTable.getSelectionModel().getSelectedItem();
-        project.setDone(true);
-        new Connections().setProjectDone(project);
-        refreshProjectList();
+    private void setDone(Project project) {
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Add to DONE");
+        alert.setHeaderText("Are you  sure?");
+        alert.showAndWait();
+
+        if (alert.getResult() == ButtonType.OK) {
+            project.setDone(true);
+            project.setPrTugallanganVaqti(LocalDateTime.now());
+            new Connections().setProjectDone(project);
+            refreshProjectList();
+        }
+    }
+
+    private void setNotDone(Project project) {
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Return back");
+        alert.setHeaderText("Are you  sure?");
+        alert.showAndWait();
+
+        if (alert.getResult() == ButtonType.OK) {
+            project.setDone(false);
+            project.setPrTugallanganVaqti(null);
+            new Connections().setProjectNotDone(project);
+            refreshProjectList();
+        }
+    }
+
+    private void doneProjectDelete(Project project) {
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("DELETE");
+        alert.setHeaderText("Are you  sure?");
+        alert.showAndWait();
+
+        if (alert.getResult() == ButtonType.OK) {
+            new Connections().deleteProject(project);
+            refreshProjectList();
+        }
     }
 
     private static String filePath;

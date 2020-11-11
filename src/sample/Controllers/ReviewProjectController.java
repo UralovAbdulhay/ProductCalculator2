@@ -3,6 +3,7 @@ package sample.Controllers;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -54,7 +55,7 @@ public class ReviewProjectController implements Initializable {
         this.project = project;
 
         ObservableList<PriseList> priseList = observableArrayList();
-        this.project.getProjectZakazList().forEach(e-> priseList.add(new PriseList(e.getTovar())));
+        this.project.getProjectZakazList().forEach(e -> priseList.add(new PriseList(e.getTovar())));
         initWindow();
         projectReviewTable.setItems(priseList);
     }
@@ -69,7 +70,7 @@ public class ReviewProjectController implements Initializable {
         masulLab.setText(project.getPrMasul().getIsm());
         clientLab.setText(project.getPrClient().getName());
 
-        if (project.isDone()) {
+        if (project.isDone() && project.getPrTugallanganVaqti() != null) {
             doneDateLab.setText(project.getPrTugallanganVaqti().format(dateTimeFormatter));
         } else {
             doneDateLab.setText("--.--.----");
@@ -178,8 +179,10 @@ public class ReviewProjectController implements Initializable {
         ));
         tovarKomment.setSortable(false);
 
+        tovarQushimcha.getColumns().addAll(tovarTrans, tovarAksiz, tovarPoshlina, tovarDDP );
+
         projectReviewTable.getColumns().clear();
-        projectReviewTable.getColumns().addAll( tovarTR, tovarKod, tovarNomi,
+        projectReviewTable.getColumns().addAll(tovarTR, tovarKod, tovarNomi,
                 tovarModel, tovarIshCh, tovarNarxi, tovarNarxiTuri, tovarQushimcha,
                 tovarSana, tovarUlchov, tovarKomment);
 
@@ -221,5 +224,11 @@ public class ReviewProjectController implements Initializable {
 
         return newColumn;
     }
+
+    @FXML
+    private void cancel(ActionEvent event) {
+        this.projectReviewTable.getScene().getWindow().hide();
+    }
+
 
 }
