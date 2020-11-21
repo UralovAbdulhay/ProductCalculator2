@@ -6,8 +6,8 @@ public class StavkaShablon {
     private String komment;
     private String kod;
 
-   public StavkaShablon( String nomi, double qiymat,
-                  String komment, String kod) {
+    public StavkaShablon(String nomi, double qiymat,
+                         String komment, String kod) {
         this.nomi = nomi;
         this.qiymat = qiymat;
         this.komment = komment;
@@ -52,41 +52,42 @@ public class StavkaShablon {
 
         switch (this.getKod()) {
 
-            case "trans":{
-                Stavkalar.stTrans = this.getQiymat();
+            case "trans": {
+                new Stavkalar().setStTrans(this.getQiymat());
                 break;
             }
-            case "cip":{
-                Stavkalar.stCIP = this.getQiymat();
+            case "cip": {
+                new Stavkalar().setStCIP(this.getQiymat());
                 break;
             }
-            case "boj":{
-                Stavkalar.stBojxona = this.getQiymat();
+            case "boj": {
+                new Stavkalar().setStBojxona(this.getQiymat());
                 break;
             }
             case "nds1s":
             case "nds1bez": {
-                Stavkalar.stNDS1S = this.getQiymat();
+                new Stavkalar().setStNDS1S(this.getQiymat());
                 break;
             }
-            case "nds2":{
-                Stavkalar.stNDS2 = this.getQiymat();
+            case "nds2": {
+                new Stavkalar().setStNDS2(this.getQiymat());
                 break;
             }
-            case "usd_sum":{
-                Stavkalar.stUSZ_USD = this.getQiymat();
+            case "usd_sum": {
+                new Stavkalar().setStUSD_USZ(this.getQiymat());
                 break;
             }
-            case "usd_rub":{
-                Stavkalar.stUSZ_RUB = this.getQiymat();
+            case "usd_rub": {
+                new Stavkalar().setStUSD_RUB(this.getQiymat());
                 break;
             }
-            case "usd_euro":{
-                Stavkalar.stUSZ_EUR = this.getQiymat();
+            case "usd_euro": {
+                new Stavkalar().setStUSD_EUR(this.getQiymat());
                 break;
             }
 
-            default:break;
+            default:
+                break;
         }
 
         TovarZakaz.tovarZakazList.forEach(TovarZakaz::zakazHisobla);

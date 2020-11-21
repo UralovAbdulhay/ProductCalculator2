@@ -57,18 +57,24 @@ public class TovarZakaz extends Tovar {
     public static double zakEurUsz;
     public static double zakRubUsz;
 
+    public static boolean selected;
+
     private ControllerTable controllerTable;
 
     public static ObservableList<TovarZakaz> tovarZakazList = FXCollections.observableArrayList();
     private Stavkalar stavkalar;
 
+    public TovarZakaz(PriseList priseList, Stavkalar stavkalar) {
+        this(priseList);
+        this.stavkalar = stavkalar;
+    }
+
     public TovarZakaz(PriseList priseList) {
         super(priseList.getTovar());
 
-
-        this.stavkalar = new Stavkalar();
-
-
+        if (stavkalar == null) {
+            this.stavkalar = new Stavkalar();
+        }
 
         this.zakazSoni = priseList.getAddCount();                         // zakaz qilingan tovar soni
 
@@ -97,7 +103,13 @@ public class TovarZakaz extends Tovar {
         this.zakazAksizSumm = a * this.getTovarAksiz();                   //   Aksiz summasi UZS
         double d = this.zakazAksizSumm;
 
-        this.zakazNDS1Narxi = ((a + b + c + d) * stavkalar.getStNDS1());                             //  NDS1  miqdori
+
+        if (selected) {
+            this.zakazNDS1Narxi = ((a + b + c + d) * stavkalar.getStNDS1S());                             //  NDS1  miqdori
+        } else {
+            this.zakazNDS1Narxi = ((a + b + c + d) * stavkalar.getStNDS1Bez());                             //  NDS1  miqdori
+        }
+
         double k = this.zakazNDS1Narxi;
 
         this.zakazKelishNarxi = a + b + c + d + k;                                       // bitta tovarning yetib kelish narxi
@@ -159,7 +171,12 @@ public class TovarZakaz extends Tovar {
         this.zakazAksizSumm = (a * this.getTovarAksiz());                   //   Aksiz summasi UZS
         double d = this.zakazAksizSumm;
 
-        this.zakazNDS1Narxi = (((a + b + c + d) * stavkalar.getStNDS1()));                             //  NDS1  miqdori
+        if (selected) {
+            this.zakazNDS1Narxi = (((a + b + c + d) * stavkalar.getStNDS1S()));                             //  NDS1  miqdori
+        } else {
+            this.zakazNDS1Narxi = (((a + b + c + d) * stavkalar.getStNDS1Bez()));                             //  NDS1  miqdori
+        }
+
         double k = this.zakazNDS1Narxi;
 
         this.zakazKelishNarxi = (a + b + c + d + k);                                       // bitta tovarning yetib kelish narxi
@@ -466,20 +483,6 @@ public class TovarZakaz extends Tovar {
         return tovarZakazList;
     }
 
-    public void addTovarZakazList(TovarZakaz tovarZakaz) {
-        TovarZakaz.tovarZakazList.add(tovarZakaz);
-        setTr();
-    }
-
-    public void addTovarZakazList(PriseList priseList) {
-        TovarZakaz.tovarZakazList.add(new TovarZakaz(priseList));
-        setTr();
-    }
-
-    public void addTovarZakazList(ObservableList<TovarZakaz> tovarZakazs) {
-        TovarZakaz.tovarZakazList.addAll(tovarZakazs);
-        setTr();
-    }
 
     public static void setTr() {
         for (int i = 0; i < tovarZakazList.size(); i++) {
@@ -490,6 +493,10 @@ public class TovarZakaz extends Tovar {
     public void setControllerTable(ControllerTable controllerTable) {
         this.controllerTable = controllerTable;
     }
+
+
+
+
 
 
     public int getTovarId() {
@@ -651,9 +658,6 @@ public class TovarZakaz extends Tovar {
         this.stavkalar.setStBojxona(stBojxona);
     }
 
-    public double getStNDS1() {
-        return stavkalar.getStNDS1();
-    }
 
     public double getStNDS1S() {
         return stavkalar.getStNDS1S();
@@ -663,9 +667,6 @@ public class TovarZakaz extends Tovar {
         this.stavkalar.setStNDS1S(stNDS1S);
     }
 
-    public void setStNDS1(double stNDS1) {
-        this.stavkalar.setStNDS1(stNDS1);
-    }
 
     public double getStNDS2() {
         return stavkalar.getStNDS2();

@@ -29,18 +29,23 @@ public class Project {
     private File prFile;
     private boolean done;
 
+//    private double transStavka;
+//    private double cipStavka;
+//    private double bojStavka;
+//    private double nds1S;
+//    private double nds1Bez;
+//    private double nds2;
+//    private double projectUsdStavka;
 
-//    private String prClient;
-//    private String prKmpCompany;
-//    private String prRaxbar;
-//    private String prKritgan;
-//    private String prMasul;
+    private Stavkalar prStavkalar;
 
     private Client prClient;
     private Company prKmpCompany;
     private Xodimlar prRaxbar;
     private Xodimlar prKritgan;
     private Xodimlar prMasul;
+
+    private double prSumma;
 
 
     private ObservableList<TovarZakaz> projectZakazList = FXCollections.observableArrayList();
@@ -50,7 +55,8 @@ public class Project {
                    boolean prIsShoshilinch,
                    String prNomi, Client prClient, Company prKmpCompany, Xodimlar prRaxbar,
                    Xodimlar prMasul, LocalDateTime tugashVaqti,
-                   int typeCol, String prKomment, Xodimlar prKritgan) {
+                   int typeCol, String prKomment, Xodimlar prKritgan
+                   ) {
 
         this.numPr = numPr;
         this.boshlanganVaqt = boshlanganVaqt;
@@ -64,7 +70,12 @@ public class Project {
         this.tugashVaqti = tugashVaqti;
         this.prKomment = prKomment;
         this.prKritgan = prKritgan;
-        this.prFormulaNum = typeCol;
+        this.prFormulaNum = typeCol;           // 0 - Bez; 1 - S;
+
+        this.prStavkalar = new Stavkalar();
+
+
+
 
         this.proritet = "В срок";
         if (prIsImportant) {
@@ -77,6 +88,7 @@ public class Project {
             this.proritet = "Важны и Срочный";
         }
         setTypeCol(prFormulaNum);
+
 
     }
 
@@ -102,15 +114,17 @@ public class Project {
                    String prNomi, Client prClient, Company prKmpCompany, Xodimlar prRaxbar,
                    Xodimlar prMasul, LocalDateTime tugashVaqti,
                    int typeCol, String prKomment, Xodimlar prKritgan,
-                   ObservableList<TovarZakaz> projectZakazList) {
-
+                   ObservableList<TovarZakaz> projectZakazList,
+                   Stavkalar prStavkalar) {
 
         this(numPr, boshlanganVaqt, prIsImportant,
                 prIsShoshilinch,
                 prNomi, prClient, prKmpCompany, prRaxbar,
                 prMasul, tugashVaqti,
                 typeCol, prKomment, prKritgan
+
         );
+        this.prStavkalar = prStavkalar;
         this.projectZakazList.addAll(projectZakazList);
     }
 
@@ -233,6 +247,7 @@ public class Project {
     public void addProjectZakazList(ObservableList<TovarZakaz> projectZakazList) {
         this.projectZakazList.addAll(projectZakazList);
     }
+
     public void addProjectZakazList(TovarZakaz projectZakazList) {
         this.projectZakazList.addAll(projectZakazList);
     }
@@ -286,23 +301,35 @@ public class Project {
         this.done = done;
     }
 
+    public void setPrStavkalar(Stavkalar prStavkalar) {
+        this.prStavkalar = prStavkalar;
+    }
+
+    public Stavkalar getPrStavkalar() {
+        return prStavkalar;
+    }
+
+    public double getPrSumma() {
+        return prSumma;
+    }
 
     public String getQolganVaqt() {
         Duration duration = Duration.between(LocalDateTime.now(), this.tugashVaqti);
-        long minutes = Math.abs(duration.toMinutes())%60;
-        long hours = (Math.abs(duration.toHours())%24) ;
+        long second = Math.abs((duration.toMillis() / 1000) % 60);
+        long minutes = Math.abs(duration.toMinutes()) % 60;
+        long hours = (Math.abs(duration.toHours()) % 24);
         long days = (Math.abs(duration.toDays()));
 
         if (LocalDateTime.now().isBefore(this.tugashVaqti)) {
-            return days + " / " + hours + ":" + minutes;
+            return days + " / " + hours + ":" + minutes + ":" + second;
         } else {
-            return  "- "+days + " / " + hours + ":" + minutes;
+            return "- " + days + " / " + hours + ":" + minutes + ":" + second;
         }
     }
 
     @Override
     public String toString() {
-        return  "\nProject{" +
+        return "Project{" +
                 "\nnumPr=" + numPr +
                 ",\n tr_pr=" + tr_pr +
                 ",\n boshlanganVaqt=" + boshlanganVaqt +

@@ -5,61 +5,94 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonParser;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import sample.Controllers.EditTovar;
 import sample.Moodles.Valyuta;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.List;
+import java.net.URLConnection;
 
-public class Api_kurs {
+public class Api_kurs extends Thread {
+
+    @Override
+    public void run() {
+        System.out.println("run start");
+        getCourses();
+    }
+
+    private EditTovar editTovar;
 
 
-    public List<Valyuta> getCourses() {
-        ObservableList<Valyuta> courseList = FXCollections.observableArrayList();
-        URL url = null;
-        HttpURLConnection con = null;
+
+    public boolean netIsAvailable() {
         try {
-            url = new URL("https://nbu.uz/en/exchange-rates/json/");
-            con = (HttpURLConnection) url.openConnection();
+            final URL url = new URL("https://nbu.uz/en/exchange-rates/json/");
+            final URLConnection conn = url.openConnection();
+            conn.connect();
+            conn.getInputStream().close();
+            return true;
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
         } catch (IOException e) {
-            e.printStackTrace();
-            return courseList;
+            return false;
         }
+    }
 
-        String json = "";
-        assert con != null;
-        try (BufferedReader reader =
-                     new BufferedReader(
-                             new InputStreamReader(
-                                     con.getInputStream()
-                             )
-                     )
-        ) {
+    public void getCourses() {
 
-            json = "";
-            String newLine;
 
-            while ((newLine = reader.readLine()) != null) {
-                json += newLine + "\n";
+//        if (netIsAvailable()) {
+            ObservableList<Valyuta> courseList = FXCollections.observableArrayList();
+            URL url = null;
+//        HttpURLConnection con = null;
+            URLConnection con = null;
+            try {
+                url = new URL("https://nbu.uz/en/exchange-rates/json/");
+                con = url.openConnection();
+                con.connect();
+                con.getInputStream();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        String json = "";
+            assert con != null;
+            try (BufferedReader reader =
+                         new BufferedReader(
+                                 new InputStreamReader(
+                                         con.getInputStream()
+                                 )
+                         )
+            ) {
 
-        Gson gson = new Gson();
-        JsonParser parser = new JsonParser();
+                json = "";
+                String newLine;
 
-        JsonArray jsonArray = ((JsonArray) parser.parse(json));
+                while ((newLine = reader.readLine()) != null) {
+                    json += newLine + "\n";
+                }
 
-        for (int i = 0; i < jsonArray.size(); i++) {
-            Valyuta valyuta = gson.fromJson(jsonArray.get(i), Valyuta.class);
-            courseList.add(valyuta);
-        }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
-        return courseList;
+            Gson gson = new Gson();
+            JsonParser parser = new JsonParser();
+
+            JsonArray jsonArray = ((JsonArray) parser.parse(json));
+
+            for (int i = 0; i < jsonArray.size(); i++) {
+                Valyuta valyuta = gson.fromJson(jsonArray.get(i), Valyuta.class);
+                new Connections().insertToCourse(valyuta);
+            }
+
+            System.out.println("run end");
+
+//        }
     }
+
+
 }

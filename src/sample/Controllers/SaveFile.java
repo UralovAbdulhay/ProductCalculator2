@@ -2,7 +2,6 @@ package sample.Controllers;
 
 import com.gembox.spreadsheet.*;
 import sample.Moodles.Project;
-import sample.Moodles.Stavkalar;
 import sample.Moodles.TovarZakaz;
 
 import java.awt.*;
@@ -14,13 +13,15 @@ import java.util.Map;
 
 public class SaveFile {
 
-
+    boolean nds1S;  // false - bez;  true - S;
 
     void saveFile(String path, Project project) {
 
+        nds1S = project.getPrFormulaNum() != 0;
+
         Map<String, String> map = new HashMap<>();
 
-        System.out.println(project);
+//        System.out.println(project);
 
         map.put("B2", "Запрос разместил");
         map.put("E2", project.getPrKritgan().getIsm());
@@ -80,6 +81,7 @@ public class SaveFile {
         }
 
         for (int i = 1; i <= 7; i += 2) {
+
             // 1 ustundagi label lar
             CellRange us1L = CellRange.zzaInternal(worksheet, i, 1, i, 2);
             us1L.getStyle().getBorders().setBorders(
@@ -156,13 +158,23 @@ public class SaveFile {
         );
 
         //TableLabel
-        CellRange tabLab = CellRange.zzaInternal(worksheet, 14, 1, 14, 30);
-        tabLab.getStyle().getFillPattern().setSolid(
-                SpreadsheetColor.fromColor(new Color(217, 217, 217))
-        );
-        tabLab.getStyle().getBorders().setBorders(
-                MultipleBorders.all(), SpreadsheetColor.fromColor(Color.BLACK), LineStyle.MEDIUM
-        );
+        if (nds1S) {
+            CellRange tabLab = CellRange.zzaInternal(worksheet, 14, 1, 14, 30);
+            tabLab.getStyle().getFillPattern().setSolid(
+                    SpreadsheetColor.fromColor(new Color(217, 217, 217))
+            );
+            tabLab.getStyle().getBorders().setBorders(
+                    MultipleBorders.all(), SpreadsheetColor.fromColor(Color.BLACK), LineStyle.MEDIUM
+            );
+        } else {
+            CellRange tabLab = CellRange.zzaInternal(worksheet, 14, 1, 14, 28);
+            tabLab.getStyle().getFillPattern().setSolid(
+                    SpreadsheetColor.fromColor(new Color(217, 217, 217))
+            );
+            tabLab.getStyle().getBorders().setBorders(
+                    MultipleBorders.all(), SpreadsheetColor.fromColor(Color.BLACK), LineStyle.MEDIUM
+            );
+        }
 
         // ZAPROS KIRITILGAN VAQT
         CellRange crateDate = CellRange.zzaInternal(worksheet, 5, 15, 5, 16);
@@ -201,27 +213,30 @@ public class SaveFile {
         worksheet.getCell(row, 7).setValue("Ед. из.");
         worksheet.getCell(row, 8).setValue("Цена EXW");
         worksheet.getCell(row, 9).setValue("Сумма EXW");
-        worksheet.getCell(row, 10).setValue("Траспорт \n" + Stavkalar.stTrans);
+        worksheet.getCell(row, 10).setValue("Траспорт \n" + project.getPrStavkalar().getStTrans());
         worksheet.getCell(row, 11).setValue("Сумма Транс-порта");
         worksheet.getCell(row, 12).setValue("Цена с  Транс-портом");
         worksheet.getCell(row, 13).setValue("Сумма с  Транс-портом");
         worksheet.getCell(row, 14).setValue("Cтавка CIP");
         worksheet.getCell(row, 15).setValue("Цена CIP(USD)");
         worksheet.getCell(row, 16).setValue("Сумма CIP(USD)");
-        worksheet.getCell(row, 17).setValue("Цена SUM (CIP) \n" + Stavkalar.stUSZ_USD + " sum");
-        worksheet.getCell(row, 18).setValue("Там. сборы \n" + (Stavkalar.stBojxona * 100) + " %");
+        worksheet.getCell(row, 17).setValue("Цена SUM (CIP) \n" + project.getPrStavkalar().getStUSD_USZ() + " sum");
+        worksheet.getCell(row, 18).setValue("Там. сборы \n" + (project.getPrStavkalar().getStBojxona() * 100) + " %");
         worksheet.getCell(row, 19).setValue("Пошлина");
         worksheet.getCell(row, 20).setValue("Cумма пошлин");
         worksheet.getCell(row, 21).setValue("Акциз");
         worksheet.getCell(row, 22).setValue("Cумма Акциз");
-        worksheet.getCell(row, 23).setValue("НДС 1 \n" + (Stavkalar.stNDS1S * 100) + " %");
+        worksheet.getCell(row, 23).setValue("НДС 1 \n" + (project.getPrStavkalar().getStNDS1S() * 100) + " %");
         worksheet.getCell(row, 24).setValue("Приход цена");
         worksheet.getCell(row, 25).setValue("Приход Сумма");
         worksheet.getCell(row, 26).setValue("Cтавка DDP");
         worksheet.getCell(row, 27).setValue("Цена  DDP ");
         worksheet.getCell(row, 28).setValue("Сумма  DDP ");
-        worksheet.getCell(row, 29).setValue("Цена c НДС 2 \n" + (Stavkalar.stNDS2 * 100) + " %");
-        worksheet.getCell(row, 30).setValue("Сумма с НДС");
+
+        if (nds1S) {
+            worksheet.getCell(row, 29).setValue("Цена c НДС 2 \n" + (project.getPrStavkalar().getStNDS2() * 100) + " %");
+            worksheet.getCell(row, 30).setValue("Сумма с НДС");
+        }
 
         for (TovarZakaz zakaz : project.getProjectZakazList()) {
 
@@ -275,34 +290,59 @@ public class SaveFile {
             worksheet.getCell(row, 27).getStyle().setNumberFormat("#,##0.00 [$UZS]");
             worksheet.getCell(row, 28).setValue(zakaz.getZakazDDPsumm());
             worksheet.getCell(row, 28).getStyle().setNumberFormat("#,##0.00 [$UZS]");
-            worksheet.getCell(row, 29).setValue(zakaz.getZakazNDS2liNarxi());
-            worksheet.getCell(row, 29).getStyle().setNumberFormat("#,##0.00 [$UZS]");
-            worksheet.getCell(row, 30).setValue(zakaz.getZakazNDS2liSumm());
-            worksheet.getCell(row, 30).getStyle().setNumberFormat("#,##0.00 [$UZS]");
 
-        }
-
-
-        for (int i = 1; i <= 30; i++) {
-            int max = 20;
-            for (int j = 14; j <= row; j++) {
-                if (max < worksheet.getColumn(i).getCell(j).getValue().toString().length()) {
-                    max = worksheet.getColumn(i).getCell(j).getValue().toString().length() + 5;
-                    if (max > 35) {
-                        max = 35;
-                        worksheet.getColumn(i).getCell(j).getStyle().setWrapText(true);
-                    }
-                }
-                worksheet.getColumn(i).getCell(j).getStyle().setHorizontalAlignment(HorizontalAlignmentStyle.CENTER);
-                worksheet.getColumn(i).getCell(j).getStyle().setVerticalAlignment(VerticalAlignmentStyle.CENTER);
+            if (nds1S) {
+                worksheet.getCell(row, 29).setValue(zakaz.getZakazNDS2liNarxi());
+                worksheet.getCell(row, 29).getStyle().setNumberFormat("#,##0.00 [$UZS]");
+                worksheet.getCell(row, 30).setValue(zakaz.getZakazNDS2liSumm());
+                worksheet.getCell(row, 30).getStyle().setNumberFormat("#,##0.00 [$UZS]");
             }
-            worksheet.getColumn(i).setWidth(max * 256);
         }
 
-        CellRange cells = CellRange.zzaInternal(worksheet, startRow, startCol, row, startCol + 29);
-        cells.getStyle().getBorders().setBorders(
-                MultipleBorders.all(), SpreadsheetColor.fromColor(Color.BLACK), LineStyle.THIN
-        );
+        if (nds1S) {
+
+            for (int i = 1; i <= 30; i++) {
+                int max = 20;
+                for (int j = 14; j <= row; j++) {
+                    if (max < worksheet.getColumn(i).getCell(j).getValue().toString().length()) {
+                        max = worksheet.getColumn(i).getCell(j).getValue().toString().length() + 5;
+                        if (max > 35) {
+                            max = 35;
+                            worksheet.getColumn(i).getCell(j).getStyle().setWrapText(true);
+                        }
+                    }
+                    worksheet.getColumn(i).getCell(j).getStyle().setHorizontalAlignment(HorizontalAlignmentStyle.CENTER);
+                    worksheet.getColumn(i).getCell(j).getStyle().setVerticalAlignment(VerticalAlignmentStyle.CENTER);
+                }
+                worksheet.getColumn(i).setWidth(max * 256);
+            }
+
+            CellRange cells = CellRange.zzaInternal(worksheet, startRow, startCol, row, startCol + 29);
+            cells.getStyle().getBorders().setBorders(
+                    MultipleBorders.all(), SpreadsheetColor.fromColor(Color.BLACK), LineStyle.THIN
+            );
+        } else {
+            for (int i = 1; i <= 28; i++) {
+                int max = 20;
+                for (int j = 14; j <= row; j++) {
+                    if (max < worksheet.getColumn(i).getCell(j).getValue().toString().length()) {
+                        max = worksheet.getColumn(i).getCell(j).getValue().toString().length() + 5;
+                        if (max > 35) {
+                            max = 35;
+                            worksheet.getColumn(i).getCell(j).getStyle().setWrapText(true);
+                        }
+                    }
+                    worksheet.getColumn(i).getCell(j).getStyle().setHorizontalAlignment(HorizontalAlignmentStyle.CENTER);
+                    worksheet.getColumn(i).getCell(j).getStyle().setVerticalAlignment(VerticalAlignmentStyle.CENTER);
+                }
+                worksheet.getColumn(i).setWidth(max * 256);
+            }
+
+            CellRange cells = CellRange.zzaInternal(worksheet, startRow, startCol, row, startCol + 27);
+            cells.getStyle().getBorders().setBorders(
+                    MultipleBorders.all(), SpreadsheetColor.fromColor(Color.BLACK), LineStyle.THIN
+            );
+        }
 
         try {
             workbook.save(path);

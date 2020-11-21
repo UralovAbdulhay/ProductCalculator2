@@ -96,6 +96,8 @@ public class AddProject implements Initializable {
     private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
     private DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
+    private Stavkalar stavkalar;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -252,7 +254,8 @@ public class AddProject implements Initializable {
                     LocalDateTime.of(prDate.getValue(), prTime.getValue()),
                     typeCol, prComment.getText().trim(),
                     kiritgan,
-                    tovarZakazList
+                    tovarZakazList,
+                    stavkalar
             );
             System.out.println("init project ");
             System.out.println(project.toString());
@@ -405,6 +408,9 @@ public class AddProject implements Initializable {
         initWindow();
     }
 
+    public void setStavkalar(Stavkalar stavkalar) {
+        this.stavkalar = stavkalar;
+    }
 
     void setOwnerStage(Stage ownerStage) {
         this.ownerStage = ownerStage;

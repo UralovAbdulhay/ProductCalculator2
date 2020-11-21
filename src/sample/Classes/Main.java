@@ -8,6 +8,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import sample.Controllers.ControllerOyna;
 import sample.Moodles.PriseList;
+import sample.Moodles.Stavkalar;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -124,6 +125,7 @@ public class Main extends Application {
         primaryStage.show();
 
         PriseList.reSetPriseList();
+        new Stavkalar().resetStavkaShablons();
 
         ControllerOyna controller = loader.getController();
         controller.setMainStage(primaryStage);

@@ -308,6 +308,18 @@ public class Connections {
                 boolean done = resultSet.getBoolean("done");
                 LocalDateTime doneDate = resultSet.getString("doneDate") != null ?
                         parseToLocalDateTime(resultSet.getString("doneDate")) : null;
+                double trans = resultSet.getDouble("transStavka");
+                double cip = resultSet.getDouble("cipStavka");
+                double boj = resultSet.getDouble("bojStavka");
+                double nds1S = resultSet.getDouble("nds1S");
+                double nds1Bez = resultSet.getDouble("nds1Bez");
+                double nds2 = resultSet.getDouble("nds2");
+                double usd = resultSet.getDouble("usdSumStavka");
+                double rub = resultSet.getDouble("rubSumStavka");
+                double eur = resultSet.getDouble("eurSumStavka");
+
+                Stavkalar stavkalar = new Stavkalar(trans, cip, usd, rub, eur, boj, nds1Bez, nds1S, nds2);
+
 
                 Project project = new Project(
                         numPr, boshlanganVaqt, prIsImportant, prIsShoshilinch, prNomi,
@@ -320,6 +332,7 @@ public class Connections {
                 );
                 project.setDone(done);
                 project.setPrTugallanganVaqti(doneDate);
+                project.setPrStavkalar(stavkalar);
 
 
                 ResultSet set = connection.createStatement().executeQuery(
@@ -371,7 +384,7 @@ public class Connections {
                     );
 
                     priseList.setAddCount(set.getInt("soni"));
-                    project.addProjectZakazList(new TovarZakaz(priseList));
+                    project.addProjectZakazList(new TovarZakaz(priseList, project.getPrStavkalar()));
                 }
                 list.add(project);
             }
@@ -424,6 +437,17 @@ public class Connections {
                 boolean done = resultSet.getBoolean("done");
                 LocalDateTime doneDate = resultSet.getString("doneDate") != null ?
                         parseToLocalDateTime(resultSet.getString("doneDate")) : null;
+                double trans = resultSet.getDouble("transStavka");
+                double cip = resultSet.getDouble("cipStavka");
+                double boj = resultSet.getDouble("bojStavka");
+                double nds1S = resultSet.getDouble("nds1S");
+                double nds1Bez = resultSet.getDouble("nds1Bez");
+                double nds2 = resultSet.getDouble("nds2");
+                double usd = resultSet.getDouble("usdSumStavka");
+                double rub = resultSet.getDouble("rubSumStavka");
+                double eur = resultSet.getDouble("eurSumStavka");
+
+                Stavkalar stavkalar = new Stavkalar(trans, cip, usd, rub, eur, boj, nds1Bez, nds1S, nds2);
 
                 project = new Project(
                         numPr, boshlanganVaqt, prIsImportant, prIsShoshilinch, prNomi,
@@ -436,6 +460,8 @@ public class Connections {
                 );
                 project.setDone(done);
                 project.setPrTugallanganVaqti(doneDate);
+                project.setPrStavkalar(stavkalar);
+
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -954,11 +980,12 @@ public class Connections {
         int shoshilinch = project.isPrIsShoshilinch() ? 1 : 0;
 
         String sql = " INSERT " +
-//                "OR IGNORE " +
+                "OR IGNORE " +
                 "INTO project(" +
                 "name, shoshilinch, muhum, client_id, from_com_id, " +
                 "raxbar_xodim_id, kiritgan_xodim_id, masul_xodim_id, " +
-                "end_date, formula, komment, temp " +
+                "end_date, formula, komment, temp, transStavka, cipStavka, bojStavka, " +
+                "nds1S, nds1Bez, nds2, usdSumStavka, rubSumStavka, eurSumStavka " +
                 ") " +
                 "VALUES( " +
                 "'" + project.getPrNomi().replace("'", "`") + "', " +
@@ -972,7 +999,16 @@ public class Connections {
                 "'" + localDateTimeParseToString(project.getTugashVaqti()) + "', " +
                 "'" + project.getPrFormulaNum() + "', " +
                 "'" + project.getPrKomment().replace("'", "`") + "', " +
-                "" + temp + " " +
+                "" + temp + ", " +
+                "" + project.getPrStavkalar().getStTrans() + ", " +
+                "" + project.getPrStavkalar().getStCIP() + ", " +
+                "" + project.getPrStavkalar().getStBojxona() + ", " +
+                "" + project.getPrStavkalar().getStNDS1S() + ", " +
+                "" + project.getPrStavkalar().getStNDS1Bez() + ", " +
+                "" + project.getPrStavkalar().getStNDS2() + ", " +
+                "" + project.getPrStavkalar().getStUSD_USZ() + ", " +
+                "" + project.getPrStavkalar().getStUSD_RUB() + ", " +
+                "" + project.getPrStavkalar().getStUSD_EUR() + " " +
                 ");";
 
         try (Connection connection = connect()) {
@@ -1036,7 +1072,7 @@ public class Connections {
     public void setProjectNotDone(Project projectDone) {
         int d = projectDone.isDone() ? 1 : 0;
 
-                String sql = "UPDATE project SET " +
+        String sql = "UPDATE project SET " +
                 "done = " + d + ", " +
                 "doneDate = " + null + " " +
                 "WHERE nomer_zakaz = " + projectDone.getNumPr() +

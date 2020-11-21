@@ -219,7 +219,7 @@ public class PriseList extends Tovar {
         }
     }
 
-    public static void setTr(ObservableList<Tovar> tovars) {
+    public static void setTr(ObservableList<TovarZakaz> tovars) {
         for (int i = 0; i < tovars.size(); i++) {
             tovars.get(i).setTr(i+1);
         }

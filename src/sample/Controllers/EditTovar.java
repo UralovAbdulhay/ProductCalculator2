@@ -43,7 +43,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 
-public class EditTovar implements Initializable {
+public class EditTovar implements Initializable, Runnable {
 
     @FXML
     private JFXButton courseRefreshBt;
@@ -114,8 +114,8 @@ public class EditTovar implements Initializable {
     private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
     private DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
-    public static ObservableList<Project> notDoneProjects = FXCollections.observableArrayList();
-    public static ObservableList<Project> doneProjects = FXCollections.observableArrayList();
+    public  ObservableList<Project> notDoneProjects = FXCollections.observableArrayList();
+    public  ObservableList<Project> doneProjects = FXCollections.observableArrayList();
 
 
     public void tozalaQidir(ActionEvent actionEvent) {
@@ -245,7 +245,7 @@ public class EditTovar implements Initializable {
 
                 SeparatorMenuItem separatorMenuItem = new SeparatorMenuItem();
 
-                rowMenu.getItems().addAll(saveToFile, backItem, deleteItem,  separatorMenuItem, reviewProject);
+                rowMenu.getItems().addAll(saveToFile, backItem, deleteItem, separatorMenuItem, reviewProject);
                 row.contextMenuProperty().bind(
                         Bindings.when(Bindings.isNotNull(row.itemProperty()))
                                 .then(rowMenu)
@@ -259,8 +259,28 @@ public class EditTovar implements Initializable {
         initStavkaTable();
         initDoneProjectsTable();
         initProjectTable();
+
+        ishla = true;
     }
 
+
+    static boolean ishla;
+
+    public void run() {
+
+
+        while (parentTabPane.getSelectionModel().getSelectedItem().getId().equals("projectsTab") && ishla ) {
+            try {
+                Thread.sleep(1000L);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println(" run() ishladi");
+            projectTable.refresh();
+        }
+
+        System.out.println("while false");
+    }
 
     private void editBtControl() {
         if (listTable.getSelectionModel().getSelectedItem() != null) {
@@ -448,27 +468,41 @@ public class EditTovar implements Initializable {
     }
 
     @FXML
-    private void refreshKurs(ActionEvent event) {
+    private void refreshKurs(ActionEvent event)  {
 
         //  baza va internet sinxronizatsiyasi bo'ladi
         courseRefreshBt.setDisable(true);
 
-        for (Valyuta cours : new Api_kurs().getCourses()) {
-            new Connections().insertToCourse(cours);
+        System.out.println("Befor run");
+
+
+        if (new Api_kurs().netIsAvailable()) {
+            new Api_kurs().start();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("No connection to INTERNET!");
+            alert.setTitle("ERROR");
+            alert.initStyle(StageStyle.UTILITY);
+            alert.showAndWait();
         }
+
+        courseRefreshBt.setDisable(false);
+            refreshKurs2();
+    }
+
+    public void refreshKurs2() {
 
         if (!(new Connections().tableIsEmpty("course"))) {
             valyutas.clear();
             valyutas.addAll(new Connections().getCourseFromSql());
+
+            if (!valyutas.isEmpty()) {
+                kusrSanaLable.setText(valyutas.get(0).getDate() + "");
+            }
         }
 
-        if (!valyutas.isEmpty()) {
-            kusrSanaLable.setText(valyutas.get(1).getDate() + "");
-
-        }
         kursTable.setItems(valyutas);
         showNotEmptyKurs();
-        courseRefreshBt.setDisable(false);
     }
 
 
@@ -741,7 +775,7 @@ public class EditTovar implements Initializable {
     }
 
     void refreshStaffTable() {
-        Stavkalar.resetStavkaShablons();
+        new Stavkalar().resetStavkaShablons();
         stavkaTable.refresh();
     }
 
@@ -843,6 +877,7 @@ public class EditTovar implements Initializable {
         projectTable.setItems(new Connections().getProjectsNotDoneFromSql());
 
     }
+
 
     private void initDoneProjectsTable() {
 
@@ -950,21 +985,26 @@ public class EditTovar implements Initializable {
             case "priseTab": {
                 System.out.println("priseTab ishladi");
                 ruyxatUrnat();
+                ishla = false;
                 break;
             }
             case "staffsTab": {
                 System.out.println("staffsTab ishladi");
                 initStavkaTable();
+                ishla = false;
                 break;
             }
             case "coursesTab": {
                 System.out.println("coursesTab ishladi");
                 initKursTable();
+                ishla = false;
                 break;
             }
             case "projectsTab": {
                 System.out.println("projectsTab ishladi");
                 projectTable.refresh();
+                ishla = true;
+                new Thread(this).start();
 //                initProjectTable();
                 break;
             }
@@ -972,10 +1012,12 @@ public class EditTovar implements Initializable {
                 System.out.println("doneProjectsTab ishladi");
                 doneProjectTable.refresh();
 //                initDoneProjectsTable();
+                ishla = false;
                 break;
             }
             default: {
                 System.out.println("default ishladi");
+                ishla = false;
                 break;
             }
         }
@@ -1091,7 +1133,7 @@ public class EditTovar implements Initializable {
         }
     }
 
-    private void reviewProject( Project project) {
+    private void reviewProject(Project project) {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/sample/Views/reviewProject.fxml"));
         Parent parent = null;

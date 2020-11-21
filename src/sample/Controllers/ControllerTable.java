@@ -125,10 +125,11 @@ public class ControllerTable implements Initializable {
     private TableColumn<TovarZakaz, Double> zCIPnarxUzs;
     private static boolean switchIsSelected;
 
+    private Stavkalar stavkalar;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        stavkalar = new Stavkalar();
         if (!kursUrnataymi) {
 
             usdTf.setText(new Stavkalar().getStUSD_USZ() + "");
@@ -200,6 +201,9 @@ public class ControllerTable implements Initializable {
 
         switchIsSelected = ddpSwitch.isSelected();
         switchAction();
+
+        EditTovar.ishla = false;
+
     }
 
     void setControllerOyna(ControllerOyna controllerOyna) {
@@ -707,7 +711,7 @@ public class ControllerTable implements Initializable {
         zTavTransSt.setResizable(false);
 
 
-        TableColumn<TovarZakaz, Double> zTavTrans = creatTabCol((Stavkalar.stTrans) + "");
+        TableColumn<TovarZakaz, Double> zTavTrans = creatTabCol((stavkalar.getStTrans()) + "");
         zTavTrans.setResizable(false);
         zTavTrans.setSortable(false);
         zTavTrans.setStyle("-fx-alignment: CENTER");
@@ -782,7 +786,7 @@ public class ControllerTable implements Initializable {
         zBojSt.setStyle("-fx-alignment: CENTER");
 
 
-        TableColumn<TovarZakaz, Double> zBoj = creatTabCol((Stavkalar.stBojxona * 100) + " %");
+        TableColumn<TovarZakaz, Double> zBoj = creatTabCol((stavkalar.getStBojxona() * 100) + " %");
         zBoj.setVisible(false);
         zBoj.setPrefWidth(150);
         zBoj.setResizable(false);
@@ -833,7 +837,7 @@ public class ControllerTable implements Initializable {
         zNDS1.setVisible(false);
 
 
-        zNDS1Narxi = creatTabCol((Stavkalar.stNDS1S * 100) + " %");
+        zNDS1Narxi = creatTabCol((stavkalar.getStNDS1S() * 100) + " %");
         zNDS1Narxi.setResizable(false);
         zNDS1Narxi.setVisible(false);
         zNDS1Narxi.setStyle("-fx-alignment: CENTER");
@@ -893,7 +897,7 @@ public class ControllerTable implements Initializable {
         nds2Stavka.setResizable(false);
 
 
-        zNDS2Nar = new TableColumn<>((Stavkalar.stNDS2 * 100) + " %");
+        zNDS2Nar = new TableColumn<>((stavkalar.getStNDS2() * 100) + " %");
         zNDS2Nar.setPrefWidth(150);
         zNDS2Nar.setResizable(false);
         zNDS2Nar.setStyle("-fx-alignment: CENTER");
@@ -1023,6 +1027,7 @@ public class ControllerTable implements Initializable {
         AddProject controller = loader.getController();
         controller.setOwnerStage(mainStage);
         controller.setControllerTable(this);
+        controller.setStavkalar(stavkalar);
         int typeCol = 0;
         typeCol = ddpSwitch.isSelected() ? 1 : 0;
         controller.setPrHisobTuri(typeCol, TovarZakaz.tovarZakazList);
@@ -1152,14 +1157,15 @@ public class ControllerTable implements Initializable {
     @FXML
     private void switchAction() {
         switchIsSelected = ddpSwitch.isSelected();
+        TovarZakaz.selected = ddpSwitch.isSelected();
         if (ddpSwitch.isSelected()) {
             ddpSLabel.setStyle("-fx-background-radius: 10; -fx-background-color: #0EBD00");
             ddpBezLabel.setStyle("-fx-background-color: white");
             nds2Stavka.setVisible(true);
             zNDS2Nar.setVisible(true);
             nds2Summa.setVisible(true);
-            Stavkalar.stNDS1S = Stavkalar.stavkaShablons.stream().filter(e -> e.getKod().equals("nds1s")).findFirst().get().getQiymat();
-            zNDS1Narxi.setText((Stavkalar.stNDS1S * 100) + " %");
+//            stavkalar.setStNDS1S(Stavkalar.stavkaShablons.stream().filter(e -> e.getKod().equals("nds1s")).findFirst().get().getQiymat());
+            zNDS1Narxi.setText((stavkalar.getStNDS1S() * 100) + " %");
 
 
         } else {
@@ -1168,11 +1174,10 @@ public class ControllerTable implements Initializable {
             nds2Stavka.setVisible(false);
             zNDS2Nar.setVisible(false);
             nds2Summa.setVisible(false);
-            Stavkalar.stNDS1S = Stavkalar.stavkaShablons.stream().filter(e -> e.getKod().equals("nds1bez")).findFirst().get().getQiymat();
-            zNDS1Narxi.setText((Stavkalar.stNDS1S * 100) + " %");
+//            stavkalar.setStNDS1S(Stavkalar.stavkaShablons.stream().filter(e -> e.getKod().equals("nds1bez")).findFirst().get().getQiymat());
+            zNDS1Narxi.setText((stavkalar.getStNDS1Bez() * 100) + " %");
 
         }
-
         summaHisobla();
         TovarZakaz.tovarZakazList.forEach(TovarZakaz::zakazHisobla);
     }

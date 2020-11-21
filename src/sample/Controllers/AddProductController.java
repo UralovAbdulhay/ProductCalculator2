@@ -29,7 +29,7 @@ public class AddProductController implements Initializable {
     private JFXTextField tovarName;
 
     @FXML
-    private JFXTextField tovarMaker;
+    private JFXComboBox<String> tovarMaker;
 
     @FXML
     private JFXTextField tovarModel;
@@ -76,12 +76,13 @@ public class AddProductController implements Initializable {
 
     private ObservableList<String> costType = FXCollections.observableArrayList("usd");
     private ObservableList<String> measurementType = FXCollections.observableArrayList("шт", "кг", "л", "м");
+    private ObservableList<Maker> makers = FXCollections.observableArrayList(new Connections().getMakerFromSql());
+    private ObservableList<String> makersName = FXCollections.observableArrayList(getMakerName());
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         okButton.setDisable(true);
-
 
         tovarCostType.getEditor().setEditable(true);
         tovarCostType.getEditor().setFont(new Font(18));
@@ -92,10 +93,15 @@ public class AddProductController implements Initializable {
         tovarMeasurementType.getEditor().setEditable(false);
 
 //        tovarDate.getEditor().setEditable(true);
+
         tovarDate.getEditor().setFont(new Font(18));
+
+        tovarMaker.getEditor().setFont(new Font(18));
+
 
         tovarCostType.setItems(costType);
         tovarMeasurementType.setItems(measurementType);
+        tovarMaker.setItems(makersName);
 
 
         Pattern decimalPattern = Pattern.compile("\\d*(\\.\\d{0,4})?");
@@ -119,6 +125,12 @@ public class AddProductController implements Initializable {
 
     }
 
+    private ObservableList<String> getMakerName() {
+        ObservableList<String> makersName = FXCollections.observableArrayList();
+        makers.forEach(e-> makersName.add(e.getName()));
+        return makersName;
+    }
+
     @FXML
     void cancelAdd(ActionEvent event) {
         stage.close();
@@ -131,7 +143,7 @@ public class AddProductController implements Initializable {
             priseList.setTovarKod(tovarKod.getText().trim());
             priseList.setTovarNomi(tovarName.getText().trim());
             priseList.setTovarModel(tovarModel.getText().trim());
-            priseList.setTovarModel(tovarMaker.getText().trim());
+            priseList.setTovarModel(tovarMaker.getValue().trim());
             priseList.setTovarNarxi(Double.parseDouble(tovarEXW.getText().trim()));
             priseList.setTovarDDP(Double.parseDouble(tovarDDP.getText().trim()));
             priseList.setTovarNarxTuri(tovarCostType.getValue() + "".trim());
@@ -147,7 +159,7 @@ public class AddProductController implements Initializable {
         } else {
 
             Maker maker = new Connections().insertToMaker(
-                    new Maker(-1, tovarMaker.getText().trim(), "-", LocalDate.now())
+                    new Maker(-1, tovarMaker.getValue().trim(), "-", LocalDate.now())
             );
 
             priseList = new PriseList(
@@ -178,7 +190,7 @@ public class AddProductController implements Initializable {
         try {
             tovarName.setText(
                     priseList.getTovarNomi());
-            tovarMaker.setText(
+            tovarMaker.setValue(
                     priseList.getTovarIshlabChiqaruvchi().getName());
             tovarModel.setText(priseList.getTovarModel());
             tovarEXW.setText(priseList.getTovarNarxi() + "");
@@ -212,7 +224,7 @@ public class AddProductController implements Initializable {
 
         boolean tuliqmi = !(
                 tovarName.getText().trim().isEmpty())
-                && !(tovarMaker.getText().trim().isEmpty())
+                && !(tovarMaker.getValue().trim().isEmpty())
                 && !(tovarModel.getText().trim().isEmpty())
                 && !(tovarEXW.getText().trim().isEmpty())
                 && (tovarMeasurementType.getValue() != null)

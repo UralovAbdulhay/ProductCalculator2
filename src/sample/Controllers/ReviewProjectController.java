@@ -9,10 +9,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import sample.Moodles.PriseList;
 import sample.Moodles.Project;
 import sample.Moodles.TovarZakaz;
 
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
@@ -20,6 +22,10 @@ import static javafx.collections.FXCollections.observableArrayList;
 
 public class ReviewProjectController implements Initializable {
 
+    @FXML
+    private Label summaUSDLab;
+    @FXML
+    private Label summaUZSLab;
     @FXML
     private TableView projectReviewTable;
     @FXML
@@ -55,6 +61,7 @@ public class ReviewProjectController implements Initializable {
         this.project = project;
 
         ObservableList<TovarZakaz> tovarZakazs = observableArrayList(this.project.getProjectZakazList());
+        PriseList.setTr(tovarZakazs);
         initWindow();
         projectReviewTable.setItems(tovarZakazs);
     }
@@ -69,6 +76,16 @@ public class ReviewProjectController implements Initializable {
         masulLab.setText(project.getPrMasul().getIsm());
         clientLab.setText(project.getPrClient().getName());
 
+
+        DecimalFormat format = new DecimalFormat("#,000.000");
+
+        if (project.getPrFormulaNum() == 1) {
+            summaUZSLab.setText(format.format(project.getProjectZakazList().stream().mapToDouble(TovarZakaz::getZakazNDS2liSumm).sum()) + " sum");
+        } else {
+            summaUZSLab.setText(format.format(project.getProjectZakazList().stream().mapToDouble(TovarZakaz::getZakazDDPsumm).sum()) + " sum");
+        }
+
+
         if (project.isDone() && project.getPrTugallanganVaqti() != null) {
             doneDateLab.setText(project.getPrTugallanganVaqti().format(dateTimeFormatter));
         } else {
@@ -78,7 +95,6 @@ public class ReviewProjectController implements Initializable {
     }
 
     private void initTable() {
-
 
 
         TableColumn<TovarZakaz, Integer> tovarTR = creatTabCol("№", 35);
@@ -183,7 +199,7 @@ public class ReviewProjectController implements Initializable {
         ));
         tovarKomment.setSortable(false);
 
-        tovarQushimcha.getColumns().addAll(tovarTrans, tovarAksiz, tovarPoshlina, tovarDDP );
+        tovarQushimcha.getColumns().addAll(tovarTrans, tovarAksiz, tovarPoshlina, tovarDDP);
 
         projectReviewTable.getColumns().clear();
         projectReviewTable.getColumns().addAll(tovarTR, tovarKod, tovarSoni, tovarNomi,
