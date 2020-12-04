@@ -1,6 +1,7 @@
 package sample.Moodles;
 
 import com.jfoenix.controls.JFXButton;
+import com.sun.istack.internal.Nullable;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView;
 import javafx.collections.FXCollections;
@@ -64,16 +65,16 @@ public class TovarZakaz extends Tovar {
     public static ObservableList<TovarZakaz> tovarZakazList = FXCollections.observableArrayList();
     private Stavkalar stavkalar;
 
-    public TovarZakaz(PriseList priseList, Stavkalar stavkalar) {
-        this(priseList);
-        this.stavkalar = stavkalar;
-    }
 
-    public TovarZakaz(PriseList priseList) {
+    public TovarZakaz( PriseList priseList, @Nullable Stavkalar stavkalar) {
         super(priseList.getTovar());
 
         if (stavkalar == null) {
             this.stavkalar = new Stavkalar();
+//            System.out.println("tovarZakaz Stavkalar NULL");
+        } else {
+            this.stavkalar = stavkalar;
+//            System.out.println("tovarZakaz Stavkalar NOT NULL");
         }
 
         this.zakazSoni = priseList.getAddCount();                         // zakaz qilingan tovar soni

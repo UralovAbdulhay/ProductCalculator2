@@ -127,7 +127,7 @@ public class AddProductController implements Initializable {
 
     private ObservableList<String> getMakerName() {
         ObservableList<String> makersName = FXCollections.observableArrayList();
-        makers.forEach(e-> makersName.add(e.getName()));
+        makers.forEach(e -> makersName.add(e.getName()));
         return makersName;
     }
 
@@ -143,7 +143,13 @@ public class AddProductController implements Initializable {
             priseList.setTovarKod(tovarKod.getText().trim());
             priseList.setTovarNomi(tovarName.getText().trim());
             priseList.setTovarModel(tovarModel.getText().trim());
-            priseList.setTovarModel(tovarMaker.getValue().trim());
+
+            priseList.setTovarIshlabChiqaruvchi(makers.stream().
+                    filter(e -> e.getName().trim().equals(tovarMaker.getValue().trim()))
+                    .findAny().orElse(new Connections().insertToMaker(
+                            new Maker(-1, tovarMaker.getValue().trim(), "-", LocalDate.now())
+                    )));
+
             priseList.setTovarNarxi(Double.parseDouble(tovarEXW.getText().trim()));
             priseList.setTovarDDP(Double.parseDouble(tovarDDP.getText().trim()));
             priseList.setTovarNarxTuri(tovarCostType.getValue() + "".trim());
@@ -158,9 +164,11 @@ public class AddProductController implements Initializable {
             PriseList.setPriseList(priseList);
         } else {
 
-            Maker maker = new Connections().insertToMaker(
-                    new Maker(-1, tovarMaker.getValue().trim(), "-", LocalDate.now())
-            );
+            Maker maker = makers.stream().
+                    filter(e -> e.getName().trim().equals(tovarMaker.getValue().trim()))
+                    .findAny().orElse(new Connections().insertToMaker(
+                            new Maker(-1, tovarMaker.getValue().trim(), "-", LocalDate.now())
+                    ));
 
             priseList = new PriseList(
                     new Tovar(
@@ -224,7 +232,7 @@ public class AddProductController implements Initializable {
 
         boolean tuliqmi = !(
                 tovarName.getText().trim().isEmpty())
-                && !(tovarMaker.getValue().trim().isEmpty())
+                && (tovarMaker.getValue() != null)
                 && !(tovarModel.getText().trim().isEmpty())
                 && !(tovarEXW.getText().trim().isEmpty())
                 && (tovarMeasurementType.getValue() != null)

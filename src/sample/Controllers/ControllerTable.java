@@ -132,13 +132,23 @@ public class ControllerTable implements Initializable {
         stavkalar = new Stavkalar();
         if (!kursUrnataymi) {
 
-            usdTf.setText(new Stavkalar().getStUSD_USZ() + "");
-            rubTf.setText(new Stavkalar().getStUSD_RUB() + "");
-            eurTf.setText(new Stavkalar().getStUSD_EUR() + "");
+//            usdTf.setText(new Stavkalar().getStUSD_USZ() + "");
+//            rubTf.setText(new Stavkalar().getStUSD_RUB() + "");
+//            eurTf.setText(new Stavkalar().getStUSD_EUR() + "");
+//
+            usdTf.setText(stavkalar.getStUSD_USZ() + "");
+            rubTf.setText(stavkalar.getStUSD_RUB() + "");
+            eurTf.setText(stavkalar.getStUSD_EUR() + "");
+//
+            TovarZakaz.zakUsdUsz = stavkalar.getStUSD_USZ();
+            TovarZakaz.zakRubUsz = stavkalar.getStUSD_RUB();
+            TovarZakaz.zakEurUsz = stavkalar.getStUSD_EUR();
 
-            TovarZakaz.zakUsdUsz = new Stavkalar().getStUSD_USZ();
-            TovarZakaz.zakRubUsz = new Stavkalar().getStUSD_RUB();
-            TovarZakaz.zakEurUsz = new Stavkalar().getStUSD_EUR();
+//
+//            TovarZakaz.zakUsdUsz = new Stavkalar().getStUSD_USZ();
+//            TovarZakaz.zakRubUsz = new Stavkalar().getStUSD_RUB();
+//            TovarZakaz.zakEurUsz = new Stavkalar().getStUSD_EUR();
+
             kursUrnataymi = true;
         } else {
             usdTf.setText(TovarZakaz.zakUsdUsz + "");
@@ -507,7 +517,7 @@ public class ControllerTable implements Initializable {
                     }
                 }
                 if (!bormi) {
-                    TovarZakaz.tovarZakazList.add(new TovarZakaz(mainTable.getItems().get(i)));
+                    TovarZakaz.tovarZakazList.add(new TovarZakaz(mainTable.getItems().get(i), null));
                     TovarZakaz.tovarZakazList.forEach(
                             e -> {
                                 e.getZakazUzgartir().setOnMouseClicked(

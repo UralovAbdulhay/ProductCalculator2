@@ -334,6 +334,8 @@ public class Connections {
                 project.setPrTugallanganVaqti(doneDate);
                 project.setPrStavkalar(stavkalar);
 
+                System.out.println(stavkalar.toString());
+                System.out.println(this.getClass().getName());
 
                 ResultSet set = connection.createStatement().executeQuery(
                         "SELECT  " +

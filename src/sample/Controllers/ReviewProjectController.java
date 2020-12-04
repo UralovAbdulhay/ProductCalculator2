@@ -11,6 +11,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import sample.Moodles.PriseList;
 import sample.Moodles.Project;
+import sample.Moodles.Stavkalar;
 import sample.Moodles.TovarZakaz;
 
 import java.net.URL;
@@ -22,8 +23,6 @@ import static javafx.collections.FXCollections.observableArrayList;
 
 public class ReviewProjectController implements Initializable {
 
-    @FXML
-    private Label summaUSDLab;
     @FXML
     private Label summaUZSLab;
     @FXML
@@ -84,18 +83,20 @@ public class ReviewProjectController implements Initializable {
         } else {
             summaUZSLab.setText(format.format(project.getProjectZakazList().stream().mapToDouble(TovarZakaz::getZakazDDPsumm).sum()) + " sum");
         }
-
+//        System.out.println("project stavka");
+//        System.out.println(project.getPrStavkalar().toString());
+//        System.out.println(project.getPrStavkalar().equals(project.getProjectZakazList().get(0).getStavkalar()));
+//        System.out.println("tovarZakaz stavka");
+        System.out.println(project.getProjectZakazList().get(0).getStavkalar().toString());
 
         if (project.isDone() && project.getPrTugallanganVaqti() != null) {
             doneDateLab.setText(project.getPrTugallanganVaqti().format(dateTimeFormatter));
         } else {
             doneDateLab.setText("--.--.----");
         }
-
     }
 
     private void initTable() {
-
 
         TableColumn<TovarZakaz, Integer> tovarTR = creatTabCol("№", 35);
         tovarTR.setCellValueFactory(e -> new SimpleObjectProperty<>(

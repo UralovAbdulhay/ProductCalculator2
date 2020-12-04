@@ -1,6 +1,7 @@
 package sample.Classes;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -118,10 +119,12 @@ public class Main extends Application {
         primaryStage.setTitle("Product Calculator");
         Image icon = new Image("/sample/Views/icon.png");
         primaryStage.getIcons().addAll(icon);
+        assert root != null;
         primaryStage.setScene(new Scene(root));
         primaryStage.setMaximized(true);
         primaryStage.setMinWidth(850);
         primaryStage.setMinHeight(650);
+        primaryStage.setOnCloseRequest(e-> {Platform.exit(); System.exit(0); });
         primaryStage.show();
 
         PriseList.reSetPriseList();
@@ -139,8 +142,9 @@ public class Main extends Application {
                 "    id   INTEGER      not null\n" +
                 "        primary key autoincrement,\n" +
                 "    name VARCHAR(500) not null,\n" +
-                "    date DATE default CURRENT_DATE\n" +
-                "); ";
+                "    date DATE default CURRENT_DATE,\n" +
+                "    temp numeric\n" +
+                ");";
 
         String createClientTabIndex = "CREATE UNIQUE index IF NOT EXISTS client_name_uindex \n" +
                 " ON client (name);";
@@ -164,7 +168,8 @@ public class Main extends Application {
                 "    id   INTEGER      not null\n" +
                 "        primary key autoincrement,\n" +
                 "    name VARCHAR(500) not null,\n" +
-                "    date DATE default CURRENT_DATE\n" +
+                "    date DATE default CURRENT_DATE,\n" +
+                "    temp numeric\n" +
                 ");";
 
         String createCompanyTabIndex = "create unique index if not exists kmpFromCom_name_uindex\n" +

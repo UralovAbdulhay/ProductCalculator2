@@ -749,7 +749,9 @@ public class EditTovar implements Initializable, Runnable {
 
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/sample/Views/staffEditView.fxml"));
+//        loader.setLocation(getClass().getResource("D:\\Java_Projects\\FarhodAka_colcul\\src\\sample\\Views\\staffEditView.fxml"));
         AnchorPane pane = null;
+//        "sample/Views/staffEditView.fxml"
 
         try {
             pane = loader.load();

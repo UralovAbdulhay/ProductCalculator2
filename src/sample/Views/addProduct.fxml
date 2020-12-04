@@ -20,7 +20,7 @@
                         <Font size="18.0" />
                     </font>
                 </JFXTextField>
-                <JFXComboBox fx:id="tovarMaker" editable="true" focusColor="#e38d00" labelFloat="true" onKeyTyped="#controlButton" prefHeight="39.0" prefWidth="300.0" promptText="Производитель" unFocusColor="#1a368c" HBox.hgrow="ALWAYS">
+                <JFXComboBox fx:id="tovarMaker" editable="true" focusColor="#e38d00" labelFloat="true" onHidden="#controlButton" prefHeight="39.0" prefWidth="300.0" promptText="Производитель" unFocusColor="#1a368c" HBox.hgrow="ALWAYS">
                 </JFXComboBox>
                 <JFXTextField fx:id="tovarModel" focusColor="#e38d00" labelFloat="true" onKeyTyped="#controlButton" prefHeight="39.0" prefWidth="230.0" promptText="Модел" unFocusColor="#1a368c" HBox.hgrow="ALWAYS">
                     <font>

@@ -35,7 +35,6 @@ public class Stavkalar {
 
     public Stavkalar() {
         resetStavkaShablons();
-        initValue();
     }
 
     public Stavkalar(double stTrans, double stCIP,
@@ -43,6 +42,8 @@ public class Stavkalar {
                      double stUSZ_EUR, double stBojxona,
                      double stNDS1Bez, double stNDS1S,
                      double stNDS2) {
+
+        initValue();
 
         this.stTrans = stTrans;
         this.stCIP = stCIP;
@@ -99,6 +100,8 @@ public class Stavkalar {
                 }
             }
         }
+
+        System.out.println(getClass().getName() + " init Value ishladi");
     }
 
     public void resetStavkaShablons() {
