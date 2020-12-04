@@ -334,8 +334,7 @@ public class Connections {
                 project.setPrTugallanganVaqti(doneDate);
                 project.setPrStavkalar(stavkalar);
 
-                System.out.println(stavkalar.toString());
-                System.out.println(this.getClass().getName());
+
 
                 ResultSet set = connection.createStatement().executeQuery(
                         "SELECT  " +
@@ -410,7 +409,6 @@ public class Connections {
     }
 
     public Project selectProjectFromDB(long temp) {
-        System.out.println("temp = " + temp);
         Project project = null;
 
         try (Connection con = connect()) {
@@ -1020,7 +1018,7 @@ public class Connections {
             e.printStackTrace();
         }
 
-        System.out.println("temp = " + temp);
+
         Project project1 = selectProjectFromDB(temp);
         System.out.println(project1);
         project1.addProjectZakazList(project.getProjectZakazList());
@@ -1062,7 +1060,7 @@ public class Connections {
                 "doneDate = '" + doneDate + "' " +
                 "WHERE nomer_zakaz = " + projectDone.getNumPr() +
                 ";";
-        System.out.println(sql);
+
         try (Connection connection = connect()) {
             PreparedStatement statement = connection.prepareStatement(sql);
             System.out.println("setProjectDone statement = " + statement.executeUpdate());
@@ -1079,7 +1077,7 @@ public class Connections {
                 "doneDate = " + null + " " +
                 "WHERE nomer_zakaz = " + projectDone.getNumPr() +
                 ";";
-        System.out.println(sql);
+
         try (Connection connection = connect()) {
             PreparedStatement statement = connection.prepareStatement(sql);
             System.out.println("setProjectDone statement = " + statement.executeUpdate());

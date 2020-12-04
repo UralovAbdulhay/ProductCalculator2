@@ -101,7 +101,7 @@ public class Stavkalar {
             }
         }
 
-        System.out.println(getClass().getName() + " init Value ishladi");
+
     }
 
     public void resetStavkaShablons() {

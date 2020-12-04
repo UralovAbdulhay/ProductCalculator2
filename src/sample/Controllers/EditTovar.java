@@ -114,8 +114,8 @@ public class EditTovar implements Initializable, Runnable {
     private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
     private DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
-    public  ObservableList<Project> notDoneProjects = FXCollections.observableArrayList();
-    public  ObservableList<Project> doneProjects = FXCollections.observableArrayList();
+    public ObservableList<Project> notDoneProjects = FXCollections.observableArrayList();
+    public ObservableList<Project> doneProjects = FXCollections.observableArrayList();
 
 
     public void tozalaQidir(ActionEvent actionEvent) {
@@ -269,7 +269,7 @@ public class EditTovar implements Initializable, Runnable {
     public void run() {
 
 
-        while (parentTabPane.getSelectionModel().getSelectedItem().getId().equals("projectsTab") && ishla ) {
+        while (parentTabPane.getSelectionModel().getSelectedItem().getId().equals("projectsTab") && ishla) {
             try {
                 Thread.sleep(1000L);
             } catch (InterruptedException e) {
@@ -467,17 +467,18 @@ public class EditTovar implements Initializable, Runnable {
         showNotEmptyKurs();
     }
 
+    boolean b = true;
+
     @FXML
-    private void refreshKurs(ActionEvent event)  {
+    private void refreshKurs() {
 
         //  baza va internet sinxronizatsiyasi bo'ladi
         courseRefreshBt.setDisable(true);
 
-        System.out.println("Befor run");
-
-
-        if (new Api_kurs().netIsAvailable()) {
-            new Api_kurs().start();
+        if (new Api_kurs().netIsAvailable() ) {
+            if(b) {
+                new Api_kurs().start();
+            }
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText("No connection to INTERNET!");
@@ -487,7 +488,20 @@ public class EditTovar implements Initializable, Runnable {
         }
 
         courseRefreshBt.setDisable(false);
-            refreshKurs2();
+        refreshKurs2();
+
+        if (b) {
+            b = false;
+            try {
+                Thread.sleep(1500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            refreshKurs();
+        } else {
+            b = true;
+        }
+
     }
 
     public void refreshKurs2() {
@@ -559,7 +573,6 @@ public class EditTovar implements Initializable, Runnable {
         newColumn.setPrefWidth(prefWidth);
         newColumn.setMaxWidth(maxWidth);
         newColumn.setStyle("-fx-alignment: CENTER");
-
 
         return newColumn;
     }

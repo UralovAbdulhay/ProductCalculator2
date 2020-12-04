@@ -21,9 +21,7 @@ import java.text.SimpleDateFormat;
 
 public class Main extends Application {
 
-    //    private Connection con = null;
-//    private Statement statement = null;
-//    private ResultSet resultSet = null;
+
     private String dataBase = "baza/colcul.db";
 
 
@@ -38,62 +36,6 @@ public class Main extends Application {
         return conn;
     }
 
-
-//    static {
-//        PriseList.priseLists.add(new PriseList(new Tovar(1, "8479899709", "Birinchi",
-//                "HBD 275/H90", "OZAK/Кsfdaай", 120, 0.8, "usd",
-//                0.08, 0.1, 0.05, LocalDate.of(1999, 3, 24),
-//                "шт", "Eng qimmat tavar")));
-//
-//        PriseList.priseLists.addAll(
-//
-//                new PriseList(new Tovar(2, "8472161200", "Ikkinchi",
-//                        "SITC14023", "ITC/Китай", 100, 0.70, "usd",
-//                        0.09, 0.05, 0.1, LocalDate.of(2000, 8, 6),
-//                        "шт", "Chedirmalar mavjud")),
-//
-//                new PriseList(new Tovar(3, "8479899708", "HBD 275/H90 ДОРОЖНЫЙ БОЛЛАРД (В комплекте 4шт.  БОЛЛАРДОВЫХ СТОЛБ)",
-//                        "HBD 275/H90", "OZAK/Китай", 100, 0.99, "usd",
-//                        0.08, 0.1, 0.05, LocalDate.of(1999, 1, 24),
-//                        "шт", "Xitoy tavari")),
-//
-//                new PriseList(new Tovar(4, "8472161201", "SITC14023",
-//                        "SITC14023", "ITC/Китай", 102, 0.99, "usd",
-//                        0.09, 0.1, 0.05, LocalDate.of(1236, 2, 28),
-//                        "шт", "Chedirmalar mavjud")),
-//
-//                new PriseList(new Tovar(5, "8472161202", "SITC14023",
-//                        "SITC14023", "ITC/Китай", 102, 0.99, "usd",
-//                        0.09, 0.1, 0.05, LocalDate.of(1998, 9, 10),
-//                        "шт", "Chedirmalar mavjud")),
-//
-//                new PriseList(new Tovar(6, "8472161203", "SITC14023",
-//                        "SITC14023", "ITC/Китай", 102, 0.99, "usd",
-//                        0.09, 0.1, 0.05, LocalDate.of(1993, 7, 8),
-//                        "шт", "Orgilan tavar")),
-//
-//                new PriseList(new Tovar(7, "8472161204", "SITC14023",
-//                        "SITC14023", "ITC/Китай", 102, 0.99, "usd",
-//                        0.09, 0.1, 0.05, LocalDate.of(1994, 12, 3),
-//                        "шт", "Chedirmalar mavjud")),
-//
-//                new PriseList(new Tovar(8, "8472161205", "SITC14023",
-//                        "SITC14023", "ITC/Китай", 102, 0.99, "usd",
-//                        0.09, 0.1, 0.05, LocalDate.of(1989, 9, 4),
-//                        "шт", "Xitoy tavari")),
-//
-//                new PriseList(new Tovar(9, "8472161206", "SITC14023",
-//                        "SITC14023", "ITC/Китай", 102, 0.99, "usd",
-//                        0.09, 0.1, 0.05, LocalDate.now(),
-//                        "шт", "Chedirmalar mavjud"))
-//        );
-//
-//
-//        PriseList.addPriseList(new PriseList(new Tovar(10, "8479899709", "Birinchi",
-//                "HBD 275/H90", "OZAK/Кsfdaай", 100, 0.99, "usd",
-//                0.08, 0.1, 0.05, LocalDate.of(1999, 3, 24),
-//                "шт.", "Eng qimmat tavar")));
-//    }
 
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
 
@@ -124,7 +66,10 @@ public class Main extends Application {
         primaryStage.setMaximized(true);
         primaryStage.setMinWidth(850);
         primaryStage.setMinHeight(650);
-        primaryStage.setOnCloseRequest(e-> {Platform.exit(); System.exit(0); });
+        primaryStage.setOnCloseRequest(e -> {
+            Platform.exit();
+            System.exit(0);
+        });
         primaryStage.show();
 
         PriseList.reSetPriseList();
@@ -163,19 +108,17 @@ public class Main extends Application {
                 ");";
 
 
-        String createCompanyTab = "create table if not exists kmpFromCom\n" +
+        String createCompanyTab = "create table if not exists company\n" +
                 "(\n" +
-                "    id   INTEGER      not null\n" +
+                "    id   INTEGER      not null \n" +
                 "        primary key autoincrement,\n" +
                 "    name VARCHAR(500) not null,\n" +
                 "    date DATE default CURRENT_DATE,\n" +
                 "    temp numeric\n" +
                 ");";
 
-        String createCompanyTabIndex = "create unique index if not exists kmpFromCom_name_uindex\n" +
-                "    on kmpFromCom (name);";
-
-
+        String createCompanyTabIndex = "create unique index if not exists company_name_uindex\n" +
+                "    on company (name);";
 
 
         String createMakerTab = "create table if not exists maker\n" +
@@ -184,12 +127,21 @@ public class Main extends Application {
                 "        primary key autoincrement,\n" +
                 "    name    VARCHAR(200) not null,\n" +
                 "    country VARCHAR(200),\n" +
-                "    sana    DATE default current_date not null\n" +
+                "    sana    DATE default current_date not null,\n" +
+                "    temp    numeric\n" +
                 ");";
 
         String createMakerTabIndex = "create unique index if not exists maker_name_uindex\n" +
                 "    on maker (name);";
 
+        String createPasswordTab = "create table if not exists passwords \n" +
+                "(\n" +
+                "    userName varchar(50) not null\n" +
+                "        constraint passwords_pk\n" +
+                "            primary key,\n" +
+                "    password varchar(50) not null,\n" +
+                "    date     date default current_date\n" +
+                ");";
 
 
         String createProjectTab = "create table if not exists project\n" +
@@ -199,20 +151,33 @@ public class Main extends Application {
                 "            primary key autoincrement,\n" +
                 "    name              VARCHAR(500) not null,\n" +
                 "    start_date        DATETIME default CURRENT_TIMESTAMP,\n" +
-                "    shoshilinch       BOOLEAN  default FALSE not null,\n" +
-                "    muhum             BOOLEAN  default false not null,\n" +
+                "    shoshilinch       BOOLEAN  default 0,\n" +
+                "    muhum             BOOLEAN  default 0,\n" +
                 "    client_id         INTEGER      not null,\n" +
                 "    from_com_id       INTEGER      not null,\n" +
-                "    raxbar_xodim_id   INTEGER      not null,\n" +
+                "    raxbar_xodim_id   INTEGER      not null\n" +
+                "        references xodimlar,\n" +
                 "    kiritgan_xodim_id INTEGER      not null,\n" +
                 "    masul_xodim_id    INTEGER      not null,\n" +
                 "    end_date          DATETIME     not null,\n" +
                 "    formula           INTEGER  default 0 not null,\n" +
                 "    komment           VARCHAR(1500),\n" +
-                "    done              BOOLEAN  default FALSE not null\n" +
-                ");\n";
+                "    done              BOOLEAN  default 0 not null,\n" +
+                "    temp              varchar(30),\n" +
+                "    doneDate          date,\n" +
+                "    transStavka       double   default 0 not null,\n" +
+                "    cipStavka         double   default 0 not null,\n" +
+                "    bojStavka         double   default 0 not null,\n" +
+                "    nds1S             double   default 0 not null,\n" +
+                "    nds1Bez           double   default 0 not null,\n" +
+                "    nds2              double   default 0 not null,\n" +
+                "    usdSumStavka      double   default 0 not null,\n" +
+                "    rubSumStavka      double   default 0 not null,\n" +
+                "    eurSumStavka      double   default 0 not null\n" +
+                ");";
 
-
+        String createProjectTabIndex = "create unique index if not exists maker_name_uindex\n" +
+                "    on project (temp);";
 
         String createStavkaTabIn = "create table if not exists stavka\n" +
                 "(\n" +
@@ -248,8 +213,7 @@ public class Main extends Application {
                 "    on tovar (name);";
 
 
-
-        String createXodimlarTab  = "create table if not exists xodimlar\n" +
+        String createXodimlarTab = "create table if not exists xodimlar\n" +
                 "(\n" +
                 "    id         INTEGER     not null\n" +
                 "        primary key autoincrement,\n" +
@@ -258,18 +222,22 @@ public class Main extends Application {
                 "    last_name  VARCHAR(50),\n" +
                 "    birth_day  DATE,\n" +
                 "    come_date  date default current_date,\n" +
-                "    lavozim    VARCHAR(50)\n" +
+                "    lavozim    VARCHAR(50),\n" +
+                "    temp       numeric\n" +
                 ");";
 
 
         String createXodimlarTabIndex = "create unique index if not exists xodimlar_first_name_uindex\n" +
                 "    on xodimlar (first_name, sure_name, last_name);";
 
-        String createXodimlarTabIndex1 = "create unique index if not exists xodimlar_sure_name_uindex\n" +
+        String createXodimlarTabIndex1 = "create unique index if not exists xodimlar_index_name\n" +
+                "    on xodimlar (first_name);";
+
+        String createXodimlarTabIndex2 = "create unique index if not exists xodimlar_sure_name_uindex\n" +
                 "    on xodimlar (first_name, sure_name);";
 
 
-        String createZakazListTabIndex = "create table if not exists zakazList\n" +
+        String createZakazListTab = "create table if not exists zakazList\n" +
                 "(\n" +
                 "    tovar_id           INTEGER     not null,\n" +
                 "    maker_id           INTEGER     not null,\n" +
@@ -302,7 +270,10 @@ public class Main extends Application {
             System.out.println("createXodimlarTab = " + connection.createStatement().execute(createXodimlarTab));
             System.out.println("createXodimlarTabIndex = " + connection.createStatement().execute(createXodimlarTabIndex));
             System.out.println("createXodimlarTabIndex1 = " + connection.createStatement().execute(createXodimlarTabIndex1));
-            System.out.println("createZakazListTabIndex = " + connection.createStatement().execute(createZakazListTabIndex));
+            System.out.println("createZakazListTab = " + connection.createStatement().execute(createZakazListTab));
+            System.out.println("createZakazListTab = " + connection.createStatement().execute(createXodimlarTabIndex2));
+            System.out.println("createZakazListTab = " + connection.createStatement().execute(createProjectTabIndex));
+            System.out.println("createZakazListTab = " + connection.createStatement().execute(createPasswordTab));
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());

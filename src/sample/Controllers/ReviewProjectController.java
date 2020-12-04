@@ -26,7 +26,7 @@ public class ReviewProjectController implements Initializable {
     @FXML
     private Label summaUZSLab;
     @FXML
-    private TableView projectReviewTable;
+    private TableView<TovarZakaz> projectReviewTable;
     @FXML
     private Label nameLab;
     @FXML
@@ -54,6 +54,7 @@ public class ReviewProjectController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         initTable();
+
     }
 
     public void setProject(Project project) {
@@ -61,8 +62,8 @@ public class ReviewProjectController implements Initializable {
 
         ObservableList<TovarZakaz> tovarZakazs = observableArrayList(this.project.getProjectZakazList());
         PriseList.setTr(tovarZakazs);
-        initWindow();
         projectReviewTable.setItems(tovarZakazs);
+        initWindow();
     }
 
     public void initWindow() {
@@ -79,15 +80,14 @@ public class ReviewProjectController implements Initializable {
         DecimalFormat format = new DecimalFormat("#,000.000");
 
         if (project.getPrFormulaNum() == 1) {
-            summaUZSLab.setText(format.format(project.getProjectZakazList().stream().mapToDouble(TovarZakaz::getZakazNDS2liSumm).sum()) + " sum");
+            summaUZSLab.setText(format.format(projectReviewTable.getItems().stream().mapToDouble(TovarZakaz::getZakazNDS2liSumm).sum()) + " sum");
+
         } else {
-            summaUZSLab.setText(format.format(project.getProjectZakazList().stream().mapToDouble(TovarZakaz::getZakazDDPsumm).sum()) + " sum");
+            summaUZSLab.setText(format.format(projectReviewTable.getItems().stream().mapToDouble(TovarZakaz::getZakazDDPsumm).sum()) + " sum");
+
         }
-//        System.out.println("project stavka");
-//        System.out.println(project.getPrStavkalar().toString());
-//        System.out.println(project.getPrStavkalar().equals(project.getProjectZakazList().get(0).getStavkalar()));
-//        System.out.println("tovarZakaz stavka");
-        System.out.println(project.getProjectZakazList().get(0).getStavkalar().toString());
+
+        System.out.println("\n" + project.getProjectZakazList().get(0).toString());
 
         if (project.isDone() && project.getPrTugallanganVaqti() != null) {
             doneDateLab.setText(project.getPrTugallanganVaqti().format(dateTimeFormatter));

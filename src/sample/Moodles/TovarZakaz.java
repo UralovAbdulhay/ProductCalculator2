@@ -54,9 +54,11 @@ public class TovarZakaz extends Tovar {
     private double zakazNDS2liNarxi;
     private double zakazNDS2liSumm;
 
-    public static double zakUsdUsz;
-    public static double zakEurUsz;
-    public static double zakRubUsz;
+//    public static double zakUsdUsz;
+//    public static double zakEurUsz;
+//    public static double zakRubUsz;
+
+
 
     public static boolean selected;
 
@@ -71,31 +73,29 @@ public class TovarZakaz extends Tovar {
 
         if (stavkalar == null) {
             this.stavkalar = new Stavkalar();
-//            System.out.println("tovarZakaz Stavkalar NULL");
         } else {
             this.stavkalar = stavkalar;
-//            System.out.println("tovarZakaz Stavkalar NOT NULL");
         }
 
         this.zakazSoni = priseList.getAddCount();                         // zakaz qilingan tovar soni
 
         this.zakazSummaExw = this.getTovarNarxi() * this.zakazSoni;                   //  n ta tovar summasi
-        this.zakazTransProNatija = this.getTovarTransportNarxi() * stavkalar.getStTrans();       //  this.tovar ning natijaviy trans. stavkasi
+        this.zakazTransProNatija = this.getTovarTransportNarxi() * this.stavkalar.getStTrans();       //  this.tovar ning natijaviy trans. stavkasi
         this.zakazTransNarxi = this.getTovarNarxi() * this.zakazTransProNatija;        //  har bir tovar uchun trans narxi
         this.zakazTransSumm = this.zakazSummaExw * this.zakazTransProNatija;               //  berilgan zakaz uchun trans summasi
         this.zakazTransLiNarx = this.getTovarNarxi() + this.zakazTransNarxi;          //  har bir tovar uchun transport bilan  birgalikdagi Narxi
         this.zakazTransLiSumma = this.zakazTransLiNarx * this.zakazSoni;                     //  berilgan zakaz uchun transport bilan birgalikdagi Summa
 
         /* private maydonlar  */
-        this.zakazCIPStavka = stavkalar.getStCIP();
-        this.zakazCIPNarxiUSD = this.zakazTransLiNarx / stavkalar.getStCIP();                     // CIP Narxi   USD
+        this.zakazCIPStavka = this.stavkalar.getStCIP();
+        this.zakazCIPNarxiUSD = this.zakazTransLiNarx / this.stavkalar.getStCIP();                     // CIP Narxi   USD
         this.zakazCIPSummUSD = this.zakazCIPNarxiUSD * this.zakazSoni;                   // CIP summasi USD
 
-//        this.zakazCIPNarxiUSZ = this.zakazCIPNarxiUSD * stavkalar.getStUSD_USZ();                   // CIP Narxi UZS
-        this.zakazCIPNarxiUSZ = this.zakazCIPNarxiUSD * zakUsdUsz;                   // CIP Narxi UZS
+        this.zakazCIPNarxiUSZ = this.zakazCIPNarxiUSD * this.stavkalar.getStUSD_USZ();                   // CIP Narxi UZS
+//        this.zakazCIPNarxiUSZ = this.zakazCIPNarxiUSD * zakUsdUsz;                   // CIP Narxi UZS
         double a = this.zakazCIPNarxiUSZ;
 
-        this.zakazBojYigini = a * stavkalar.getStBojxona();                                     // bojxona yiginlari UZS
+        this.zakazBojYigini = a * this.stavkalar.getStBojxona();                                     // bojxona yiginlari UZS
         double b = this.zakazBojYigini;
 
         this.zakazPoshlinaSumm = a * this.getTovarPoshlina();                    // Poshlina summasi UZS
@@ -106,9 +106,9 @@ public class TovarZakaz extends Tovar {
 
 
         if (selected) {
-            this.zakazNDS1Narxi = ((a + b + c + d) * stavkalar.getStNDS1S());                             //  NDS1  miqdori
+            this.zakazNDS1Narxi = ((a + b + c + d) * this.stavkalar.getStNDS1S());                             //  NDS1  miqdori
         } else {
-            this.zakazNDS1Narxi = ((a + b + c + d) * stavkalar.getStNDS1Bez());                             //  NDS1  miqdori
+            this.zakazNDS1Narxi = ((a + b + c + d) * this.stavkalar.getStNDS1Bez());                             //  NDS1  miqdori
         }
 
         double k = this.zakazNDS1Narxi;
@@ -119,9 +119,9 @@ public class TovarZakaz extends Tovar {
         /*    pivate  maydon oxiri  */
 
 
-        this.zakazDDPnarxi = this.zakazKelishNarxi / getTovarDDP();                                 // DDP narxi
+        this.zakazDDPnarxi = this.zakazKelishNarxi / super.getTovarDDP();                                 // DDP narxi
         this.zakazDDPsumm = this.zakazDDPnarxi * this.zakazSoni;                                //  DDP summasi
-        this.zakazNDS2liNarxi = this.zakazDDPnarxi + (this.zakazDDPnarxi * stavkalar.getStNDS2());        // NDS2 li narx
+        this.zakazNDS2liNarxi = this.zakazDDPnarxi + (this.zakazDDPnarxi * this.stavkalar.getStNDS2());        // NDS2 li narx
         this.zakazNDS2liSumm = this.zakazNDS2liNarxi * this.zakazSoni;                           // NDS2 li summa
 
 
@@ -140,6 +140,7 @@ public class TovarZakaz extends Tovar {
         this.zakazUchirishBt.setGraphic(icon);
 
         zakazHisobla();
+
     }
 
 
@@ -157,8 +158,8 @@ public class TovarZakaz extends Tovar {
         this.zakazCIPNarxiUSD = (this.zakazTransLiNarx / stavkalar.getStCIP());                     // CIP Narxi   USD
         this.zakazCIPSummUSD = (this.zakazCIPNarxiUSD * this.zakazSoni);                   // CIP summasi USD
 
-//        this.zakazCIPNarxiUSZ = (this.zakazCIPNarxiUSD * stavkalar.getStUSD_USZ());                   // CIP Narxi UZS
-        this.zakazCIPNarxiUSZ = (this.zakazCIPNarxiUSD * zakUsdUsz);                   // CIP Narxi UZS
+        this.zakazCIPNarxiUSZ = (this.zakazCIPNarxiUSD * this.stavkalar.getStUSD_USZ());                   // CIP Narxi UZS
+//        this.zakazCIPNarxiUSZ = (this.zakazCIPNarxiUSD * zakUsdUsz);                   // CIP Narxi UZS
 
         double a = this.zakazCIPNarxiUSZ;
 
@@ -197,7 +198,6 @@ public class TovarZakaz extends Tovar {
                 new SpinnerValueFactory.IntegerSpinnerValueFactory
                         (1, 1_000_000, this.zakazSoni, 1)
         );
-        new ControllerTable().summaHisobla();
 
     }
 
@@ -260,33 +260,6 @@ public class TovarZakaz extends Tovar {
 
     public void setZakazSoni(int zakazSoni) {
         this.zakazSoni = zakazSoni;
-        zakazHisobla();
-    }
-
-    public double getZakUsdUsz() {
-        return zakUsdUsz;
-    }
-
-    public void setZakUsdUsz(double zakUsdUsz) {
-        TovarZakaz.zakUsdUsz = zakUsdUsz;
-        zakazHisobla();
-    }
-
-    public double getZakEurUsz() {
-        return zakEurUsz;
-    }
-
-    public void setZakEurUsz(double zakEurUsz) {
-        TovarZakaz.zakEurUsz = zakEurUsz;
-        zakazHisobla();
-    }
-
-    public double getZakRubUsz() {
-        return zakRubUsz;
-    }
-
-    public void setZakRubUsz(double zakRubUsz) {
-        TovarZakaz.zakRubUsz = zakRubUsz;
         zakazHisobla();
     }
 
@@ -610,6 +583,10 @@ public class TovarZakaz extends Tovar {
         zakazHisobla();
     }
 
+    public void setStavkalar(Stavkalar stavkalar) {
+        this.stavkalar = stavkalar;
+    }
+
 
     public double getStTrans() {
         return stavkalar.getStTrans();
@@ -680,17 +657,15 @@ public class TovarZakaz extends Tovar {
 
     @Override
     public String toString() {
-        return "\n TovarZakaz{" +
-                ", zakazSoni=" + zakazSoni +
-                ", zakazKamaytirishBt=" + zakazKamaytirishBt +
-                ", zakazUzgartir=" + zakazUzgartir +
-                ", zakazUchirishBt=" + zakazUchirishBt +
+        return "TovarZakaz{" +
+                "zakazSoni=" + zakazSoni +
                 ", zakazSummaExw=" + zakazSummaExw +
                 ", zakazTransProNatija=" + zakazTransProNatija +
                 ", zakazTransNarxi=" + zakazTransNarxi +
                 ", zakazTransSumm=" + zakazTransSumm +
                 ", zakazTransLiSumma=" + zakazTransLiSumma +
                 ", zakazTransLiNarx=" + zakazTransLiNarx +
+                ", zakazCIPStavka=" + zakazCIPStavka +
                 ", zakazCIPNarxiUSD=" + zakazCIPNarxiUSD +
                 ", zakazCIPSummUSD=" + zakazCIPSummUSD +
                 ", zakazCIPNarxiUSZ=" + zakazCIPNarxiUSZ +
@@ -704,7 +679,7 @@ public class TovarZakaz extends Tovar {
                 ", zakazDDPsumm=" + zakazDDPsumm +
                 ", zakazNDS2liNarxi=" + zakazNDS2liNarxi +
                 ", zakazNDS2liSumm=" + zakazNDS2liSumm +
-                ", controllerTable=" + controllerTable +
+                ", stavkalar=" + stavkalar +
                 '}';
     }
 }

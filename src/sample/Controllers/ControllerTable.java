@@ -130,31 +130,12 @@ public class ControllerTable implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         stavkalar = new Stavkalar();
-        if (!kursUrnataymi) {
 
-//            usdTf.setText(new Stavkalar().getStUSD_USZ() + "");
-//            rubTf.setText(new Stavkalar().getStUSD_RUB() + "");
-//            eurTf.setText(new Stavkalar().getStUSD_EUR() + "");
-//
+
             usdTf.setText(stavkalar.getStUSD_USZ() + "");
             rubTf.setText(stavkalar.getStUSD_RUB() + "");
             eurTf.setText(stavkalar.getStUSD_EUR() + "");
-//
-            TovarZakaz.zakUsdUsz = stavkalar.getStUSD_USZ();
-            TovarZakaz.zakRubUsz = stavkalar.getStUSD_RUB();
-            TovarZakaz.zakEurUsz = stavkalar.getStUSD_EUR();
 
-//
-//            TovarZakaz.zakUsdUsz = new Stavkalar().getStUSD_USZ();
-//            TovarZakaz.zakRubUsz = new Stavkalar().getStUSD_RUB();
-//            TovarZakaz.zakEurUsz = new Stavkalar().getStUSD_EUR();
-
-            kursUrnataymi = true;
-        } else {
-            usdTf.setText(TovarZakaz.zakUsdUsz + "");
-            rubTf.setText(TovarZakaz.zakRubUsz + "");
-            eurTf.setText(TovarZakaz.zakEurUsz + "");
-        }
 
         BirinchiTable();
         zakazTazble();
@@ -517,7 +498,7 @@ public class ControllerTable implements Initializable {
                     }
                 }
                 if (!bormi) {
-                    TovarZakaz.tovarZakazList.add(new TovarZakaz(mainTable.getItems().get(i), null));
+                    TovarZakaz.tovarZakazList.add(new TovarZakaz(mainTable.getItems().get(i), this.stavkalar));
                     TovarZakaz.tovarZakazList.forEach(
                             e -> {
                                 e.getZakazUzgartir().setOnMouseClicked(
@@ -593,16 +574,14 @@ public class ControllerTable implements Initializable {
 
             summLable.get(0).setText(format.format(zakazSumma));
             summLable.get(1).setText(format.format(zakazSumma
-                    / TovarZakaz.zakUsdUsz));
+                    / stavkalar.getStUSD_USZ()));
             summLable.get(2).setText(format.format(zakazSumma
-                    / TovarZakaz.zakRubUsz));
+                    / stavkalar.getStUSD_RUB()));
             summLable.get(3).setText(format.format(zakazSumma
-                    / TovarZakaz.zakEurUsz));
+                    / stavkalar.getStUSD_EUR()));
 
         } else {
-
             summLable.forEach(e -> e.setText((format.format(0))));
-
         }
     }
 
@@ -779,7 +758,7 @@ public class ControllerTable implements Initializable {
         zCIPuzsLab.setResizable(false);
 
 
-        zCIPnarxUzs = creatTabCol((TovarZakaz.zakUsdUsz) + " so'm");
+        zCIPnarxUzs = creatTabCol((this.stavkalar.getStUSD_USZ()) + " so'm");
         zCIPnarxUzs.setResizable(false);
         zCIPnarxUzs.setStyle("-fx-alignment: CENTER");
         zCIPnarxUzs.setCellValueFactory(e -> new SimpleObjectProperty<>(
@@ -941,7 +920,7 @@ public class ControllerTable implements Initializable {
 
 // password fieldni kursatish
 
-    public void showDialog() throws IOException {
+    public void showDialog()  {
 
         if (kursatBt.isSelected()) {
             passHb.setVisible(true);
@@ -1127,40 +1106,48 @@ public class ControllerTable implements Initializable {
         helperTable.refresh();
     }
 
+    boolean b = true;
     @FXML
     private void kursniYangila() {
 
         try {
-            TovarZakaz.zakRubUsz = Double.parseDouble(rubTf.getText());
+             stavkalar.setStUSD_RUB(Double.parseDouble(rubTf.getText()));
         } catch (NumberFormatException e) {
             System.out.println(e.getMessage());
-            TovarZakaz.zakRubUsz = 0;
         }
         try {
-            TovarZakaz.zakEurUsz = Double.parseDouble(eurTf.getText());
+            stavkalar.setStUSD_EUR(Double.parseDouble(eurTf.getText()));
         } catch (NumberFormatException e) {
             System.out.println(e.getMessage());
-            TovarZakaz.zakEurUsz = 0;
         }
         try {
-            TovarZakaz.zakUsdUsz = Double.parseDouble(usdTf.getText());
+            stavkalar.setStUSD_USZ(Double.parseDouble(usdTf.getText()));
         } catch (NumberFormatException e) {
             System.out.println(e.getMessage());
-            TovarZakaz.zakUsdUsz = 0;
         }
 
+        summaHisobla();
         TovarZakaz.tovarZakazList.forEach(TovarZakaz::zakazHisobla);
-        zCIPnarxUzs.setText((TovarZakaz.zakUsdUsz) + " so'm");
+        zCIPnarxUzs.setText((stavkalar.getStUSD_USZ()) + " so'm");
         helperTable.refresh();
+
+        if (b) {
+            b=false;
+            kursniYangila();
+        }else {
+            b=true;
+        }
 
     }
 
     @FXML
     private void kursYangila_2() {
 
-        usdTf.setText(new Stavkalar().getStUSD_USZ() + "");
-        rubTf.setText(new Stavkalar().getStUSD_RUB() + "");
-        eurTf.setText(new Stavkalar().getStUSD_EUR() + "");
+        this.stavkalar = new Stavkalar();
+        TovarZakaz.tovarZakazList.forEach(e-> e.setStavkalar(this.stavkalar));
+        usdTf.setText(stavkalar.getStUSD_USZ() + "");
+        rubTf.setText(stavkalar.getStUSD_RUB() + "");
+        eurTf.setText(stavkalar.getStUSD_EUR() + "");
         kursniYangila();
     }
 

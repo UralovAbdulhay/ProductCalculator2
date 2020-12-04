@@ -41,13 +41,12 @@ public class Api_kurs extends Thread {
         }
     }
 
+
     public void getCourses() {
 
-
-//        if (netIsAvailable()) {
             ObservableList<Valyuta> courseList = FXCollections.observableArrayList();
             URL url = null;
-//        HttpURLConnection con = null;
+
             URLConnection con = null;
             try {
                 url = new URL("https://nbu.uz/en/exchange-rates/json/");
@@ -91,7 +90,6 @@ public class Api_kurs extends Thread {
 
             System.out.println("run end");
 
-//        }
     }
 
 

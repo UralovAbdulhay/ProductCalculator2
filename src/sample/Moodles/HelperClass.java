@@ -2,7 +2,6 @@ package sample.Moodles;
 
 import sample.Controllers.ControllerTable;
 
-import static sample.Moodles.TovarZakaz.zakUsdUsz;
 
 public class HelperClass {
 
@@ -26,7 +25,7 @@ public class HelperClass {
         tovarZakaz.setZakazCIPSummUSD((tovarZakaz.getZakazCIPNarxiUSD() * tovarZakaz.getZakazSoni()));                   // CIP summasi USD
 
 //        this.zakazCIPNarxiUSZ = (this.zakazCIPNarxiUSD * stavkalar.getStUSD_USZ());                   // CIP Narxi UZS
-        tovarZakaz.setZakazCIPNarxiUSZ(tovarZakaz.getZakazCIPNarxiUSD() * zakUsdUsz);                   // CIP Narxi UZS
+        tovarZakaz.setZakazCIPNarxiUSZ(tovarZakaz.getZakazCIPNarxiUSD() * stavkalar.getStUSD_USZ());                   // CIP Narxi UZS
 
         double a = tovarZakaz.getZakazCIPNarxiUSZ();
 
