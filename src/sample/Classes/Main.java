@@ -11,6 +11,7 @@ import sample.Controllers.ControllerOyna;
 import sample.Moodles.PriseList;
 import sample.Moodles.Stavkalar;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
@@ -20,6 +21,7 @@ import java.text.SimpleDateFormat;
 
 
 public class Main extends Application {
+
 
 
     private String dataBase = "baza/colcul.db";
@@ -300,7 +302,8 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-
+        File file = new File("baza");
+        file.mkdir();
         launch(args);
     }
 }
