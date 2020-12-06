@@ -12,16 +12,20 @@ import sample.Moodles.PriseList;
 import sample.Moodles.Stavkalar;
 
 import java.io.File;
+import java.nio.file.*;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 
 public class Main extends Application {
-
 
 
     private String dataBase = "baza/colcul.db";
@@ -69,6 +73,7 @@ public class Main extends Application {
         primaryStage.setMinWidth(850);
         primaryStage.setMinHeight(650);
         primaryStage.setOnCloseRequest(e -> {
+            copyDB();
             Platform.exit();
             System.exit(0);
         });
@@ -80,6 +85,26 @@ public class Main extends Application {
         ControllerOyna controller = loader.getController();
         controller.setMainStage(primaryStage);
 
+    }
+
+    private DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH.mm");
+    private String appDataReserve = System.getenv("APPDATA") +
+            "\\ProductCalculator\\baza\\reserve\\";
+
+    private void copyDB() {
+
+        Path sourceFile = Paths.get("baza/colcul.db");
+        Path targetFile = Paths.get(appDataReserve +
+                dateFormatter.format(LocalDateTime.now()) + " " + sourceFile.getFileName()
+        );
+
+        try {
+            Files.copy(sourceFile, targetFile, StandardCopyOption.REPLACE_EXISTING);
+            System.out.println("File successful copied!");
+        } catch (IOException e) {
+            System.out.println("File Not copied!");
+        }
+        System.out.println(appDataReserve);
     }
 
     private void createTables() {
@@ -304,6 +329,11 @@ public class Main extends Application {
     public static void main(String[] args) {
         File file = new File("baza");
         file.mkdir();
+        file = new File(System.getenv("APPDATA") +
+                "\\ProductCalculator\\baza\\reserve\\");
+
+        System.out.println(file.getAbsolutePath()+ "\n" + file.mkdirs());
+
         launch(args);
     }
 }

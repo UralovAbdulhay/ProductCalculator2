@@ -1126,17 +1126,17 @@ public class ControllerTable implements Initializable {
             System.out.println(e.getMessage());
         }
 
-        summaHisobla();
         TovarZakaz.tovarZakazList.forEach(TovarZakaz::zakazHisobla);
+        summaHisobla();
         zCIPnarxUzs.setText((stavkalar.getStUSD_USZ()) + " so'm");
         helperTable.refresh();
 
-        if (b) {
-            b=false;
-            kursniYangila();
-        }else {
-            b=true;
-        }
+//        if (b) {
+//            b=false;
+//            kursniYangila();
+//        }else {
+//            b=true;
+//        }
 
     }
 
@@ -1175,8 +1175,8 @@ public class ControllerTable implements Initializable {
             zNDS1Narxi.setText((stavkalar.getStNDS1Bez() * 100) + " %");
 
         }
-        summaHisobla();
         TovarZakaz.tovarZakazList.forEach(TovarZakaz::zakazHisobla);
+        summaHisobla();
     }
 
 }
