@@ -18,9 +18,7 @@ import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -88,7 +86,7 @@ public class Main extends Application {
     }
 
     private DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH.mm");
-    private String appDataReserve = System.getenv("APPDATA") +
+    private static String appDataReserve = System.getenv("APPDATA") +
             "\\ProductCalculator\\baza\\reserve\\";
 
     private void copyDB() {
@@ -327,12 +325,28 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-        File file = new File("baza");
-        file.mkdir();
-        file = new File(System.getenv("APPDATA") +
-                "\\ProductCalculator\\baza\\reserve\\");
+        File file1 = new File("baza");
+        file1.mkdirs();
 
-        System.out.println(file.getAbsolutePath()+ "\n" + file.mkdirs());
+       File file = new File(appDataReserve);
+
+        File bazaTarget = new File("baza/colcul.db");
+        File bazaSource = new File("src/colcul.db");
+
+
+
+        System.out.println(file.getAbsolutePath() + "\t" + " crete folder  = " + file.mkdir());
+
+        if (!bazaTarget.exists()) {
+            try {
+                System.out.println("getCanonicalPath = "+bazaTarget.getPath());
+                Files.copy(Paths.get(bazaSource.getPath()), Paths.get(bazaTarget.getPath()));
+                System.out.println("DB success copied!");
+            } catch (IOException e) {
+                System.out.println("DB NOT copied!");
+                e.printStackTrace();
+            }
+        }
 
         launch(args);
     }
