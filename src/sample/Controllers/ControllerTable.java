@@ -5,6 +5,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXToggleButton;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView;
+import javafx.application.Platform;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.beans.binding.Bindings;
@@ -946,6 +947,8 @@ public class ControllerTable implements Initializable {
 
 
         }
+
+        helperTable.refresh();
     }
 
     // parolni tekshirish
@@ -1086,6 +1089,10 @@ public class ControllerTable implements Initializable {
         stage.initOwner(mainStage);
         stage.setResizable(false);
         stage.show();
+
+        stage.setOnCloseRequest(e -> {
+            summaHisobla();
+        });
 
         ZakazEditViewController controller = loader.getController();
         controller.setTovarZakaz(helperTable.getSelectionModel().getSelectedItem());

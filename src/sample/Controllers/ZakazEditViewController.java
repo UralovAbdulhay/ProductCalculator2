@@ -165,11 +165,13 @@ public class ZakazEditViewController implements Initializable {
         controllerTable.refreshHelperTable();
 
         stage.close();
+        controllerTable.summaHisobla();
     }
 
     @FXML
     private void cancelAdd(ActionEvent event) {
         stage.close();
+        controllerTable.summaHisobla();
     }
 
     void init() {

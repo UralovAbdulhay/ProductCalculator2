@@ -7,10 +7,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.DateCell;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import sample.Classes.Connections;
 import sample.Moodles.*;
 
@@ -68,10 +71,6 @@ public class AddProject implements Initializable {
     @FXML
     private JFXButton okButton;
 
-    private ObservableList<Xodimlar> xodimlars = FXCollections.observableArrayList(new Connections().getXodimlarFromSql());
-    private ObservableList<Client> clients = FXCollections.observableArrayList(new Connections().getClientFromSql());
-    private ObservableList<Company> companies = FXCollections.observableArrayList(new Connections().getCompanyFromSql());
-
 
     private ObservableList<String> xodimlarsName = FXCollections.observableArrayList();
     private ObservableList<String> clientsName = FXCollections.observableArrayList();
@@ -103,7 +102,7 @@ public class AddProject implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         okButton.setDisable(true);
 
-        objectTOName();
+        objectToName();
 
         prKiritgan.setItems(xodimlarsName);
         prRahbar.setItems(xodimlarsName);
@@ -155,12 +154,33 @@ public class AddProject implements Initializable {
             faylTanla.setInitialDirectory(null);
         }
 
+        Callback<DatePicker, DateCell> kunFactory = new Callback<DatePicker, DateCell>() {
+                    @Override
+                    public DateCell call(DatePicker param) {
+                        return
+                                new DateCell(){
+                                    @Override
+                                    public void updateItem(LocalDate item, boolean empty) {
+                                        super.updateItem(item, empty);
+                                        if (item.isBefore(LocalDate.now().plusDays(1))) {
+                                            setDisable(true);
+                                            setStyle("-fx-background-color: rgba(163,163,163,0.15)");
+                                        }
+
+                                    }
+                                };
+                    }
+                };
+
+        prDate.setDayCellFactory(kunFactory);
+
     }
 
-    private void objectTOName() {
-        xodimlars.forEach(e -> xodimlarsName.add(e.getIsm()));
-        clients.forEach(e -> clientsName.add(e.getName()));
-        companies.forEach(e -> companiesName.add(e.getName()));
+    private void objectToName() {
+        new Connections().getXodimlarFromSql().forEach(e -> xodimlarsName.add(e.getIsm()));
+        new Connections().getClientFromSql().forEach(e -> clientsName.add(e.getName()));
+        new Connections().getCompanyFromSql().forEach(e -> companiesName.add(e.getName()));
+
     }
 
     private void initProject() {
@@ -180,7 +200,7 @@ public class AddProject implements Initializable {
             }
         }
 
-        Xodimlar kiritgan = xodimlars.stream().
+        Xodimlar kiritgan = new Connections().getXodimlarFromSql().stream().
                 filter(e -> e.getIsm().trim().equals(prKiritgan.getValue().trim()))
                 .findAny()
                 .orElse(new Connections().insertToXodimlar(
@@ -189,7 +209,7 @@ public class AddProject implements Initializable {
                 );
 
 
-        Xodimlar raxbar = xodimlars.stream().
+        Xodimlar raxbar = new Connections().getXodimlarFromSql().stream().
                 filter(
                         e -> e.getIsm().trim().toLowerCase().equals(prRahbar.getValue().trim().toLowerCase())
                 )
@@ -200,7 +220,7 @@ public class AddProject implements Initializable {
                 );
 
 
-        Xodimlar masul = xodimlars.stream().
+        Xodimlar masul = new Connections().getXodimlarFromSql().stream().
                 filter(
                         e -> e.getIsm().trim().toLowerCase().equals(prMasul.getValue().trim().toLowerCase())
                 )
@@ -210,17 +230,17 @@ public class AddProject implements Initializable {
                         )
                 );
 
-        Client client = clients.stream().
+        Client client = new Connections().getClientFromSql().stream().
                 filter(
                         e -> e.getName().trim().equals(prClient.getValue().trim())
-                ).
-                findAny()
+                )
+                .findAny()
                 .orElse(new Connections().insertToClient(
                         new Client(prClient.getValue().trim())
                 ));
 
 
-        Company company = companies.stream().
+        Company company = new Connections().getCompanyFromSql().stream().
                 filter(
                         e -> e.getName().trim().equals(prFromCom.getValue().trim())
                 ).

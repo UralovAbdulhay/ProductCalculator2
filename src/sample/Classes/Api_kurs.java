@@ -21,6 +21,7 @@ public class Api_kurs extends Thread {
     public void run() {
         System.out.println("run start");
         getCourses();
+
     }
 
     private EditTovar editTovar;

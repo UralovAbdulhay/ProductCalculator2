@@ -73,6 +73,7 @@ public class AddProductController implements Initializable {
     private Stage stage;
     private PriseList priseList;
     private boolean uzgrtirishmi;
+    private EditTovar editTovar;
 
     private ObservableList<String> costType = FXCollections.observableArrayList("usd");
     private ObservableList<String> measurementType = FXCollections.observableArrayList("шт", "кг", "л", "м");
@@ -122,6 +123,7 @@ public class AddProductController implements Initializable {
         tovarEXW.setTextFormatter(new TextFormatter<Double>(filter));
         tovarDDP.setTextFormatter(new TextFormatter<Double>(filter));
 
+        tovarDate.setValue(LocalDate.now());
 
     }
 
@@ -190,6 +192,7 @@ public class AddProductController implements Initializable {
 
             PriseList.addPriseList(priseList);
         }
+        editTovar.setMouseActionToChekBox();
         stage.close();
     }
 
@@ -247,5 +250,7 @@ public class AddProductController implements Initializable {
 
     }
 
-
+    public void setEditTovar(EditTovar editTovar) {
+        this.editTovar = editTovar;
+    }
 }

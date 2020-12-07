@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTabPane;
+import com.sun.xml.internal.ws.api.ha.StickyFeature;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.beans.binding.Bindings;
@@ -43,7 +44,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 
-public class EditTovar implements Initializable, Runnable {
+public class EditTovar extends Thread implements Initializable, Runnable {
 
     @FXML
     private JFXButton courseRefreshBt;
@@ -268,7 +269,6 @@ public class EditTovar implements Initializable, Runnable {
 
     public void run() {
 
-
         while (parentTabPane.getSelectionModel().getSelectedItem().getId().equals("projectsTab") && ishla) {
             try {
                 Thread.sleep(1000L);
@@ -281,6 +281,8 @@ public class EditTovar implements Initializable, Runnable {
 
         System.out.println("while false");
     }
+
+
 
     private void editBtControl() {
         if (listTable.getSelectionModel().getSelectedItem() != null) {
@@ -469,6 +471,7 @@ public class EditTovar implements Initializable, Runnable {
 
     boolean b = true;
 
+
     @FXML
     private void refreshKurs() {
 
@@ -656,6 +659,7 @@ public class EditTovar implements Initializable, Runnable {
 
         addProductController = loader.getController();
         addProductController.setStage(stage);
+        addProductController.setEditTovar(this);
 
     }
 
@@ -678,12 +682,14 @@ public class EditTovar implements Initializable, Runnable {
         for (PriseList priseList : PriseList.priseLists) {
             priseList.getDelCheck().setSelected(false);
         }
+        listTable.refresh();
     }
 
     public void selected(MouseEvent mouseEvent) {
         this.delPrBt.setDisable(
                 PriseList.priseLists.stream().noneMatch(p -> p.getDelCheck().isSelected())
         );
+        System.out.println( PriseList.priseLists.stream().noneMatch(p -> p.getDelCheck().isSelected()));
     }
 
     @FXML
@@ -697,9 +703,21 @@ public class EditTovar implements Initializable, Runnable {
             ObservableList<PriseList> lists = FXCollections.observableArrayList();
             PriseList.priseLists.stream().filter(p -> p.getDelCheck().isSelected()).forEach(p -> lists.add(p));
             removePrises(lists);
-            PriseList.setTr();
+            PriseList.reSetPriseList();
+
+            setMouseActionToChekBox();
+
             deletePriseBt.setSelected(false);
             deletePrise();
+        }
+    }
+
+     void setMouseActionToChekBox() {
+
+        if (!PriseList.priseLists.isEmpty()) {
+            PriseList.priseLists.forEach(p -> {
+                p.getDelCheck().setOnMouseClicked(this::selected);
+            });
         }
     }
 
@@ -710,7 +728,10 @@ public class EditTovar implements Initializable, Runnable {
         Optional<ButtonType> buttonType = alert.showAndWait();
         if (buttonType.get() == ButtonType.OK) {
             removePrises(listTable.getSelectionModel().getSelectedItem());
-            PriseList.setTr();
+            PriseList.reSetPriseList();
+
+            setMouseActionToChekBox();
+
             deletePriseBt.setSelected(false);
             deletePrise();
         }
@@ -1000,6 +1021,10 @@ public class EditTovar implements Initializable, Runnable {
             case "priseTab": {
                 System.out.println("priseTab ishladi");
                 ruyxatUrnat();
+
+                deletePriseBt.setSelected(false);
+                deletePrise();
+                listTable.refresh();
                 ishla = false;
                 break;
             }

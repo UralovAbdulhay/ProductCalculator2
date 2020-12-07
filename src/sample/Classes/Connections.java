@@ -1123,6 +1123,19 @@ public class Connections {
         }
     }
 
+    public boolean isFullStavka() {
+
+        String sql = "select count(kod) as count from stavka;";
+
+        try (Connection connection = connect()) {
+           ResultSet resultSet = connection.createStatement().executeQuery(sql);
+             return (9 == resultSet.getInt("count"));
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
     public void updateStavka(StavkaShablon shablon) {
         String sql = "UPDATE stavka SET " +
                 "name = '" + shablon.getNomi() + "', " +

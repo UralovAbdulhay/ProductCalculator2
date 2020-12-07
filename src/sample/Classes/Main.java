@@ -9,6 +9,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import sample.Controllers.ControllerOyna;
 import sample.Moodles.PriseList;
+import sample.Moodles.StavkaShablon;
 import sample.Moodles.Stavkalar;
 
 import java.io.File;
@@ -21,6 +22,8 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Main extends Application {
@@ -50,6 +53,10 @@ public class Main extends Application {
         } else {
             createNewDatabase();
             createTables();
+        }
+
+        if (!(new Connections().isFullStavka())){
+            initStavka();
         }
 
         FXMLLoader loader = new FXMLLoader();
@@ -324,29 +331,29 @@ public class Main extends Application {
     }
 
 
+    private static void initStavka() {
+
+        List<StavkaShablon> stavkaShablons = new ArrayList<>();
+        stavkaShablons.add(0, new StavkaShablon("Транспорт ставка", 0, "Транспорт ставка", "trans"));
+        stavkaShablons.add(1, new StavkaShablon("CIP ставка", 0, "Для Расчетов \"CIP ВЭД\"", "cip"));
+        stavkaShablons.add(2, new StavkaShablon("Таможня собр", 0, "Таможня собр", "boj"));
+        stavkaShablons.add(3, new StavkaShablon("НДС 1", 0, "Для Расчетов  \" DDP с НДС ВЭД\"", "nds1s"));
+        stavkaShablons.add(4, new StavkaShablon("НДС 1", 0, "Для Расчетов  \"DDP без НДС ВЭД\"", "nds1bez"));
+        stavkaShablons.add(5, new StavkaShablon("НДС 2", 0, "Для Расчетов \"DDP c НДС ВЭД\"", "nds2"));
+        stavkaShablons.add(6, new StavkaShablon("Доллар СУМ-США", 0, "СУМ", "usd_sum"));
+        stavkaShablons.add(7, new StavkaShablon("Доллар СУМ-РУБЛЬ", 0, "СУМ", "usd_rub"));
+        stavkaShablons.add(8, new StavkaShablon("Доллар СУМ-ЕВРО", 0, "СУМ", "usd_euro"));
+
+        stavkaShablons.forEach(e-> new Connections().insertToStavka(e));
+    }
+
+
     public static void main(String[] args) {
         File file1 = new File("baza");
         file1.mkdirs();
-
-       File file = new File(appDataReserve);
-
-        File bazaTarget = new File("baza/colcul.db");
-        File bazaSource = new File("src/colcul.db");
-
-
-
+        File file = new File(appDataReserve);
         System.out.println(file.getAbsolutePath() + "\t" + " crete folder  = " + file.mkdir());
 
-        if (!bazaTarget.exists()) {
-            try {
-                System.out.println("getCanonicalPath = "+bazaTarget.getPath());
-                Files.copy(Paths.get(bazaSource.getPath()), Paths.get(bazaTarget.getPath()));
-                System.out.println("DB success copied!");
-            } catch (IOException e) {
-                System.out.println("DB NOT copied!");
-                e.printStackTrace();
-            }
-        }
 
         launch(args);
     }
