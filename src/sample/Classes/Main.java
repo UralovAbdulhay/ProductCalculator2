@@ -352,7 +352,7 @@ public class Main extends Application {
         File file1 = new File("baza");
         file1.mkdirs();
         File file = new File(appDataReserve);
-        System.out.println(file.getAbsolutePath() + "\t" + " crete folder  = " + file.mkdir());
+        System.out.println(file.getAbsolutePath() + "\t" + " crete folder  = " + file.mkdirs());
 
 
         launch(args);
