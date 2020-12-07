@@ -504,7 +504,7 @@ public class EditTovar extends Thread implements Initializable, Runnable {
         } else {
             b = true;
         }
-
+kursTable.refresh();
     }
 
     public void refreshKurs2() {
