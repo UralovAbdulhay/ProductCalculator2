@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTimePicker?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="636.0"
+      prefWidth="761.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.172-ea"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.AddProject">
+
+    <children>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0" VBox.vgrow="ALWAYS">
+            <children>
+                <JFXComboBox fx:id="prKiritgan" editable="true" labelFloat="true" onHidden="#disContr"
+                             onKeyTyped="#disContr" prefHeight="25.0" prefWidth="300.0" promptText="%kiritgan"
+                             HBox.hgrow="ALWAYS"/>
+                <JFXComboBox fx:id="prRahbar" editable="true" labelFloat="true" layoutX="10.0" layoutY="10.0"
+                             onHidden="#disContr" onKeyTyped="#disContr" prefHeight="25.0" prefWidth="300.0"
+                             promptText="%raxbar" HBox.hgrow="ALWAYS"/>
+                <JFXComboBox fx:id="prMasul" editable="true" labelFloat="true" layoutX="169.0" layoutY="10.0"
+                             onHidden="#disContr" onKeyTyped="#disContr" prefHeight="25.0" prefWidth="300.0"
+                             promptText="%masul" HBox.hgrow="ALWAYS"/>
+            </children>
+            <padding>
+                <Insets left="30.0" right="30.0" top="15.0"/>
+            </padding>
+        </HBox>
+        <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" spacing="60.0">
+            <children>
+                <JFXTextField fx:id="prName" labelFloat="true" onInputMethodTextChanged="#disContr"
+                              onKeyTyped="#disContr" prefHeight="25.0" prefWidth="330.0" promptText="%projectNomi"
+                              HBox.hgrow="ALWAYS">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </JFXTextField>
+                <JFXComboBox fx:id="prClient" editable="true" labelFloat="true" onHidden="#disContr"
+                             onKeyTyped="#disContr" prefHeight="25.0" prefWidth="330.0" promptText="%klient"/>
+            </children>
+            <VBox.margin>
+                <Insets/>
+            </VBox.margin>
+            <padding>
+                <Insets left="30.0" right="30.0"/>
+            </padding>
+        </HBox>
+        <HBox alignment="CENTER" layoutX="10.0" layoutY="90.0" prefHeight="100.0" prefWidth="200.0" spacing="60.0"
+              VBox.vgrow="ALWAYS">
+            <children>
+                <JFXComboBox fx:id="prFromCom" editable="true" labelFloat="true" onHidden="#disContr"
+                             onKeyTyped="#disContr" prefHeight="25.0" prefWidth="330.0" promptText="%kmpFrom"
+                             HBox.hgrow="ALWAYS"/>
+                <JFXComboBox fx:id="prTypeCol" editable="true" labelFloat="true" layoutX="299.0" layoutY="26.0"
+                             onHidden="#disContr" prefHeight="25.0" prefWidth="330.0" promptText="%projectFormula"
+                             HBox.hgrow="ALWAYS"/>
+            </children>
+            <VBox.margin>
+                <Insets/>
+            </VBox.margin>
+            <padding>
+                <Insets left="30.0" right="30.0"/>
+            </padding>
+        </HBox>
+        <HBox layoutX="10.0" layoutY="142.0" prefHeight="100.0" prefWidth="200.0">
+            <children>
+                <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0"
+                      spacing="40.0" HBox.hgrow="ALWAYS">
+                    <children>
+                        <JFXCheckBox fx:id="prIsImportant" text="%muhum">
+                            <font>
+                                <Font size="18.0"/>
+                            </font>
+                        </JFXCheckBox>
+                        <JFXCheckBox fx:id="prIsShoshilinch" text="%shoshilinch">
+                            <font>
+                                <Font size="18.0"/>
+                            </font>
+                        </JFXCheckBox>
+                        <JFXDatePicker fx:id="prDate" editable="false" onHidden="#disContr" prefHeight="32.0"
+                                       prefWidth="301.0" promptText="%projectSrok" showWeekNumbers="true"/>
+                        <JFXTimePicker fx:id="prTime" onHidden="#disContr" prefHeight="28.0" prefWidth="123.0"
+                                       promptText="%soat"/>
+                    </children>
+                    <padding>
+                        <Insets left="30.0" right="30.0"/>
+                    </padding>
+                </HBox>
+            </children>
+        </HBox>
+        <HBox alignment="CENTER_RIGHT" prefHeight="33.0" prefWidth="761.0" VBox.vgrow="NEVER">
+            <children>
+                <Hyperlink fx:id="prFile" onAction="#saveFile" text="%file">
+                    <font>
+                        <Font size="16.0"/>
+                    </font>
+                </Hyperlink>
+            </children>
+            <padding>
+                <Insets right="50.0"/>
+            </padding>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <children>
+                <JFXTextField fx:id="prComment" labelFloat="true" prefHeight="25.0" prefWidth="330.0"
+                              promptText="%komment" HBox.hgrow="ALWAYS">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </JFXTextField>
+            </children>
+            <padding>
+                <Insets left="30.0" right="30.0"/>
+            </padding>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="105.0" prefWidth="750.0" spacing="450.0">
+            <children>
+                <JFXButton fx:id="cancelButton" buttonType="RAISED" contentDisplay="CENTER" onAction="#cancelAdd"
+                           prefHeight="40.0" prefWidth="100.0" ripplerFill="#e127d4"
+                           style="-fx-background-color: #ff5000; -fx-background-radius: 10;" text=" ">
+                    <graphic>
+                        <MaterialDesignIconView fill="#750202" glyphName="CLOSE_BOX_OUTLINE" size="30"/>
+                    </graphic>
+                </JFXButton>
+                <JFXButton fx:id="okButton" buttonType="RAISED" contentDisplay="CENTER" defaultButton="true"
+                           onAction="#okAdd" prefHeight="40.0" prefWidth="100.0" ripplerFill="#554ffc"
+                           style="-fx-background-color: #07bf14; -fx-background-radius: 10;" text=" ">
+                    <graphic>
+                        <MaterialDesignIconView fill="#0c6507" glyphName="CHECKBOX_MARKED_OUTLINE" size="30"/>
+                    </graphic>
+                </JFXButton>
+            </children>
+        </HBox>
+    </children>
+</VBox>

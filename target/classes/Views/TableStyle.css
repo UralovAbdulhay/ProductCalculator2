@@ -1,0 +1,26 @@
+/*.button:hover{*/
+/*    -fx-cursor: hand;*/
+/*    -fx-background-color: #75ff70;*/
+/*}*/
+
+.column-header-background {
+    -fx-background-color: azure;
+}
+
+.table-row-cell:hover {
+
+}
+
+.radio-button:hover {
+    -fx-underline: true;
+    -fx-cursor: hand;
+}
+
+
+.radio-button:selected {
+    -fx-background-color: #aae7ff;
+    -fx-background-radius: 10px;
+}
+
+
+

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import de.jensd.fx.glyphs.octicons.OctIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" prefHeight="339.0" prefWidth="518.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.settingsController.SettingsController">
+   <children>
+        <HBox VBox.vgrow="ALWAYS">
+            <children>
+                <VBox alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="80.0" spacing="5.0" HBox.hgrow="NEVER">
+                    <children>
+                        <JFXButton buttonType="RAISED" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#showLanguageSettings" prefHeight="50.0" prefWidth="80.0" ripplerFill="#1513ae" text=" ">
+                            <graphic>
+                                <OctIconView fill="#15267a" glyphName="GLOBE" size="35" />
+                            </graphic>
+                        </JFXButton>
+                        <JFXButton buttonType="RAISED" contentDisplay="CENTER" onAction="#showPasswordsSettings" prefHeight="50.0" prefWidth="80.0" ripplerFill="#1513ae" text=" ">
+                            <graphic>
+                                <MaterialDesignIconView fill="#15267a" glyphName="SECURITY" size="35" />
+                            </graphic>
+                        </JFXButton>
+                    </children>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </padding>
+                </VBox>
+                <VBox fx:id="mainVbox" alignment="CENTER" HBox.hgrow="ALWAYS">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0" />
+               </children>
+               <padding>
+                  <Insets right="20.0" />
+               </padding></VBox>
+            </children>
+        </HBox>
+   </children>
+</VBox>
