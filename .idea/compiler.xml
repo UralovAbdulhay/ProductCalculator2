@@ -16,11 +16,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="FarhodAka_colcul" />
+        <module name="ProductCalculator" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="FarhodAka_colcul" target="8" />
+      <module name="ProductCalculator" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>

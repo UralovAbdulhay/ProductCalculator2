@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/FarhodAka_colcul.iml" filepath="$PROJECT_DIR$/FarhodAka_colcul.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ProductCalculator.iml" filepath="$PROJECT_DIR$/ProductCalculator.iml" />
     </modules>
   </component>
 </project>
