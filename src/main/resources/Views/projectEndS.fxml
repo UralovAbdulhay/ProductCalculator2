@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" prefHeight="551.0" prefWidth="660.0" spacing="30.0"
+      xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="sample.Controllers.projectEndView.ProjectEndSController">
+    <children>
+        <HBox alignment="CENTER" spacing="30.0">
+            <children>
+                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="40.0" HBox.hgrow="ALWAYS">
+                    <children>
+                        <JFXTextField fx:id="summaDDP" editable="false" labelFloat="true" promptText="%ddpSumm"
+                                      VBox.vgrow="ALWAYS">
+                            <font>
+                                <Font size="16.0"/>
+                            </font>
+                        </JFXTextField>
+                        <HBox spacing="15.0">
+                            <children>
+                                <JFXTextField fx:id="darSoliqStavka" editable="false" labelFloat="true" prefWidth="80.0"
+                                              promptText="%stavka">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                </JFXTextField>
+                                <JFXTextField fx:id="darSoliq" editable="false" labelFloat="true" layoutX="10.0"
+                                              layoutY="10.0" promptText="%darSoliq" HBox.hgrow="ALWAYS">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                </JFXTextField>
+                            </children>
+                        </HBox>
+                        <HBox spacing="15.0">
+                            <children>
+                                <JFXTextField fx:id="ddpLiXarajatStavka" labelFloat="true"
+                                              onKeyReleased="#ddpLiXarajatStavkaAction" prefWidth="80.0"
+                                              promptText="%stavka">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                </JFXTextField>
+                                <JFXTextField fx:id="ddpLiXarajat" editable="false" labelFloat="true" layoutX="10.0"
+                                              layoutY="10.0" promptText="%ddpLiXarajatlar" HBox.hgrow="ALWAYS">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                </JFXTextField>
+                            </children>
+                        </HBox>
+                        <HBox spacing="15.0">
+                            <children>
+                                <JFXTextField fx:id="ndsLiXarajatStavka" labelFloat="true"
+                                              onKeyReleased="#ndsLiXarajatStavkaAction" prefWidth="80.0"
+                                              promptText="%stavka">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                </JFXTextField>
+                                <JFXTextField fx:id="ndsLiXarajat" editable="false" labelFloat="true" layoutX="10.0"
+                                              layoutY="10.0" promptText="%ndsLiXarajatlar" HBox.hgrow="ALWAYS">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                </JFXTextField>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="40.0" HBox.hgrow="ALWAYS">
+                    <children>
+                        <JFXTextField fx:id="kelishSumma" editable="false" labelFloat="true" promptText="%kelishSumm"
+                                      VBox.vgrow="ALWAYS">
+                            <font>
+                                <Font size="16.0"/>
+                            </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="sertifikatlash" editable="false" labelFloat="true" promptText="%sertifikat"
+                                      VBox.vgrow="ALWAYS">
+                            <font>
+                                <Font size="16.0"/>
+                            </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="deklaratsiya" editable="false" labelFloat="true" layoutX="10.0"
+                                      layoutY="198.0" promptText="%dekloratsiya" VBox.vgrow="ALWAYS">
+                            <font>
+                                <Font size="16.0"/>
+                            </font>
+                        </JFXTextField>
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+        <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefWidth="670.0" spacing="30.0">
+            <children>
+                <VBox alignment="TOP_CENTER" spacing="15.0" HBox.hgrow="ALWAYS">
+                    <children>
+                        <JFXTextField fx:id="foyda" editable="false" labelFloat="true" promptText="%foyda">
+                            <font>
+                                <Font size="16.0"/>
+                            </font>
+                        </JFXTextField>
+                    </children>
+                </VBox>
+                <VBox alignment="TOP_CENTER" spacing="15.0" HBox.hgrow="ALWAYS">
+                    <children>
+                        <JFXTextField fx:id="foyizliFoyda" editable="false" labelFloat="true" layoutX="10.0"
+                                      layoutY="210.0" promptText="%foyizFoyda">
+                            <font>
+                                <Font size="16.0"/>
+                            </font>
+                        </JFXTextField>
+                    </children>
+                </VBox>
+            </children>
+            <padding>
+                <Insets left="30.0" right="30.0" top="50.0"/>
+            </padding>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="105.0" prefWidth="750.0" spacing="250.0">
+            <children>
+                <JFXButton fx:id="cancelButton" buttonType="RAISED" cancelButton="true" contentDisplay="CENTER"
+                           onAction="#cancelAdd" prefHeight="40.0" prefWidth="100.0" ripplerFill="#e127d4"
+                           style="-fx-background-color: #ff5000; -fx-background-radius: 10;" text=" ">
+                    <graphic>
+                        <MaterialDesignIconView fill="#750202" glyphName="CLOSE_BOX_OUTLINE" size="30"/>
+                    </graphic>
+                </JFXButton>
+                <JFXButton fx:id="okButton" buttonType="RAISED" contentDisplay="CENTER" defaultButton="true"
+                           onAction="#okAdd" prefHeight="40.0" prefWidth="100.0" ripplerFill="#554ffc"
+                           style="-fx-background-color: #07bf14; -fx-background-radius: 10;" text=" ">
+                    <graphic>
+                        <MaterialDesignIconView fill="#0c6507" glyphName="CHECKBOX_MARKED_OUTLINE" size="30"/>
+                    </graphic>
+                </JFXButton>
+            </children>
+        </HBox>
+    </children>
+    <padding>
+        <Insets left="30.0" right="30.0" top="40.0"/>
+    </padding>
+</VBox>
