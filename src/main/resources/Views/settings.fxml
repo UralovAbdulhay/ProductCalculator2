@@ -20,7 +20,7 @@
                         </JFXButton>
                         <JFXButton buttonType="RAISED" contentDisplay="CENTER" onAction="#showPasswordsSettings" prefHeight="50.0" prefWidth="80.0" ripplerFill="#1513ae" text=" ">
                             <graphic>
-                                <MaterialDesignIconView fill="#15267a" glyphName="SECURITY" size="35" />
+                                <MaterialDesignIconView fill="#15267a" glyphName="KEY_VARIANT" size="35" />
                             </graphic>
                         </JFXButton>
                     </children>

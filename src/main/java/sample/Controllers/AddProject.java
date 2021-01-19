@@ -309,7 +309,7 @@ public class AddProject implements Initializable {
             okButton.getScene().getWindow().hide();
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setHeaderText(bundle.getString("createdAlertMass"));
+            alert.setHeaderText(bundle.getString("editedAlertMass"));
             alert.showAndWait();
 
             editTovar.refreshProjectList();

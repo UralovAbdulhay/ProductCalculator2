@@ -106,6 +106,7 @@ public class PasswordSettingsController implements Initializable {
                 // password ni almashtirganligi haqidagi habar
                 if(conn.updatePassword(oldPassword, newPassword)){
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setHeaderText(bundle.getString("changedAlertMass"));
                     alert.showAndWait();
                     cancelAdd(event);
                     passList.getItems().clear();
