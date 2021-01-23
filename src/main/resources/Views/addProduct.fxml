@@ -20,7 +20,7 @@
                         <Font size="18.0" />
                     </font>
                 </JFXTextField>
-                <JFXComboBox fx:id="tovarMaker" focusColor="#e38d00" labelFloat="true" onHidden="#controlButton" prefHeight="39.0" prefWidth="300.0" promptText="%maker" style="-fx-font-size: 18" unFocusColor="#1a368c" HBox.hgrow="ALWAYS">
+                <JFXComboBox fx:id="tovarMaker" editable="true" focusColor="#e38d00" labelFloat="true" onHidden="#controlButton" prefHeight="39.0" prefWidth="300.0" promptText="%maker" style="-fx-font-size: 18" unFocusColor="#1a368c" HBox.hgrow="ALWAYS">
                 </JFXComboBox>
                 <JFXTextField fx:id="tovarModel" focusColor="#e38d00" labelFloat="true" onKeyTyped="#controlButton" prefHeight="39.0" prefWidth="230.0" promptText="%model" style="-fx-font-size: 18" unFocusColor="#1a368c" HBox.hgrow="ALWAYS">
                     <font>
@@ -86,8 +86,7 @@
                 <JFXComboBox fx:id="tovarMeasurementType" focusColor="#e38d00" labelFloat="true" onHidden="#controlButton" prefHeight="25.0" prefWidth="150.0" promptText="%ulchov" style="-fx-font-size: 18" unFocusColor="#1a368c">
 
                 </JFXComboBox>
-                <JFXDatePicker fx:id="tovarDate" defaultColor="#e38d00" editable="false" onHidden="#controlButton" prefHeight="34.0" prefWidth="171.0" showWeekNumbers="true"
-                style="-fx-font-size: 18">
+                <JFXDatePicker fx:id="tovarDate" defaultColor="#e38d00" editable="false" onHidden="#controlButton" prefHeight="34.0" prefWidth="171.0" showWeekNumbers="true" style="-fx-font-size: 18">
                 </JFXDatePicker>
             </children>
             <padding>
