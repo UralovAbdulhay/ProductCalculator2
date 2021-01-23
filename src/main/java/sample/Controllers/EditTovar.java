@@ -368,21 +368,24 @@ public class EditTovar extends Thread implements Initializable, Runnable {
         tovarQushimcha.setResizable(false);
 
 
-        TableColumn<PriseList, String> tovarTrans = creatTabCol(bundle.getString("transport"), 80);
+        TableColumn<PriseList, String> tovarTrans = creatTabCol(bundle.getString("transport"),
+                (bundle.getString("transport").length()*12));
         tovarTrans.setCellValueFactory(e -> new SimpleStringProperty(
                 e.getValue().getTovarTransportNarxiString()
         ));
         tovarTrans.setSortable(false);
 
 
-        TableColumn<PriseList, String> tovarAksiz = creatTabCol(bundle.getString("aksiz"), 80);
+        TableColumn<PriseList, String> tovarAksiz = creatTabCol(bundle.getString("aksiz"),
+                (bundle.getString("aksiz").length()*12));
         tovarAksiz.setCellValueFactory(e -> new SimpleStringProperty(
                 e.getValue().getTovarAksizString()
         ));
         tovarAksiz.setSortable(false);
 
 
-        TableColumn<PriseList, String> tovarPoshlina = creatTabCol(bundle.getString("poshlina"), 80);
+        TableColumn<PriseList, String> tovarPoshlina = creatTabCol(bundle.getString("poshlina"),
+                (bundle.getString("poshlina").length()*12));
         tovarPoshlina.setCellValueFactory(e -> new SimpleStringProperty(
                 e.getValue().getTovarPoshlinaString()
         ));
@@ -876,7 +879,8 @@ public class EditTovar extends Thread implements Initializable, Runnable {
                 e.getValue().getPrMasul().getIsm()
         ));
 
-        TableColumn<Project, String> prEndDate = creatTabCol(bundle.getString("projectSrok"), 200);
+        TableColumn<Project, String> prEndDate = creatTabCol(bundle.getString("projectSrok"),
+                300);
         prEndDate.setStyle("-fx-alignment: CENTER");
         prEndDate.setCellValueFactory(e -> new SimpleStringProperty(
                 e.getValue().getTugashVaqti().format(dateTimeFormatter)
@@ -971,7 +975,8 @@ public class EditTovar extends Thread implements Initializable, Runnable {
                 e.getValue().getPrMasul().getIsm()
         ));
 
-        TableColumn<Project, String> prEndDate = creatTabCol(bundle.getString("projectSrok"));
+        TableColumn<Project, String> prEndDate = creatTabCol(bundle.getString("projectSrok"),
+                300);
         prEndDate.setStyle("-fx-alignment: CENTER");
         prEndDate.setCellValueFactory(e -> new SimpleStringProperty(
                 e.getValue().getTugashVaqti().format(dateTimeFormatter)

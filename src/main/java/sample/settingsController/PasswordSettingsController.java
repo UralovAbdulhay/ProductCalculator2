@@ -71,6 +71,7 @@ public class PasswordSettingsController implements Initializable {
         passList.getItems().clear();
         passList.getItems().addAll(connections.getPasswordList());
 
+        passList.setStyle("-fx-font-size: 16");
 
         passList.setOnKeyReleased(event -> {
             nameLabel.setText(passList.getSelectionModel().getSelectedItem() + "");

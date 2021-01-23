@@ -90,13 +90,6 @@ public class AddProductController implements Initializable {
         bundle = resources;
         okButton.setDisable(true);
 
-        tovarCostType.getEditor().setEditable(true);
-        tovarCostType.getEditor().setFont(new Font(18));
-        tovarCostType.getEditor().setEditable(false);
-
-        tovarMeasurementType.getEditor().setEditable(true);
-        tovarMeasurementType.getEditor().setFont(new Font(18));
-        tovarMeasurementType.getEditor().setEditable(false);
 
 //        tovarDate.getEditor().setEditable(true);
 
@@ -160,9 +153,11 @@ public class AddProductController implements Initializable {
             priseList.setTovarNarxi(Double.parseDouble(tovarEXW.getText().trim()));
             priseList.setTovarDDP(Double.parseDouble(tovarDDP.getText().trim()));
             priseList.setTovarNarxTuri(tovarCostType.getValue() + "".trim());
-            priseList.setTovarTransportNarxi(Double.parseDouble(tovarTransport.getText().trim()));
-            priseList.setTovarAksiz(Double.parseDouble(tovarAksiz.getText().trim()));
-            priseList.setTovarPoshlina(Double.parseDouble(tovarPoshlina.getText().trim()));
+
+            priseList.setTovarTransportNarxi(Double.parseDouble(tovarTransport.getText().trim()) / 100);
+            priseList.setTovarAksiz(Double.parseDouble(tovarAksiz.getText().trim()) / 100);
+            priseList.setTovarPoshlina(Double.parseDouble(tovarPoshlina.getText().trim()) / 100);
+
             priseList.setToarSana(tovarDate.getValue());
             priseList.setTovarUlchovBirligi(tovarMeasurementType.getValue() + "".trim());
             priseList.setTovarKomment(tovarKomment.getText().trim());
@@ -211,9 +206,11 @@ public class AddProductController implements Initializable {
             tovarModel.setText(priseList.getTovarModel());
             tovarEXW.setText(priseList.getTovarNarxi() + "");
             tovarDDP.setText(priseList.getTovarDDP() + "");
-            tovarPoshlina.setText(priseList.getTovarPoshlina() + "");
-            tovarAksiz.setText(priseList.getTovarAksiz() + "");
-            tovarTransport.setText(priseList.getTovarTransportNarxi() + "");
+
+            tovarPoshlina.setText(priseList.getTovarPoshlina() * 100 + "");
+            tovarAksiz.setText(priseList.getTovarAksiz() * 100 + "");
+            tovarTransport.setText(priseList.getTovarTransportNarxi() * 100 + "");
+
             tovarKod.setText(priseList.getTovarKod() + "");
             tovarKomment.setText(priseList.getTovarKomment() + "");
             tovarDate.setValue(priseList.getTovarSana());

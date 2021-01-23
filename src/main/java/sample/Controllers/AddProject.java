@@ -84,6 +84,8 @@ public class AddProject implements Initializable {
 
     private boolean isEdit = false;
 
+    private int typeColVar = 1;
+
     private Project project;
 
     private EditTovar editTovar;
@@ -111,25 +113,17 @@ public class AddProject implements Initializable {
         prFromCom.setItems(companiesName);
         prClient.setItems(clientsName);
 
+        prTypeCol.setItems(FXCollections.observableArrayList("DDP без НДС ВЭД", "DDP c НДС ВЭД", "CIP ВЭД"));
 
-        prTime.getEditor().setFont(new Font(18));
-        prKiritgan.getEditor().setFont(new Font(18));
-        prRahbar.getEditor().setFont(new Font(18));
-        prMasul.getEditor().setFont(new Font(18));
-        prTypeCol.getEditor().setFont(new Font(18));
-        prFromCom.getEditor().setFont(new Font(18));
-        prClient.getEditor().setFont(new Font(18));
-        prDate.getEditor().setFont(new Font(18));
-
-        prTypeCol.getEditor().setEditable(false);
 
         prKiritgan.getEditor().textProperty().addListener(observable -> disContr());
         prRahbar.getEditor().textProperty().addListener(observable -> disContr());
         prMasul.getEditor().textProperty().addListener(observable -> disContr());
-        prTypeCol.getEditor().textProperty().addListener(observable -> disContr());
         prFromCom.getEditor().textProperty().addListener(observable -> disContr());
         prClient.getEditor().textProperty().addListener(observable -> disContr());
         prComment.textProperty().addListener(observable -> disContr());
+
+        prTypeCol.getEditor().textProperty().addListener(observable -> initPrTypeCol());
 
         prIsImportant.setOnAction(e -> disContr());
         prIsShoshilinch.setOnAction(e -> disContr());
@@ -176,6 +170,12 @@ public class AddProject implements Initializable {
 
     }
 
+
+    private void initPrTypeCol() {
+        typeColVar = prTypeCol.getSelectionModel().getSelectedIndex();
+        disContr();
+    }
+
     private void objectToName() {
         new XodimlarConnections().getXodimlarFromSql().forEach(e -> xodimlarsName.add(e.getIsm()));
         new ClientConnections().getClientFromSql().forEach(e -> clientsName.add(e.getName()));
@@ -183,25 +183,7 @@ public class AddProject implements Initializable {
     }
 
     private void initProject() {
-        int typeCol;
-        switch (prTypeCol.getValue().trim()) {
-            case "DDP без НДС ВЭД": {
-                typeCol = 0;
-                break;
-            }
-            case "DDP c НДС ВЭД": {
-                typeCol = 1;
-                break;
-            }
-            case "CIP ВЭД": {
-                typeCol = 2;
-                break;
-            }
-            default: {
-                typeCol = -1;
-                break;
-            }
-        }
+
 
         Xodimlar kiritgan = new XodimlarConnections().getXodimlarFromSql().stream().
                 filter(e -> e.getIsm().trim().equals(prKiritgan.getValue().trim()))
@@ -262,6 +244,7 @@ public class AddProject implements Initializable {
             project.setPrKmpCompany(company);
             project.setPrRaxbar(raxbar);
             project.setPrMasul(masul);
+            project.setPrFormulaNum(prTypeCol.getSelectionModel().getSelectedIndex());
             project.setTugashVaqti(LocalDateTime.of(prDate.getValue(), prTime.getValue()));
             project.setPrKomment(prComment.getText().trim());
             project.setPrKritgan(kiritgan);
@@ -275,7 +258,8 @@ public class AddProject implements Initializable {
                     raxbar,
                     masul,
                     LocalDateTime.of(prDate.getValue(), prTime.getValue()),
-                    typeCol, prComment.getText().trim(),
+                    (prTypeCol.getSelectionModel().getSelectedIndex()),
+                    prComment.getText().trim(),
                     kiritgan,
                     tovarZakazList,
                     stavkalar
@@ -343,13 +327,17 @@ public class AddProject implements Initializable {
         this.tovarZakazList.clear();
         this.tovarZakazList.addAll(tovarZakazList);
 
-        if (typeCol == 1) {
-            prTypeCol.setValue("DDP c НДС ВЭД");  //1
-        } else if (typeCol == 0) {
-            prTypeCol.setValue("DDP без НДС ВЭД");  // 0
-        } else if (typeCol == 2) {
-            prTypeCol.setValue("CIP ВЭД");
-        }
+//        if (typeCol == 1) {
+//            prTypeCol.setValue("DDP c НДС ВЭД");  //1
+//        } else if (typeCol == 0) {
+//            prTypeCol.setValue("DDP без НДС ВЭД");  // 0
+//        } else if (typeCol == 2) {
+//            prTypeCol.setValue("CIP ВЭД");
+//        }
+
+        prTypeCol.getSelectionModel().select(typeCol);
+
+        System.out.println("setPrHisobTuri ishladi = " + prTypeCol.getSelectionModel().getSelectedIndex());
 
         //2 CIP
     }
@@ -389,12 +377,18 @@ public class AddProject implements Initializable {
         boolean tuliqmi = (
                 !(prName.getText().trim().isEmpty())
                         && !(prName.getText().trim().isEmpty())
-                        && (prKiritgan.getValue() != null && !prKiritgan.getEditor().getText().trim().isEmpty())
-                        && (prRahbar.getValue() != null && !prRahbar.getEditor().getText().trim().isEmpty())
-                        && (prMasul.getValue() != null && !prMasul.getEditor().getText().trim().isEmpty())
-                        && (prClient.getValue() != null && !prClient.getEditor().getText().trim().isEmpty())
-                        && (prFromCom.getValue() != null && !prFromCom.getEditor().getText().trim().isEmpty())
-                        && (prTypeCol.getValue() != null && !prTypeCol.getEditor().getText().trim().isEmpty())
+                        && prKiritgan.getValue() != null
+                        && !prKiritgan.getEditor().getText().trim().isEmpty()
+                        && prRahbar.getValue() != null
+//                        && !prRahbar.getEditor().getText().trim().isEmpty()
+                        && prMasul.getValue() != null
+//                        && !prMasul.getEditor().getText().trim().isEmpty()
+                        && prClient.getValue() != null
+//                        && !prClient.getEditor().getText().trim().isEmpty()
+                        && prFromCom.getValue() != null
+//                        && !prFromCom.getEditor().getText().trim().isEmpty()
+                        && prTypeCol.getValue() != null
+//                        && !prTypeCol.getEditor().getText().trim().isEmpty()
                         && (prDate.getValue() != null)
                         && (prTime.getValue() != null)
         );

@@ -156,9 +156,11 @@ public class ZakazEditViewController implements Initializable {
 
         this.tovarZakaz.setTovarDDP(Double.parseDouble(tovarDDP.getText()));
         this.tovarZakaz.setTovarNarxi(Double.parseDouble(tovarEXW.getText()));
-        this.tovarZakaz.setTovarTransportNarxi(Double.parseDouble(tovarTransport.getText()));
-        this.tovarZakaz.setTovarAksiz(Double.parseDouble(tovarAksiz.getText()));
-        this.tovarZakaz.setTovarPoshlina(Double.parseDouble(tovarPoshlina.getText()));
+
+        this.tovarZakaz.setTovarTransportNarxi(Double.parseDouble(tovarTransport.getText()) / 100);
+        this.tovarZakaz.setTovarAksiz(Double.parseDouble(tovarAksiz.getText()) / 100);
+        this.tovarZakaz.setTovarPoshlina(Double.parseDouble(tovarPoshlina.getText()) / 100);
+
         this.tovarZakaz.setTovarUlchovBirligi(tovarMeasurementType.getValue());
         this.tovarZakaz.setTovarNarxTuri(tovarCostType.getValue());
 
@@ -182,10 +184,12 @@ public class ZakazEditViewController implements Initializable {
                     tovarZakaz.getTovarIshlabChiqaruvchi().getName());
             tovarModel.setText(tovarZakaz.getTovarModel());
             tovarEXW.setText(tovarZakaz.getTovarNarxi() + "");
-            tovarDDP.setText(tovarZakaz.getTovarDDP()+"");
-            tovarPoshlina.setText(tovarZakaz.getTovarPoshlina() + "");
-            tovarAksiz.setText(tovarZakaz.getTovarAksiz() + "");
-            tovarTransport.setText(tovarZakaz.getTovarTransportNarxi() + "");
+            tovarDDP.setText(tovarZakaz.getTovarDDP() + "");
+
+            tovarPoshlina.setText(tovarZakaz.getTovarPoshlina() * 100 + "");
+            tovarAksiz.setText(tovarZakaz.getTovarAksiz() * 100 + "");
+            tovarTransport.setText(tovarZakaz.getTovarTransportNarxi() * 100 + "");
+
             tovarKod.setText(tovarZakaz.getTovarKod() + "");
             tovarKomment.setText(tovarZakaz.getTovarKomment() + "");
             tovarDate.setValue(tovarZakaz.getTovarSana());

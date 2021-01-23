@@ -301,7 +301,7 @@ public class TovarZakaz extends Tovar {
     }
 
     public String getZakazTransProNatijaStr() {
-        return decimalFormat(zakazTransProNatija);
+        return decimalFormat((double)(((int) (getZakazTransProNatija() * 1000))/10))+ " %";
     }
 
     public void setZakazTransProNatija(double zakazTransProNatija) {
@@ -638,7 +638,8 @@ public class TovarZakaz extends Tovar {
 
 
     public String getTovarAksizStr() {
-        return decimalFormat(super.getTovarAksiz());
+        return decimalFormat((double)(((int) (getTovarAksiz() * 1000))/10))+ " %";
+
     }
 
     public void setTovarAksiz(double tovarAksiz) {
@@ -652,7 +653,7 @@ public class TovarZakaz extends Tovar {
 
 
     public String getTovarPoshlinaStr() {
-        return decimalFormat(super.getTovarPoshlina());
+        return decimalFormat((double)(((int) (getTovarPoshlina() * 1000))/10))+ " %";
     }
 
     public void setTovarPoshlina(double tovarPoshlina) {

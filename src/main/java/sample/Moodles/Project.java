@@ -549,23 +549,45 @@ public class Project {
 
     @Override
     public String toString() {
-        return "Project{" +
+        return "\nProject{" +
                 "\nnumPr=" + numPr +
-                ",\n tr_pr=" + tr_pr +
-                ",\n boshlanganVaqt=" + boshlanganVaqt +
-                ",\n tugashVaqti=" + tugashVaqti +
-                ",\n proritet='" + proritet + '\'' +
-                ",\n prIsImportant=" + prIsImportant +
-                ",\n prIsShoshilinch=" + prIsShoshilinch +
-                ",\n prNomi='" + prNomi + '\'' +
-                ",\n prClient='" + prClient + '\'' +
-                ",\n prKmpCompany='" + prKmpCompany + '\'' +
-                ",\n prRaxbar='" + prRaxbar + '\'' +
-                ",\n prKritgan='" + prKritgan + '\'' +
-                ",\n prMasul='" + prMasul + '\'' +
-                ",\n prFormula='" + prFormula + '\'' +
-                ",\n prKomment='" + prKomment + '\'' +
-                ",\n projectZakazList=" + projectZakazList +
+                ", \ntr_pr=" + tr_pr +
+                ", \nboshlanganVaqt=" + boshlanganVaqt +
+                ", \ntugashVaqti=" + tugashVaqti +
+                ", \nproritet='" + proritet + '\'' +
+                ", \nprIsImportant=" + prIsImportant +
+                ", \nprIsShoshilinch=" + prIsShoshilinch +
+                ", \nprNomi='" + prNomi + '\'' +
+                ", \nprFormula='" + prFormula + '\'' +
+                ", \nprFormulaNum=" + prFormulaNum +
+                ", \nprKomment='" + prKomment + '\'' +
+                ", \nprTugallanganVaqti=" + prTugallanganVaqti +
+                ", \ndone=" + done +
+                ", \nprStavkalar=" + prStavkalar +
+                ", \nprClient=" + prClient +
+                ", \nprKmpCompany=" + prKmpCompany +
+                ", \nprRaxbar=" + prRaxbar +
+                ", \nprKritgan=" + prKritgan +
+                ", \nprMasul=" + prMasul +
+                ", \nprDDPSumma=" + prDDPSumma +
+                ", \nprKelishSumma=" + prKelishSumma +
+                ", \nprDarSoliq=" + prDarSoliq +
+                ", \nprDarSoliqStavka=" + prDarSoliqStavka +
+                ", \nprDDPliXarajatlar=" + prDDPliXarajatlar +
+                ", \nprDDPliXarStavka=" + prDDPliXarStavka +
+                ", \nprNdsliXarajatlar=" + prNdsliXarajatlar +
+                ", \nprNdsliXarStavka=" + prNdsliXarStavka +
+                ", \nprKichikCipXarajatlar=" + prKichikCipXarajatlar +
+                ", \nprKichikCipXarStavka=" + prKichikCipXarStavka +
+                ", \nprCipliXarajatlar=" + prCipliXarajatlar +
+                ", \nprCipliXarStavka=" + prCipliXarStavka +
+                ", \nprSertifikatlash=" + prSertifikatlash +
+                ", \nprDekloratsiyaXizmati=" + prDekloratsiyaXizmati +
+                ", \nprFoyda=" + prFoyda +
+                ", \nprFoydaFoyiz=" + prFoydaFoyiz +
+                ", \nprCipFoyda=" + prCipFoyda +
+                ", \nprCipFoydaFoyiz=" + prCipFoydaFoyiz +
+                ", \nprojectZakazList=" + projectZakazList +
                 "\n}";
     }
 }

@@ -22,13 +22,13 @@
             <children>
                 <JFXComboBox fx:id="prKiritgan" editable="true" labelFloat="true" onHidden="#disContr"
                              onKeyTyped="#disContr" prefHeight="25.0" prefWidth="300.0" promptText="%kiritgan"
-                             HBox.hgrow="ALWAYS"/>
+                             style="-fx-font-size: 18" HBox.hgrow="ALWAYS"/>
                 <JFXComboBox fx:id="prRahbar" editable="true" labelFloat="true" layoutX="10.0" layoutY="10.0"
                              onHidden="#disContr" onKeyTyped="#disContr" prefHeight="25.0" prefWidth="300.0"
-                             promptText="%raxbar" HBox.hgrow="ALWAYS"/>
+                             promptText="%raxbar" style="-fx-font-size: 18" HBox.hgrow="ALWAYS"/>
                 <JFXComboBox fx:id="prMasul" editable="true" labelFloat="true" layoutX="169.0" layoutY="10.0"
                              onHidden="#disContr" onKeyTyped="#disContr" prefHeight="25.0" prefWidth="300.0"
-                             promptText="%masul" HBox.hgrow="ALWAYS"/>
+                             promptText="%masul" style="-fx-font-size: 18" HBox.hgrow="ALWAYS"/>
             </children>
             <padding>
                 <Insets left="30.0" right="30.0" top="15.0"/>
@@ -44,7 +44,8 @@
                     </font>
                 </JFXTextField>
                 <JFXComboBox fx:id="prClient" editable="true" labelFloat="true" onHidden="#disContr"
-                             onKeyTyped="#disContr" prefHeight="25.0" prefWidth="330.0" promptText="%klient"/>
+                             onKeyTyped="#disContr" prefHeight="25.0" prefWidth="330.0" promptText="%klient"
+                             style="-fx-font-size: 18"/>
             </children>
             <VBox.margin>
                 <Insets/>
@@ -58,9 +59,9 @@
             <children>
                 <JFXComboBox fx:id="prFromCom" editable="true" labelFloat="true" onHidden="#disContr"
                              onKeyTyped="#disContr" prefHeight="25.0" prefWidth="330.0" promptText="%kmpFrom"
-                             HBox.hgrow="ALWAYS"/>
-                <JFXComboBox fx:id="prTypeCol" editable="true" labelFloat="true" layoutX="299.0" layoutY="26.0"
-                             onHidden="#disContr" prefHeight="25.0" prefWidth="330.0" promptText="%projectFormula"
+                             style="-fx-font-size: 18" HBox.hgrow="ALWAYS"/>
+                <JFXComboBox fx:id="prTypeCol" labelFloat="true" layoutX="299.0" layoutY="26.0" onHidden="#disContr"
+                             prefHeight="25.0" prefWidth="330.0" promptText="%projectFormula" style="-fx-font-size: 18"
                              HBox.hgrow="ALWAYS"/>
             </children>
             <VBox.margin>
@@ -86,9 +87,10 @@
                             </font>
                         </JFXCheckBox>
                         <JFXDatePicker fx:id="prDate" editable="false" onHidden="#disContr" prefHeight="32.0"
-                                       prefWidth="301.0" promptText="%projectSrok" showWeekNumbers="true"/>
+                                       prefWidth="250.0" promptText="%projectSrok" showWeekNumbers="true"
+                                       style="-fx-font-size: 18"/>
                         <JFXTimePicker fx:id="prTime" onHidden="#disContr" prefHeight="28.0" prefWidth="123.0"
-                                       promptText="%soat"/>
+                                       promptText="%soat" style="-fx-font-size: 18"/>
                     </children>
                     <padding>
                         <Insets left="30.0" right="30.0"/>

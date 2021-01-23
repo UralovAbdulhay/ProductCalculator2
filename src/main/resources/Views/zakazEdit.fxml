@@ -62,8 +62,8 @@
                     </font>
                 </JFXTextField>
                 <JFXComboBox fx:id="tovarCostType" editable="true" focusColor="#e38d00" labelFloat="true"
-                             onHidden="#controlButton" prefHeight="25.0" prefWidth="87.0" promptText="%valyuta"
-                             unFocusColor="#1a368c"/>
+                             onHidden="#controlButton" prefHeight="25.0" prefWidth="110.0" promptText="%valyuta"
+                             style="-fx-font-size: 18" unFocusColor="#1a368c"/>
             </children>
             <VBox.margin>
                 <Insets/>
@@ -75,9 +75,9 @@
         <HBox alignment="CENTER" layoutX="10.0" layoutY="110.0" prefHeight="100.0" prefWidth="200.0" spacing="50.0"
               VBox.vgrow="ALWAYS">
             <children>
-                <JFXTextField fx:id="tovarPoshlina" focusColor="#e38d00" labelFloat="true" onKeyTyped="#controlButton"
-                              prefHeight="39.0" prefWidth="180.0" promptText="%poshlina" unFocusColor="#1a368c"
-                              HBox.hgrow="ALWAYS">
+                <JFXTextField fx:id="tovarTransport" focusColor="#e38d00" labelFloat="true" layoutX="406.0"
+                              layoutY="48.0" onKeyTyped="#controlButton" prefHeight="25.0" prefWidth="180.0"
+                              promptText="%transport" unFocusColor="#1a368c" HBox.hgrow="ALWAYS">
                     <font>
                         <Font size="18.0"/>
                     </font>
@@ -89,9 +89,9 @@
                         <Font size="18.0"/>
                     </font>
                 </JFXTextField>
-                <JFXTextField fx:id="tovarTransport" focusColor="#e38d00" labelFloat="true" layoutX="406.0"
-                              layoutY="48.0" onKeyTyped="#controlButton" prefHeight="25.0" prefWidth="180.0"
-                              promptText="%transport" unFocusColor="#1a368c" HBox.hgrow="ALWAYS">
+                <JFXTextField fx:id="tovarPoshlina" focusColor="#e38d00" labelFloat="true" onKeyTyped="#controlButton"
+                              prefHeight="39.0" prefWidth="180.0" promptText="%poshlina" unFocusColor="#1a368c"
+                              HBox.hgrow="ALWAYS">
                     <font>
                         <Font size="18.0"/>
                     </font>
@@ -112,10 +112,11 @@
                     </font>
                 </JFXTextField>
                 <JFXComboBox fx:id="tovarMeasurementType" editable="true" focusColor="#e38d00" labelFloat="true"
-                             onHidden="#controlButton" prefHeight="25.0" prefWidth="128.0" promptText="%ulchov"
-                             unFocusColor="#1a368c"/>
+                             onHidden="#controlButton" prefHeight="25.0" prefWidth="150.0" promptText="%ulchov"
+                             style="-fx-font-size: 18" unFocusColor="#1a368c"/>
                 <JFXDatePicker fx:id="tovarDate" defaultColor="#e38d00" disable="true" editable="false"
-                               onHidden="#controlButton" prefHeight="34.0" prefWidth="171.0" showWeekNumbers="true"/>
+                               onHidden="#controlButton" prefHeight="34.0" prefWidth="171.0" showWeekNumbers="true"
+                               style="-fx-font-size: 18"/>
             </children>
             <padding>
                 <Insets left="40.0" right="40.0"/>

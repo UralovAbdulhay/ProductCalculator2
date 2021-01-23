@@ -163,6 +163,16 @@ public class ControllerTable implements Initializable {
         helperTable.setStyle("-fx-font-size: 14");
         mainTable.setStyle("-fx-font-size: 14");
 
+        mainTable.setRowFactory(tv->{
+            TableRow<PriseList> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2 && (!row.isEmpty())) {
+                    orderAddHelper(row.getItem());
+                }
+            });
+            return row;
+        });
+
         setDisableNextExportBt();
 
         tovarQidir.textProperty().addListener(new InvalidationListener() {
@@ -243,8 +253,8 @@ public class ControllerTable implements Initializable {
         tovarTR.setStyle("-fx-alignment: CENTER");
 
 
-        TableColumn<PriseList, Button> tovarAddBt = new TableColumn<>(bundle.getString("add"));
-        tovarAddBt.setPrefWidth(60);
+        TableColumn<PriseList, Button> tovarAddBt = creatTabCol(bundle.getString("add"),
+                (bundle.getString("add").length() * 12));
         tovarAddBt.setCellValueFactory(e -> new SimpleObjectProperty<>(
                 e.getValue().getTovarAdd()
         ));
@@ -252,11 +262,11 @@ public class ControllerTable implements Initializable {
         tovarAddBt.setStyle("-fx-alignment: CENTER");
 
 
-        TableColumn<PriseList, Integer> tovarAddCount = new TableColumn<>(bundle.getString("soni"));
+        TableColumn<PriseList, Integer> tovarAddCount = creatTabCol(bundle.getString("soni"),
+                (bundle.getString("soni").length() * 12));
         tovarAddCount.setCellValueFactory(e -> new SimpleObjectProperty<>(
                 e.getValue().getAddCount()
         ));
-        tovarAddCount.setPrefWidth(50);
         tovarAddCount.setSortable(false);
         tovarAddCount.setStyle("-fx-alignment: CENTER");
 
@@ -333,7 +343,8 @@ public class ControllerTable implements Initializable {
         tovarQushimcha.setResizable(false);
 
 
-        TableColumn<PriseList, String> tovarTrans = new TableColumn<>(bundle.getString("transport"));
+        TableColumn<PriseList, String> tovarTrans = creatTabCol(bundle.getString("transport"),
+                (bundle.getString("transport").length() * 12));
         tovarTrans.setSortable(false);
         tovarTrans.setMinWidth(60);
         tovarTrans.setPrefWidth("Transport".length() * 12);
@@ -343,20 +354,20 @@ public class ControllerTable implements Initializable {
         ));
 
 
-        TableColumn<PriseList, String> tovarAksiz = new TableColumn<>(bundle.getString("aksiz"));
+        TableColumn<PriseList, String> tovarAksiz = creatTabCol(bundle.getString("aksiz"),
+                (bundle.getString("aksiz").length() * 12));
         tovarAksiz.setSortable(false);
         tovarAksiz.setMinWidth(60);
-        tovarAksiz.setPrefWidth(60);
         tovarAksiz.setStyle("-fx-alignment: CENTER");
         tovarAksiz.setCellValueFactory(e -> new SimpleStringProperty(
                 e.getValue().getTovarAksizString()
         ));
 
 
-        TableColumn<PriseList, String> tovarPoshlina = new TableColumn<>(bundle.getString("poshlina"));
+        TableColumn<PriseList, String> tovarPoshlina = creatTabCol(bundle.getString("poshlina"),
+                (bundle.getString("poshlina").length() * 12));
         tovarPoshlina.setSortable(false);
         tovarPoshlina.setMinWidth(60);
-        tovarPoshlina.setPrefWidth("Poshlina".length() * 12);
         tovarPoshlina.setStyle("-fx-alignment: CENTER");
         tovarPoshlina.setCellValueFactory(e -> new SimpleStringProperty(
                 e.getValue().getTovarPoshlinaString()
@@ -382,21 +393,20 @@ public class ControllerTable implements Initializable {
                 e.getValue().getTovarSana()
         ));
 
-        TableColumn<PriseList, String> tovarUlchov = new TableColumn<>(bundle.getString("ulchov"));
+        TableColumn<PriseList, String> tovarUlchov = creatTabCol(bundle.getString("ulchov"),
+                (bundle.getString("ulchov").length() * 12));
         tovarUlchov.setResizable(false);
         tovarUlchov.setSortable(false);
         tovarUlchov.setMinWidth(70);
-        tovarUlchov.setPrefWidth(70);
         tovarUlchov.setStyle("-fx-alignment: CENTER");
         tovarUlchov.setCellValueFactory(e -> new SimpleStringProperty(
                 e.getValue().getTovarUlchovBirligi()
         ));
 
 
-        TableColumn<PriseList, String> tovarKomment = creatTabCol(bundle.getString("komment"), 150);
+        TableColumn<PriseList, String> tovarKomment = creatTabCol(bundle.getString("komment"), 250);
         tovarKomment.setSortable(false);
         tovarKomment.setMinWidth(200);
-        tovarKomment.setPrefWidth(200);
         tovarKomment.setStyle("-fx-alignment: CENTER");
         tovarKomment.setCellValueFactory(e -> new SimpleStringProperty(
                 e.getValue().getTovarKomment()
@@ -515,37 +525,42 @@ public class ControllerTable implements Initializable {
 
         for (int i = 0; i < mainTable.getItems().size(); i++) {
             if (mainTable.getItems().get(i).getTovarAdd().isArmed()) {
-                boolean bormi = false;
-                for (int j = 0; j < TovarZakaz.tovarZakazList.size(); j++) {
-                    if (mainTable.getItems().get(i).getTovarId() == (TovarZakaz.tovarZakazList.get(j).getTovarId())) {
-                        TovarZakaz.tovarZakazList.get(j).setZakazSoni(TovarZakaz.tovarZakazList.get(j).getZakazSoni() +
-                                mainTable.getItems().get(i).getAddCount());
-                        bormi = true;
-                        break;
-                    }
-                }
-                if (!bormi) {
-                    TovarZakaz.tovarZakazList.add(new TovarZakaz(mainTable.getItems().get(i), this.stavkalar));
-                    TovarZakaz.tovarZakazList.forEach(
-                            e -> {
-                                e.getZakazUzgartir().setOnMouseClicked(
-                                        event1 -> orderUzgartir()
-                                );
-                            }
-                    );
-                    TovarZakaz.setTr();
-                    onActionAddBt();
-                }
-                mainTable.getItems().get(i).setAddCount(1);
+                orderAddHelper(mainTable.getItems().get(i));
             }
         }
+    }
+
+    private void orderAddHelper(PriseList priseList) {
+
+        boolean bormi = false;
+        for (int j = 0; j < TovarZakaz.tovarZakazList.size(); j++) {
+            if (priseList.getTovarId() == (TovarZakaz.tovarZakazList.get(j).getTovarId())) {
+                TovarZakaz.tovarZakazList.get(j).setZakazSoni(TovarZakaz.tovarZakazList.get(j).getZakazSoni() +
+                        priseList.getAddCount());
+                bormi = true;
+                break;
+            }
+        }
+        if (!bormi) {
+            TovarZakaz.tovarZakazList.add(new TovarZakaz(priseList, this.stavkalar));
+            TovarZakaz.tovarZakazList.forEach(
+                    e -> {
+                        e.getZakazUzgartir().setOnMouseClicked(
+                                event1 -> orderUzgartir()
+                        );
+                    }
+            );
+            TovarZakaz.setTr();
+            onActionAddBt();
+        }
+        priseList.setAddCount(1);
 
         setDisableNextExportBt();
         summaHisobla();
         mainTable.refresh();
         helperTable.refresh();
-
     }
+
 
 
     void setDisableNextExportBt() {
@@ -834,7 +849,8 @@ public class ControllerTable implements Initializable {
         zBojSt.getColumns().addAll(zBoj);
 
 
-        TableColumn<TovarZakaz, String> ztovarPoshlinaOr = creatTabCol(bundle.getString("poshlina"), 60);
+        TableColumn<TovarZakaz, String> ztovarPoshlinaOr = creatTabCol(bundle.getString("poshlina"),
+                (bundle.getString("poshlina").length() * 12));
         ztovarPoshlinaOr.setResizable(false);
         ztovarPoshlinaOr.setVisible(false);
         ztovarPoshlinaOr.setStyle("-fx-alignment: CENTER");
@@ -851,7 +867,8 @@ public class ControllerTable implements Initializable {
         ));
 
 
-        TableColumn<TovarZakaz, String> ztovarAksizOr = creatTabCol(bundle.getString("aksiz"), 50);
+        TableColumn<TovarZakaz, String> ztovarAksizOr = creatTabCol(bundle.getString("aksiz"),
+                (bundle.getString("aksiz").length() * 12));
         ztovarAksizOr.setResizable(false);
         ztovarAksizOr.setVisible(false);
         ztovarAksizOr.setStyle("-fx-alignment: CENTER");
@@ -1176,7 +1193,6 @@ public class ControllerTable implements Initializable {
         privateColumnsS.forEach(e -> e.setStyle("-fx-alignment: CENTER"));
         privateColumnsCip.forEach(e -> e.setStyle("-fx-alignment: CENTER"));
     }
-
 
 
     @FXML

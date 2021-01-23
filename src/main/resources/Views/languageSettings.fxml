@@ -7,20 +7,25 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="10.0" style="-fx-background-color: #fff5d1;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.settingsController.LanguageSettingsController">
+<VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="10.0"
+      style="-fx-background-color: #fff5d1;" xmlns="http://javafx.com/javafx/8.0.172-ea"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.settingsController.LanguageSettingsController">
     <children>
-      <HBox alignment="TOP_CENTER" spacing="50.0" VBox.vgrow="ALWAYS">
-         <children>
-              <JFXComboBox fx:id="lanBox" focusColor="#15267a" labelFloat="true" onHidden="#selectLanguage" prefHeight="36.0" prefWidth="331.0" promptText="%til" style="-fx-background-color: #fff1be; -fx-font-size: 18 " />
-            <JFXButton fx:id="lanSaveBt" buttonType="RAISED" contentDisplay="CENTER" defaultButton="true" disable="true" onAction="#lanSave" prefHeight="40.0" prefWidth="60.0" text=" ">
+        <HBox alignment="TOP_CENTER" spacing="50.0" VBox.vgrow="ALWAYS">
+            <children>
+                <JFXComboBox fx:id="lanBox" focusColor="#15267a" labelFloat="true" onHidden="#selectLanguage"
+                             prefHeight="36.0" prefWidth="331.0" promptText="%til"
+                             style="-fx-background-color: #fff1be; -fx-font-size: 18 "/>
+                <JFXButton fx:id="lanSaveBt" buttonType="RAISED" contentDisplay="CENTER" defaultButton="true"
+                           disable="true" onAction="#lanSave" prefHeight="40.0" prefWidth="60.0" text=" ">
                     <graphic>
-                        <MaterialDesignIconView fill="#15267a" glyphName="CONTENT_SAVE" size="32" />
+                        <MaterialDesignIconView fill="#15267a" glyphName="CONTENT_SAVE" size="32"/>
                     </graphic>
-            </JFXButton>
-         </children>
-      </HBox>
+                </JFXButton>
+            </children>
+        </HBox>
     </children>
     <padding>
-        <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+        <Insets bottom="50.0" left="50.0" right="50.0" top="50.0"/>
     </padding>
 </VBox>
