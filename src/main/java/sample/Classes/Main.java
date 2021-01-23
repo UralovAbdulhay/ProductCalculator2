@@ -12,6 +12,7 @@ import sample.Controllers.ControllerOyna;
 import sample.Moodles.PriseList;
 import sample.Moodles.StavkaShablon;
 import sample.Moodles.Stavkalar;
+import sample.outputSettings.OutputSettings;
 
 import java.io.File;
 import java.nio.file.*;
@@ -91,7 +92,7 @@ public class Main extends Application {
         primaryStage.setMinHeight(650);
 
         primaryStage.setOnCloseRequest(e -> {
-            copyDB();
+            OutputSettings.copy();
             Platform.exit();
             System.exit(0);
         });

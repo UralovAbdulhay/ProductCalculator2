@@ -70,12 +70,16 @@ public class LocaleConfig {
     public static LocaleConfig getInstance() {
         LocaleConfig config = new LocaleConfig();
         Gson gson = new Gson();
-        try {
-            config = gson.fromJson(new FileReader(LOCALE_CONFIG_FILE), LocaleConfig.class);
-        } catch (FileNotFoundException e) {
-            config.initLocale();
-            Logger.getLogger(LocaleConfig.class.getName()).log(Level.SEVERE, null, e);
+
+        if (new File(LOCALE_CONFIG_FILE).exists()) {
+            try {
+                config = gson.fromJson(new FileReader(LOCALE_CONFIG_FILE), LocaleConfig.class);
+            } catch (FileNotFoundException e) {
+                config.initLocale();
+                Logger.getLogger(LocaleConfig.class.getName()).log(Level.SEVERE, null, e);
+            }
         }
+
         return config;
     }
 
